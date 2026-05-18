@@ -59,9 +59,50 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('users', AdminUserController::class);
         Route::get('/roles', [AdminUserController::class, 'index'])->name('roles.index');
 
+        // Critical Role Module
+        Route::resource('critical-roles', \App\Http\Controllers\Admin\CriticalRoleController::class);
+
+        // Succession Module
+        Route::resource('successions', \App\Http\Controllers\Admin\SuccessionController::class);
+
+        // 9-Box Grid Module
+        Route::resource('nine-box', \App\Http\Controllers\Admin\NineBoxController::class);
+
+        // Development Module (IDP)
+        Route::resource('development', \App\Http\Controllers\Admin\DevelopmentController::class);
+
+        // Training Module
+        Route::resource('training', \App\Http\Controllers\Admin\TrainingController::class);
+
+        // Mentor Module
+        Route::resource('mentor', \App\Http\Controllers\Admin\MentorController::class);
+
+        // Coaching Module
+        Route::resource('coaching', \App\Http\Controllers\Admin\CoachingController::class);
+
+        // Progress Module
+        Route::resource('progress', \App\Http\Controllers\Admin\ProgressController::class);
+
+        // SD Module
+        Route::resource('sd', \App\Http\Controllers\Admin\SuccessionDashboardController::class);
+
+        // Leadership Module
+        Route::resource('leadership', \App\Http\Controllers\Admin\LeadershipController::class);
+
+        // Transition Module
+        Route::resource('transition', \App\Http\Controllers\Admin\TransitionController::class);
     });
 
     // Notification Routes
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
     Route::post('/notifications/{id}/read', [NotificationController::class, 'markAsRead'])->name('notifications.mark-read');
+
+    // Material Tracker Module
+    Route::middleware(['role:admin|MaterialTracker'])
+        ->prefix('material-tracker')
+        ->name('material-tracker.')
+        ->group(function () {
+            Route::get('/dashboard', [\App\Http\Controllers\MaterialTracker\DashboardController::class, 'index'])->name('dashboard');
+            Route::resource('/materials', \App\Http\Controllers\MaterialTracker\MaterialController::class);
+        });
 });

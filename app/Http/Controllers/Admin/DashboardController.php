@@ -12,28 +12,88 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $projects = \App\Models\Project::all();
+        $isAdmin = auth()->user()->isAdmin();
+        $deptName = (!$isAdmin && auth()->user()->department) ? auth()->user()->department->name : null;
 
-        $stats = [
-            'total_active' => \App\Models\Project::where('closing_status', 'Not Completed')->count(),
-            'total_contract_value' => $projects->sum(fn($p) => $p->total_project_value),
-            'total_allowable_cost' => $projects->sum('total_allowable_cost'),
-            'cost_at_completion' => $projects->sum('cost_at_completion'),
-            'near_deadline' => \App\Models\Project::where('baseline_finish_date', '<=', now()->addDays(30))
-                ->where('closing_status', 'Not Completed')
-                ->count(),
-            'completed' => \App\Models\Project::whereIn('closing_status', [
-                'FA Received',
-                'PA Received',
-                'PPA Received'
-            ])->count(),
-        ];
+        // Helper closures for query scope
+        $applyDept = function($query) use ($isAdmin, $deptName) {
+            if (!$isAdmin) {
+                if ($deptName) {
+                    $query->where('department', $deptName);
+                } else {
+                    $query->whereRaw('1 = 0');
+                }
+            }
+            return $query;
+        };
 
-        // Chart Data (Sample structure)
-        $projectTypes = \App\Models\Project::groupBy('project_type')
-            ->selectRaw('project_type, count(*) as count')
-            ->pluck('count', 'project_type');
+        // 1. Critical Roles Stats
+        $criticalRolesCount = $applyDept(\App\Models\CriticalRole::query())->count();
+        $vacantCriticalRoles = $applyDept(\App\Models\CriticalRole::query())
+            ->where(function($q) {
+                $q->where('position_status', 'like', '%Vacant%')
+                  ->orWhere('position_status', 'like', '%Open%');
+            })
+            ->count();
+        $rolesWithoutSuccessors = $applyDept(\App\Models\CriticalRole::query())
+            ->whereNull('successor_1_name')
+            ->whereNull('successor_2_name')
+            ->count();
 
-        return view('admin.dashboard', compact('stats', 'projectTypes', 'projects'));
+        // 2. Succession Dashboard Stats
+        $successionPlansCount = $applyDept(\App\Models\Succession::query())->count();
+        $highReadinessCandidates = $applyDept(\App\Models\Succession::query())
+            ->whereIn('readiness_level', ['High', 'Ready Now', 'Ready in 1 Year'])
+            ->count();
+        $rolesRequiringSuccessors = $applyDept(\App\Models\CriticalRole::query())
+            ->whereNull('successor_1_name')
+            ->count();
+
+        // 3. Leadership Stats
+        $leadershipCount = $applyDept(\App\Models\LeadershipAssessment::query())->count();
+        $leadershipCompleted = $applyDept(\App\Models\LeadershipAssessment::query())
+            ->where('status', 'Completed')
+            ->count();
+        $avgLeadershipScore = round($applyDept(\App\Models\LeadershipAssessment::query())->avg('overall_score') ?? 0, 1);
+
+        // 4. Transition Stats
+        $upcomingTransitionsQuery = \App\Models\TransitionItem::whereDate('transition_date', '>=', now());
+        if (!$isAdmin) {
+            if ($deptName) {
+                $upcomingTransitionsQuery->whereHas('transition', function($q) use ($deptName) {
+                    $q->where('department', $deptName);
+                });
+            } else {
+                $upcomingTransitionsQuery->whereRaw('1 = 0');
+            }
+        }
+        $upcomingTransitions = $upcomingTransitionsQuery->count();
+        $completedTransitions = $applyDept(\App\Models\Transition::query())->where('status', 'Completed')->count();
+        $delayedTransitions = $applyDept(\App\Models\Transition::query())->where('status', 'Delayed')->count();
+
+        // 5. Progress Reviews Stats
+        $progressCount = $applyDept(\App\Models\ProgressReview::query())->count();
+        $progressPending = $applyDept(\App\Models\ProgressReview::query())->where('status', 'Pending')->count();
+        $progressCompleted = $applyDept(\App\Models\ProgressReview::query())->where('status', 'Completed')->count();
+
+        // 6. Mentor & Coaching Stats
+        $mentorCount = $applyDept(\App\Models\Mentor::query())->count();
+        $coachingCount = $applyDept(\App\Models\Coaching::query())->count();
+
+        // 7. Recent Lists
+        $recentCriticalRoles = $applyDept(\App\Models\CriticalRole::query())->latest()->take(5)->get();
+        $recentLeadership = $applyDept(\App\Models\LeadershipAssessment::query())->latest()->take(5)->get();
+        $recentProgress = $applyDept(\App\Models\ProgressReview::query())->latest()->take(5)->get();
+        $recentTransitions = $applyDept(\App\Models\Transition::with('items'))->latest()->take(5)->get();
+
+        return view('admin.dashboard', compact(
+            'criticalRolesCount', 'vacantCriticalRoles', 'rolesWithoutSuccessors',
+            'successionPlansCount', 'highReadinessCandidates', 'rolesRequiringSuccessors',
+            'leadershipCount', 'leadershipCompleted', 'avgLeadershipScore',
+            'upcomingTransitions', 'completedTransitions', 'delayedTransitions',
+            'progressCount', 'progressPending', 'progressCompleted',
+            'mentorCount', 'coachingCount',
+            'recentCriticalRoles', 'recentLeadership', 'recentProgress', 'recentTransitions'
+        ));
     }
 }

@@ -33,7 +33,7 @@ class AdminUserSeeder extends Seeder
 
         Employee::create([
             'user_id' => $adminUser->id,
-            'department_id' => $departments->where('code', 'ADM')->first()?->id ?? 1, // Administration department
+            'department_id' => $departments->where('code', 'CEO')->first()?->id ?? 1, // CEO Office department
             'employee_id' => 'ADM001',
             'first_name' => 'System',
             'last_name' => 'Administrator',
@@ -272,9 +272,9 @@ class AdminUserSeeder extends Seeder
 
         // Step 3: Create some additional employees in other departments
         $additionalEmployees = [
-            ['dept' => 'MKT', 'name' => 'Sophie Turner', 'email' => 'sophie.turner@company.com', 'id' => 'EMP018', 'position' => 'Marketing Specialist'],
-            ['dept' => 'CS', 'name' => 'Daniel Brown', 'email' => 'daniel.brown@company.com', 'id' => 'EMP019', 'position' => 'Customer Service Rep'],
-            ['dept' => 'QA', 'name' => 'Olivia Wilson', 'email' => 'olivia.wilson@company.com', 'id' => 'EMP020', 'position' => 'QA Tester'],
+            ['dept' => 'COMM', 'name' => 'Sophie Turner', 'email' => 'sophie.turner@company.com', 'id' => 'EMP018', 'position' => 'Marketing Specialist'],
+            ['dept' => 'COMM', 'name' => 'Daniel Brown', 'email' => 'daniel.brown@company.com', 'id' => 'EMP019', 'position' => 'Customer Service Rep'],
+            ['dept' => 'QAQC', 'name' => 'Olivia Wilson', 'email' => 'olivia.wilson@company.com', 'id' => 'EMP020', 'position' => 'QA Tester'],
         ];
 
         foreach ($additionalEmployees as $emp) {

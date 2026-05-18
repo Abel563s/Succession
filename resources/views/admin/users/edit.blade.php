@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="py-6 space-y-6">
+    <div class="space-y-6">
         <!-- Modern Compact Header -->
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-4 border-b border-slate-100">
             <div class="space-y-3">
@@ -55,6 +55,28 @@
                         </div>
 
                         <!-- System Configuration -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Department Association</label>
+                                <select name="department_id"
+                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm appearance-none cursor-pointer">
+                                    <option value="">No Department Assigned</option>
+                                    @foreach($departments as $dept)
+                                        <option value="{{ $dept->id }}" {{ old('department_id', $user->department_id) == $dept->id ? 'selected' : '' }}>{{ $dept->name }}</option>
+                                    @endforeach
+                                </select>
+                                <x-input-error :messages="$errors->get('department_id')" />
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Phone Protocol</label>
+                                <input type="text" name="phone" value="{{ old('phone', $user->phone) }}" placeholder="+1 (555) 000-0000"
+                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm">
+                                <x-input-error :messages="$errors->get('phone')" />
+                            </div>
+                        </div>
+
+                        <!-- Access Tier & Status -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="space-y-2">
                                 <label

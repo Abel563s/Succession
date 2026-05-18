@@ -78,4 +78,19 @@ class User extends Authenticatable
         return $this->role === 'user';
     }
 
+    /**
+     * Check if user is Material Tracker.
+     */
+    public function isMaterialTracker(): bool
+    {
+        return $this->role === 'material_tracker';
+    }
+
+    /**
+     * Get the user's department.
+     */
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
 }

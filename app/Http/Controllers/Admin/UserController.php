@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        $query = User::query();
+        $query = User::with('department');
 
         if ($request->filled('search')) {
             $search = $request->search;
@@ -30,14 +30,29 @@ class UserController extends Controller
             $query->where('is_active', $request->status);
         }
 
-        $users = $query->latest()->paginate(10)->withQueryString();
+        if ($request->filled('department_id')) {
+            $query->where('department_id', $request->department_id);
+        }
 
-        return view('admin.users.index', compact('users'));
+        $users = $query->latest()->paginate(10)->withQueryString();
+        $departments = \App\Models\Department::orderBy('name')->get();
+
+        // Stats Counter
+        $totalUsers = User::count();
+        $activeUsers = User::where('is_active', true)->count();
+        $adminUsers = User::where('role', 'admin')->count();
+        $deptUsers = User::where('role', '!=', 'admin')->count();
+        $disabledUsers = User::where('is_active', false)->count();
+
+        return view('admin.users.index', compact(
+            'users', 'departments', 'totalUsers', 'activeUsers', 'adminUsers', 'deptUsers', 'disabledUsers'
+        ));
     }
 
     public function edit(User $user)
     {
-        return view('admin.users.edit', compact('user'));
+        $departments = \App\Models\Department::orderBy('name')->get();
+        return view('admin.users.edit', compact('user', 'departments'));
     }
 
     public function store(Request $request)
@@ -48,6 +63,8 @@ class UserController extends Controller
             'role' => ['required', Rule::in(['admin', 'manager', 'user'])],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'is_active' => ['nullable', 'boolean'],
+            'department_id' => ['nullable', 'exists:departments,id'],
+            'phone' => ['nullable', 'string', 'max:20'],
         ]);
 
         $prefix = \App\Models\SystemSetting::where('key', 'employee_id_prefix')->first()?->value ?? 'EMP';
@@ -61,9 +78,11 @@ class UserController extends Controller
             'password' => Hash::make($validated['password']),
             'is_active' => $validated['is_active'] ?? true,
             'employee_id' => $employeeId,
+            'department_id' => $validated['department_id'] ?? null,
+            'phone' => $validated['phone'] ?? null,
         ]);
 
-        return redirect()->route('admin.users.index')->with('success', 'User node created successfully.');
+        return redirect()->route('admin.users.index')->with('success', 'User node initialized successfully.');
     }
 
     public function update(Request $request, User $user)
@@ -73,6 +92,8 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'role' => ['required', Rule::in(['admin', 'manager', 'user'])],
             'is_active' => ['required', 'boolean'],
+            'department_id' => ['nullable', 'exists:departments,id'],
+            'phone' => ['nullable', 'string', 'max:20'],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ]);
 
@@ -81,6 +102,8 @@ class UserController extends Controller
             'email' => $validated['email'],
             'role' => $validated['role'],
             'is_active' => $validated['is_active'],
+            'department_id' => $validated['department_id'] ?? null,
+            'phone' => $validated['phone'] ?? null,
         ]);
 
         if (!empty($validated['password'])) {

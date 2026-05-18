@@ -109,6 +109,20 @@
                     Sign in
                 </button>
             </div>
+
+            <!-- Quick Access for Admin -->
+            <div class="pt-4" x-data="{ 
+                quickLogin() {
+                    document.getElementById('email').value = 'admin@company.com';
+                    document.getElementById('password').value = 'password123';
+                }
+            }">
+                <button type="button" @click="quickLogin()"
+                    class="w-full bg-[#f0fbfd] border-2 border-[#00ADC5]/10 py-3 rounded-2xl text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.2em] hover:bg-white hover:border-[#00ADC5]/30 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                    Auto-Fill Admin Credentials
+                </button>
+            </div>
         </form>
 
         <!-- Dynamic Hint -->

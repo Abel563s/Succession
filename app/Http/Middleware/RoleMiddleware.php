@@ -70,6 +70,11 @@ class RoleMiddleware
                     if ($user->isDepartmentAttendanceUser())
                         return true;
                     break;
+                case 'MaterialTracker':
+                case 'material_tracker':
+                    if ($user->isMaterialTracker())
+                        return true;
+                    break;
             }
         }
 

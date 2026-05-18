@@ -1,0 +1,135 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\NineBoxGrid;
+use App\Models\Department;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
+class NineBoxController extends Controller
+{
+    public function index(Request $request)
+    {
+        $query = NineBoxGrid::query();
+
+        if (!auth()->user()->isAdmin()) {
+            $deptName = auth()->user()->department ? auth()->user()->department->name : null;
+            if ($deptName) {
+                $query->where('department', $deptName);
+            } else {
+                $query->whereRaw('1 = 0');
+            }
+        }
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('candidate_name', 'like', "%{$search}%")
+                  ->orWhere('department', 'like', "%{$search}%")
+                  ->orWhere('grid_position', 'like', "%{$search}%");
+            });
+        }
+
+        if ($request->filled('department')) {
+            $query->where('department', $request->department);
+        }
+
+        $records = $query->latest()->paginate(10)->withQueryString();
+        
+        if (!auth()->user()->isAdmin()) {
+            $departments = Department::where('id', auth()->user()->department_id)->get();
+        } else {
+            $departments = Department::orderBy('name')->get();
+        }
+
+        return view('admin.nine-box.index', compact('records', 'departments'));
+    }
+
+    public function create()
+    {
+        if (!auth()->user()->isAdmin()) {
+            $departments = Department::where('id', auth()->user()->department_id)->get();
+        } else {
+            $departments = Department::orderBy('name')->get();
+        }
+        return view('admin.nine-box.create', compact('departments'));
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'candidate_name' => 'required|string|max:255',
+            'department' => 'required|string|max:255',
+            'grid_position' => 'required|string',
+            'potential_level' => 'required|string',
+            'performance_level' => 'required|string',
+            'general_comments' => 'required|string',
+            'strengths' => 'required|string',
+            'development_needs' => 'required|string',
+            'signature' => 'required|image|max:2048',
+        ]);
+
+        if ($request->hasFile('signature')) {
+            $path = $request->file('signature')->store('signatures/nine-box', 'public');
+            $validated['signature_path'] = $path;
+        }
+
+        NineBoxGrid::create($validated);
+
+        return redirect()->route('admin.nine-box.index')->with('success', '9-Box Grid evaluation submitted successfully.');
+    }
+
+    public function show(NineBoxGrid $nineBox)
+    {
+        return view('admin.nine-box.show', compact('nineBox'));
+    }
+
+    public function edit(NineBoxGrid $nineBox)
+    {
+        if (!auth()->user()->isAdmin()) {
+            $departments = Department::where('id', auth()->user()->department_id)->get();
+        } else {
+            $departments = Department::orderBy('name')->get();
+        }
+        return view('admin.nine-box.edit', compact('nineBox', 'departments'));
+    }
+
+    public function update(Request $request, NineBoxGrid $nineBox)
+    {
+        $validated = $request->validate([
+            'candidate_name' => 'required|string|max:255',
+            'department' => 'required|string|max:255',
+            'grid_position' => 'required|string',
+            'potential_level' => 'required|string',
+            'performance_level' => 'required|string',
+            'general_comments' => 'required|string',
+            'strengths' => 'required|string',
+            'development_needs' => 'required|string',
+            'signature' => 'nullable|image|max:2048',
+        ]);
+
+        if ($request->hasFile('signature')) {
+            if ($nineBox->signature_path) {
+                Storage::disk('public')->delete($nineBox->signature_path);
+            }
+            $path = $request->file('signature')->store('signatures/nine-box', 'public');
+            $validated['signature_path'] = $path;
+        }
+
+        $nineBox->update($validated);
+
+        return redirect()->route('admin.nine-box.index')->with('success', '9-Box Grid evaluation updated successfully.');
+    }
+
+    public function destroy(NineBoxGrid $nineBox)
+    {
+        if ($nineBox->signature_path) {
+            Storage::disk('public')->delete($nineBox->signature_path);
+        }
+        $nineBox->delete();
+
+        return redirect()->route('admin.nine-box.index')->with('success', '9-Box Grid record deleted successfully.');
+    }
+}
