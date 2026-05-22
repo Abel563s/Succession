@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TransitionController extends Controller
+class TransitionController extends AdminHrModuleController
 {
     public function index(Request $request)
     {
         $query = \App\Models\Transition::with(['items', 'creator']);
 
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $deptName = auth()->user()->department ? auth()->user()->department->name : null;
             if ($deptName) {
                 $query->where('department', $deptName);
@@ -22,14 +21,14 @@ class TransitionController extends Controller
 
         if ($request->filled('search')) {
             $search = $request->search;
-            $query->where(function($q) use ($search) {
+            $query->where(function ($q) use ($search) {
                 $q->where('department', 'like', "%{$search}%")
-                  ->orWhere('status', 'like', "%{$search}%")
-                  ->orWhereHas('items', function($iq) use ($search) {
-                      $iq->where('critical_role', 'like', "%{$search}%")
-                         ->orWhere('current_holder', 'like', "%{$search}%")
-                         ->orWhere('successor', 'like', "%{$search}%");
-                  });
+                    ->orWhere('status', 'like', "%{$search}%")
+                    ->orWhereHas('items', function ($iq) use ($search) {
+                        $iq->where('critical_role', 'like', "%{$search}%")
+                            ->orWhere('current_holder', 'like', "%{$search}%")
+                            ->orWhere('successor', 'like', "%{$search}%");
+                    });
             });
         }
 
@@ -42,32 +41,32 @@ class TransitionController extends Controller
         }
 
         if ($request->filled('critical_role')) {
-            $query->whereHas('items', function($iq) {
-                $iq->where('critical_role', 'like', '%' . request('critical_role') . '%');
+            $query->whereHas('items', function ($iq) {
+                $iq->where('critical_role', 'like', '%'.request('critical_role').'%');
             });
         }
 
         if ($request->filled('current_holder')) {
-            $query->whereHas('items', function($iq) {
-                $iq->where('current_holder', 'like', '%' . request('current_holder') . '%');
+            $query->whereHas('items', function ($iq) {
+                $iq->where('current_holder', 'like', '%'.request('current_holder').'%');
             });
         }
 
         if ($request->filled('successor')) {
-            $query->whereHas('items', function($iq) {
-                $iq->where('successor', 'like', '%' . request('successor') . '%');
+            $query->whereHas('items', function ($iq) {
+                $iq->where('successor', 'like', '%'.request('successor').'%');
             });
         }
 
         if ($request->filled('transition_date')) {
-            $query->whereHas('items', function($iq) {
+            $query->whereHas('items', function ($iq) {
                 $iq->whereDate('transition_date', request('transition_date'));
             });
         }
 
         $records = $query->latest()->paginate(10)->withQueryString();
-        
-        if (!auth()->user()->isAdmin()) {
+
+        if (! auth()->user()->isAdmin()) {
             $departments = \App\Models\Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = \App\Models\Department::orderBy('name')->get();
@@ -78,11 +77,12 @@ class TransitionController extends Controller
 
     public function create()
     {
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = \App\Models\Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = \App\Models\Department::orderBy('name')->get();
         }
+
         return view('admin.transition.create', compact('departments'));
     }
 
@@ -122,27 +122,31 @@ class TransitionController extends Controller
             }
 
             \Illuminate\Support\Facades\DB::commit();
-            return redirect()->route('admin.transition.index')->with('success', 'Transition plan created successfully.');
+
+            return redirect()->route('admin.transition.show', $transition)->with('success', 'Transition plan created successfully. Pending approval.');
         } catch (\Exception $e) {
             \Illuminate\Support\Facades\DB::rollBack();
-            return back()->withInput()->with('error', 'An error occurred: ' . $e->getMessage());
+
+            return back()->withInput()->with('error', 'An error occurred: '.$e->getMessage());
         }
     }
 
     public function show(\App\Models\Transition $transition)
     {
         $transition->load(['items', 'creator']);
+
         return view('admin.transition.show', compact('transition'));
     }
 
     public function edit(\App\Models\Transition $transition)
     {
         $transition->load('items');
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = \App\Models\Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = \App\Models\Department::orderBy('name')->get();
         }
+
         return view('admin.transition.edit', compact('transition', 'departments'));
     }
 
@@ -189,10 +193,12 @@ class TransitionController extends Controller
             }
 
             \Illuminate\Support\Facades\DB::commit();
+
             return redirect()->route('admin.transition.index')->with('success', 'Transition plan updated successfully.');
         } catch (\Exception $e) {
             \Illuminate\Support\Facades\DB::rollBack();
-            return back()->withInput()->with('error', 'An error occurred: ' . $e->getMessage());
+
+            return back()->withInput()->with('error', 'An error occurred: '.$e->getMessage());
         }
     }
 

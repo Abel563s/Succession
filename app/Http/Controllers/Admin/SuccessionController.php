@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Succession;
 use App\Models\Department;
+use App\Models\Succession;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class SuccessionController extends Controller
+class SuccessionController extends AdminHrModuleController
 {
     public function index(Request $request)
     {
         $query = Succession::query();
 
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $deptName = auth()->user()->department ? auth()->user()->department->name : null;
             if ($deptName) {
                 $query->where('department', $deptName);
@@ -24,8 +23,8 @@ class SuccessionController extends Controller
         }
 
         if ($request->filled('search')) {
-            $query->where('candidate_name', 'like', '%' . $request->search . '%')
-                  ->orWhere('department', 'like', '%' . $request->search . '%');
+            $query->where('candidate_name', 'like', '%'.$request->search.'%')
+                ->orWhere('department', 'like', '%'.$request->search.'%');
         }
 
         if ($request->filled('department')) {
@@ -37,8 +36,8 @@ class SuccessionController extends Controller
         }
 
         $records = $query->latest()->paginate(10);
-        
-        if (!auth()->user()->isAdmin()) {
+
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -49,11 +48,12 @@ class SuccessionController extends Controller
 
     public function create()
     {
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
         }
+
         return view('admin.successions.create', compact('departments'));
     }
 
@@ -79,9 +79,9 @@ class SuccessionController extends Controller
             $validated['signature_path'] = $path;
         }
 
-        Succession::create($validated);
+        $succession = Succession::create($validated);
 
-        return redirect()->route('admin.successions.index')->with('success', 'Succession planning nomination submitted successfully.');
+        return redirect()->route('admin.successions.show', $succession)->with('success', 'Succession planning nomination submitted successfully. Pending approval.');
     }
 
     public function show(Succession $succession)
@@ -91,11 +91,12 @@ class SuccessionController extends Controller
 
     public function edit(Succession $succession)
     {
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
         }
+
         return view('admin.successions.edit', compact('succession', 'departments'));
     }
 

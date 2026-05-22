@@ -70,6 +70,7 @@
                         ['label' => 'SD', 'icon' => 'layers', 'route' => 'admin.sd.index', 'active' => request()->routeIs('admin.sd.*')],
                         ['label' => 'Leadership', 'icon' => 'award', 'route' => 'admin.leadership.index', 'active' => request()->routeIs('admin.leadership.*')],
                         ['label' => 'Transition', 'icon' => 'refresh-ccw', 'route' => 'admin.transition.index', 'active' => request()->routeIs('admin.transition.*')],
+                        ['label' => 'Report', 'icon' => 'file-bar-chart', 'route' => 'admin.reports.index', 'active' => request()->routeIs('admin.reports.*')],
                     ];
 
                     foreach ($modules as $m) {
@@ -133,33 +134,13 @@
     </nav>
 
     <div class="p-6 border-t border-white/5 shrink-0 relative z-10 transition-all duration-500">
-        <div class="flex items-center justify-between gap-4">
-            <div class="flex items-center gap-4 overflow-hidden">
-                <div
-                    class="w-10 h-10 rounded-xl bg-white/10 border border-white/10 text-[#00ADC5] flex items-center justify-center font-black shadow-sm shrink-0 transition-all duration-500 hover:scale-105 hover:bg-white/20 active:scale-95">
-                    {{ substr(Auth::user()->name, 0, 1) }}
-                </div>
-                <div class="sidebar-text overflow-hidden transition-all duration-500">
-                    <p class="text-[13px] font-bold text-white truncate tracking-tight">{{ Auth::user()->name }}
-                    </p>
-                    <div class="flex items-center gap-1.5 mt-0.5">
-                        <div
-                            class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.4)] animate-pulse">
-                        </div>
-                        <p class="text-[9px] font-black uppercase tracking-widest text-white/40">
-                            {{ Auth::user()->role }}
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <a href="{{ route('admin.settings.index') }}"
-                class="sidebar-text p-2 text-white/40 hover:text-white hover:bg-white/10 rounded-lg transition-all group/settings"
-                title="Security Settings">
-                <i data-lucide="settings"
-                    class="w-4 h-4 group-hover/settings:rotate-90 transition-transform duration-500"></i>
-            </a>
-        </div>
+        <a href="{{ route('admin.settings.index') }}"
+            class="flex items-center gap-3.5 p-3 w-full rounded-xl transition-all duration-300 ease-out text-white/70 hover:text-white hover:bg-white/10 group/settings {{ request()->routeIs('admin.settings.index') ? 'bg-[#00ADC5] text-white shadow-lg shadow-[#00ADC5]/20' : 'bg-[#00515F]' }}"
+            title="Settings">
+            <i data-lucide="settings"
+                class="w-5 h-5 shrink-0 group-hover/settings:rotate-45 transition-all duration-500 {{ request()->routeIs('admin.settings.index') ? 'stroke-[2.5px] scale-110' : 'opacity-70 group-hover/settings:opacity-100 group-hover/settings:scale-110' }}"></i>
+            <span class="sidebar-text font-medium text-sm whitespace-nowrap tracking-tight transition-all duration-300">Settings</span>
+        </a>
     </div>
 </aside>
 
@@ -216,10 +197,12 @@
         justify-content: center;
     }
 
-    #sidebar.w-20 .p-6 .flex.items-center.gap-4 {
-        gap: 0;
+    #sidebar.w-20 .p-6 a {
         justify-content: center;
-        width: 100%;
+        width: 48px;
+        height: 48px;
+        padding: 0;
+        margin: 0 auto;
     }
 
     .custom-scrollbar::-webkit-scrollbar {

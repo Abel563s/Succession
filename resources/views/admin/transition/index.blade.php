@@ -103,6 +103,7 @@
                             <th class="px-6 py-4 border-b border-white/5 text-center">Status</th>
                             <th class="px-6 py-4 border-b border-white/5">Created By</th>
                             <th class="px-6 py-4 border-b border-white/5">Authorized Signature</th>
+                            <th class="px-6 py-4 border-b border-white/5">Approval</th>
                             <th class="px-6 py-4 border-b border-white/5 text-right">Actions</th>
                         </tr>
                     </thead>
@@ -152,7 +153,7 @@
                                 <td class="px-6 py-5">
                                     @if($record->signature_path)
                                         <div x-data="{ open: false }" class="relative inline-block group/sig">
-                                            <img src="{{ asset('storage/' . $record->signature_path) }}" 
+                                            <img src="{{ \App\Support\StorageUrl::public($record->signature_path) }}" 
                                                  @click="open = true"
                                                  class="w-10 h-10 object-cover rounded-lg border border-slate-200 cursor-pointer"
                                                  alt="Signature">
@@ -162,7 +163,7 @@
                                             
                                             <div x-show="open" @click="open = false" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4">
                                                 <div class="bg-white p-2 rounded-2xl max-w-2xl" @click.stop>
-                                                    <img src="{{ asset('storage/' . $record->signature_path) }}" class="max-w-full rounded-xl" alt="Signature Preview">
+                                                    <img src="{{ \App\Support\StorageUrl::public($record->signature_path) }}" class="max-w-full rounded-xl" alt="Signature Preview">
                                                     <button @click="open = false" class="mt-4 w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl font-bold text-sm transition-colors">Close Preview</button>
                                                 </div>
                                             </div>
@@ -171,6 +172,7 @@
                                         <span class="text-[10px] font-black uppercase text-slate-400">N/A</span>
                                     @endif
                                 </td>
+                                <td class="px-6 py-5"><x-hr-approval-badge :status="$record->approval_status" /></td>
                                 <td class="px-6 py-5 text-right">
                                     <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <a href="{{ route('admin.transition.show', $transition = $record) }}" 
@@ -203,7 +205,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="px-6 py-20 text-center text-slate-400 font-medium italic">No transition records found.</td>
+                                <td colspan="8" class="px-6 py-20 text-center text-slate-400 font-medium italic">No transition records found.</td>
                             </tr>
                         @endforelse
                     </tbody>

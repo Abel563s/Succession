@@ -14,7 +14,8 @@
             </div>
         </div>
 
-        <form action="{{ route('admin.training.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('admin.training.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6"
+              x-data="{ submitting: false }" @submit="submitting = true">
             @csrf
 
             <!-- Section 1: Basic Information -->
@@ -110,45 +111,17 @@
                 </div>
             </div>
 
-            <!-- Section 4: Signatures -->
-            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
-                    <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="check-square" class="w-5 h-5 text-[#00515F]"></i>
-                        Endorsements
-                    </h2>
-                </div>
-                <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="space-y-4">
-                        <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Manager Signature</label>
-                        <div x-data="{ preview: null }" class="space-y-4">
-                            <input type="file" name="manager_sig" accept="image/*" required
-                                   @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
-                                   class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-slate-900 file:text-white cursor-pointer">
-                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center">
-                                <img :src="preview" class="max-h-24 rounded-lg shadow-sm" alt="Manager Preview">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="space-y-4">
-                        <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Signature</label>
-                        <div x-data="{ preview: null }" class="space-y-4">
-                            <input type="file" name="candidate_sig" accept="image/*" required
-                                   @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
-                                   class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-slate-900 file:text-white cursor-pointer">
-                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center">
-                                <img :src="preview" class="max-h-24 rounded-lg shadow-sm" alt="Candidate Preview">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Section 4: Manager Signature -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden p-8">
+                <x-hr-signature-field name="manager_sig" label="Manager Signature *" :required="true" :allow-saved="true" saved-label="Use my saved signature" />
             </div>
 
             <!-- Form Actions -->
             <div class="flex flex-col items-center pb-12 gap-4">
-                <button type="submit" 
-                        class="bg-gradient-to-r from-[#00515F] to-[#00333B] hover:to-[#00515F] text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#00515F]/20 hover:scale-105 active:scale-95">
-                    CREATE TRAINING RECORD
+                <button type="submit" :disabled="submitting"
+                        class="bg-gradient-to-r from-[#00515F] to-[#00333B] hover:to-[#00515F] text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#00515F]/20 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span x-show="!submitting">CREATE TRAINING RECORD</span>
+                    <span x-show="submitting" x-cloak>Processing...</span>
                 </button>
                 <a href="{{ route('admin.training.index') }}" class="text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-rose-500">Cancel Report</a>
             </div>

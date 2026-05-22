@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class LeadershipAssessment extends Model
 {
@@ -18,6 +17,7 @@ class LeadershipAssessment extends Model
         'signature_path',
         'overall_score',
         'status',
+        'approval_status',
     ];
 
     public function ratings()

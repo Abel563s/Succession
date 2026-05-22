@@ -22,5 +22,6 @@ class Succession extends Model
         'readiness_level',
         'ipg_score',
         'signature_path',
+        'approval_status',
     ];
 }

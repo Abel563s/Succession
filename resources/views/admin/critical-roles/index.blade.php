@@ -107,6 +107,7 @@
                             <th class="px-6 py-4 border-b border-white/5">Successors</th>
                             <th class="px-6 py-4 border-b border-white/5">Mitigation Plan</th>
                             <th class="px-6 py-4 border-b border-white/5">Signature</th>
+                            <th class="px-6 py-4 border-b border-white/5">Approval</th>
                             <th class="px-6 py-4 border-b border-white/5 text-right">Actions</th>
                         </tr>
                     </thead>
@@ -205,15 +206,15 @@
                                 <td class="px-6 py-5">
                                     @if($record->signature_path)
                                         <div x-data="{ open: false }">
-                                            <img src="{{ asset('storage/' . $record->signature_path) }}" @click="open = true"
+                                            <img src="{{ \App\Support\StorageUrl::public($record->signature_path) }}" @click="open = true"
                                                 class="w-12 h-12 object-cover rounded-lg border border-slate-200 cursor-pointer hover:border-[#00ADC5] transition-all"
                                                 alt="Signature">
-
+ 
                                             <!-- Simple Modal for Image Preview -->
                                             <div x-show="open" @click="open = false" x-cloak
                                                 class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4">
                                                 <div class="bg-white p-2 rounded-2xl max-w-2xl">
-                                                    <img src="{{ asset('storage/' . $record->signature_path) }}"
+                                                    <img src="{{ \App\Support\StorageUrl::public($record->signature_path) }}"
                                                         class="max-w-full rounded-xl" alt="Signature Preview">
                                                 </div>
                                             </div>
@@ -221,6 +222,9 @@
                                     @else
                                         <span class="text-[10px] font-black uppercase text-slate-400">No Signature</span>
                                     @endif
+                                </td>
+                                <td class="px-6 py-5">
+                                    <x-hr-approval-badge :status="$record->approval_status" />
                                 </td>
                                 <td class="px-6 py-5 text-right">
                                     <div
@@ -230,14 +234,14 @@
                                             title="View Details">
                                             <i data-lucide="eye" class="w-4 h-4"></i>
                                         </a>
-
+ 
                                         @if(auth()->user()->isAdmin())
                                             <a href="{{ route('admin.critical-roles.edit', $record) }}"
                                                 class="w-8 h-8 rounded-lg bg-slate-100 text-slate-400 hover:text-amber-500 hover:bg-amber-50 flex items-center justify-center transition-all"
                                                 title="Edit Evaluation">
                                                 <i data-lucide="edit-3" class="w-4 h-4"></i>
                                             </a>
-
+ 
                                             <form action="{{ route('admin.critical-roles.destroy', $record) }}" method="POST"
                                                 onsubmit="return confirm('Are you sure you want to delete this record?');"
                                                 class="inline">
@@ -255,7 +259,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="px-6 py-20 text-center">
+                                <td colspan="8" class="px-6 py-20 text-center">
                                     <div class="flex flex-col items-center justify-center">
                                         <div
                                             class="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-4">

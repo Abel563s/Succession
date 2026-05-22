@@ -192,6 +192,11 @@
                                              @if($user->phone)
                                                  <p class="text-[9px] text-[#00ADC5] font-black uppercase tracking-wider mt-0.5">{{ $user->phone }}</p>
                                              @endif
+                                             @if($user->role === 'manager')
+                                                 <p class="text-[9px] font-black uppercase tracking-wider mt-1 {{ $user->signature_path ? 'text-emerald-600' : 'text-amber-600' }}">
+                                                     {{ $user->signature_path ? 'Signature on file' : 'No signature uploaded' }}
+                                                 </p>
+                                             @endif
                                          </div>
                                      </div>
                                  </td>
@@ -309,7 +314,7 @@
                         </button>
                     </div>
 
-                    <form action="{{ route('admin.users.store') }}" method="POST" class="space-y-8">
+                    <form action="{{ route('admin.users.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8" x-data="{ role: 'user' }">
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-left">
                             <!-- Name -->
@@ -348,12 +353,33 @@
                             <!-- Role -->
                             <div class="space-y-3">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Access Tier</label>
-                                <select name="role" required
+                                <select name="role" required x-model="role"
                                     class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none appearance-none cursor-pointer">
                                     <option value="user">Standard User (Level 1)</option>
                                     <option value="manager">Lead Manager (Level 2)</option>
                                     <option value="admin">Root Admin (Level 3)</option>
                                 </select>
+                            </div>
+
+                            <div class="space-y-4 md:col-span-2 p-6 bg-white border-2 border-[#00515F]/10 rounded-2xl" x-show="role === 'manager'" x-cloak>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-[#f0fbfd] text-[#00515F] flex items-center justify-center">
+                                        <i data-lucide="pen-line" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] font-black text-slate-900 uppercase tracking-[0.2em]">Manager Signature Image <span class="text-rose-500">*</span></label>
+                                        <p class="text-[10px] text-slate-400 font-medium mt-0.5">Upload this manager&apos;s signature now. It is saved on their profile and reused on HR forms.</p>
+                                    </div>
+                                </div>
+                                <div x-data="{ preview: null }" class="space-y-3">
+                                    <input type="file" name="signature" accept="image/*"
+                                           x-bind:required="role === 'manager'"
+                                           @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); } else { preview = null; }"
+                                           class="block w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#00515F] file:text-white cursor-pointer">
+                                    <div x-show="preview" x-cloak class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex justify-center">
+                                        <img :src="preview" class="max-h-28 rounded-xl shadow-sm border border-white" alt="Signature preview">
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Status -->

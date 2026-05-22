@@ -14,6 +14,7 @@ class SuccessionDashboard extends Model
         'department',
         'signature_path',
         'status',
+        'approval_status',
     ];
 
     public function items()

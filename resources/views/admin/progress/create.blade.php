@@ -14,7 +14,8 @@
             </div>
         </div>
 
-        <form action="{{ route('admin.progress.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+        <form action="{{ route('admin.progress.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6"
+              x-data="{ submitting: false }" @submit="submitting = true">
             @csrf
 
             <!-- Section 1: Basic Information -->
@@ -156,16 +157,8 @@
             <!-- Section 6: Endorsement -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="p-8 flex flex-col md:flex-row md:items-center justify-between gap-8">
-                    <div class="flex-1 space-y-4">
-                        <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Validation Signature</label>
-                        <div x-data="{ preview: null }" class="space-y-4">
-                            <input type="file" name="signature" accept="image/*" required
-                                   @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
-                                   class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-slate-900 file:text-white cursor-pointer">
-                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center h-32">
-                                <img :src="preview" class="max-h-24 rounded-lg shadow-sm" alt="Signature Preview">
-                            </div>
-                        </div>
+                    <div class="flex-1">
+                        <x-hr-signature-field name="signature" label="Manager Validation Signature *" :required="true" />
                     </div>
                     <div class="flex-shrink-0 space-y-3">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Status Tracking</label>
@@ -180,9 +173,10 @@
             <!-- Form Actions -->
             <div class="flex flex-col items-center pb-12 gap-4">
                 <div class="flex items-center gap-4">
-                    <button type="submit" 
-                            class="bg-[#00ADC5] hover:bg-[#00ADC5]/90 text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#00ADC5]/20 hover:scale-105 active:scale-95">
-                        CREATE PROGRESS REVIEW
+                    <button type="submit" :disabled="submitting"
+                            class="bg-[#00ADC5] hover:bg-[#00ADC5]/90 text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#00ADC5]/20 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span x-show="!submitting">CREATE PROGRESS REVIEW</span>
+                        <span x-show="submitting" x-cloak>Processing...</span>
                     </button>
                     <button type="reset" class="px-8 py-4 rounded-2xl bg-slate-100 text-slate-400 font-black text-xs uppercase tracking-widest hover:bg-slate-200 transition-all">
                         Reset

@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\HrSignatureService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    public function __construct(
+        protected HrSignatureService $signatures,
+    ) {}
+
     public function index(Request $request)
     {
         $query = User::with('department');
@@ -52,6 +57,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $departments = \App\Models\Department::orderBy('name')->get();
+
         return view('admin.users.edit', compact('user', 'departments'));
     }
 
@@ -65,13 +71,20 @@ class UserController extends Controller
             'is_active' => ['nullable', 'boolean'],
             'department_id' => ['nullable', 'exists:departments,id'],
             'phone' => ['nullable', 'string', 'max:20'],
+            'signature' => ['nullable', 'image', 'max:2048'],
         ]);
+
+        if ($validated['role'] === 'manager' && ! $request->hasFile('signature')) {
+            return back()
+                ->withErrors(['signature' => 'Please upload the manager signature image.'])
+                ->withInput();
+        }
 
         $prefix = \App\Models\SystemSetting::where('key', 'employee_id_prefix')->first()?->value ?? 'EMP';
         $nextId = User::count() + 1;
-        $employeeId = $prefix . '-' . str_pad($nextId, 4, '0', STR_PAD_LEFT);
+        $employeeId = $prefix.'-'.str_pad($nextId, 4, '0', STR_PAD_LEFT);
 
-        User::create([
+        $user = User::query()->create([
             'name' => $validated['name'],
             'email' => $validated['email'],
             'role' => $validated['role'],
@@ -81,6 +94,10 @@ class UserController extends Controller
             'department_id' => $validated['department_id'] ?? null,
             'phone' => $validated['phone'] ?? null,
         ]);
+
+        if ($validated['role'] === 'manager' && $request->hasFile('signature')) {
+            $this->signatures->storeUserSignature($user, $request->file('signature'));
+        }
 
         return redirect()->route('admin.users.index')->with('success', 'User node initialized successfully.');
     }
@@ -95,6 +112,8 @@ class UserController extends Controller
             'department_id' => ['nullable', 'exists:departments,id'],
             'phone' => ['nullable', 'string', 'max:20'],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+            'signature' => ['nullable', 'image', 'max:2048'],
+            'remove_signature' => ['nullable', 'boolean'],
         ]);
 
         $user->fill([
@@ -106,8 +125,18 @@ class UserController extends Controller
             'phone' => $validated['phone'] ?? null,
         ]);
 
-        if (!empty($validated['password'])) {
+        if (! empty($validated['password'])) {
             $user->password = Hash::make($validated['password']);
+        }
+
+        if ($request->boolean('remove_signature')) {
+            $this->signatures->deletePublicFile($user->signature_path);
+            $user->signature_path = null;
+        } elseif ($request->hasFile('signature') && $validated['role'] === 'manager') {
+            $this->signatures->storeUserSignature($user, $request->file('signature'));
+        } elseif ($validated['role'] !== 'manager' && $user->signature_path) {
+            $this->signatures->deletePublicFile($user->signature_path);
+            $user->signature_path = null;
         }
 
         $user->save();
@@ -122,6 +151,7 @@ class UserController extends Controller
         }
 
         $user->delete();
+
         return redirect()->route('admin.users.index')->with('success', 'User deleted successfully.');
     }
 }

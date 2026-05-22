@@ -28,5 +28,7 @@ class Training extends Model
         'signature_path',
         'manager_signature',
         'candidate_signature',
+        'approval_status',
+        'created_by',
     ];
 }

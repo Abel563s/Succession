@@ -29,6 +29,8 @@
             </div>
         </div>
 
+        <x-hr-approval-banner :record="$transition" module="transition" class="no-print" />
+
         <!-- Main Document Container (Designed to look premium and printable) -->
         <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-xl overflow-hidden print:border-0 print:shadow-none p-10 md:p-16 space-y-12 relative">
             <!-- Decorative Branding Element -->
@@ -111,7 +113,7 @@
                     
                     @if($transition->signature_path)
                         <div class="p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">
-                            <img src="{{ asset('storage/' . $transition->signature_path) }}" class="max-h-24 object-contain" alt="Signature Preview">
+                            <img src="{{ \App\Support\StorageUrl::public($transition->signature_path) }}" class="max-h-24 object-contain" alt="Signature Preview">
                         </div>
                     @else
                         <div class="h-24 border border-dashed border-slate-200 rounded-3xl flex items-center justify-center text-[10px] font-black uppercase text-slate-300">

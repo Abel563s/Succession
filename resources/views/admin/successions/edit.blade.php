@@ -130,7 +130,7 @@
                             <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Latest IPG Score</label>
                             <input type="text" name="ipg_score" required value="{{ old('ipg_score', $succession->ipg_score) }}"
                                    class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] focus:ring-4 focus:ring-[#00ADC5]/10 outline-none transition-all"
-                                   placeholder="e.g. 4.5">
+                                   placeholder="e.g. Out of 100%">
                         </div>
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                 <div class="p-8">
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Update Signature (Optional)</label>
-                        <div x-data="{ preview: '{{ $succession->signature_path ? asset('storage/' . $succession->signature_path) : null }}' }" class="space-y-4">
+                        <div x-data="{ preview: '{{ $succession->signature_path ? \App\Support\StorageUrl::public($succession->signature_path) : null }}' }" class="space-y-4">
                             <label class="block">
                                 <span class="sr-only">Choose signature image</span>
                                 <input type="file" name="signature" accept="image/*"

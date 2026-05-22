@@ -158,7 +158,7 @@
 
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Update Signature (Optional)</label>
-                        <div x-data="{ preview: '{{ $criticalRole->signature_path ? asset('storage/' . $criticalRole->signature_path) : null }}' }" class="space-y-4">
+                        <div x-data="{ preview: '{{ $criticalRole->signature_path ? \App\Support\StorageUrl::public($criticalRole->signature_path) : null }}' }" class="space-y-4">
                             <label class="block">
                                 <span class="sr-only">Choose signature image</span>
                                 <input type="file" name="signature" accept="image/*"

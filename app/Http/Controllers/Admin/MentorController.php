@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Mentor;
 use App\Models\Department;
+use App\Models\Mentor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class MentorController extends Controller
+class MentorController extends AdminHrModuleController
 {
     public function index(Request $request)
     {
         $query = Mentor::query();
 
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $deptName = auth()->user()->department ? auth()->user()->department->name : null;
             if ($deptName) {
                 $query->where('department', $deptName);
@@ -25,10 +24,10 @@ class MentorController extends Controller
 
         if ($request->filled('search')) {
             $search = $request->search;
-            $query->where(function($q) use ($search) {
+            $query->where(function ($q) use ($search) {
                 $q->where('mentor_name', 'like', "%{$search}%")
-                  ->orWhere('mentee_name', 'like', "%{$search}%")
-                  ->orWhere('department', 'like', "%{$search}%");
+                    ->orWhere('mentee_name', 'like', "%{$search}%")
+                    ->orWhere('department', 'like', "%{$search}%");
             });
         }
 
@@ -37,8 +36,8 @@ class MentorController extends Controller
         }
 
         $records = $query->latest()->paginate(10)->withQueryString();
-        
-        if (!auth()->user()->isAdmin()) {
+
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -49,11 +48,12 @@ class MentorController extends Controller
 
     public function create()
     {
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
         }
+
         return view('admin.mentor.create', compact('departments'));
     }
 
@@ -72,9 +72,9 @@ class MentorController extends Controller
             $data['signature_path'] = $request->file('signature')->store('signatures/mentor', 'public');
         }
 
-        Mentor::create($data);
+        $mentor = Mentor::create($data);
 
-        return redirect()->route('admin.mentor.index')->with('success', 'Mentor Feedback record created successfully.');
+        return redirect()->route('admin.mentor.show', $mentor)->with('success', 'Mentor Feedback record created successfully. Pending approval.');
     }
 
     public function show(Mentor $mentor)
@@ -84,11 +84,12 @@ class MentorController extends Controller
 
     public function edit(Mentor $mentor)
     {
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
         }
+
         return view('admin.mentor.edit', compact('mentor', 'departments'));
     }
 

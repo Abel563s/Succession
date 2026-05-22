@@ -92,6 +92,7 @@
                             <th class="px-6 py-4 border-b border-white/5 text-center">Date</th>
                             <th class="px-6 py-4 border-b border-white/5">Primary Topic</th>
                             <th class="px-6 py-4 border-b border-white/5">Timeline / Plan</th>
+                            <th class="px-6 py-4 border-b border-white/5">Approval</th>
                             <th class="px-6 py-4 border-b border-white/5 text-right">Actions</th>
                         </tr>
                     </thead>
@@ -132,6 +133,7 @@
                                         {{ $record->timeline ?: 'N/A' }}
                                     </div>
                                 </td>
+                                <td class="px-6 py-5"><x-hr-approval-badge :status="$record->approval_status" /></td>
                                 <td class="px-6 py-5 text-right">
                                     <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <a href="{{ route('admin.coaching.show', $record) }}" 
@@ -164,7 +166,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="px-6 py-20 text-center text-slate-400 font-medium italic">No coaching sessions recorded.</td>
+                                <td colspan="8" class="px-6 py-20 text-center text-slate-400 font-medium italic">No coaching sessions recorded.</td>
                             </tr>
                         @endforelse
                     </tbody>

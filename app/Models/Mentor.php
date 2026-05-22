@@ -18,5 +18,6 @@ class Mentor extends Model
         'improvement_areas',
         'recommendations',
         'signature_path',
+        'approval_status',
     ];
 }

@@ -84,6 +84,7 @@
                             <th class="px-6 py-4 border-b border-white/5">Grid Position</th>
                             <th class="px-6 py-4 border-b border-white/5">Potential Level</th>
                             <th class="px-6 py-4 border-b border-white/5 text-center">Signature</th>
+                            <th class="px-6 py-4 border-b border-white/5">Approval</th>
                             <th class="px-6 py-4 border-b border-white/5 text-right">Actions</th>
                         </tr>
                     </thead>
@@ -120,7 +121,7 @@
                                 <td class="px-6 py-5 text-center">
                                     @if($record->signature_path)
                                         <div class="relative inline-block group/sig">
-                                            <img src="{{ asset('storage/' . $record->signature_path) }}" class="w-10 h-10 object-cover rounded-lg border border-slate-200" alt="Signature">
+                                            <img src="{{ \App\Support\StorageUrl::public($record->signature_path) }}" class="w-10 h-10 object-cover rounded-lg border border-slate-200" alt="Signature">
                                             <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/sig:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
                                                 <i data-lucide="zoom-in" class="w-4 h-4 text-white"></i>
                                             </div>
@@ -129,6 +130,7 @@
                                         <span class="text-[10px] font-black uppercase text-slate-400">N/A</span>
                                     @endif
                                 </td>
+                                <td class="px-6 py-5"><x-hr-approval-badge :status="$record->approval_status" /></td>
                                 <td class="px-6 py-5 text-right">
                                     <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <a href="{{ route('admin.nine-box.show', $record) }}" 
@@ -161,7 +163,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="px-6 py-20 text-center text-slate-400 font-medium italic">No grid evaluations found.</td>
+                                <td colspan="8" class="px-6 py-20 text-center text-slate-400 font-medium italic">No grid evaluations found.</td>
                             </tr>
                         @endforelse
                     </tbody>

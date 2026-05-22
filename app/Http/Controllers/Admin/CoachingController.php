@@ -2,33 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Coaching;
 use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class CoachingController extends Controller
+class CoachingController extends AdminHrModuleController
 {
     public function index(Request $request)
     {
         $query = Coaching::query();
-
-        if (!auth()->user()->isAdmin()) {
-            $deptName = auth()->user()->department ? auth()->user()->department->name : null;
-            if ($deptName) {
-                $query->where('department', $deptName);
-            } else {
-                $query->whereRaw('1 = 0');
-            }
-        }
+        $this->scopeHrRecordsForUser($query);
 
         if ($request->filled('search')) {
-            $query->where(function($q) use ($request) {
-                $q->where('candidate_name', 'like', '%' . $request->search . '%')
-                  ->orWhere('supervisor', 'like', '%' . $request->search . '%')
-                  ->orWhere('department', 'like', '%' . $request->search . '%')
-                  ->orWhere('topic_1', 'like', '%' . $request->search . '%');
+            $query->where(function ($q) use ($request) {
+                $q->where('candidate_name', 'like', '%'.$request->search.'%')
+                    ->orWhere('supervisor', 'like', '%'.$request->search.'%')
+                    ->orWhere('department', 'like', '%'.$request->search.'%')
+                    ->orWhere('topic_1', 'like', '%'.$request->search.'%');
             });
         }
 
@@ -42,27 +33,22 @@ class CoachingController extends Controller
 
         $records = $query->latest()->paginate(10);
 
-        if (!auth()->user()->isAdmin()) {
-            $departments = Department::where('id', auth()->user()->department_id)->get();
-        } else {
-            $departments = Department::orderBy('name')->get();
-        }
+        $departments = $this->departmentsForUser();
 
         return view('admin.coaching.index', compact('records', 'departments'));
     }
 
     public function create()
     {
-        if (!auth()->user()->isAdmin()) {
-            $departments = Department::where('id', auth()->user()->department_id)->get();
-        } else {
-            $departments = Department::orderBy('name')->get();
-        }
-        return view('admin.coaching.create', compact('departments'));
+        $this->authorizeCreateHrRecord();
+
+        return view('admin.coaching.create', ['departments' => $this->departmentsForUser()]);
     }
 
     public function store(Request $request)
     {
+        $this->authorizeCreateHrRecord();
+
         $request->validate([
             'candidate_name' => 'required|string|max:255',
             'supervisor' => 'required|string|max:255',
@@ -82,28 +68,42 @@ class CoachingController extends Controller
             $data['candidate_signature'] = $request->file('candidate_sig')->store('signatures/coaching/candidate', 'public');
         }
 
-        Coaching::create($data);
+        $this->assertNoDuplicateHrSubmission(Coaching::class, [
+            'candidate_name' => $request->candidate_name,
+            'department' => $request->department,
+            'coaching_date' => $request->coaching_date,
+        ]);
 
-        return redirect()->route('admin.coaching.index')->with('success', 'Employee Coaching record created successfully.');
+        $data['created_by'] = auth()->id();
+        $coaching = Coaching::query()->create($data);
+
+        return redirect()->route('admin.coaching.show', $coaching)->with('success', 'Employee Coaching record created successfully. Pending approval.');
     }
 
     public function show(Coaching $coaching)
     {
+        $this->authorizeViewHrRecord($coaching);
+
         return view('admin.coaching.show', compact('coaching'));
     }
 
     public function edit(Coaching $coaching)
     {
-        if (!auth()->user()->isAdmin()) {
+        $this->authorizeEditHrRecord($coaching);
+
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
         }
+
         return view('admin.coaching.edit', compact('coaching', 'departments'));
     }
 
     public function update(Request $request, Coaching $coaching)
     {
+        $this->authorizeEditHrRecord($coaching);
+
         $request->validate([
             'candidate_name' => 'required|string|max:255',
             'supervisor' => 'required|string|max:255',
@@ -136,6 +136,8 @@ class CoachingController extends Controller
 
     public function destroy(Coaching $coaching)
     {
+        $this->authorizeDeleteHrRecord($coaching);
+
         if ($coaching->manager_signature) {
             Storage::disk('public')->delete($coaching->manager_signature);
         }

@@ -31,7 +31,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div class="lg:col-span-8">
                 <div class="bg-white rounded-[2.5rem] shadow-sm border border-slate-200 p-10">
-                    <form action="{{ route('admin.users.update', $user) }}" method="POST" class="space-y-10">
+                    <form action="{{ route('admin.users.update', $user) }}" method="POST" enctype="multipart/form-data" class="space-y-10" x-data="{ role: '{{ old('role', $user->role) }}' }">
                         @csrf
                         @method('PUT')
 
@@ -82,7 +82,7 @@
                                 <label
                                     class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Access
                                     Protocol (Role)</label>
-                                <select name="role" required
+                                <select name="role" required x-model="role"
                                     class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm appearance-none cursor-pointer">
                                     <option value="user" {{ $user->role === 'user' ? 'selected' : '' }}>User</option>
                                     <option value="manager" {{ $user->role === 'manager' ? 'selected' : '' }}>Manager
@@ -104,6 +104,29 @@
                                         (Inactive)</option>
                                 </select>
                                 <x-input-error :messages="$errors->get('is_active')" />
+                            </div>
+                        </div>
+
+                        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 space-y-4" x-show="role === 'manager'" x-cloak>
+                            <h4 class="text-xs font-black text-slate-900 uppercase tracking-widest">Manager Signature Image</h4>
+                            <p class="text-[10px] text-slate-400 font-medium">Update the manager&apos;s signature image. This file is used when they sign HR forms.</p>
+                            @if($user->signature_path)
+                                <div class="flex flex-wrap items-center gap-4 p-4 bg-white rounded-2xl border border-slate-100">
+                                    <x-storage-image :path="$user->signature_path" class="h-24 object-contain rounded-xl border border-slate-100 bg-white p-2" alt="Current manager signature" />
+                                    <label class="inline-flex items-center gap-2 text-xs font-bold text-slate-500 cursor-pointer">
+                                        <input type="checkbox" name="remove_signature" value="1" class="rounded border-slate-300 text-rose-500">
+                                        Remove current signature
+                                    </label>
+                                </div>
+                            @endif
+                            <div x-data="{ preview: null }" class="space-y-3">
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Upload new signature (optional)</label>
+                                <input type="file" name="signature" accept="image/*"
+                                       @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); } else { preview = null; }"
+                                       class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#00515F] file:text-white cursor-pointer">
+                                <div x-show="preview" x-cloak class="p-4 border border-dashed border-slate-200 rounded-2xl bg-white flex justify-center">
+                                    <img :src="preview" class="max-h-28 rounded-xl" alt="New signature preview">
+                                </div>
                             </div>
                         </div>
 

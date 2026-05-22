@@ -82,6 +82,7 @@
                             <th class="px-6 py-4 border-b border-white/5">Candidate</th>
                             <th class="px-6 py-4 border-b border-white/5">Department / Manager</th>
                             <th class="px-6 py-4 border-b border-white/5 text-center">Status</th>
+                            <th class="px-6 py-4 border-b border-white/5">Approval</th>
                             <th class="px-6 py-4 border-b border-white/5 text-right">Actions</th>
                         </tr>
                     </thead>
@@ -108,6 +109,7 @@
                                         {{ $record->status }}
                                     </span>
                                 </td>
+                                <td class="px-6 py-5"><x-hr-approval-badge :status="$record->approval_status" /></td>
                                 <td class="px-6 py-5 text-right">
                                     <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <a href="{{ route('admin.progress.show', $record) }}" 
@@ -140,7 +142,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4" class="px-6 py-20 text-center text-slate-400 font-medium">No progress reviews found.</td>
+                                <td colspan="5" class="px-6 py-20 text-center text-slate-400 font-medium">No progress reviews found.</td>
                             </tr>
                         @endforelse
                     </tbody>

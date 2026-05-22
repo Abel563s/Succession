@@ -2,31 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\CriticalRole;
-use App\Models\Department;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
-class CriticalRoleController extends Controller
+class CriticalRoleController extends AdminHrModuleController
 {
-    public function index(Request $request)
+    public function index(Request $request): View
     {
         $query = CriticalRole::query();
-
-        if (!auth()->user()->isAdmin()) {
-            $deptName = auth()->user()->department ? auth()->user()->department->name : null;
-            if ($deptName) {
-                $query->where('department', $deptName);
-            } else {
-                $query->whereRaw('1 = 0');
-            }
-        }
+        $this->scopeHrRecordsForUser($query);
 
         if ($request->filled('search')) {
-            $query->where('employee_name', 'like', '%' . $request->search . '%')
-                  ->orWhere('department', 'like', '%' . $request->search . '%')
-                  ->orWhere('critical_role', 'like', '%' . $request->search . '%');
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('employee_name', 'like', "%{$search}%")
+                    ->orWhere('department', 'like', "%{$search}%")
+                    ->orWhere('critical_role', 'like', "%{$search}%");
+            });
         }
 
         if ($request->filled('department')) {
@@ -42,28 +37,22 @@ class CriticalRoleController extends Controller
         }
 
         $records = $query->latest()->paginate(10);
-        
-        if (!auth()->user()->isAdmin()) {
-            $departments = Department::where('id', auth()->user()->department_id)->get();
-        } else {
-            $departments = Department::orderBy('name')->get();
-        }
+        $departments = $this->departmentsForUser();
 
         return view('admin.critical-roles.index', compact('records', 'departments'));
     }
 
-    public function create()
+    public function create(): View
     {
-        if (!auth()->user()->isAdmin()) {
-            $departments = Department::where('id', auth()->user()->department_id)->get();
-        } else {
-            $departments = Department::orderBy('name')->get();
-        }
-        return view('admin.critical-roles.create', compact('departments'));
+        $this->authorizeCreateHrRecord();
+
+        return view('admin.critical-roles.create', ['departments' => $this->departmentsForUser()]);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
+        $this->authorizeCreateHrRecord();
+
         $validated = $request->validate([
             'employee_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
@@ -81,33 +70,42 @@ class CriticalRoleController extends Controller
             'signature' => 'required|image|max:2048',
         ]);
 
+        $this->assertNoDuplicateHrSubmission(CriticalRole::class, [
+            'employee_name' => $validated['employee_name'],
+            'department' => $validated['department'],
+        ]);
+
         if ($request->hasFile('signature')) {
-            $path = $request->file('signature')->store('signatures', 'public');
-            $validated['signature_path'] = $path;
+            $validated['signature_path'] = $request->file('signature')->store('signatures', 'public');
         }
 
-        CriticalRole::create($validated);
+        $validated['created_by'] = auth()->id();
+        $criticalRole = CriticalRole::query()->create($validated);
 
-        return redirect()->route('admin.critical-roles.index')->with('success', 'Critical Role evaluation submitted successfully.');
+        return redirect()->route('admin.critical-roles.show', $criticalRole)->with('success', 'Critical Role evaluation submitted successfully. Pending approval.');
     }
 
-    public function show(CriticalRole $criticalRole)
+    public function show(CriticalRole $criticalRole): View
     {
+        $this->authorizeViewHrRecord($criticalRole);
+
         return view('admin.critical-roles.show', compact('criticalRole'));
     }
 
-    public function edit(CriticalRole $criticalRole)
+    public function edit(CriticalRole $criticalRole): View
     {
-        if (!auth()->user()->isAdmin()) {
-            $departments = Department::where('id', auth()->user()->department_id)->get();
-        } else {
-            $departments = Department::orderBy('name')->get();
-        }
-        return view('admin.critical-roles.edit', compact('criticalRole', 'departments'));
+        $this->authorizeEditHrRecord($criticalRole);
+
+        return view('admin.critical-roles.edit', [
+            'criticalRole' => $criticalRole,
+            'departments' => $this->departmentsForUser(),
+        ]);
     }
 
-    public function update(Request $request, CriticalRole $criticalRole)
+    public function update(Request $request, CriticalRole $criticalRole): RedirectResponse
     {
+        $this->authorizeEditHrRecord($criticalRole);
+
         $validated = $request->validate([
             'employee_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
@@ -126,12 +124,10 @@ class CriticalRoleController extends Controller
         ]);
 
         if ($request->hasFile('signature')) {
-            // Delete old signature if exists
             if ($criticalRole->signature_path) {
                 Storage::disk('public')->delete($criticalRole->signature_path);
             }
-            $path = $request->file('signature')->store('signatures', 'public');
-            $validated['signature_path'] = $path;
+            $validated['signature_path'] = $request->file('signature')->store('signatures', 'public');
         }
 
         $criticalRole->update($validated);
@@ -139,8 +135,10 @@ class CriticalRoleController extends Controller
         return redirect()->route('admin.critical-roles.index')->with('success', 'Critical Role evaluation updated successfully.');
     }
 
-    public function destroy(CriticalRole $criticalRole)
+    public function destroy(CriticalRole $criticalRole): RedirectResponse
     {
+        $this->authorizeDeleteHrRecord($criticalRole);
+
         if ($criticalRole->signature_path) {
             Storage::disk('public')->delete($criticalRole->signature_path);
         }

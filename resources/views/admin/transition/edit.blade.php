@@ -142,7 +142,7 @@
                         Authorization Endorsement
                     </h3>
                     
-                    <div x-data="{ preview: '{{ $transition->signature_path ? asset('storage/' . $transition->signature_path) : '' }}' }">
+                    <div x-data="{ preview: '{{ $transition->signature_path ? \App\Support\StorageUrl::public($transition->signature_path) : '' }}' }">
                         <div class="relative group">
                             <input type="file" name="signature" accept="image/*"
                                    @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"

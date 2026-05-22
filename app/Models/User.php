@@ -27,6 +27,7 @@ class User extends Authenticatable
         'department_id',
         'employee_id',
         'date_of_joining',
+        'signature_path',
     ];
 
     /**
@@ -52,7 +53,6 @@ class User extends Authenticatable
             'is_active' => 'boolean',
         ];
     }
-
 
     /**
      * Check if user is admin.

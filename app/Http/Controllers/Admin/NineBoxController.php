@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\NineBoxGrid;
 use App\Models\Department;
+use App\Models\NineBoxGrid;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class NineBoxController extends Controller
+class NineBoxController extends AdminHrModuleController
 {
     public function index(Request $request)
     {
         $query = NineBoxGrid::query();
 
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $deptName = auth()->user()->department ? auth()->user()->department->name : null;
             if ($deptName) {
                 $query->where('department', $deptName);
@@ -25,10 +24,10 @@ class NineBoxController extends Controller
 
         if ($request->filled('search')) {
             $search = $request->search;
-            $query->where(function($q) use ($search) {
+            $query->where(function ($q) use ($search) {
                 $q->where('candidate_name', 'like', "%{$search}%")
-                  ->orWhere('department', 'like', "%{$search}%")
-                  ->orWhere('grid_position', 'like', "%{$search}%");
+                    ->orWhere('department', 'like', "%{$search}%")
+                    ->orWhere('grid_position', 'like', "%{$search}%");
             });
         }
 
@@ -37,8 +36,8 @@ class NineBoxController extends Controller
         }
 
         $records = $query->latest()->paginate(10)->withQueryString();
-        
-        if (!auth()->user()->isAdmin()) {
+
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -49,11 +48,12 @@ class NineBoxController extends Controller
 
     public function create()
     {
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
         }
+
         return view('admin.nine-box.create', compact('departments'));
     }
 
@@ -76,9 +76,9 @@ class NineBoxController extends Controller
             $validated['signature_path'] = $path;
         }
 
-        NineBoxGrid::create($validated);
+        $nineBox = NineBoxGrid::create($validated);
 
-        return redirect()->route('admin.nine-box.index')->with('success', '9-Box Grid evaluation submitted successfully.');
+        return redirect()->route('admin.nine-box.show', $nineBox)->with('success', '9-Box Grid evaluation submitted successfully. Pending approval.');
     }
 
     public function show(NineBoxGrid $nineBox)
@@ -88,11 +88,12 @@ class NineBoxController extends Controller
 
     public function edit(NineBoxGrid $nineBox)
     {
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
         }
+
         return view('admin.nine-box.edit', compact('nineBox', 'departments'));
     }
 

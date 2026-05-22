@@ -13,7 +13,8 @@ class Transition extends Model
         'department',
         'status',
         'signature_path',
-        'user_id'
+        'user_id',
+        'approval_status',
     ];
 
     public function items()

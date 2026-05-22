@@ -87,7 +87,7 @@
                 <div class="p-8 space-y-6">
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Update Signature (Optional)</label>
-                        <div x-data="{ preview: '{{ $mentor->signature_path ? asset('storage/' . $mentor->signature_path) : null }}' }" class="space-y-4">
+                        <div x-data="{ preview: '{{ $mentor->signature_path ? \App\Support\StorageUrl::public($mentor->signature_path) : null }}' }" class="space-y-4">
                             <input type="file" name="signature" accept="image/*"
                                    @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
                                    class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-slate-900 file:text-white cursor-pointer">

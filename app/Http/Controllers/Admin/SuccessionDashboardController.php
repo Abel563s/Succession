@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Department;
 use App\Models\SuccessionDashboard;
 use App\Models\SuccessionDashboardItem;
-use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-class SuccessionDashboardController extends Controller
+class SuccessionDashboardController extends AdminHrModuleController
 {
     public function index(Request $request)
     {
         $query = SuccessionDashboard::query();
 
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $deptName = auth()->user()->department ? auth()->user()->department->name : null;
             if ($deptName) {
                 $query->where('department', $deptName);
@@ -26,7 +25,7 @@ class SuccessionDashboardController extends Controller
         }
 
         if ($request->filled('search')) {
-            $query->where('title', 'like', '%' . $request->search . '%');
+            $query->where('title', 'like', '%'.$request->search.'%');
         }
 
         if ($request->filled('department')) {
@@ -34,8 +33,8 @@ class SuccessionDashboardController extends Controller
         }
 
         $records = $query->latest()->paginate(10);
-        
-        if (!auth()->user()->isAdmin()) {
+
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -46,11 +45,12 @@ class SuccessionDashboardController extends Controller
 
     public function create()
     {
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
         }
+
         return view('admin.sd.create', compact('departments'));
     }
 
@@ -67,7 +67,7 @@ class SuccessionDashboardController extends Controller
             DB::beginTransaction();
 
             $data = $request->only(['title', 'department', 'status']);
-            
+
             if ($request->hasFile('signature')) {
                 $data['signature_path'] = $request->file('signature')->store('signatures/sd', 'public');
             }
@@ -92,28 +92,32 @@ class SuccessionDashboardController extends Controller
             }
 
             DB::commit();
-            return redirect()->route('admin.sd.index')->with('success', 'Succession Dashboard created successfully.');
+
+            return redirect()->route('admin.sd.show', $dashboard)->with('success', 'Succession Dashboard created successfully. Pending approval.');
 
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withInput()->with('error', 'Error creating dashboard: ' . $e->getMessage());
+
+            return back()->withInput()->with('error', 'Error creating dashboard: '.$e->getMessage());
         }
     }
 
     public function show(SuccessionDashboard $sd)
     {
         $sd->load('items');
+
         return view('admin.sd.show', compact('sd'));
     }
 
     public function edit(SuccessionDashboard $sd)
     {
         $sd->load('items');
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
         }
+
         return view('admin.sd.edit', compact('sd', 'departments'));
     }
 
@@ -159,11 +163,13 @@ class SuccessionDashboardController extends Controller
             }
 
             DB::commit();
+
             return redirect()->route('admin.sd.index')->with('success', 'Succession Dashboard updated successfully.');
 
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withInput()->with('error', 'Error updating dashboard: ' . $e->getMessage());
+
+            return back()->withInput()->with('error', 'Error updating dashboard: '.$e->getMessage());
         }
     }
 
@@ -173,6 +179,7 @@ class SuccessionDashboardController extends Controller
             Storage::disk('public')->delete($sd->signature_path);
         }
         $sd->delete();
+
         return redirect()->route('admin.sd.index')->with('success', 'Succession Dashboard deleted successfully.');
     }
 }

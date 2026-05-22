@@ -20,6 +20,7 @@
                 </div>
             @endif
         </div>
+        <x-hr-approval-banner :record="$succession" module="successions" />
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Left Column: Profile & Summary -->
@@ -112,7 +113,7 @@
                             </div>
                             <div class="bg-slate-50 p-2 rounded-2xl border border-slate-100">
                                 @if($succession->signature_path)
-                                    <img src="{{ asset('storage/' . $succession->signature_path) }}" class="h-16 object-contain" alt="Signature">
+                                    <img src="{{ \App\Support\StorageUrl::public($succession->signature_path) }}" class="h-16 object-contain" alt="Signature">
                                 @else
                                     <div class="h-16 w-32 flex items-center justify-center border-2 border-dashed border-slate-200 rounded-xl">
                                         <span class="text-[10px] font-bold text-slate-400">No Signature</span>
@@ -125,22 +126,5 @@
             </div>
         </div>
 
-        <!-- Danger Zone -->
-        @if(auth()->user()->isAdmin())
-            <div class="bg-rose-50 rounded-[2rem] border border-rose-100 p-8 flex items-center justify-between">
-                <div>
-                    <h4 class="text-rose-900 font-black">Danger Zone</h4>
-                    <p class="text-rose-600/70 text-sm font-medium">Permanently remove this nomination from the system.</p>
-                </div>
-                <form action="{{ route('admin.successions.destroy', $succession) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this record?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="bg-white text-rose-600 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-rose-600 hover:text-white transition-all shadow-sm border border-rose-100 flex items-center gap-2">
-                        <i data-lucide="trash-2" class="w-4 h-4"></i>
-                        Delete Nomination
-                    </button>
-                </form>
-            </div>
-        @endif
     </div>
 </x-app-layout>

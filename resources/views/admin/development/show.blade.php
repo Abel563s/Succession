@@ -21,6 +21,8 @@
             @endif
         </div>
 
+        <x-hr-approval-banner :record="$development" module="development" />
+
         <!-- Info Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm flex items-center gap-4">
@@ -67,7 +69,7 @@
                             <th class="px-6 py-4">Development Activity</th>
                             <th class="px-6 py-4">Support/Resource</th>
                             <th class="px-6 py-4">Timeline</th>
-                            <th class="px-6 py-4 text-center">Score</th>
+                            <th class="px-6 py-4">Expected Outcome</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-50">
@@ -97,8 +99,8 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="px-6 py-4 text-center">
-                                    <span class="inline-flex px-3 py-1 rounded-full bg-slate-900 text-white text-xs font-black">{{ $objective->score ?? '-' }}</span>
+                                <td class="px-6 py-4">
+                                    <p class="text-sm font-medium text-slate-600">{{ $objective->expected_outcome }}</p>
                                 </td>
                             </tr>
                         @endforeach
@@ -107,23 +109,29 @@
             </div>
         </div>
 
-        <!-- Signature & Footer -->
-        <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-8 flex items-end justify-between">
-            <div class="space-y-4">
-                <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Digital Authentication</p>
-                <div class="bg-slate-50 p-2 rounded-2xl border border-slate-100 inline-block">
-                    @if($development->signature_path)
-                        <img src="{{ asset('storage/' . $development->signature_path) }}" class="h-24 object-contain" alt="Signature">
-                    @else
-                        <div class="h-24 w-48 flex items-center justify-center border-2 border-dashed border-slate-200 rounded-xl">
-                            <span class="text-xs font-bold text-slate-400">No Signature</span>
-                        </div>
-                    @endif
+        @if($development->progressReview)
+            <div class="bg-[#f0fbfd] border border-[#00ADC5]/20 rounded-2xl p-6 flex items-center justify-between">
+                <div>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-[#00515F]">Linked Progress Review</p>
+                    <p class="text-sm font-medium text-slate-600 mt-1">Scores and ongoing tracking are managed in the Progress Review form.</p>
                 </div>
-                <div class="flex items-center gap-2">
-                    <p class="text-sm font-black text-slate-900">{{ $development->employee_name }}</p>
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    <p class="text-xs text-slate-400 font-medium italic">Verified Individual Development Plan</p>
+                <a href="{{ route('admin.progress.edit', $development->progressReview) }}"
+                   class="bg-[#00515F] text-white px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-[#00333B] transition-all">
+                    Open Progress Review
+                </a>
+            </div>
+        @endif
+
+        <!-- Signatures & Footer -->
+        <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-8 flex flex-col lg:flex-row items-end justify-between gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 flex-1">
+                <div class="space-y-3">
+                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Manager Signature</p>
+                    <x-storage-image :path="$development->signature_path" class="h-24 object-contain rounded-xl border border-slate-100 bg-slate-50 p-2" alt="Manager signature" />
+                </div>
+                <div class="space-y-3">
+                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Candidate Signature</p>
+                    <x-storage-image :path="$development->candidate_signature_path" class="h-24 object-contain rounded-xl border border-slate-100 bg-slate-50 p-2" alt="Candidate signature" />
                 </div>
             </div>
             <div class="text-right">
@@ -133,22 +141,5 @@
             </div>
         </div>
 
-        <!-- Danger Zone -->
-        @if(auth()->user()->isAdmin())
-            <div class="bg-rose-50 rounded-[2rem] border border-rose-100 p-8 flex items-center justify-between">
-                <div>
-                    <h4 class="text-rose-900 font-black">Danger Zone</h4>
-                    <p class="text-rose-600/70 text-sm font-medium">Permanently remove this development plan from the system.</p>
-                </div>
-                <form action="{{ route('admin.development.destroy', $development) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this plan?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="bg-white text-rose-600 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-rose-600 hover:text-white transition-all shadow-sm border border-rose-100 flex items-center gap-2">
-                        <i data-lucide="trash-2" class="w-4 h-4"></i>
-                        Delete Plan
-                    </button>
-                </form>
-            </div>
-        @endif
     </div>
 </x-app-layout>

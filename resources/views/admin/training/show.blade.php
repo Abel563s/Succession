@@ -20,6 +20,7 @@
                 </div>
             @endif
         </div>
+        <x-hr-approval-banner :record="$training" module="training" />
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <!-- Left Column -->
@@ -129,7 +130,7 @@
                             <div class="md:col-span-2">
                                 <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Verification Signature</p>
                                 <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 inline-block">
-                                    <img src="{{ asset('storage/' . $training->signature_path) }}" class="h-20 object-contain" alt="Legacy Signature">
+                                    <img src="{{ \App\Support\StorageUrl::public($training->signature_path) }}" class="h-20 object-contain" alt="Legacy Signature">
                                 </div>
                             </div>
                         @else
@@ -137,7 +138,7 @@
                                 <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Manager Endorsement</p>
                                 <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 inline-block">
                                     @if($training->manager_signature)
-                                        <img src="{{ asset('storage/' . $training->manager_signature) }}" class="h-20 object-contain" alt="Manager Signature">
+                                        <img src="{{ \App\Support\StorageUrl::public($training->manager_signature) }}" class="h-20 object-contain" alt="Manager Signature">
                                     @else
                                         <div class="h-20 w-40 flex items-center justify-center border-2 border-dashed border-slate-200 rounded-xl">
                                             <span class="text-xs font-bold text-slate-400">N/A</span>
@@ -150,7 +151,7 @@
                                 <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Candidate Verification</p>
                                 <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 inline-block">
                                     @if($training->candidate_signature)
-                                        <img src="{{ asset('storage/' . $training->candidate_signature) }}" class="h-20 object-contain" alt="Candidate Signature">
+                                        <img src="{{ \App\Support\StorageUrl::public($training->candidate_signature) }}" class="h-20 object-contain" alt="Candidate Signature">
                                     @else
                                         <div class="h-20 w-40 flex items-center justify-center border-2 border-dashed border-slate-200 rounded-xl">
                                             <span class="text-xs font-bold text-slate-400">N/A</span>
@@ -165,22 +166,5 @@
             </div>
         </div>
 
-        <!-- Danger Zone -->
-        @if(auth()->user()->isAdmin())
-            <div class="bg-rose-50 rounded-[2rem] border border-rose-100 p-8 flex items-center justify-between">
-                <div>
-                    <h4 class="text-rose-900 font-black">Danger Zone</h4>
-                    <p class="text-rose-600/70 text-sm font-medium">Permanently remove this training record from the system.</p>
-                </div>
-                <form action="{{ route('admin.training.destroy', $training) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this record?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="bg-white text-rose-600 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-rose-600 hover:text-white transition-all shadow-sm border border-rose-100 flex items-center gap-2">
-                        <i data-lucide="trash-2" class="w-4 h-4"></i>
-                        Delete Record
-                    </button>
-                </form>
-            </div>
-        @endif
     </div>
 </x-app-layout>

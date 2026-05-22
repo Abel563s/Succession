@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Department;
 use App\Models\LeadershipAssessment;
 use App\Models\LeadershipCompetencyRating;
-use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
-class LeadershipController extends Controller
+class LeadershipController extends AdminHrModuleController
 {
     public function index(Request $request)
     {
         $query = LeadershipAssessment::query();
 
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $deptName = auth()->user()->department ? auth()->user()->department->name : null;
             if ($deptName) {
                 $query->where('department', $deptName);
@@ -26,7 +25,7 @@ class LeadershipController extends Controller
         }
 
         if ($request->filled('search')) {
-            $query->where('candidate_name', 'like', '%' . $request->search . '%');
+            $query->where('candidate_name', 'like', '%'.$request->search.'%');
         }
 
         if ($request->filled('department')) {
@@ -34,8 +33,8 @@ class LeadershipController extends Controller
         }
 
         $records = $query->latest()->paginate(10);
-        
-        if (!auth()->user()->isAdmin()) {
+
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -46,7 +45,7 @@ class LeadershipController extends Controller
 
     public function create()
     {
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -57,8 +56,9 @@ class LeadershipController extends Controller
             'Results-Oriented',
             'Stewardship',
             'Talent Management',
-            'Vision and Strategic Thinking'
+            'Vision and Strategic Thinking',
         ];
+
         return view('admin.leadership.create', compact('departments', 'competencies'));
     }
 
@@ -77,7 +77,7 @@ class LeadershipController extends Controller
             DB::beginTransaction();
 
             $data = $request->only(['candidate_name', 'department', 'line_manager', 'comments', 'status']);
-            
+
             if ($request->hasFile('signature')) {
                 $data['signature_path'] = $request->file('signature')->store('signatures/leadership', 'public');
             }
@@ -98,24 +98,27 @@ class LeadershipController extends Controller
             }
 
             DB::commit();
-            return redirect()->route('admin.leadership.index')->with('success', 'Leadership Assessment created successfully.');
+
+            return redirect()->route('admin.leadership.show', $assessment)->with('success', 'Leadership Assessment created successfully. Pending approval.');
 
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withInput()->with('error', 'Error creating assessment: ' . $e->getMessage());
+
+            return back()->withInput()->with('error', 'Error creating assessment: '.$e->getMessage());
         }
     }
 
     public function show(LeadershipAssessment $leadership)
     {
         $leadership->load('ratings');
+
         return view('admin.leadership.show', compact('leadership'));
     }
 
     public function edit(LeadershipAssessment $leadership)
     {
         $leadership->load('ratings');
-        if (!auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -126,8 +129,9 @@ class LeadershipController extends Controller
             'Results-Oriented',
             'Stewardship',
             'Talent Management',
-            'Vision and Strategic Thinking'
+            'Vision and Strategic Thinking',
         ];
+
         return view('admin.leadership.edit', compact('leadership', 'departments', 'competencies'));
     }
 
@@ -171,11 +175,13 @@ class LeadershipController extends Controller
             }
 
             DB::commit();
+
             return redirect()->route('admin.leadership.index')->with('success', 'Leadership Assessment updated successfully.');
 
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withInput()->with('error', 'Error updating assessment: ' . $e->getMessage());
+
+            return back()->withInput()->with('error', 'Error updating assessment: '.$e->getMessage());
         }
     }
 
@@ -185,6 +191,7 @@ class LeadershipController extends Controller
             Storage::disk('public')->delete($leadership->signature_path);
         }
         $leadership->delete();
+
         return redirect()->route('admin.leadership.index')->with('success', 'Leadership Assessment deleted successfully.');
     }
 }

@@ -6,12 +6,12 @@
             <div class="space-y-3">
                 <div class="flex items-center gap-4">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-xl shadow-slate-900/20">
+                        class="w-12 h-12 rounded-2xl bg-[#00515F] flex items-center justify-center text-white shadow-xl shadow-[#00515F]/20">
                         <i data-lucide="shield-lock" class="w-6 h-6"></i>
                     </div>
                     <div>
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
-                            Security <span class="font-black text-slate-900">Protocols</span>
+                            Security <span class="font-black text-[#00515F]">Protocols</span>
                         </h2>
                         <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">Personal
                             Identity Authentication</p>
@@ -124,9 +124,9 @@
 
                         <div class="pt-6">
                             <button type="submit"
-                                class="w-full group/btn relative px-8 py-4 bg-slate-900 text-white rounded-[1.5rem] font-black text-[11px] uppercase tracking-widest overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-slate-900/20">
+                                class="w-full group/btn relative px-8 py-4 bg-[#00515F] text-white rounded-[1.5rem] font-black text-[11px] uppercase tracking-widest overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-[#00515F]/20">
                                 <div
-                                    class="absolute inset-0 bg-gradient-to-r from-[#00ADC5] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
+                                    class="absolute inset-0 bg-gradient-to-r from-[#00ADC5] to-[#00515F] translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
                                 </div>
                                 <span class="relative flex items-center justify-center gap-3">
                                     <i data-lucide="save" class="w-4 h-4"></i>
@@ -137,7 +137,7 @@
                     </form>
                 </div>
 
-                <div class="bg-slate-900 rounded-[2rem] p-8 relative overflow-hidden group/alert">
+                <div class="bg-[#00515F] rounded-[2rem] p-8 relative overflow-hidden group/alert">
                     <div
                         class="absolute -right-10 -top-10 w-40 h-40 bg-[#00ADC5] opacity-10 rounded-full blur-3xl group-hover/alert:opacity-20 transition-all duration-700">
                     </div>

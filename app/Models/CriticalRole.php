@@ -24,5 +24,7 @@ class CriticalRole extends Model
         'successor_3_readiness',
         'mitigation_plan',
         'signature_path',
+        'approval_status',
+        'created_by',
     ];
 }

@@ -24,6 +24,8 @@
             </div>
         </div>
 
+        <x-hr-approval-banner :record="$sd" module="sd" />
+
         <!-- Dashboard Matrix Card -->
         <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
             <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
@@ -109,7 +111,7 @@
                     <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Authentication Signature</p>
                     <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 inline-block relative z-10">
                         @if($sd->signature_path)
-                            <img src="{{ asset('storage/' . $sd->signature_path) }}" class="h-20 object-contain" alt="Signature">
+                            <img src="{{ \App\Support\StorageUrl::public($sd->signature_path) }}" class="h-20 object-contain" alt="Signature">
                         @else
                             <div class="h-20 w-48 flex items-center justify-center border-2 border-dashed border-slate-200 rounded-xl">
                                 <span class="text-xs font-bold text-slate-400">No Signature Recorded</span>
@@ -132,22 +134,5 @@
             </div>
         </div>
 
-        <!-- Danger Zone -->
-        @if(auth()->user()->isAdmin())
-            <div class="bg-rose-50 rounded-[2rem] border border-rose-100 p-8 flex items-center justify-between">
-                <div>
-                    <h4 class="text-rose-900 font-black">Danger Zone</h4>
-                    <p class="text-rose-600/70 text-sm font-medium">Permanently remove this succession dashboard from the system.</p>
-                </div>
-                <form action="{{ route('admin.sd.destroy', $sd) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this dashboard?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="bg-white text-rose-600 px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-rose-600 hover:text-white transition-all shadow-sm border border-rose-100 flex items-center gap-2">
-                        <i data-lucide="trash-2" class="w-4 h-4"></i>
-                        Delete Dashboard
-                    </button>
-                </form>
-            </div>
-        @endif
     </div>
 </x-app-layout>
