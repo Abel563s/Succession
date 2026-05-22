@@ -3,6 +3,10 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+    # Ensure Apache/cPanel allows following symlinks
+    # If Options +FollowSymLinks causes a 500 error on your host, change it to SymLinksIfOwnerMatch
+    Options +FollowSymLinks
+
     RewriteEngine On
 
     # Handle Authorization Header
