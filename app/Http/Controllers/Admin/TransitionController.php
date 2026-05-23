@@ -91,7 +91,7 @@ class TransitionController extends AdminHrModuleController
         $validated = $request->validate([
             'department' => 'required|string|max:255',
             'status' => 'required|string|in:Planned,In Progress,Completed,Delayed',
-            'signature' => 'required|image|max:2048',
+            'signature' => 'required|image|max:500',
             'items' => 'required|array|min:1',
             'items.*.critical_role' => 'required|string|max:255',
             'items.*.current_holder' => 'required|string|max:255',
@@ -155,7 +155,7 @@ class TransitionController extends AdminHrModuleController
         $validated = $request->validate([
             'department' => 'required|string|max:255',
             'status' => 'required|string|in:Planned,In Progress,Completed,Delayed',
-            'signature' => 'nullable|image|max:2048',
+            'signature' => 'nullable|image|max:500',
             'items' => 'required|array|min:1',
             'items.*.critical_role' => 'required|string|max:255',
             'items.*.current_holder' => 'required|string|max:255',

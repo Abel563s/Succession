@@ -37,7 +37,7 @@
                         class="bg-gradient-to-r from-[#00515F] to-[#00333B] hover:to-[#00515F] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-[#00515F]/20 hover:shadow-[#00515F]/30 hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden">
                         <div class="absolute inset-0 bg-white/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                         <i data-lucide="plus" class="w-4 h-4 relative z-10 transition-transform group-hover/btn:rotate-90"></i>
-                        <span class="relative z-10">Initialize User Node</span>
+                        <span class="relative z-10">Add New User</span>
                     </button>
                 </div>
             @endif
@@ -296,8 +296,8 @@
             <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md" @click="createModal = false"></div>
 
             <!-- Modal Content -->
-            <div class="relative bg-white rounded-[3rem] w-full max-w-2xl shadow-2xl border border-slate-100 p-1 md:p-1.5 overflow-hidden">
-                <div class="bg-slate-50/50 rounded-[2.8rem] p-8 md:p-12 space-y-10">
+            <div class="relative bg-white rounded-[3rem] w-full max-w-2xl shadow-2xl border border-slate-100 p-1 md:p-1.5 overflow-hidden flex flex-col" style="max-height: 90vh;">
+                <div class="bg-slate-50/50 rounded-[2.8rem] p-8 md:p-10 space-y-8 overflow-y-auto custom-scrollbar" style="max-height: calc(90vh - 8px);">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-4">
                             <div class="w-14 h-14 rounded-2xl bg-[#00515F] text-white flex items-center justify-center shadow-xl shadow-[#00515F]/20 transform -rotate-3">
@@ -371,13 +371,31 @@
                                         <p class="text-[10px] text-slate-400 font-medium mt-0.5">Upload this manager&apos;s signature now. It is saved on their profile and reused on HR forms.</p>
                                     </div>
                                 </div>
-                                <div x-data="{ preview: null }" class="space-y-3">
+                                <div x-data="{ preview: null, sizeError: null }" class="space-y-3">
                                     <input type="file" name="signature" accept="image/*"
                                            x-bind:required="role === 'manager'"
-                                           @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); } else { preview = null; }"
+                                           @change="
+                                               sizeError = null;
+                                               const file = $event.target.files[0];
+                                               if (file) {
+                                                   if (file.size > 512000) {
+                                                       sizeError = 'File too large. Max size is 500KB.';
+                                                       $event.target.value = '';
+                                                       preview = null;
+                                                   } else {
+                                                       const reader = new FileReader();
+                                                       reader.onload = (e) => preview = e.target.result;
+                                                       reader.readAsDataURL(file);
+                                                   }
+                                               } else { preview = null; }"
                                            class="block w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#00515F] file:text-white cursor-pointer">
-                                    <div x-show="preview" x-cloak class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex justify-center">
-                                        <img :src="preview" class="max-h-28 rounded-xl shadow-sm border border-white" alt="Signature preview">
+                                    <div x-show="sizeError" class="flex items-center gap-1.5 mt-1">
+                                        <i data-lucide="alert-circle" class="w-3 h-3 text-rose-500"></i>
+                                        <p x-text="sizeError" class="text-[10px] font-bold text-rose-500"></p>
+                                    </div>
+                                    <p class="text-[10px] text-slate-400 font-medium">Max 500KB &bull; JPG, PNG, GIF</p>
+                                    <div x-show="preview" x-cloak class="p-3 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex justify-center overflow-hidden">
+                                        <img :src="preview" class="max-h-20 max-w-full object-contain rounded-xl shadow-sm border border-white" alt="Signature preview">
                                     </div>
                                 </div>
                             </div>

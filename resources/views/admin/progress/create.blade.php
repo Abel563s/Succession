@@ -158,7 +158,7 @@
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="p-8 flex flex-col md:flex-row md:items-center justify-between gap-8">
                     <div class="flex-1">
-                        <x-hr-signature-field name="signature" label="Manager Validation Signature *" :required="true" />
+                        <x-hr-signature-field name="signature" label="Manager Signature *" :required="true" />
                     </div>
                     <div class="flex-shrink-0 space-y-3">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Status Tracking</label>

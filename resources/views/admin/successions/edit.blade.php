@@ -98,7 +98,7 @@
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-[#00ADC5] text-white flex items-center justify-center text-xs">3</span>
-                        Performance & Business Justification
+                        Performance & Justification
                     </h2>
                 </div>
                 <div class="p-8 space-y-6">
@@ -141,7 +141,7 @@
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-[#00ADC5] text-white flex items-center justify-center text-xs">4</span>
-                        Final Authorization
+                        Signature
                     </h2>
                 </div>
                 <div class="p-8">

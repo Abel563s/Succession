@@ -1,5 +1,5 @@
 <aside id="sidebar"
-    class="w-64 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] bg-gradient-to-b from-[#00515F] via-[#00424D] to-[#00333B] border-r border-white/5 flex flex-col z-40 relative shadow-[0_10px_40px_rgba(0,0,0,0.1)] group/sidebar overflow-visible">
+    class="w-64 shrink-0 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] bg-gradient-to-b from-[#00515F] via-[#00424D] to-[#00333B] border-r border-white/5 flex flex-col z-40 relative shadow-[0_10px_40px_rgba(0,0,0,0.1)] group/sidebar overflow-visible">
 
     <div
         class="h-16 flex items-center justify-between px-6 border-b border-white/5 shrink-0 overflow-hidden relative z-10 transition-all duration-500">

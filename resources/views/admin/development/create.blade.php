@@ -94,8 +94,9 @@
                     <div x-data="{ preview: null }" class="space-y-4">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Signature *</label>
                         <input type="file" name="candidate_signature" accept="image/*" required
-                               @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
+                               @change="const file = $event.target.files[0]; if (file) { if(file.size > 512000) { alert('File too large. Maximum size is 500KB.'); $event.target.value = ''; preview = null; } else { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); } }"
                                class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-slate-900 file:text-white cursor-pointer">
+                        <p class="text-[10px] text-slate-400 font-medium">Max 500KB &bull; JPG, PNG, GIF</p>
                         <div x-show="preview" x-cloak class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex justify-center">
                             <img :src="preview" class="max-h-28 rounded-xl" alt="Candidate signature preview">
                         </div>

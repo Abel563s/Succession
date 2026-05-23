@@ -104,18 +104,18 @@
                 <div class="space-y-6">
                     <h3 class="text-sm font-black text-slate-900 uppercase tracking-widest flex items-center gap-3">
                         <span class="w-1.5 h-6 bg-[#00ADC5] rounded-full"></span>
-                        Authorization Endorsement
+                        Manager's Signature
                     </h3>
                     
                     <div x-data="{ preview: '{{ $development->signature_path ? \App\Support\StorageUrl::public($development->signature_path) : null }}' }">
                         <div class="relative group">
                             <input type="file" name="signature" accept="image/*"
-                                   @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
+                                   @change="const file = $event.target.files[0]; if (file) { if(file.size > 512000) { alert('File too large. Maximum size is 500KB.'); $event.target.value = ''; preview = null; } else { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); } }"
                                    class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
                             <div class="w-full px-6 py-8 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center gap-3 text-slate-400 group-hover:border-[#00ADC5] group-hover:text-[#00ADC5] transition-all">
                                 <i data-lucide="upload-cloud" class="w-8 h-8"></i>
                                 <span class="text-[10px] font-black uppercase tracking-[0.2em]">Update Verification Signature (Optional)</span>
-                                <p class="text-[9px] font-bold opacity-50 uppercase">Supports PNG, JPG (Max 2MB)</p>
+                                <p class="text-[9px] font-bold opacity-50 uppercase">Supports PNG, JPG (Max 500KB)</p>
                             </div>
                         </div>
                         

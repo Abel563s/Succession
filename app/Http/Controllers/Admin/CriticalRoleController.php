@@ -67,7 +67,7 @@ class CriticalRoleController extends AdminHrModuleController
             'successor_3_name' => 'nullable|string|max:255',
             'successor_3_readiness' => 'nullable|string',
             'mitigation_plan' => 'required|string',
-            'signature' => 'required|image|max:2048',
+            'signature' => 'required|image|max:500',
         ]);
 
         $this->assertNoDuplicateHrSubmission(CriticalRole::class, [
@@ -120,7 +120,7 @@ class CriticalRoleController extends AdminHrModuleController
             'successor_3_name' => 'nullable|string|max:255',
             'successor_3_readiness' => 'nullable|string',
             'mitigation_plan' => 'required|string',
-            'signature' => 'nullable|image|max:2048',
+            'signature' => 'nullable|image|max:500',
         ]);
 
         if ($request->hasFile('signature')) {

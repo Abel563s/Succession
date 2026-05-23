@@ -97,7 +97,7 @@
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-[#00ADC5] text-white flex items-center justify-center text-xs">3</span>
-                        Performance & Business Justification
+                        Performance & Justification
                     </h2>
                 </div>
                 <div class="p-8 space-y-6">
@@ -129,7 +129,7 @@
                             <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Latest IPG Score</label>
                             <input type="text" name="ipg_score" required value="{{ old('ipg_score') }}"
                                    class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] focus:ring-4 focus:ring-[#00ADC5]/10 outline-none transition-all"
-                                   placeholder="e.g. 4.5">
+                                   placeholder="e.g. Out of 100%">
                         </div>
                     </div>
                 </div>

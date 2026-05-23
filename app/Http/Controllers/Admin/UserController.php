@@ -71,7 +71,7 @@ class UserController extends Controller
             'is_active' => ['nullable', 'boolean'],
             'department_id' => ['nullable', 'exists:departments,id'],
             'phone' => ['nullable', 'string', 'max:20'],
-            'signature' => ['nullable', 'image', 'max:2048'],
+            'signature' => ['nullable', 'image', 'max:500'],
         ]);
 
         if ($validated['role'] === 'manager' && ! $request->hasFile('signature')) {
@@ -112,7 +112,7 @@ class UserController extends Controller
             'department_id' => ['nullable', 'exists:departments,id'],
             'phone' => ['nullable', 'string', 'max:20'],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
-            'signature' => ['nullable', 'image', 'max:2048'],
+            'signature' => ['nullable', 'image', 'max:500'],
             'remove_signature' => ['nullable', 'boolean'],
         ]);
 

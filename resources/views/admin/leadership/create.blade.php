@@ -123,11 +123,11 @@
                         <div class="p-8 space-y-6">
                             <div class="space-y-2">
                                 <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Leadership Observations</label>
-                                <textarea name="comments" rows="12" class="w-full px-6 py-4 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Detailed feedback on growth, performance, and recommendations..."></textarea>
+                                <textarea name="comments" required rows="12" class="w-full px-6 py-4 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Detailed feedback on growth, performance, and recommendations..."></textarea>
                             </div>
 
                             <div class="space-y-4 pt-6 border-t border-slate-100">
-                                <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Manager Validation</label>
+                                <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Manager Signature</label>
                                 <div x-data="{ preview: null }" class="space-y-4">
                                     <input type="file" name="signature" accept="image/*"
                                            @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"

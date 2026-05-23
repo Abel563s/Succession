@@ -140,7 +140,7 @@
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="shield-check" class="w-5 h-5 text-[#00ADC5]"></i>
-                        Authorization
+                        Signature
                     </h2>
                 </div>
                 <div class="p-8 space-y-6">

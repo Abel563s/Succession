@@ -30,7 +30,7 @@
                         class="absolute inset-0 bg-white/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300">
                     </div>
                     <i data-lucide="plus" class="w-4 h-4 relative z-10 transition-transform group-hover/btn:rotate-90"></i>
-                    <span class="relative z-10">Add New Evaluation</span>
+                    <span class="relative z-10">Add Critical Role</span>
                 </a>
             </div>
         </div>

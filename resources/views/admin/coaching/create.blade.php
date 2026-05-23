@@ -68,7 +68,7 @@
                     @for($i = 1; $i <= 3; $i++)
                         <div class="space-y-2">
                             <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Topic Area {{ $i }}</label>
-                            <textarea name="topic_{{ $i }}" rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Define focus topic..."></textarea>
+                            <textarea name="topic_{{ $i }}" required rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Define focus topic..."></textarea>
                         </div>
                     @endfor
                 </div>
@@ -85,23 +85,23 @@
                 <div class="p-8 space-y-6">
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Desired Outcome</label>
-                        <textarea name="desired_outcome" rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="desired_outcome" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Benefits of Change</label>
-                        <textarea name="benefits" rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="benefits" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Action Plan</label>
-                        <textarea name="action_plan" rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="action_plan" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Support from the Supervisor</label>
-                        <textarea name="supervisor_support" rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="supervisor_support" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Timeline</label>
-                        <textarea name="timeline" rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="timeline" required rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="check-square" class="w-5 h-5 text-[#00515F]"></i>
-                        Endorsements
+                        Signatures
                     </h2>
                 </div>
                 <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">

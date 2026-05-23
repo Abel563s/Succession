@@ -113,7 +113,7 @@
                 <!-- Signature & Verification -->
                 <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm p-8 flex items-center justify-between">
                     <div>
-                        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Manager Validation</p>
+                        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4">Manager Signature</p>
                         <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 inline-block relative z-10">
                             @if($leadership->signature_path)
                                 <img src="{{ \App\Support\StorageUrl::public($leadership->signature_path) }}" class="h-20 object-contain" alt="Signature">

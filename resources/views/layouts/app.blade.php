@@ -119,19 +119,19 @@
     </style>
 </head>
 
-<body class="bg-[#f7fbfc] text-slate-900 antialiased h-full font-inter">
+<body class="bg-[#f7fbfc] text-slate-900 antialiased h-full font-inter overflow-hidden">
 
-    <div class="flex h-screen overflow-hidden">
+    <div class="flex h-full w-full overflow-hidden">
         <!-- Sidebar -->
         @include('partials.sidebar')
 
         <!-- Main Content Area -->
-        <div class="flex-1 flex flex-col min-w-0">
+        <div class="flex-1 flex flex-col min-w-0 min-h-0 overflow-hidden">
             <!-- Header -->
             @include('partials.header')
 
             <!-- Content -->
-            <main class="flex-1 overflow-y-auto bg-slate-50 px-8 py-8 custom-scrollbar">
+            <main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-slate-50 px-8 py-8 custom-scrollbar">
                 <!-- Session Alerts -->
                 @if(session('success'))
                     <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000)"

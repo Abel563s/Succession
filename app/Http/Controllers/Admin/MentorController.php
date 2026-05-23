@@ -63,7 +63,7 @@ class MentorController extends AdminHrModuleController
             'mentor_name' => 'required|string|max:255',
             'mentee_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
-            'signature' => 'required|image|max:2048',
+            'signature' => 'required|image|max:500',
         ]);
 
         $data = $request->all();
@@ -99,7 +99,7 @@ class MentorController extends AdminHrModuleController
             'mentor_name' => 'required|string|max:255',
             'mentee_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
-            'signature' => 'nullable|image|max:2048',
+            'signature' => 'nullable|image|max:500',
         ]);
 
         $data = $request->all();

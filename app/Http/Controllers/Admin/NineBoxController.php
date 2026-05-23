@@ -68,7 +68,7 @@ class NineBoxController extends AdminHrModuleController
             'general_comments' => 'required|string',
             'strengths' => 'required|string',
             'development_needs' => 'required|string',
-            'signature' => 'required|image|max:2048',
+            'signature' => 'required|image|max:500',
         ]);
 
         if ($request->hasFile('signature')) {
@@ -108,7 +108,7 @@ class NineBoxController extends AdminHrModuleController
             'general_comments' => 'required|string',
             'strengths' => 'required|string',
             'development_needs' => 'required|string',
-            'signature' => 'nullable|image|max:2048',
+            'signature' => 'nullable|image|max:500',
         ]);
 
         if ($request->hasFile('signature')) {

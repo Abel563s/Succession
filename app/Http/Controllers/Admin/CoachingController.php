@@ -54,8 +54,8 @@ class CoachingController extends AdminHrModuleController
             'supervisor' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'coaching_date' => 'required|date',
-            'manager_sig' => 'required|image|max:2048',
-            'candidate_sig' => 'required|image|max:2048',
+            'manager_sig' => 'required|image|max:500',
+            'candidate_sig' => 'required|image|max:500',
         ]);
 
         $data = $request->all();
@@ -109,8 +109,8 @@ class CoachingController extends AdminHrModuleController
             'supervisor' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'coaching_date' => 'required|date',
-            'manager_sig' => 'nullable|image|max:2048',
-            'candidate_sig' => 'nullable|image|max:2048',
+            'manager_sig' => 'nullable|image|max:500',
+            'candidate_sig' => 'nullable|image|max:500',
         ]);
 
         $data = $request->all();

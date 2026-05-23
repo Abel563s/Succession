@@ -82,12 +82,12 @@
                             <div class="space-y-3">
                                 <label
                                     class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Current
-                                    Validation Key</label>
+                                    Password</label>
                                 <div class="relative">
                                     <i data-lucide="lock"
                                         class="w-4 h-4 absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
                                     <input type="password" name="current_password" required
-                                        placeholder="Verify current passphrase"
+                                        placeholder="Verify current password"
                                         class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#00ADC5] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                             <!-- New Password -->
                             <div class="space-y-3">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">New
-                                    Security Protocol</label>
+                                    Password</label>
                                 <div class="relative">
                                     <i data-lucide="shield-check"
                                         class="w-4 h-4 absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
@@ -116,7 +116,7 @@
                                     <i data-lucide="refresh-cw"
                                         class="w-4 h-4 absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
                                     <input type="password" name="password_confirmation" required
-                                        placeholder="Verify new protocol"
+                                        placeholder="Verify new password"
                                         class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#00ADC5] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                                 </div>
                                 <span class="relative flex items-center justify-center gap-3">
                                     <i data-lucide="save" class="w-4 h-4"></i>
-                                    Synchronize Security Keys
+                                    Update Password
                                 </span>
                             </button>
                         </div>

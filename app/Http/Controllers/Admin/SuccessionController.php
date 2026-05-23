@@ -71,7 +71,7 @@ class SuccessionController extends AdminHrModuleController
             'okr_achievement' => 'required|string',
             'readiness_level' => 'required|string',
             'ipg_score' => 'required|string',
-            'signature' => 'required|image|max:2048',
+            'signature' => 'required|image|max:500',
         ]);
 
         if ($request->hasFile('signature')) {
@@ -114,7 +114,7 @@ class SuccessionController extends AdminHrModuleController
             'okr_achievement' => 'required|string',
             'readiness_level' => 'required|string',
             'ipg_score' => 'required|string',
-            'signature' => 'nullable|image|max:2048',
+            'signature' => 'nullable|image|max:500',
         ]);
 
         if ($request->hasFile('signature')) {

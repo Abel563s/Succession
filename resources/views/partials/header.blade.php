@@ -6,7 +6,7 @@
                 @if(isset($header))
                     {{ $header }}
                 @else
-                    @yield('page-title', 'Project Management')
+                    @yield('page-title', 'Succession Management')
                 @endif
             </h1>
             <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1.5 font-inter">

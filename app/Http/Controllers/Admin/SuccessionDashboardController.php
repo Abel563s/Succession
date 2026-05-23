@@ -59,7 +59,7 @@ class SuccessionDashboardController extends AdminHrModuleController
         $request->validate([
             'title' => 'required|string|max:255',
             'department' => 'nullable|string|max:255',
-            'signature' => 'nullable|image|max:2048',
+            'signature' => 'nullable|image|max:500',
             'position.*' => 'required|string|max:255',
         ]);
 
@@ -126,7 +126,7 @@ class SuccessionDashboardController extends AdminHrModuleController
         $request->validate([
             'title' => 'required|string|max:255',
             'department' => 'nullable|string|max:255',
-            'signature' => 'nullable|image|max:2048',
+            'signature' => 'nullable|image|max:500',
             'position.*' => 'required|string|max:255',
         ]);
 

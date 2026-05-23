@@ -15,7 +15,7 @@
         x-cloak>
 
         <div class="px-6 py-4 border-b border-[#f3f4f6] flex items-center justify-between bg-slate-50/30">
-            <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest">Protocol Alerts</h3>
+            <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest">Alerts</h3>
             @if(Auth::user()->unreadNotifications->count() > 0)
                 <form action="{{ route('notifications.mark-read', 'all') }}" method="POST">
                     @csrf
@@ -59,7 +59,7 @@
                         class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-300">
                         <i data-lucide="bell-off" class="w-6 h-6"></i>
                     </div>
-                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Signal Zero: No Active Alerts
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">No Active Alerts
                     </p>
                 </div>
             @endforelse

@@ -50,7 +50,7 @@ class TrainingController extends AdminHrModuleController
             'candidate_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'line_manager' => 'required|string|max:255',
-            'manager_sig' => 'nullable|image|max:2048',
+            'manager_sig' => 'nullable|image|max:500',
             'use_saved_signature' => 'nullable|boolean',
         ]);
 
@@ -111,7 +111,7 @@ class TrainingController extends AdminHrModuleController
             'candidate_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'line_manager' => 'required|string|max:255',
-            'manager_sig' => 'nullable|image|max:2048',
+            'manager_sig' => 'nullable|image|max:500',
             'use_saved_signature' => 'nullable|boolean',
         ]);
 

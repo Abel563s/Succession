@@ -68,7 +68,7 @@ class LeadershipController extends AdminHrModuleController
             'candidate_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'line_manager' => 'required|string|max:255',
-            'signature' => 'nullable|image|max:2048',
+            'signature' => 'nullable|image|max:500',
             'ratings' => 'required|array',
             'ratings.*' => 'required|integer|min:1|max:5',
         ]);
@@ -141,7 +141,7 @@ class LeadershipController extends AdminHrModuleController
             'candidate_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'line_manager' => 'required|string|max:255',
-            'signature' => 'nullable|image|max:2048',
+            'signature' => 'nullable|image|max:500',
             'ratings' => 'required|array',
             'ratings.*' => 'required|integer|min:1|max:5',
         ]);
