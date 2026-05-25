@@ -14,8 +14,8 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
 
-        // Redirect admins and DCEO to their specific dashboard
-        if ($user->isAdmin() || $user->isDceo()) {
+        // Redirect admin, DCEO, manager, and user to their specific dashboard
+        if ($user->isAdmin() || $user->isDceo() || $user->isManager() || $user->isUser()) {
             return redirect()->route('admin.dashboard');
         }
 
