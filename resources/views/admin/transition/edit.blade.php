@@ -136,26 +136,54 @@
 
             <!-- 3. Signature Endorsement Section -->
             <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm p-8 max-w-2xl mx-auto">
-                <div class="space-y-6">
-                    <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-3">
-                        <span class="w-1.5 h-6 bg-[#00515F] rounded-full"></span>
-                        Authorization Endorsement
-                    </h3>
-                    
-                    <div x-data="{ preview: '{{ $transition->signature_path ? \App\Support\StorageUrl::public($transition->signature_path) : '' }}' }">
-                        <div class="relative group">
-                            <input type="file" name="signature" accept="image/*"
-                                   @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
-                                   class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
-                            <div class="w-full px-6 py-8 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center gap-3 text-slate-400 group-hover:border-[#00515F] group-hover:text-[#00515F] transition-all">
-                                <i data-lucide="upload-cloud" class="w-8 h-8"></i>
-                                <span class="text-[10px] font-black uppercase tracking-[0.2em]">Upload New Verification Signature</span>
-                                <p class="text-[9px] font-bold opacity-50 uppercase">Leave blank to keep existing signature</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Manager Signature -->
+                    <div class="space-y-6">
+                        <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-3">
+                            <span class="w-1.5 h-6 bg-[#00515F] rounded-full"></span>
+                            Manager's Signature
+                        </h3>
+                        
+                        <div x-data="{ preview: '{{ $transition->signature_path ? \App\Support\StorageUrl::public($transition->signature_path) : '' }}' }">
+                            <div class="relative group">
+                                <input type="file" name="signature" accept="image/*"
+                                       @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
+                                       class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
+                                <div class="w-full px-6 py-8 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center gap-3 text-slate-400 group-hover:border-[#00515F] group-hover:text-[#00515F] transition-all">
+                                    <i data-lucide="upload-cloud" class="w-8 h-8"></i>
+                                    <span class="text-[10px] font-black uppercase tracking-[0.2em]">Upload New Manager Signature</span>
+                                    <p class="text-[9px] font-bold opacity-50 uppercase">Leave blank to keep existing signature</p>
+                                </div>
+                            </div>
+                            
+                            <div x-show="preview" x-transition class="mt-6 p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">
+                                <img :src="preview" class="max-h-32 rounded-xl shadow-lg border border-white" alt="Manager Signature Preview">
                             </div>
                         </div>
+                    </div>
+
+                    <!-- DCEO Signature -->
+                    <div class="space-y-6">
+                        <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-3">
+                            <span class="w-1.5 h-6 bg-[#00ADC5] rounded-full"></span>
+                            DCEO Signature
+                        </h3>
                         
-                        <div x-show="preview" x-transition class="mt-6 p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">
-                            <img :src="preview" class="max-h-32 rounded-xl shadow-lg border border-white" alt="Signature Preview">
+                        <div x-data="{ preview: '{{ $transition->dceo_signature_path ? \App\Support\StorageUrl::public($transition->dceo_signature_path) : '' }}' }">
+                            <div class="relative group">
+                                <input type="file" name="dceo_signature" accept="image/*"
+                                       @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
+                                       class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
+                                <div class="w-full px-6 py-8 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center gap-3 text-slate-400 group-hover:border-[#00ADC5] group-hover:text-[#00ADC5] transition-all">
+                                    <i data-lucide="upload-cloud" class="w-8 h-8"></i>
+                                    <span class="text-[10px] font-black uppercase tracking-[0.2em]">Upload New DCEO Signature</span>
+                                    <p class="text-[9px] font-bold opacity-50 uppercase">Leave blank to keep existing signature</p>
+                                </div>
+                            </div>
+                            
+                            <div x-show="preview" x-transition class="mt-6 p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">
+                                <img :src="preview" class="max-h-32 rounded-xl shadow-lg border border-white" alt="DCEO Signature Preview">
+                            </div>
                         </div>
                     </div>
                 </div>

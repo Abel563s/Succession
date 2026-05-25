@@ -212,3 +212,4 @@ class DevelopmentController extends AdminHrModuleController
         return redirect()->route('admin.development.index')->with('success', 'Individual Development Plan deleted successfully.');
     }
 }
+

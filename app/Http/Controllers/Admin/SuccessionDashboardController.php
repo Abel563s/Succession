@@ -15,14 +15,7 @@ class SuccessionDashboardController extends AdminHrModuleController
     {
         $query = SuccessionDashboard::query();
 
-        if (! auth()->user()->isAdmin()) {
-            $deptName = auth()->user()->department ? auth()->user()->department->name : null;
-            if ($deptName) {
-                $query->where('department', $deptName);
-            } else {
-                $query->whereRaw('1 = 0');
-            }
-        }
+        $this->scopeHrRecordsForUser($query);
 
         if ($request->filled('search')) {
             $query->where('title', 'like', '%'.$request->search.'%');
@@ -34,7 +27,7 @@ class SuccessionDashboardController extends AdminHrModuleController
 
         $records = $query->latest()->paginate(10);
 
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -45,7 +38,7 @@ class SuccessionDashboardController extends AdminHrModuleController
 
     public function create()
     {
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -72,6 +65,7 @@ class SuccessionDashboardController extends AdminHrModuleController
                 $data['signature_path'] = $request->file('signature')->store('signatures/sd', 'public');
             }
 
+            $data['created_by'] = auth()->id();
             $dashboard = SuccessionDashboard::create($data);
 
             if ($request->has('position')) {
@@ -112,7 +106,7 @@ class SuccessionDashboardController extends AdminHrModuleController
     public function edit(SuccessionDashboard $sd)
     {
         $sd->load('items');
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -183,3 +177,4 @@ class SuccessionDashboardController extends AdminHrModuleController
         return redirect()->route('admin.sd.index')->with('success', 'Succession Dashboard deleted successfully.');
     }
 }
+

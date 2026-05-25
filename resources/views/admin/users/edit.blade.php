@@ -10,10 +10,10 @@
                     </a>
                     <div>
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
-                            Modify <span class="font-black text-slate-900">Identity</span>
+                            Edit <span class="font-black text-slate-900">User</span>
                         </h2>
                         <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">
-                            {{ $user->name }} - Protocol Adjustment</p>
+                            {{ $user->name }} - Information Adjustment</p>
                     </div>
                 </div>
             </div>
@@ -39,14 +39,13 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="space-y-2">
                                 <label
-                                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Protocol
-                                    Identifier</label>
+                                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">User Name</label>
                                 <input type="text" name="name" value="{{ old('name', $user->name) }}" required
                                     class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm">
                                 <x-input-error :messages="$errors->get('name')" />
                             </div>
                             <div class="space-y-2">
-                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Sync
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">
                                     Email Address</label>
                                 <input type="email" name="email" value="{{ old('email', $user->email) }}" required
                                     class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm">
@@ -57,7 +56,7 @@
                         <!-- System Configuration -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div class="space-y-2">
-                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Department Association</label>
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Department</label>
                                 <select name="department_id"
                                     class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm appearance-none cursor-pointer">
                                     <option value="">No Department Assigned</option>
@@ -69,7 +68,7 @@
                             </div>
 
                             <div class="space-y-2">
-                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Phone Protocol</label>
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Phone Number</label>
                                 <input type="text" name="phone" value="{{ old('phone', $user->phone) }}" placeholder="+1 (555) 000-0000"
                                     class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm">
                                 <x-input-error :messages="$errors->get('phone')" />
@@ -85,8 +84,8 @@
                                 <select name="role" required x-model="role"
                                     class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm appearance-none cursor-pointer">
                                     <option value="user" {{ $user->role === 'user' ? 'selected' : '' }}>User</option>
-                                    <option value="manager" {{ $user->role === 'manager' ? 'selected' : '' }}>Manager
-                                    </option>
+                                    <option value="manager" {{ $user->role === 'manager' ? 'selected' : '' }}>Manager</option>
+                                    <option value="dceo" {{ $user->role === 'dceo' ? 'selected' : '' }}>DCEO</option>
                                     <option value="admin" {{ $user->role === 'admin' ? 'selected' : '' }}>Admin</option>
                                 </select>
                                 <x-input-error :messages="$errors->get('role')" />
@@ -94,7 +93,7 @@
 
                             <div class="space-y-2">
                                 <label
-                                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Protocol
+                                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Activity
                                     Status</label>
                                 <select name="is_active" required
                                     class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold {{ $user->is_active ? 'text-emerald-600' : 'text-rose-600' }} focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm appearance-none cursor-pointer">
@@ -107,7 +106,7 @@
                             </div>
                         </div>
 
-                        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 space-y-4" x-show="role === 'manager'" x-cloak>
+                        <div class="p-8 bg-slate-50 rounded-3xl border border-slate-100 space-y-4" x-show="role === 'manager' || role === 'dceo'" x-cloak>
                             <h4 class="text-xs font-black text-slate-900 uppercase tracking-widest">Manager Signature Image</h4>
                             <p class="text-[10px] text-slate-400 font-medium">Update the manager&apos;s signature image. This file is used when they sign HR forms.</p>
                             @if($user->signature_path)
@@ -140,7 +139,7 @@
                                 <div>
                                     <h4
                                         class="text-xs font-black text-amber-900 uppercase tracking-widest leading-none">
-                                        Access Key Override</h4>
+                                        Change Current Password</h4>
                                     <p class="text-[10px] font-bold text-amber-600 mt-1 uppercase tracking-tight">Leave
                                         blank to maintain current secure credentials.</p>
                                 </div>
@@ -168,11 +167,11 @@
                         <div class="flex items-center gap-4 pt-4 border-t border-slate-50">
                             <button type="submit"
                                 class="px-10 py-4 bg-[#00ADC5] rounded-2xl text-xs font-black text-white uppercase tracking-[0.2em] shadow-xl shadow-cyan-200 hover:bg-[#007A8A] transition-all active:scale-95">
-                                Re-Synchronize Profile
+                                Update Profile
                             </button>
                             <a href="{{ route('admin.users.index') }}"
                                 class="px-8 py-4 bg-white border-2 border-slate-100 rounded-2xl text-xs font-black text-slate-400 uppercase tracking-[0.2em] hover:bg-slate-50 transition-all text-center">
-                                Abort
+                                Cancel
                             </a>
                         </div>
                     </form>
@@ -182,7 +181,7 @@
             <div
                 class="lg:col-span-4 bg-slate-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl">
                 <div class="relative z-10">
-                    <h3 class="text-xs font-black text-white/30 uppercase tracking-[0.2em] mb-10">Security Protocol</h3>
+                    <h3 class="text-xs font-black text-white/30 uppercase tracking-[0.2em] mb-10">Security Manual</h3>
                     <div class="space-y-8">
                         <div class="flex gap-4">
                             <div
@@ -191,9 +190,8 @@
                             </div>
                             <div>
                                 <h4 class="text-xs font-black uppercase tracking-widest mb-1 italic text-cyan-400">
-                                    Identify Node</h4>
-                                <p class="text-xs text-white/60 font-medium leading-relaxed">Updating the primary sync
-                                    email will require the user to sign in with the new credentials immediately.</p>
+                                    System Identification</h4>
+                                <p class="text-xs text-white/60 font-medium leading-relaxed">Updating the primary email will require the user to log in again using the new email credentials.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
@@ -202,10 +200,8 @@
                                 <i data-lucide="key" class="w-5 h-5 text-[#00ADC5]"></i>
                             </div>
                             <div>
-                                <h4 class="text-xs font-black uppercase tracking-widest mb-1 italic text-[#00ADC5]">Key
-                                    Override</h4>
-                                <p class="text-xs text-white/60 font-medium leading-relaxed">Authority-level key resets
-                                    bypass current session verification but trigger a core sync security alert.</p>
+                                <h4 class="text-xs font-black uppercase tracking-widest mb-1 italic text-[#00ADC5]">System Access Override</h4>
+                                <p class="text-xs text-white/60 font-medium leading-relaxed">Resetting a password key bypasses active session checks and sends a core security notification.</p>
                             </div>
                         </div>
                     </div>

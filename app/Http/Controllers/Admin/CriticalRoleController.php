@@ -147,3 +147,4 @@ class CriticalRoleController extends AdminHrModuleController
         return redirect()->route('admin.critical-roles.index')->with('success', 'Critical Role record deleted successfully.');
     }
 }
+

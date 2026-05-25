@@ -28,8 +28,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
-        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
-
         Route::get('/projects/closeout', [\App\Http\Controllers\ProjectController::class, 'closeoutIndex'])->name('projects.closeout.index');
         Route::get('/projects/{project}/closeout', [\App\Http\Controllers\ProjectController::class, 'closeoutShow'])->name('projects.closeout.show');
         Route::get('/projects/analytics', [\App\Http\Controllers\ProjectController::class, 'analytics'])->name('projects.analytics');
@@ -43,20 +41,21 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('progress-updates', \App\Http\Controllers\Admin\ProjectProgressUpdateController::class);
         Route::resource('weekly-updates', \App\Http\Controllers\Admin\ProjectWeeklyUpdateController::class);
 
-        Route::get('/settings', [SystemSettingController::class, 'index'])->name('settings.index');
-        Route::post('/settings', [SystemSettingController::class, 'updateSetting'])->name('settings.update');
-        Route::patch('/settings/profile', [SystemSettingController::class, 'updateProfile'])->name('settings.profile.update');
-        Route::put('/settings/password', [SystemSettingController::class, 'updatePassword'])->name('settings.password.update');
+
 
         Route::resource('users', AdminUserController::class);
         Route::get('/roles', [AdminUserController::class, 'index'])->name('roles.index');
-        Route::get('reports', [\App\Http\Controllers\Admin\ReportController::class, 'index'])->name('reports.index');
 
         Route::post('/approve/{module}/{id}', [\App\Http\Controllers\Admin\ApprovalController::class, 'approve'])->name('approval.approve');
         Route::post('/reject/{module}/{id}', [\App\Http\Controllers\Admin\ApprovalController::class, 'reject'])->name('approval.reject');
     });
 
-    Route::middleware(['role:admin|manager|user'])->prefix('admin')->name('admin.')->group(function () {
+    Route::middleware(['role:admin|dceo'])->prefix('admin')->name('admin.')->group(function () {
+        Route::get('reports', [\App\Http\Controllers\Admin\ReportController::class, 'index'])->name('reports.index');
+    });
+
+    Route::middleware(['role:admin|manager|user|dceo'])->prefix('admin')->name('admin.')->group(function () {
+        Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
         Route::resource('critical-roles', \App\Http\Controllers\Admin\CriticalRoleController::class);
         Route::resource('successions', \App\Http\Controllers\Admin\SuccessionController::class);
         Route::resource('nine-box', \App\Http\Controllers\Admin\NineBoxController::class);
@@ -68,6 +67,11 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('sd', \App\Http\Controllers\Admin\SuccessionDashboardController::class);
         Route::resource('leadership', \App\Http\Controllers\Admin\LeadershipController::class);
         Route::resource('transition', \App\Http\Controllers\Admin\TransitionController::class);
+
+        Route::get('/settings', [SystemSettingController::class, 'index'])->name('settings.index');
+        Route::post('/settings', [SystemSettingController::class, 'updateSetting'])->name('settings.update');
+        Route::patch('/settings/profile', [SystemSettingController::class, 'updateProfile'])->name('settings.profile.update');
+        Route::put('/settings/password', [SystemSettingController::class, 'updatePassword'])->name('settings.password.update');
     });
 
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');

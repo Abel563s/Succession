@@ -13,14 +13,7 @@ class NineBoxController extends AdminHrModuleController
     {
         $query = NineBoxGrid::query();
 
-        if (! auth()->user()->isAdmin()) {
-            $deptName = auth()->user()->department ? auth()->user()->department->name : null;
-            if ($deptName) {
-                $query->where('department', $deptName);
-            } else {
-                $query->whereRaw('1 = 0');
-            }
-        }
+        $this->scopeHrRecordsForUser($query);
 
         if ($request->filled('search')) {
             $search = $request->search;
@@ -37,7 +30,7 @@ class NineBoxController extends AdminHrModuleController
 
         $records = $query->latest()->paginate(10)->withQueryString();
 
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -48,7 +41,7 @@ class NineBoxController extends AdminHrModuleController
 
     public function create()
     {
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -76,6 +69,7 @@ class NineBoxController extends AdminHrModuleController
             $validated['signature_path'] = $path;
         }
 
+        $validated['created_by'] = auth()->id();
         $nineBox = NineBoxGrid::create($validated);
 
         return redirect()->route('admin.nine-box.show', $nineBox)->with('success', '9-Box Grid evaluation submitted successfully. Pending approval.');
@@ -88,7 +82,7 @@ class NineBoxController extends AdminHrModuleController
 
     public function edit(NineBoxGrid $nineBox)
     {
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -134,3 +128,4 @@ class NineBoxController extends AdminHrModuleController
         return redirect()->route('admin.nine-box.index')->with('success', '9-Box Grid record deleted successfully.');
     }
 }
+

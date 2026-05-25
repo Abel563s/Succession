@@ -149,3 +149,4 @@ class TrainingController extends AdminHrModuleController
         return redirect()->route('admin.training.index')->with('success', 'Training Program record deleted successfully.');
     }
 }
+

@@ -67,7 +67,7 @@
                                             <div class="w-8 h-8 rounded-lg bg-[#f0fbfd] text-[#00515F] flex items-center justify-center font-black text-sm border border-[#00515F]/10">
                                                 {{ $i }}
                                             </div>
-                                            <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest font-inter">Goal {{ $i }} Architecture</h3>
+                                            <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest font-inter">Goal {{ $i }}</h3>
                                         </div>
                                         <div class="flex flex-col items-end">
                                             <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Score</span>

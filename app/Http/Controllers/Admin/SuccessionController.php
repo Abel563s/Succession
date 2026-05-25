@@ -13,14 +13,7 @@ class SuccessionController extends AdminHrModuleController
     {
         $query = Succession::query();
 
-        if (! auth()->user()->isAdmin()) {
-            $deptName = auth()->user()->department ? auth()->user()->department->name : null;
-            if ($deptName) {
-                $query->where('department', $deptName);
-            } else {
-                $query->whereRaw('1 = 0');
-            }
-        }
+        $this->scopeHrRecordsForUser($query);
 
         if ($request->filled('search')) {
             $query->where('candidate_name', 'like', '%'.$request->search.'%')
@@ -37,7 +30,7 @@ class SuccessionController extends AdminHrModuleController
 
         $records = $query->latest()->paginate(10);
 
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -48,7 +41,7 @@ class SuccessionController extends AdminHrModuleController
 
     public function create()
     {
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -79,6 +72,7 @@ class SuccessionController extends AdminHrModuleController
             $validated['signature_path'] = $path;
         }
 
+        $validated['created_by'] = auth()->id();
         $succession = Succession::create($validated);
 
         return redirect()->route('admin.successions.show', $succession)->with('success', 'Succession planning nomination submitted successfully. Pending approval.');
@@ -91,7 +85,7 @@ class SuccessionController extends AdminHrModuleController
 
     public function edit(Succession $succession)
     {
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();

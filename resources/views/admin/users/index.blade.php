@@ -128,6 +128,7 @@
                             <option value="admin" {{ request('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                             <option value="manager" {{ request('role') == 'manager' ? 'selected' : '' }}>Manager</option>
                             <option value="user" {{ request('role') == 'user' ? 'selected' : '' }}>User</option>
+                            <option value="dceo" {{ request('role') == 'dceo' ? 'selected' : '' }}>DCEO</option>
                         </select>
                     </div>
 
@@ -215,6 +216,7 @@
                                          $roleStyles = match ($user->role) {
                                              'admin' => 'bg-emerald-50 text-emerald-600 border-emerald-100',
                                              'manager' => 'bg-indigo-50 text-indigo-600 border-indigo-100',
+                                             'dceo' => 'bg-amber-50 text-amber-600 border-amber-100',
                                              default => 'bg-slate-50 text-slate-500 border-slate-100'
                                          };
                                      @endphp
@@ -304,8 +306,8 @@
                                 <i data-lucide="user-plus" class="w-7 h-7"></i>
                             </div>
                             <div>
-                                <h3 class="text-2xl font-black text-slate-900 tracking-tight font-outfit">Initialize Identity</h3>
-                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-0.5">Deployment protocol configuration</p>
+                                <h3 class="text-2xl font-black text-slate-900 tracking-tight font-outfit">Create New User</h3>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-0.5">Configure user detail</p>
                             </div>
                         </div>
                         <button @click="createModal = false"
@@ -326,7 +328,7 @@
 
                             <!-- Email -->
                             <div class="space-y-3">
-                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Digital Email</label>
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Email</label>
                                 <input type="email" name="email" required placeholder="name@company.com"
                                     class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none">
                             </div>
@@ -352,28 +354,29 @@
 
                             <!-- Role -->
                             <div class="space-y-3">
-                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Access Tier</label>
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Access Level</label>
                                 <select name="role" required x-model="role"
                                     class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none appearance-none cursor-pointer">
-                                    <option value="user">Standard User (Level 1)</option>
-                                    <option value="manager">Lead Manager (Level 2)</option>
-                                    <option value="admin">Root Admin (Level 3)</option>
+                                    <option value="user">Candidate</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="dceo">DCEO</option>
+                                    <option value="admin">Admin</option>
                                 </select>
                             </div>
 
-                            <div class="space-y-4 md:col-span-2 p-6 bg-white border-2 border-[#00515F]/10 rounded-2xl" x-show="role === 'manager'" x-cloak>
+                            <div class="space-y-4 md:col-span-2 p-6 bg-white border-2 border-[#00515F]/10 rounded-2xl" x-show="role === 'manager' || role === 'dceo'" x-cloak>
                                 <div class="flex items-center gap-3">
                                     <div class="w-10 h-10 rounded-xl bg-[#f0fbfd] text-[#00515F] flex items-center justify-center">
                                         <i data-lucide="pen-line" class="w-5 h-5"></i>
                                     </div>
                                     <div>
-                                        <label class="text-[10px] font-black text-slate-900 uppercase tracking-[0.2em]">Manager Signature Image <span class="text-rose-500">*</span></label>
-                                        <p class="text-[10px] text-slate-400 font-medium mt-0.5">Upload this manager&apos;s signature now. It is saved on their profile and reused on HR forms.</p>
+                                        <label class="text-[10px] font-black text-slate-900 uppercase tracking-[0.2em]">Signature Image <span class="text-rose-500">*</span></label>
+                                        <p class="text-[10px] text-slate-400 font-medium mt-0.5">Upload the signature now. It is saved on the profile and reused on HR forms.</p>
                                     </div>
                                 </div>
                                 <div x-data="{ preview: null, sizeError: null }" class="space-y-3">
                                     <input type="file" name="signature" accept="image/*"
-                                           x-bind:required="role === 'manager'"
+                                           x-bind:required="role === 'manager' || role === 'dceo'"
                                            @change="
                                                sizeError = null;
                                                const file = $event.target.files[0];
@@ -402,11 +405,11 @@
 
                             <!-- Status -->
                             <div class="space-y-3">
-                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Initialization State</label>
+                                <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Manage State</label>
                                 <select name="is_active" required
                                     class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none appearance-none cursor-pointer">
-                                    <option value="1">Active / Operational</option>
-                                    <option value="0">Locked / Static</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
                                 </select>
                             </div>
 
@@ -428,11 +431,11 @@
                         <div class="pt-10 flex flex-col sm:flex-row gap-4">
                             <button type="button" @click="createModal = false"
                                 class="flex-1 py-4 bg-slate-100 text-slate-500 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-slate-200 transition-all">
-                                Abort
+                                Cancel
                             </button>
                             <button type="submit"
                                 class="flex-[2] py-4 bg-slate-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-[#00515F] transition-all active:scale-95">
-                                Deploy Identity Node
+                                Create
                             </button>
                         </div>
                     </form>

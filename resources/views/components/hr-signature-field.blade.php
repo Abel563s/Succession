@@ -4,12 +4,12 @@
     'required' => false,
     'allowSaved' => true,
     'savedUrl' => null,
-    'savedLabel' => 'Use my saved manager signature',
+    'savedLabel' => 'Use my saved signature',
 ])
 
 @php
     $savedUrl = $savedUrl ?? (auth()->user()?->signature_path ? \App\Support\StorageUrl::public(auth()->user()->signature_path) : null);
-    $canUseSaved = $allowSaved && auth()->user()?->isManager() && $savedUrl;
+    $canUseSaved = $allowSaved && (auth()->user()?->isManager() || auth()->user()?->isDceo()) && $savedUrl;
 @endphp
 
 <div {{ $attributes->merge(['class' => 'space-y-4']) }} x-data="{ mode: '{{ $canUseSaved ? 'saved' : 'upload' }}', preview: null, sizeError: null }">

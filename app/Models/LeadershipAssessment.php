@@ -18,6 +18,7 @@ class LeadershipAssessment extends Model
         'overall_score',
         'status',
         'approval_status',
+        'created_by',
     ];
 
     public function ratings()

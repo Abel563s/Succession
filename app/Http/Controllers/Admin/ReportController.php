@@ -17,7 +17,7 @@ class ReportController extends AdminHrModuleController
     {
         $department = $request->filled('department') ? $request->string('department')->toString() : null;
 
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $department = $this->hrDepartmentName(auth()->user());
         }
 
@@ -27,7 +27,7 @@ class ReportController extends AdminHrModuleController
             $request->input('date_to'),
         );
 
-        $departments = auth()->user()->isAdmin()
+        $departments = (auth()->user()->isAdmin() || auth()->user()->isDceo())
             ? $this->reports->availableDepartments()
             : Department::query()->where('id', auth()->user()->department_id)->pluck('name');
 

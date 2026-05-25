@@ -16,6 +16,7 @@ class SystemSettingController extends Controller
 
     public function updateSetting(Request $request)
     {
+        abort_if(!auth()->user()->isAdmin(), 403, 'Unauthorized. Only admins can modify system settings.');
         $request->validate([
             'settings' => 'required|array',
         ]);

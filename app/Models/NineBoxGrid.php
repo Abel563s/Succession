@@ -20,5 +20,6 @@ class NineBoxGrid extends Model
         'development_needs',
         'signature_path',
         'approval_status',
+        'created_by',
     ];
 }

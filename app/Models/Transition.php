@@ -13,6 +13,7 @@ class Transition extends Model
         'department',
         'status',
         'signature_path',
+        'dceo_signature_path',
         'user_id',
         'approval_status',
     ];

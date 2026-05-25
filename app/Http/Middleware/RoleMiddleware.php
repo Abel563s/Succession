@@ -27,6 +27,14 @@ class RoleMiddleware
             return $next($request);
         }
 
+        // DCEO gets access to routes that explicitly list 'dceo'
+        if ($user->isDceo()) {
+            $roles = explode('|', $role);
+            if (in_array('dceo', $roles)) {
+                return $next($request);
+            }
+        }
+
         // Check if user has the required role
         if (!$this->hasRole($user, $role)) {
             \Log::warning("Role Access Denied: User ID {$user->id}, Role: '{$user->role}', Required: '{$role}', Path: " . $request->path());
@@ -64,6 +72,10 @@ class RoleMiddleware
                     break;
                 case 'manager_user':
                     if ($user->isManager() || $user->isUser())
+                        return true;
+                    break;
+                case 'dceo':
+                    if ($user->isDceo())
                         return true;
                     break;
                 case 'department_attendance_user':

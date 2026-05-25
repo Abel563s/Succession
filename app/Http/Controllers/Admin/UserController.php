@@ -66,7 +66,7 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')],
-            'role' => ['required', Rule::in(['admin', 'manager', 'user'])],
+            'role' => ['required', Rule::in(['admin', 'manager', 'user', 'dceo'])],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'is_active' => ['nullable', 'boolean'],
             'department_id' => ['nullable', 'exists:departments,id'],
@@ -74,9 +74,9 @@ class UserController extends Controller
             'signature' => ['nullable', 'image', 'max:500'],
         ]);
 
-        if ($validated['role'] === 'manager' && ! $request->hasFile('signature')) {
+        if (in_array($validated['role'], ['manager', 'dceo']) && ! $request->hasFile('signature')) {
             return back()
-                ->withErrors(['signature' => 'Please upload the manager signature image.'])
+                ->withErrors(['signature' => 'Please upload the signature image.'])
                 ->withInput();
         }
 
@@ -95,7 +95,7 @@ class UserController extends Controller
             'phone' => $validated['phone'] ?? null,
         ]);
 
-        if ($validated['role'] === 'manager' && $request->hasFile('signature')) {
+        if (in_array($validated['role'], ['manager', 'dceo']) && $request->hasFile('signature')) {
             $this->signatures->storeUserSignature($user, $request->file('signature'));
         }
 
@@ -107,7 +107,7 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'role' => ['required', Rule::in(['admin', 'manager', 'user'])],
+            'role' => ['required', Rule::in(['admin', 'manager', 'user', 'dceo'])],
             'is_active' => ['required', 'boolean'],
             'department_id' => ['nullable', 'exists:departments,id'],
             'phone' => ['nullable', 'string', 'max:20'],
@@ -132,9 +132,9 @@ class UserController extends Controller
         if ($request->boolean('remove_signature')) {
             $this->signatures->deletePublicFile($user->signature_path);
             $user->signature_path = null;
-        } elseif ($request->hasFile('signature') && $validated['role'] === 'manager') {
+        } elseif ($request->hasFile('signature') && in_array($validated['role'], ['manager', 'dceo'])) {
             $this->signatures->storeUserSignature($user, $request->file('signature'));
-        } elseif ($validated['role'] !== 'manager' && $user->signature_path) {
+        } elseif (! in_array($validated['role'], ['manager', 'dceo']) && $user->signature_path) {
             $this->signatures->deletePublicFile($user->signature_path);
             $user->signature_path = null;
         }

@@ -13,14 +13,7 @@ class MentorController extends AdminHrModuleController
     {
         $query = Mentor::query();
 
-        if (! auth()->user()->isAdmin()) {
-            $deptName = auth()->user()->department ? auth()->user()->department->name : null;
-            if ($deptName) {
-                $query->where('department', $deptName);
-            } else {
-                $query->whereRaw('1 = 0');
-            }
-        }
+        $this->scopeHrRecordsForUser($query);
 
         if ($request->filled('search')) {
             $search = $request->search;
@@ -37,7 +30,7 @@ class MentorController extends AdminHrModuleController
 
         $records = $query->latest()->paginate(10)->withQueryString();
 
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -48,7 +41,7 @@ class MentorController extends AdminHrModuleController
 
     public function create()
     {
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -72,6 +65,7 @@ class MentorController extends AdminHrModuleController
             $data['signature_path'] = $request->file('signature')->store('signatures/mentor', 'public');
         }
 
+        $data['created_by'] = auth()->id();
         $mentor = Mentor::create($data);
 
         return redirect()->route('admin.mentor.show', $mentor)->with('success', 'Mentor Feedback record created successfully. Pending approval.');
@@ -84,7 +78,7 @@ class MentorController extends AdminHrModuleController
 
     public function edit(Mentor $mentor)
     {
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -126,3 +120,4 @@ class MentorController extends AdminHrModuleController
         return redirect()->route('admin.mentor.index')->with('success', 'Mentor Feedback record deleted successfully.');
     }
 }
+

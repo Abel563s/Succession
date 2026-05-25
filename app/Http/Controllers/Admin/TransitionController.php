@@ -10,14 +10,7 @@ class TransitionController extends AdminHrModuleController
     {
         $query = \App\Models\Transition::with(['items', 'creator']);
 
-        if (! auth()->user()->isAdmin()) {
-            $deptName = auth()->user()->department ? auth()->user()->department->name : null;
-            if ($deptName) {
-                $query->where('department', $deptName);
-            } else {
-                $query->whereRaw('1 = 0');
-            }
-        }
+        $this->scopeHrRecordsForUser($query);
 
         if ($request->filled('search')) {
             $search = $request->search;
@@ -66,7 +59,7 @@ class TransitionController extends AdminHrModuleController
 
         $records = $query->latest()->paginate(10)->withQueryString();
 
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = \App\Models\Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = \App\Models\Department::orderBy('name')->get();
@@ -77,7 +70,7 @@ class TransitionController extends AdminHrModuleController
 
     public function create()
     {
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = \App\Models\Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = \App\Models\Department::orderBy('name')->get();
@@ -97,6 +90,7 @@ class TransitionController extends AdminHrModuleController
             'items.*.current_holder' => 'required|string|max:255',
             'items.*.successor' => 'required|string|max:255',
             'items.*.transition_date' => 'required|date',
+            'dceo_signature' => 'nullable|image|max:500',
         ]);
 
         try {
@@ -104,12 +98,18 @@ class TransitionController extends AdminHrModuleController
 
             $path = $request->file('signature')->store('signatures/transitions', 'public');
 
-            $transition = \App\Models\Transition::create([
+            $data = [
                 'department' => $validated['department'],
                 'status' => $validated['status'],
                 'signature_path' => $path,
-                'user_id' => auth()->id(),
-            ]);
+            ];
+            
+            if ($request->hasFile('dceo_signature')) {
+                $data['dceo_signature_path'] = $request->file('dceo_signature')->store('signatures/transitions', 'public');
+            }
+
+            $data['user_id'] = auth()->id();
+            $transition = \App\Models\Transition::create($data);
 
             foreach ($validated['items'] as $index => $itemData) {
                 $transition->items()->create([
@@ -141,7 +141,7 @@ class TransitionController extends AdminHrModuleController
     public function edit(\App\Models\Transition $transition)
     {
         $transition->load('items');
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = \App\Models\Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = \App\Models\Department::orderBy('name')->get();
@@ -161,6 +161,7 @@ class TransitionController extends AdminHrModuleController
             'items.*.current_holder' => 'required|string|max:255',
             'items.*.successor' => 'required|string|max:255',
             'items.*.transition_date' => 'required|date',
+            'dceo_signature' => 'nullable|image|max:500',
         ]);
 
         try {
@@ -176,6 +177,13 @@ class TransitionController extends AdminHrModuleController
                     \Illuminate\Support\Facades\Storage::disk('public')->delete($transition->signature_path);
                 }
                 $updateData['signature_path'] = $request->file('signature')->store('signatures/transitions', 'public');
+            }
+
+            if ($request->hasFile('dceo_signature')) {
+                if ($transition->dceo_signature_path) {
+                    \Illuminate\Support\Facades\Storage::disk('public')->delete($transition->dceo_signature_path);
+                }
+                $updateData['dceo_signature_path'] = $request->file('dceo_signature')->store('signatures/transitions', 'public');
             }
 
             $transition->update($updateData);
@@ -207,8 +215,12 @@ class TransitionController extends AdminHrModuleController
         if ($transition->signature_path) {
             \Illuminate\Support\Facades\Storage::disk('public')->delete($transition->signature_path);
         }
+        if ($transition->dceo_signature_path) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($transition->dceo_signature_path);
+        }
         $transition->delete();
 
         return redirect()->route('admin.transition.index')->with('success', 'Transition plan deleted successfully.');
     }
 }
+

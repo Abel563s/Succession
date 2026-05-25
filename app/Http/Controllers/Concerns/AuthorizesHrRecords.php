@@ -17,8 +17,14 @@ trait AuthorizesHrRecords
     {
         $user = auth()->user();
 
-        if ($user->isAdmin()) {
+        if ($user->isAdmin() || $user->isDceo()) {
             return $query;
+        }
+
+        if ($user->isManager()) {
+            $model = $query->getModel();
+            $foreignKey = in_array('user_id', $model->getFillable()) ? 'user_id' : 'created_by';
+            return $query->where($foreignKey, $user->id);
         }
 
         $departmentName = $this->hrDepartmentName($user);
@@ -34,8 +40,13 @@ trait AuthorizesHrRecords
     {
         $user = auth()->user();
 
-        if ($user->isAdmin()) {
+        if ($user->isAdmin() || $user->isDceo()) {
             return true;
+        }
+
+        if ($user->isManager()) {
+            $foreignKey = in_array('user_id', $record->getFillable()) ? 'user_id' : 'created_by';
+            return (int) ($record->{$foreignKey} ?? 0) === (int) $user->id;
         }
 
         $departmentName = $this->hrDepartmentName($user);

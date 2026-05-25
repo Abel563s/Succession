@@ -23,5 +23,6 @@ class Succession extends Model
         'ipg_score',
         'signature_path',
         'approval_status',
+        'created_by',
     ];
 }

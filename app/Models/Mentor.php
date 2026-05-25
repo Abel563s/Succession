@@ -19,5 +19,6 @@ class Mentor extends Model
         'recommendations',
         'signature_path',
         'approval_status',
+        'created_by',
     ];
 }

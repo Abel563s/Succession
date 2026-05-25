@@ -67,7 +67,7 @@
                                 <div class="w-8 h-8 rounded-lg bg-[#f0fbfd] text-[#00515F] flex items-center justify-center font-black text-sm">
                                     {{ $i }}
                                 </div>
-                                <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest">Goal {{ $i }} Architecture</h3>
+                                <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest">Goal {{ $i }}</h3>
                             </div>
                             
                             <div class="grid grid-cols-1 md:grid-cols-12 gap-6">

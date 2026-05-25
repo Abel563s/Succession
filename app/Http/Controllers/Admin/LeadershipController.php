@@ -15,14 +15,7 @@ class LeadershipController extends AdminHrModuleController
     {
         $query = LeadershipAssessment::query();
 
-        if (! auth()->user()->isAdmin()) {
-            $deptName = auth()->user()->department ? auth()->user()->department->name : null;
-            if ($deptName) {
-                $query->where('department', $deptName);
-            } else {
-                $query->whereRaw('1 = 0');
-            }
-        }
+        $this->scopeHrRecordsForUser($query);
 
         if ($request->filled('search')) {
             $query->where('candidate_name', 'like', '%'.$request->search.'%');
@@ -34,7 +27,7 @@ class LeadershipController extends AdminHrModuleController
 
         $records = $query->latest()->paginate(10);
 
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -45,7 +38,7 @@ class LeadershipController extends AdminHrModuleController
 
     public function create()
     {
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -87,6 +80,7 @@ class LeadershipController extends AdminHrModuleController
             $sumRatings = array_sum($request->ratings);
             $data['overall_score'] = $totalRatings > 0 ? $sumRatings / $totalRatings : 0;
 
+            $data['created_by'] = auth()->id();
             $assessment = LeadershipAssessment::create($data);
 
             foreach ($request->ratings as $name => $rating) {
@@ -118,7 +112,7 @@ class LeadershipController extends AdminHrModuleController
     public function edit(LeadershipAssessment $leadership)
     {
         $leadership->load('ratings');
-        if (! auth()->user()->isAdmin()) {
+        if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
             $departments = Department::orderBy('name')->get();
@@ -195,3 +189,4 @@ class LeadershipController extends AdminHrModuleController
         return redirect()->route('admin.leadership.index')->with('success', 'Leadership Assessment deleted successfully.');
     }
 }
+

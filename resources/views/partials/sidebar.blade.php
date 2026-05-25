@@ -29,7 +29,7 @@
             $menu = [];
 
             if (Auth::check()) {
-                if (Auth::user()->isAdmin()) {
+                if (Auth::user()->isAdmin() || Auth::user()->isManager() || Auth::user()->isUser() || Auth::user()->isDceo()) {
                     // 1. Dashboard
                     $menu[] = [
                         'label' => 'Dashboard',
@@ -70,8 +70,11 @@
                         ['label' => 'SD', 'icon' => 'layers', 'route' => 'admin.sd.index', 'active' => request()->routeIs('admin.sd.*')],
                         ['label' => 'Leadership', 'icon' => 'award', 'route' => 'admin.leadership.index', 'active' => request()->routeIs('admin.leadership.*')],
                         ['label' => 'Transition', 'icon' => 'refresh-ccw', 'route' => 'admin.transition.index', 'active' => request()->routeIs('admin.transition.*')],
-                        ['label' => 'Report', 'icon' => 'file-bar-chart', 'route' => 'admin.reports.index', 'active' => request()->routeIs('admin.reports.*')],
                     ];
+
+                    if (Auth::user()->isAdmin() || Auth::user()->isDceo()) {
+                        $modules[] = ['label' => 'Report', 'icon' => 'file-bar-chart', 'route' => 'admin.reports.index', 'active' => request()->routeIs('admin.reports.*')];
+                    }
 
                     foreach ($modules as $m) {
                         $menu[] = [
@@ -83,26 +86,14 @@
                     }
 
                     // 3. Access Control
-                    $menu[] = [
-                        'label' => 'Access Control',
-                        'icon' => 'users-2',
-                        'route' => 'admin.roles.index',
-                        'active' => request()->routeIs('admin.roles.*') || request()->routeIs('admin.users.*')
-                    ];
-                } else {
-                    $menu[] = [
-                        'label' => 'Dashboard',
-                        'icon' => 'layout-dashboard',
-                        'route' => 'dashboard',
-                        'active' => request()->routeIs('dashboard')
-                    ];
-
-                    $menu[] = [
-                        'label' => 'Critical Role',
-                        'icon' => 'shield-check',
-                        'route' => 'admin.critical-roles.index',
-                        'active' => request()->routeIs('admin.critical-roles.*')
-                    ];
+                    if (Auth::user()->isAdmin()) {
+                        $menu[] = [
+                            'label' => 'Access Control',
+                            'icon' => 'users-2',
+                            'route' => 'admin.roles.index',
+                            'active' => request()->routeIs('admin.roles.*') || request()->routeIs('admin.users.*')
+                        ];
+                    }
                 }
             }
         @endphp
@@ -133,6 +124,7 @@
         @endforeach
     </nav>
 
+    @if(Auth::check())
     <div class="p-6 border-t border-white/5 shrink-0 relative z-10 transition-all duration-500">
         <a href="{{ route('admin.settings.index') }}"
             class="flex items-center gap-3.5 p-3 w-full rounded-xl transition-all duration-300 ease-out text-white/70 hover:text-white hover:bg-white/10 group/settings {{ request()->routeIs('admin.settings.index') ? 'bg-[#00ADC5] text-white shadow-lg shadow-[#00ADC5]/20' : 'bg-[#00515F]' }}"
@@ -142,6 +134,7 @@
             <span class="sidebar-text font-medium text-sm whitespace-nowrap tracking-tight transition-all duration-300">Settings</span>
         </a>
     </div>
+    @endif
 </aside>
 
 <style>

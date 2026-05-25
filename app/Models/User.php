@@ -70,13 +70,17 @@ class User extends Authenticatable
         return $this->role === 'manager';
     }
 
-    /**
-     * Check if user is regular user.
-     */
     public function isUser(): bool
     {
         return $this->role === 'user';
     }
+
+    public function isDceo(): bool
+    {
+        return $this->role === 'dceo';
+    }
+
+
 
     /**
      * Check if user is Material Tracker.

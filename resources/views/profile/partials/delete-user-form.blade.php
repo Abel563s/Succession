@@ -38,7 +38,7 @@
             <div class="mt-10 flex justify-end gap-4">
                 <button type="button" x-on:click="$dispatch('close')"
                     class="px-8 py-4 bg-white border-2 border-slate-100 rounded-2xl text-xs font-black text-slate-400 uppercase tracking-widest hover:bg-slate-50 transition-all">
-                    {{ __('Abort') }}
+                    {{ __('Cancel') }}
                 </button>
 
                 <button type="submit"

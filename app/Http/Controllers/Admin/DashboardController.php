@@ -12,7 +12,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $isAdmin = auth()->user()->isAdmin();
+        $isAdmin = auth()->user()->isAdmin() || auth()->user()->isDceo();
         $deptName = (!$isAdmin && auth()->user()->department) ? auth()->user()->department->name : null;
 
         // Helper closures for query scope

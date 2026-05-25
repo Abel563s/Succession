@@ -149,3 +149,4 @@ class CoachingController extends AdminHrModuleController
         return redirect()->route('admin.coaching.index')->with('success', 'Employee Coaching record deleted successfully.');
     }
 }
+
