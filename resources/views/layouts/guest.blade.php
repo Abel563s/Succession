@@ -101,8 +101,8 @@
         style="animation-delay: -10s; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);">
     </div>
 
-    <div class="relative z-10 min-h-screen flex flex-col justify-center py-6 px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto w-full max-w-md text-center">
+    <div class="relative z-10 min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md text-center px-4 sm:px-0">
             <!-- Logo Section -->
             <div class="mb-4">
                 <img src="{{ asset('images/logo.png') }}" alt="WorkForce Logo"
@@ -117,7 +117,7 @@
             </p>
         </div>
 
-        <div class="mt-8 mx-auto w-full max-w-[440px]">
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4 sm:px-0">
             <div class="glass-morphism py-8 px-8 rounded-[2rem] sm:rounded-[2.5rem] border border-white/50 relative overflow-hidden">
                 {{ $slot }}
             </div>
