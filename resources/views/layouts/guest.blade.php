@@ -94,37 +94,37 @@
     </style>
 </head>
 
-<body class="min-h-full text-slate-900 antialiased animated-bg overflow-y-auto relative">
+<body class="min-h-screen text-slate-900 antialiased animated-bg overflow-y-auto lg:overflow-hidden relative flex flex-col justify-center">
     <!-- Abstract Background Elements -->
     <div class="blob top-[-10%] left-[-10%]"></div>
     <div class="blob bottom-[-10%] right-[-10%]"
         style="animation-delay: -10s; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);">
     </div>
 
-    <div class="relative z-10 min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div class="relative z-10 w-full flex flex-col justify-center py-4 md:py-6 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md text-center px-4 sm:px-0">
             <!-- Logo Section -->
-            <div class="mb-4">
+            <div class="mb-1.5">
                 <img src="{{ asset('images/logo.png') }}" alt="WorkForce Logo"
-                    class="w-20 h-20 mx-auto object-contain transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
+                    class="w-12 h-12 md:w-14 md:h-14 mx-auto object-contain transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
             </div>
 
-            <h1 class="text-3xl font-black text-slate-900 font-outfit tracking-tight mb-2 uppercase">
+            <h1 class="text-xl md:text-2xl font-black text-slate-900 font-outfit tracking-tight mb-1 uppercase">
                 SUCCESSION <span class="text-[#00ADC5]">PLANNING</span>
             </h1>
-            <p class="text-slate-500 font-medium tracking-wide uppercase text-[9px] tracking-[0.2em]">
+            <p class="text-slate-400 font-medium tracking-wide uppercase text-[8px] tracking-[0.25em]">
                 Enterprise Digital Presence Gateway
             </p>
         </div>
 
-        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4 sm:px-0">
-            <div class="glass-morphism py-8 px-8 rounded-[2rem] sm:rounded-[2.5rem] border border-white/50 relative overflow-hidden">
+        <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-md px-4 sm:px-0">
+            <div class="glass-morphism py-5 px-6 md:py-6 md:px-8 rounded-2xl md:rounded-[2rem] border border-white/50 relative overflow-hidden">
                 {{ $slot }}
             </div>
 
             <!-- Footer Links -->
-            <div class="mt-6 text-center space-y-4">
-                <p class="text-slate-400 text-[10px] font-semibold tracking-widest uppercase">
+            <div class="mt-4 text-center space-y-2">
+                <p class="text-slate-400 text-[9px] font-semibold tracking-widest uppercase">
                     © 2026 • Advanced Analytics Division
                 </p>
                 <div class="flex items-center justify-center gap-6">
