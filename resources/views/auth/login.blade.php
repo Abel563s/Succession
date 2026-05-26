@@ -12,7 +12,7 @@
             <!-- Email Address -->
             <div class="space-y-2">
                 <label for="email" class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">
-                    Corporate Email
+                    Email
                 </label>
                 <div class="relative group">
                     <div
@@ -34,7 +34,7 @@
             <div class="space-y-2">
                 <div class="flex items-center justify-between ml-1">
                     <label for="password" class="text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                        Access Key
+                        Password
                     </label>
                     @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}"
@@ -81,7 +81,7 @@
                     </div>
                     <div class="flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-lg border border-slate-100">
                         <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                        <span class="text-[8px] font-black text-slate-400 uppercase tracking-widest">Secure Node</span>
+                        <span class="text-[8px] font-black text-slate-400 uppercase tracking-widest">Secure</span>
                     </div>
                 </div>
 

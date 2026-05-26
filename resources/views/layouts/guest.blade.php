@@ -110,7 +110,7 @@
             </div>
 
             <h1 class="text-3xl font-black text-slate-900 font-outfit tracking-tight mb-2 uppercase">
-                PROJECT <span class="text-[#00ADC5]">HUB</span>
+                SUCCESSION <span class="text-[#00ADC5]">PLANNING</span>
             </h1>
             <p class="text-slate-500 font-medium tracking-wide uppercase text-[9px] tracking-[0.2em]">
                 Enterprise Digital Presence Gateway

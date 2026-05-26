@@ -36,7 +36,7 @@
                     </div>
                     <h3 class="text-xl font-black text-slate-900 tracking-tight font-outfit">Identity Key</h3>
                     <p class="text-xs font-medium text-slate-500 mt-2 leading-relaxed">
-                        Update your authentication passphrase regularly to maintain system integrity and node security.
+                        Update your authentication password regularly to maintain system integrity and node security.
                     </p>
 
                     <div class="mt-8 pt-6 border-t border-slate-50 space-y-3">
@@ -111,7 +111,7 @@
                             <div class="space-y-3">
                                 <label
                                     class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Confirm
-                                    Initialization</label>
+                                    Password</label>
                                 <div class="relative">
                                     <i data-lucide="refresh-cw"
                                         class="w-4 h-4 absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
@@ -147,10 +147,9 @@
                             <i data-lucide="info" class="w-5 h-5"></i>
                         </div>
                         <div>
-                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Protocol Note</p>
+                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Security Note</p>
                             <p class="text-xs font-bold text-white/80 mt-1 leading-relaxed">
-                                Updating your identity key will terminate all other active session nodes immediately.
-                                Verify your connection stability before proceeding.
+                                Updating your identity key will sign you out of all other active sessions immediately. Before continuing, make sure your connection is stable to avoid interruptions.
                             </p>
                         </div>
                     </div>
