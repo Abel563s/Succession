@@ -181,6 +181,17 @@
                                 </div>
                             </div>
                             
+                            @if(!$transition->dceo_signature_path && auth()->user()->isDceo() && auth()->user()->signature_path)
+                                <!-- Existing Signature Preview -->
+                                <div class="mt-4 p-4 border border-emerald-200 bg-emerald-50 rounded-xl flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i>
+                                        <span class="text-sm font-bold text-emerald-700">Your profile signature will be used. You can upload a new one to override it.</span>
+                                    </div>
+                                    <img src="{{ \App\Support\StorageUrl::public(auth()->user()->signature_path) }}" class="h-10 rounded border border-emerald-200" alt="Existing Signature">
+                                </div>
+                            @endif
+                            
                             <div x-show="preview" x-transition class="mt-6 p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">
                                 <img :src="preview" class="max-h-32 rounded-xl shadow-lg border border-white" alt="DCEO Signature Preview">
                             </div>

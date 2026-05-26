@@ -61,12 +61,14 @@ class NineBoxController extends AdminHrModuleController
             'general_comments' => 'required|string',
             'strengths' => 'required|string',
             'development_needs' => 'required|string',
-            'signature' => 'required|image|max:500',
+            'signature' => auth()->user()->signature_path ? 'nullable|image|max:500' : 'required|image|max:500',
         ]);
 
         if ($request->hasFile('signature')) {
             $path = $request->file('signature')->store('signatures/nine-box', 'public');
             $validated['signature_path'] = $path;
+        } elseif (auth()->user()->signature_path) {
+            $validated['signature_path'] = auth()->user()->signature_path;
         }
 
         $validated['created_by'] = auth()->id();

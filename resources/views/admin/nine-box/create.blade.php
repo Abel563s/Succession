@@ -147,9 +147,27 @@
                     <div class="space-y-4">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Verification Signature</label>
                         <div x-data="{ preview: null }" class="space-y-4">
-                            <input type="file" name="signature" accept="image/*" required
-                                   @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
-                                   class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#f0fbfd] file:text-[#00ADC5] cursor-pointer">
+                            <label class="block">
+                                <span class="sr-only">Choose signature image</span>
+                                <input type="file" name="signature" accept="image/*" {{ auth()->user()->signature_path ? '' : 'required' }}
+                                       @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
+                                       class="block w-full text-sm text-slate-500
+                                              file:mr-4 file:py-2 file:px-4
+                                              file:rounded-xl file:border-0
+                                              file:text-sm file:font-black
+                                              file:bg-[#f0fbfd] file:text-[#00ADC5]
+                                              hover:file:bg-[#e6f7fa] transition-all cursor-pointer">
+                            </label>
+                            @if(auth()->user()->signature_path)
+                                <!-- Existing Signature Preview -->
+                                <div class="mt-4 p-4 border border-emerald-200 bg-emerald-50 rounded-xl flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i>
+                                        <span class="text-sm font-bold text-emerald-700">Signature on file will be used. You can upload a new one to override it.</span>
+                                    </div>
+                                    <img src="{{ \App\Support\StorageUrl::public(auth()->user()->signature_path) }}" class="h-10 rounded border border-emerald-200" alt="Existing Signature">
+                                </div>
+                            @endif
                             <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center">
                                 <img :src="preview" class="max-h-24 rounded-lg shadow-sm" alt="Preview">
                             </div>

@@ -116,6 +116,16 @@ class UserController extends Controller
             'remove_signature' => ['nullable', 'boolean'],
         ]);
 
+        $isRemovingSignature = $request->boolean('remove_signature');
+        $hasUpload = $request->hasFile('signature');
+        $hasExisting = $user->signature_path && !$isRemovingSignature;
+
+        if (in_array($validated['role'], ['manager', 'dceo']) && !$hasUpload && !$hasExisting) {
+            return back()
+                ->withErrors(['signature' => 'Please upload the signature image.'])
+                ->withInput();
+        }
+
         $user->fill([
             'name' => $validated['name'],
             'email' => $validated['email'],

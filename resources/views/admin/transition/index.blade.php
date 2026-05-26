@@ -181,13 +181,15 @@
                                             <i data-lucide="eye" class="w-4 h-4"></i>
                                         </a>
 
-                                        @if(auth()->user()->isAdmin())
+                                        @if(auth()->user()->isAdmin() || (auth()->user()->isManager() && ($record->approval_status === 'Pending' || (($record->created_by ?? $record->user_id) == auth()->id() && (!$record->approval_status || $record->approval_status === 'Pending')))))
                                             <a href="{{ route('admin.transition.edit', $record) }}" 
                                                class="w-8 h-8 rounded-lg bg-slate-100 text-slate-400 hover:text-amber-500 hover:bg-amber-50 flex items-center justify-center transition-all"
                                                title="Edit Plan">
                                                 <i data-lucide="edit-3" class="w-4 h-4"></i>
                                             </a>
+                                        @endif
 
+                                        @if(auth()->user()->isAdmin())
                                             <form action="{{ route('admin.transition.destroy', $record) }}" method="POST" 
                                                   onsubmit="return confirm('Are you sure you want to delete this transition plan?');" class="inline">
                                                 @csrf

@@ -67,7 +67,7 @@ class CriticalRoleController extends AdminHrModuleController
             'successor_3_name' => 'nullable|string|max:255',
             'successor_3_readiness' => 'nullable|string',
             'mitigation_plan' => 'required|string',
-            'signature' => 'required|image|max:500',
+            'signature' => auth()->user()->signature_path ? 'nullable|image|max:500' : 'required|image|max:500',
         ]);
 
         $this->assertNoDuplicateHrSubmission(CriticalRole::class, [
@@ -77,6 +77,8 @@ class CriticalRoleController extends AdminHrModuleController
 
         if ($request->hasFile('signature')) {
             $validated['signature_path'] = $request->file('signature')->store('signatures', 'public');
+        } elseif (auth()->user()->signature_path) {
+            $validated['signature_path'] = auth()->user()->signature_path;
         }
 
         $validated['created_by'] = auth()->id();

@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="space-y-6 font-inter" x-data="{ 
         pwModal: false, 
-        createModal: false,
+        createModal: {{ $errors->any() && !session('pw_error') ? 'true' : 'false' }},
         selectedUser: {id: null, name: '', email: '', role: '', is_active: 1},
         openPwModal(user) {
             this.selectedUser = user;
@@ -316,8 +316,21 @@
                         </button>
                     </div>
 
-                    <form action="{{ route('admin.users.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8" x-data="{ role: 'user' }">
+                    <form action="{{ route('admin.users.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8" x-data="{ role: '{{ old('role', 'user') }}' }">
                         @csrf
+                        @if($errors->any() && !session('pw_error'))
+                            <div class="p-4 bg-rose-50 border-l-4 border-rose-500 rounded-r-xl">
+                                <div class="flex items-center gap-2 text-rose-700 font-bold text-sm mb-2">
+                                    <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                                    Please correct the following errors:
+                                </div>
+                                <ul class="list-disc pl-5 text-xs text-rose-600 space-y-1">
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-left">
                             <!-- Name -->
                             <div class="space-y-3">

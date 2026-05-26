@@ -1,19 +1,70 @@
-$Path = "resources\views\admin"
-$Search1 = '@change="const file = \$event.target.files\[0\]; if \(file\) \{ const reader = new FileReader\(\); reader.onload = \(e\) => preview = e.target.result; reader.readAsDataURL\(file\); \}"'
-$Replace1 = '@change="const file = $event.target.files[0]; if (file) { if (file.size > 512000) { alert(''File too large. Maximum size is 500KB.''); $event.target.value = ''''; preview = null; } else { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); } } else { preview = null; }"'
+$baseDir = "C:\Users\Dark\Videos\success-app"
 
-$Search2 = '@change="const file = \$event.target.files\[0\]; if \(file\) \{ const reader = new FileReader\(\); reader.onload = \(e\) => preview = e.target.result; reader.readAsDataURL\(file\); \} else \{ preview = null; \}"'
-$Replace2 = '@change="const file = $event.target.files[0]; if (file) { if (file.size > 512000) { alert(''File too large. Maximum size is 500KB.''); $event.target.value = ''''; preview = null; } else { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); } } else { preview = null; }"'
+# 1. Update index.blade.php
+$indexFiles = Get-ChildItem -Path "$baseDir\resources\views\admin" -Filter "index.blade.php" -Recurse
+foreach ($file in $indexFiles) {
+    $content = [System.IO.File]::ReadAllText($file.FullName)
+    if ($content.Contains("@if(auth()->user()->isAdmin())")) {
+        $content = $content.Replace("@if(auth()->user()->isAdmin())", "@if(auth()->user()->isAdmin() || (auth()->user()->isManager() && `$record->approval_status === 'pending'))")
+        [System.IO.File]::WriteAllText($file.FullName, $content, [System.Text.Encoding]::UTF8)
+        Write-Host "Updated index view: $($file.FullName)"
+    }
+}
 
-Get-ChildItem -Path $Path -Filter "*.blade.php" -Recurse | ForEach-Object {
-    $content = Get-Content $_.FullName -Raw
-    $newContent = $content -replace $Search1, $Replace1
-    $newContent = $newContent -replace $Search2, $Replace2
-    $newContent = $newContent -replace '\(Max 2MB\)', '(Max 500KB)'
-    $newContent = $newContent -replace 'Max 2MB', 'Max 500KB'
+# 2. Update create.blade.php
+$createFiles = Get-ChildItem -Path "$baseDir\resources\views\admin" -Filter "create.blade.php" -Recurse
+foreach ($file in $createFiles) {
+    $content = [System.IO.File]::ReadAllText($file.FullName)
+    if ($content -match 'name="signature"' -and $content -match 'required') {
+        $content = $content -replace '<input type="file" name="signature"([^>]*)required', '<input type="file" name="signature"$1{{ auth()->user()->signature_path ? '''' : ''required'' }}'
+        
+        if ($content -notmatch '<!-- Existing Signature Preview -->') {
+            $existingSignatureHtml = "
+                            @if(auth()->user()->signature_path)
+                                <!-- Existing Signature Preview -->
+                                <div class=`"mt-4 p-4 border border-emerald-200 bg-emerald-50 rounded-xl flex items-center justify-between`">
+                                    <div class=`"flex items-center gap-3`">
+                                        <i data-lucide=`"check-circle`" class=`"w-5 h-5 text-emerald-500`"></i>
+                                        <span class=`"text-sm font-bold text-emerald-700`">Signature on file will be used. You can upload a new one to override it.</span>
+                                    </div>
+                                    <img src=`"{{ \App\Support\StorageUrl::public(auth()->user()->signature_path) }}`" class=`"h-10 rounded border border-emerald-200`" alt=`"Existing Signature`">
+                                </div>
+                            @endif
+            "
+            $content = $content -replace '(<input type="file" name="signature"[\s\S]*?</label>)', "`$1`n$existingSignatureHtml"
+        }
+        [System.IO.File]::WriteAllText($file.FullName, $content, [System.Text.Encoding]::UTF8)
+        Write-Host "Updated create view: $($file.FullName)"
+    }
+}
+
+# 3. Update Controllers
+$controllers = Get-ChildItem -Path "$baseDir\app\Http\Controllers\Admin" -Filter "*Controller.php"
+foreach ($file in $controllers) {
+    $content = [System.IO.File]::ReadAllText($file.FullName)
+    $changed = $false
     
-    if ($content -ne $newContent) {
-        Set-Content -Path $_.FullName -Value $newContent -NoNewline
-        Write-Host "Updated $($_.FullName)"
+    if ($content.Contains("'signature' => 'required|image|max:500'")) {
+        $content = $content.Replace("'signature' => 'required|image|max:500'", "'signature' => auth()->user()->signature_path ? 'nullable|image|max:500' : 'required|image|max:500'")
+        $changed = $true
+    }
+    
+    $searchBlock = "if (`$request->hasFile('signature')) {
+            `$validated['signature_path'] = `$request->file('signature')->store('signatures', 'public');
+        }"
+    $replaceBlock = "if (`$request->hasFile('signature')) {
+            `$validated['signature_path'] = `$request->file('signature')->store('signatures', 'public');
+        } elseif (auth()->user()->signature_path) {
+            `$validated['signature_path'] = auth()->user()->signature_path;
+        }"
+        
+    if ($content.Contains($searchBlock)) {
+        $content = $content.Replace($searchBlock, $replaceBlock)
+        $changed = $true
+    }
+
+    if ($changed) {
+        [System.IO.File]::WriteAllText($file.FullName, $content, [System.Text.Encoding]::UTF8)
+        Write-Host "Updated controller: $($file.FullName)"
     }
 }

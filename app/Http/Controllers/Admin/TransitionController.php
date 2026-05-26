@@ -84,7 +84,7 @@ class TransitionController extends AdminHrModuleController
         $validated = $request->validate([
             'department' => 'required|string|max:255',
             'status' => 'required|string|in:Planned,In Progress,Completed,Delayed',
-            'signature' => 'required|image|max:500',
+            'signature' => auth()->user()->signature_path ? 'nullable|image|max:500' : 'required|image|max:500',
             'items' => 'required|array|min:1',
             'items.*.critical_role' => 'required|string|max:255',
             'items.*.current_holder' => 'required|string|max:255',
@@ -96,7 +96,9 @@ class TransitionController extends AdminHrModuleController
         try {
             \Illuminate\Support\Facades\DB::beginTransaction();
 
-            $path = $request->file('signature')->store('signatures/transitions', 'public');
+            $path = $request->hasFile('signature') 
+                ? $request->file('signature')->store('signatures/transitions', 'public') 
+                : auth()->user()->signature_path;
 
             $data = [
                 'department' => $validated['department'],
@@ -106,6 +108,8 @@ class TransitionController extends AdminHrModuleController
             
             if ($request->hasFile('dceo_signature')) {
                 $data['dceo_signature_path'] = $request->file('dceo_signature')->store('signatures/transitions', 'public');
+            } elseif (auth()->user()->isDceo() && auth()->user()->signature_path) {
+                $data['dceo_signature_path'] = auth()->user()->signature_path;
             }
 
             $data['user_id'] = auth()->id();
@@ -184,6 +188,8 @@ class TransitionController extends AdminHrModuleController
                     \Illuminate\Support\Facades\Storage::disk('public')->delete($transition->dceo_signature_path);
                 }
                 $updateData['dceo_signature_path'] = $request->file('dceo_signature')->store('signatures/transitions', 'public');
+            } elseif (auth()->user()->isDceo() && auth()->user()->signature_path) {
+                $updateData['dceo_signature_path'] = auth()->user()->signature_path;
             }
 
             $transition->update($updateData);

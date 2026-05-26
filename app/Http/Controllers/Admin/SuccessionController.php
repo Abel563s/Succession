@@ -64,12 +64,14 @@ class SuccessionController extends AdminHrModuleController
             'okr_achievement' => 'required|string',
             'readiness_level' => 'required|string',
             'ipg_score' => 'required|string',
-            'signature' => 'required|image|max:500',
+            'signature' => auth()->user()->signature_path ? 'nullable|image|max:500' : 'required|image|max:500',
         ]);
 
         if ($request->hasFile('signature')) {
             $path = $request->file('signature')->store('signatures/successions', 'public');
             $validated['signature_path'] = $path;
+        } elseif (auth()->user()->signature_path) {
+            $validated['signature_path'] = auth()->user()->signature_path;
         }
 
         $validated['created_by'] = auth()->id();

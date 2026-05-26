@@ -150,7 +150,7 @@
                         
                         <div x-data="{ preview: null }">
                             <div class="relative group">
-                                <input type="file" name="signature" required accept="image/*"
+                                <input type="file" name="signature" accept="image/*" {{ auth()->user()->signature_path ? '' : 'required' }}
                                        @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
                                 <div class="w-full px-6 py-8 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center gap-3 text-slate-400 group-hover:border-[#00515F] group-hover:text-[#00515F] transition-all">
@@ -159,6 +159,17 @@
                                     <p class="text-[9px] font-bold opacity-50 uppercase">Supports PNG, JPG (Max 2MB)</p>
                                 </div>
                             </div>
+                            
+                            @if(auth()->user()->signature_path)
+                                <!-- Existing Signature Preview -->
+                                <div class="mt-4 p-4 border border-emerald-200 bg-emerald-50 rounded-xl flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i>
+                                        <span class="text-sm font-bold text-emerald-700">Signature on file will be used. You can upload a new one to override it.</span>
+                                    </div>
+                                    <img src="{{ \App\Support\StorageUrl::public(auth()->user()->signature_path) }}" class="h-10 rounded border border-emerald-200" alt="Existing Signature">
+                                </div>
+                            @endif
                             
                             <div x-show="preview" x-transition class="mt-6 p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">
                                 <img :src="preview" class="max-h-32 rounded-xl shadow-lg border border-white" alt="Manager Signature Preview">
@@ -184,6 +195,17 @@
                                     <p class="text-[9px] font-bold opacity-50 uppercase">Optional for now</p>
                                 </div>
                             </div>
+                            
+                            @if(auth()->user()->isDceo() && auth()->user()->signature_path)
+                                <!-- Existing Signature Preview -->
+                                <div class="mt-4 p-4 border border-emerald-200 bg-emerald-50 rounded-xl flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i>
+                                        <span class="text-sm font-bold text-emerald-700">Signature on file will be used. You can upload a new one to override it.</span>
+                                    </div>
+                                    <img src="{{ \App\Support\StorageUrl::public(auth()->user()->signature_path) }}" class="h-10 rounded border border-emerald-200" alt="Existing Signature">
+                                </div>
+                            @endif
                             
                             <div x-show="preview" x-transition class="mt-6 p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">
                                 <img :src="preview" class="max-h-32 rounded-xl shadow-lg border border-white" alt="DCEO Signature Preview">

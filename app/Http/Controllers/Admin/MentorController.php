@@ -56,13 +56,15 @@ class MentorController extends AdminHrModuleController
             'mentor_name' => 'required|string|max:255',
             'mentee_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
-            'signature' => 'required|image|max:500',
+            'signature' => auth()->user()->signature_path ? 'nullable|image|max:500' : 'required|image|max:500',
         ]);
 
         $data = $request->all();
 
         if ($request->hasFile('signature')) {
             $data['signature_path'] = $request->file('signature')->store('signatures/mentor', 'public');
+        } elseif (auth()->user()->signature_path) {
+            $data['signature_path'] = auth()->user()->signature_path;
         }
 
         $data['created_by'] = auth()->id();

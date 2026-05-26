@@ -54,7 +54,7 @@ class CoachingController extends AdminHrModuleController
             'supervisor' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'coaching_date' => 'required|date',
-            'manager_sig' => 'required|image|max:500',
+            'manager_sig' => auth()->user()->signature_path ? 'nullable|image|max:500' : 'required|image|max:500',
             'candidate_sig' => 'required|image|max:500',
         ]);
 
@@ -62,6 +62,8 @@ class CoachingController extends AdminHrModuleController
 
         if ($request->hasFile('manager_sig')) {
             $data['manager_signature'] = $request->file('manager_sig')->store('signatures/coaching/manager', 'public');
+        } elseif (auth()->user()->signature_path) {
+            $data['manager_signature'] = auth()->user()->signature_path;
         }
 
         if ($request->hasFile('candidate_sig')) {

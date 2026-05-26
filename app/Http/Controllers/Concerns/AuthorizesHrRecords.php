@@ -67,7 +67,12 @@ trait AuthorizesHrRecords
         }
 
         if ($user->isManager()) {
-            return (int) ($record->created_by ?? 0) === (int) $user->id;
+            $ownerId = $record->created_by ?? $record->user_id ?? 0;
+            if ((int) $ownerId !== (int) $user->id) {
+                return false;
+            }
+            $status = $record->approval_status ?? null;
+            return !$status || $status === 'Pending';
         }
 
         return false;

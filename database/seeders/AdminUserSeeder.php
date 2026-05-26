@@ -213,7 +213,7 @@ class AdminUserSeeder extends Seeder
                     'name' => $deptData['attendance_user']['name'],
                     'email' => $deptData['attendance_user']['email'],
                     'password' => Hash::make('password123'),
-                    'role' => 'department_attendance_user', // New role for designated attendance users
+                    'role' => 'user', // Formerly department_attendance_user
                     'department_id' => $department->id,
                     'employee_id' => $deptData['attendance_user']['employee_id'],
                     'phone' => $deptData['attendance_user']['phone'],

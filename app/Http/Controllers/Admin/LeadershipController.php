@@ -61,7 +61,7 @@ class LeadershipController extends AdminHrModuleController
             'candidate_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
             'line_manager' => 'required|string|max:255',
-            'signature' => 'nullable|image|max:500',
+            'signature' => auth()->user()->signature_path ? 'nullable|image|max:500' : 'required|image|max:500',
             'ratings' => 'required|array',
             'ratings.*' => 'required|integer|min:1|max:5',
         ]);
@@ -73,6 +73,8 @@ class LeadershipController extends AdminHrModuleController
 
             if ($request->hasFile('signature')) {
                 $data['signature_path'] = $request->file('signature')->store('signatures/leadership', 'public');
+            } elseif (auth()->user()->signature_path) {
+                $data['signature_path'] = auth()->user()->signature_path;
             }
 
             // Calculate overall score
