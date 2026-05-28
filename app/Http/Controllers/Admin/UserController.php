@@ -74,12 +74,6 @@ class UserController extends Controller
             'signature' => ['nullable', 'image', 'max:500'],
         ]);
 
-        if (in_array($validated['role'], ['manager', 'dceo']) && ! $request->hasFile('signature')) {
-            return back()
-                ->withErrors(['signature' => 'Please upload the signature image.'])
-                ->withInput();
-        }
-
         $prefix = \App\Models\SystemSetting::where('key', 'employee_id_prefix')->first()?->value ?? 'EMP';
         $nextId = User::count() + 1;
         $employeeId = $prefix.'-'.str_pad($nextId, 4, '0', STR_PAD_LEFT);
@@ -118,13 +112,6 @@ class UserController extends Controller
 
         $isRemovingSignature = $request->boolean('remove_signature');
         $hasUpload = $request->hasFile('signature');
-        $hasExisting = $user->signature_path && !$isRemovingSignature;
-
-        if (in_array($validated['role'], ['manager', 'dceo']) && !$hasUpload && !$hasExisting) {
-            return back()
-                ->withErrors(['signature' => 'Please upload the signature image.'])
-                ->withInput();
-        }
 
         $user->fill([
             'name' => $validated['name'],

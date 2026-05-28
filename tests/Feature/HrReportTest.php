@@ -70,3 +70,9 @@ it('denies access to managers for the hr report page', function () {
     $response = $this->actingAs($manager)->get(route('admin.reports.index'));
     $response->assertStatus(403);
 });
+
+it('denies access to dceo users for the hr report page', function () {
+    $dceo = User::factory()->create(['role' => 'dceo']);
+    $response = $this->actingAs($dceo)->get(route('admin.reports.index'));
+    $response->assertStatus(403);
+});

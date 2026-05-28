@@ -2,16 +2,16 @@
     <div class="py-10 px-6 space-y-8 max-w-4xl mx-auto font-inter animate-fade-in">
 
         <!-- Modern Compact Header -->
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-4 border-b border-slate-100">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-4 border-b border-[#D4AF37]/20">
             <div class="space-y-3">
                 <div class="flex items-center gap-4">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-[#111111] flex items-center justify-center text-white shadow-xl shadow-[#111111]/20">
+                        class="w-12 h-12 rounded-2xl bg-[#111111] flex items-center justify-center text-[#D4AF37] shadow-xl shadow-[#111111]/20">
                         <i data-lucide="shield-lock" class="w-6 h-6"></i>
                     </div>
                     <div>
-                        <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
-                            Security <span class="font-black text-[#111111]">Protocols</span>
+                        <h2 class="text-3xl font-light text-slate-500 tracking-tight font-outfit leading-none">
+                            Security <span class="font-black text-slate-900">Settings</span>
                         </h2>
                         <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">Personal
                             Identity Authentication</p>
@@ -20,34 +20,41 @@
             </div>
 
             <div class="flex items-center gap-3">
-                <div class="flex items-center gap-2 px-6 py-3 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                <div class="flex items-center gap-2 px-6 py-3 bg-[#111111] border border-[#D4AF37]/30 rounded-2xl shadow-sm">
                     <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                    <span class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Active Session</span>
+                    <span class="text-[10px] font-black text-[#D4AF37] uppercase tracking-widest">Active Session</span>
                 </div>
             </div>
         </div>
 
+        @if (session('success'))
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i>
+                <span class="text-xs font-bold text-emerald-700">{{ session('success') }}</span>
+            </div>
+        @endif
+
         <!-- Security Form -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div class="space-y-4">
-                <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37] mb-6">
+                <div class="bg-[#111111] p-8 rounded-[2.5rem] border border-[#D4AF37]/20 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-[#D4AF37]/15 flex items-center justify-center text-[#D4AF37] mb-6">
                         <i data-lucide="key" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-black text-slate-900 tracking-tight font-outfit">Identity Key</h3>
-                    <p class="text-xs font-medium text-slate-500 mt-2 leading-relaxed">
+                    <h3 class="text-xl font-black text-white tracking-tight font-outfit">Identity Key</h3>
+                    <p class="text-xs font-medium text-white/70 mt-2 leading-relaxed">
                         Update your authentication password regularly to maintain system integrity and node security.
                     </p>
 
-                    <div class="mt-8 pt-6 border-t border-slate-50 space-y-3">
+                    <div class="mt-8 pt-6 border-t border-white/10 space-y-3">
                         <div class="flex items-center gap-2">
                             <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>
-                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Min 8
+                            <span class="text-[10px] font-black text-white/60 uppercase tracking-widest">Min 8
                                 Characters</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>
-                            <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Alphanumeric
+                            <span class="text-[10px] font-black text-white/60 uppercase tracking-widest">Alphanumeric
                                 Code</span>
                         </div>
                     </div>

@@ -383,13 +383,12 @@
                                         <i data-lucide="pen-line" class="w-5 h-5"></i>
                                     </div>
                                     <div>
-                                        <label class="text-[10px] font-black text-slate-900 uppercase tracking-[0.2em]">Signature Image <span class="text-rose-500">*</span></label>
-                                        <p class="text-[10px] text-slate-400 font-medium mt-0.5">Upload the signature now. It is saved on the profile and reused on HR forms.</p>
+                                        <label class="text-[10px] font-black text-slate-900 uppercase tracking-[0.2em]">Signature Image</label>
+                                        <p class="text-[10px] text-slate-400 font-medium mt-0.5">Optional: upload now or add it later from the profile edit form. It is reused on HR forms when available.</p>
                                     </div>
                                 </div>
                                 <div x-data="{ preview: null, sizeError: null }" class="space-y-3">
                                     <input type="file" name="signature" accept="image/*"
-                                           x-bind:required="role === 'manager' || role === 'dceo'"
                                            @change="
                                                sizeError = null;
                                                const file = $event.target.files[0];

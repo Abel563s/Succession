@@ -79,7 +79,7 @@ it('stores manager signature on user profile when admin creates manager', functi
     expect(User::query()->where('email', 'manager-sig@test.com')->first()->signature_path)->not->toBeNull();
 });
 
-it('requires signature when admin creates a manager', function () {
+it('allows admin to create a manager without uploading a signature immediately', function () {
     $response = $this->actingAs($this->admin)->post(route('admin.users.store'), [
         'name' => 'Manager No Sig',
         'email' => 'manager-nosig@test.com',
@@ -89,5 +89,30 @@ it('requires signature when admin creates a manager', function () {
         'is_active' => 1,
     ]);
 
-    $response->assertSessionHasErrors('signature');
+    $response->assertRedirect(route('admin.users.index'));
+    expect(User::query()->where('email', 'manager-nosig@test.com')->first()->signature_path)->toBeNull();
+});
+
+it('allows admin to replace an existing signature on update', function () {
+    $manager = User::factory()->create([
+        'role' => 'manager',
+        'signature_path' => 'signatures/users/old.png',
+    ]);
+
+    Storage::disk('public')->put('signatures/users/old.png', 'old');
+
+    $response = $this->actingAs($this->admin)->put(route('admin.users.update', $manager), [
+        'name' => $manager->name,
+        'email' => $manager->email,
+        'role' => 'manager',
+        'is_active' => 1,
+        'department_id' => null,
+        'phone' => null,
+        'signature' => UploadedFile::fake()->create('new-signature.png', 100, 'image/png'),
+    ]);
+
+    $response->assertRedirect(route('admin.users.index'));
+    $manager->refresh();
+    expect($manager->signature_path)->not->toBe('signatures/users/old.png');
+    expect($manager->signature_path)->not->toBeNull();
 });

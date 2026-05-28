@@ -41,8 +41,6 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('progress-updates', \App\Http\Controllers\Admin\ProjectProgressUpdateController::class);
         Route::resource('weekly-updates', \App\Http\Controllers\Admin\ProjectWeeklyUpdateController::class);
 
-
-
         Route::resource('users', AdminUserController::class);
         Route::get('/roles', [AdminUserController::class, 'index'])->name('roles.index');
 
@@ -50,7 +48,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/reject/{module}/{id}', [\App\Http\Controllers\Admin\ApprovalController::class, 'reject'])->name('approval.reject');
     });
 
-    Route::middleware(['role:admin|dceo'])->prefix('admin')->name('admin.')->group(function () {
+    Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::get('reports', [\App\Http\Controllers\Admin\ReportController::class, 'index'])->name('reports.index');
     });
 

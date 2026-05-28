@@ -72,7 +72,7 @@
                         ['label' => 'Transition', 'icon' => 'refresh-ccw', 'route' => 'admin.transition.index', 'active' => request()->routeIs('admin.transition.*')],
                     ];
 
-                    if (Auth::user()->isAdmin() || Auth::user()->isDceo()) {
+                    if (Auth::user()->isAdmin()) {
                         $modules[] = ['label' => 'Report', 'icon' => 'file-bar-chart', 'route' => 'admin.reports.index', 'active' => request()->routeIs('admin.reports.*')];
                     }
 

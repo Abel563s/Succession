@@ -23,13 +23,6 @@
     </div>
 
     <div class="flex items-center gap-6">
-        <div class="hidden md:flex flex-col text-right">
-            <p class="text-xs font-bold text-slate-800 leading-none font-inter">{{ Auth::user()->name }}</p>
-            <p class="text-[9px] font-black text-slate-500 uppercase tracking-tighter mt-1.5 font-inter">
-                {{ Auth::user()->email }}
-            </p>
-        </div>
-
         <!-- Notifications Dropdown -->
         @include('partials.notifications-dropdown')
 
