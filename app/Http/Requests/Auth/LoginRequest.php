@@ -2,14 +2,14 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-
-use Illuminate\Support\Facades\Http;
 
 class LoginRequest extends FormRequest
 {
@@ -45,7 +45,7 @@ class LoginRequest extends FormRequest
 
                     $result = $response->json();
 
-                    if (!$result['success']) {
+                    if (! $result['success']) {
                         $fail('Security verification failed. Please try again.');
                     }
                 },
@@ -62,12 +62,22 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (!Auth::attempt(array_merge($this->only('email', 'password'), ['is_active' => true]), $this->boolean('remember'))) {
+        $normalizedEmail = Str::lower($this->string('email')->toString());
+        $matchedUser = User::query()
+            ->whereRaw('LOWER(email) = ?', [$normalizedEmail])
+            ->first();
+
+        $credentials = [
+            'email' => $matchedUser?->email ?? $this->string('email')->toString(),
+            'password' => $this->string('password')->toString(),
+            'is_active' => true,
+        ];
+
+        if (! Auth::attempt($credentials, $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             // Check if user exists but is inactive to provide better feedback
-            $user = \App\Models\User::where('email', $this->email)->first();
-            if ($user && !$user->is_active) {
+            if ($matchedUser && ! $matchedUser->is_active) {
                 throw ValidationException::withMessages([
                     'email' => 'This account has been decommissioned. Please contact the Authority Overlord.',
                 ]);
@@ -88,7 +98,7 @@ class LoginRequest extends FormRequest
      */
     public function ensureIsNotRateLimited(): void
     {
-        if (!RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
             return;
         }
 
@@ -109,6 +119,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->string('email')) . '|' . $this->ip());
+        return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
     }
 }
