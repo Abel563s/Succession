@@ -15,7 +15,7 @@ abstract class AdminHrModuleController extends Controller
      */
     protected function departmentsForUser(): \Illuminate\Database\Eloquent\Collection
     {
-        if (auth()->user()->isAdmin() || auth()->user()->isDceo()) {
+        if (auth()->user()->isAdmin()) {
             return Department::query()->orderBy('name')->get();
         }
 

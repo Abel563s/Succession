@@ -41,6 +41,8 @@ class NineBoxController extends AdminHrModuleController
 
     public function create()
     {
+        $this->authorizeCreateHrRecord();
+
         if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
@@ -52,6 +54,8 @@ class NineBoxController extends AdminHrModuleController
 
     public function store(Request $request)
     {
+        $this->authorizeCreateHrRecord();
+
         $validated = $request->validate([
             'candidate_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
@@ -130,4 +134,3 @@ class NineBoxController extends AdminHrModuleController
         return redirect()->route('admin.nine-box.index')->with('success', '9-Box Grid record deleted successfully.');
     }
 }
-

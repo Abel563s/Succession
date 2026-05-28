@@ -17,37 +17,37 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $query = User::with('department');
+        $filteredUsersQuery = User::query()->with('department');
 
         if ($request->filled('search')) {
             $search = $request->search;
-            $query->where(function ($q) use ($search) {
+            $filteredUsersQuery->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
                     ->orWhere('email', 'like', "%{$search}%");
             });
         }
 
         if ($request->filled('role')) {
-            $query->where('role', $request->role);
+            $filteredUsersQuery->where('role', $request->role);
         }
 
         if ($request->has('status') && $request->status !== null && $request->status !== '') {
-            $query->where('is_active', $request->status);
+            $filteredUsersQuery->where('is_active', $request->status);
         }
 
         if ($request->filled('department_id')) {
-            $query->where('department_id', $request->department_id);
+            $filteredUsersQuery->where('department_id', $request->department_id);
         }
 
-        $users = $query->latest()->paginate(10)->withQueryString();
+        $users = (clone $filteredUsersQuery)->latest()->paginate(10)->withQueryString();
         $departments = \App\Models\Department::orderBy('name')->get();
 
-        // Stats Counter
-        $totalUsers = User::count();
-        $activeUsers = User::where('is_active', true)->count();
-        $adminUsers = User::where('role', 'admin')->count();
-        $deptUsers = User::where('role', '!=', 'admin')->count();
-        $disabledUsers = User::where('is_active', false)->count();
+        // Stats counter should respect active filters.
+        $totalUsers = (clone $filteredUsersQuery)->count();
+        $activeUsers = (clone $filteredUsersQuery)->where('is_active', true)->count();
+        $adminUsers = (clone $filteredUsersQuery)->where('role', 'admin')->count();
+        $deptUsers = (clone $filteredUsersQuery)->where('role', '!=', 'admin')->count();
+        $disabledUsers = (clone $filteredUsersQuery)->where('is_active', false)->count();
 
         return view('admin.users.index', compact(
             'users', 'departments', 'totalUsers', 'activeUsers', 'adminUsers', 'deptUsers', 'disabledUsers'

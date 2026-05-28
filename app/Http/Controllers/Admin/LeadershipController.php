@@ -38,6 +38,8 @@ class LeadershipController extends AdminHrModuleController
 
     public function create()
     {
+        $this->authorizeCreateHrRecord();
+
         if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
@@ -57,6 +59,8 @@ class LeadershipController extends AdminHrModuleController
 
     public function store(Request $request)
     {
+        $this->authorizeCreateHrRecord();
+
         $request->validate([
             'candidate_name' => 'required|string|max:255',
             'department' => 'required|string|max:255',
@@ -191,4 +195,3 @@ class LeadershipController extends AdminHrModuleController
         return redirect()->route('admin.leadership.index')->with('success', 'Leadership Assessment deleted successfully.');
     }
 }
-

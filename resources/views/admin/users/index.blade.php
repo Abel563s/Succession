@@ -26,7 +26,7 @@
                             <span class="text-2xl font-black text-slate-900 tracking-tighter leading-none">{{ $totalUsers }}</span>
                             <div class="w-1 h-1 rounded-full bg-emerald-500 animate-pulse"></div>
                         </div>
-                        <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest group-hover/badge:text-slate-600 transition-colors">Total Identity Nodes</span>
+                        <span class="text-[9px] font-black text-slate-400 uppercase tracking-widest group-hover/badge:text-slate-600 transition-colors">Total Users</span>
                     </div>
                 </div>
             </div>

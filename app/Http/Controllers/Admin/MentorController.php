@@ -41,6 +41,8 @@ class MentorController extends AdminHrModuleController
 
     public function create()
     {
+        $this->authorizeCreateHrRecord();
+
         if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
@@ -52,6 +54,8 @@ class MentorController extends AdminHrModuleController
 
     public function store(Request $request)
     {
+        $this->authorizeCreateHrRecord();
+
         $request->validate([
             'mentor_name' => 'required|string|max:255',
             'mentee_name' => 'required|string|max:255',
@@ -122,4 +126,3 @@ class MentorController extends AdminHrModuleController
         return redirect()->route('admin.mentor.index')->with('success', 'Mentor Feedback record deleted successfully.');
     }
 }
-

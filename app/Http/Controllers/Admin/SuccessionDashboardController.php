@@ -38,6 +38,8 @@ class SuccessionDashboardController extends AdminHrModuleController
 
     public function create()
     {
+        $this->authorizeCreateHrRecord();
+
         if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = Department::where('id', auth()->user()->department_id)->get();
         } else {
@@ -49,6 +51,8 @@ class SuccessionDashboardController extends AdminHrModuleController
 
     public function store(Request $request)
     {
+        $this->authorizeCreateHrRecord();
+
         $request->validate([
             'title' => 'required|string|max:255',
             'department' => 'nullable|string|max:255',
@@ -177,4 +181,3 @@ class SuccessionDashboardController extends AdminHrModuleController
         return redirect()->route('admin.sd.index')->with('success', 'Succession Dashboard deleted successfully.');
     }
 }
-

@@ -17,13 +17,14 @@ trait AuthorizesHrRecords
     {
         $user = auth()->user();
 
-        if ($user->isAdmin() || $user->isDceo()) {
+        if ($user->isAdmin()) {
             return $query;
         }
 
-        if ($user->isManager()) {
+        if ($user->isManager() || $user->isDceo()) {
             $model = $query->getModel();
             $foreignKey = in_array('user_id', $model->getFillable()) ? 'user_id' : 'created_by';
+
             return $query->where($foreignKey, $user->id);
         }
 
@@ -40,12 +41,13 @@ trait AuthorizesHrRecords
     {
         $user = auth()->user();
 
-        if ($user->isAdmin() || $user->isDceo()) {
+        if ($user->isAdmin()) {
             return true;
         }
 
-        if ($user->isManager()) {
+        if ($user->isManager() || $user->isDceo()) {
             $foreignKey = in_array('user_id', $record->getFillable()) ? 'user_id' : 'created_by';
+
             return (int) ($record->{$foreignKey} ?? 0) === (int) $user->id;
         }
 
@@ -66,13 +68,14 @@ trait AuthorizesHrRecords
             return true;
         }
 
-        if ($user->isManager()) {
+        if ($user->isManager() || $user->isDceo()) {
             $ownerId = $record->created_by ?? $record->user_id ?? 0;
             if ((int) $ownerId !== (int) $user->id) {
                 return false;
             }
             $status = $record->approval_status ?? null;
-            return !$status || $status === 'Pending';
+
+            return ! $status || $status === 'Pending';
         }
 
         return false;
@@ -108,7 +111,7 @@ trait AuthorizesHrRecords
     {
         $user = auth()->user();
 
-        if ($user->isAdmin() || $user->isManager()) {
+        if ($user->isAdmin() || $user->isManager() || $user->isDceo()) {
             return;
         }
 

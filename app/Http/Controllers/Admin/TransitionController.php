@@ -70,6 +70,8 @@ class TransitionController extends AdminHrModuleController
 
     public function create()
     {
+        $this->authorizeCreateHrRecord();
+
         if (! auth()->user()->isAdmin() && ! auth()->user()->isDceo()) {
             $departments = \App\Models\Department::where('id', auth()->user()->department_id)->get();
         } else {
@@ -81,6 +83,8 @@ class TransitionController extends AdminHrModuleController
 
     public function store(Request $request)
     {
+        $this->authorizeCreateHrRecord();
+
         $validated = $request->validate([
             'department' => 'required|string|max:255',
             'status' => 'required|string|in:Planned,In Progress,Completed,Delayed',
@@ -96,8 +100,8 @@ class TransitionController extends AdminHrModuleController
         try {
             \Illuminate\Support\Facades\DB::beginTransaction();
 
-            $path = $request->hasFile('signature') 
-                ? $request->file('signature')->store('signatures/transitions', 'public') 
+            $path = $request->hasFile('signature')
+                ? $request->file('signature')->store('signatures/transitions', 'public')
                 : auth()->user()->signature_path;
 
             $data = [
@@ -105,7 +109,7 @@ class TransitionController extends AdminHrModuleController
                 'status' => $validated['status'],
                 'signature_path' => $path,
             ];
-            
+
             if ($request->hasFile('dceo_signature')) {
                 $data['dceo_signature_path'] = $request->file('dceo_signature')->store('signatures/transitions', 'public');
             } elseif (auth()->user()->isDceo() && auth()->user()->signature_path) {
@@ -229,4 +233,3 @@ class TransitionController extends AdminHrModuleController
         return redirect()->route('admin.transition.index')->with('success', 'Transition plan deleted successfully.');
     }
 }
-
