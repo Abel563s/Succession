@@ -6,14 +6,14 @@
             <div class="space-y-3">
                 <div class="flex items-center gap-4">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-[#00515F] flex items-center justify-center text-white shadow-xl shadow-[#00515F]/20">
+                        class="w-12 h-12 rounded-2xl bg-[#111111] flex items-center justify-center text-white shadow-xl shadow-[#111111]/20">
                         <i data-lucide="shield-lock" class="w-6 h-6"></i>
                     </div>
                     <div>
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
-                            Security <span class="font-black text-[#00515F]">Protocols</span>
+                            Security <span class="font-black text-[#111111]">Protocols</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">Personal
+                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">Personal
                             Identity Authentication</p>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div class="space-y-4">
                 <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
-                    <div class="w-12 h-12 rounded-2xl bg-cyan-50 flex items-center justify-center text-[#00ADC5] mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37] mb-6">
                         <i data-lucide="key" class="w-6 h-6"></i>
                     </div>
                     <h3 class="text-xl font-black text-slate-900 tracking-tight font-outfit">Identity Key</h3>
@@ -88,7 +88,7 @@
                                         class="w-4 h-4 absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
                                     <input type="password" name="current_password" required
                                         placeholder="Verify current password"
-                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#00ADC5] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
+                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#D4AF37] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
                                 </div>
                             </div>
 
@@ -103,7 +103,7 @@
                                         class="w-4 h-4 absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
                                     <input type="password" name="password" required
                                         placeholder="Initialize new passphrase"
-                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#00ADC5] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
+                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#D4AF37] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
                                 </div>
                             </div>
 
@@ -117,16 +117,16 @@
                                         class="w-4 h-4 absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
                                     <input type="password" name="password_confirmation" required
                                         placeholder="Verify new password"
-                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#00ADC5] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
+                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#D4AF37] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
                                 </div>
                             </div>
                         </div>
 
                         <div class="pt-6">
                             <button type="submit"
-                                class="w-full group/btn relative px-8 py-4 bg-[#00515F] text-white rounded-[1.5rem] font-black text-[11px] uppercase tracking-widest overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-[#00515F]/20">
+                                class="w-full group/btn relative px-8 py-4 bg-[#111111] text-white rounded-[1.5rem] font-black text-[11px] uppercase tracking-widest overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-[#111111]/20">
                                 <div
-                                    class="absolute inset-0 bg-gradient-to-r from-[#00ADC5] to-[#00515F] translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
+                                    class="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#111111] translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
                                 </div>
                                 <span class="relative flex items-center justify-center gap-3">
                                     <i data-lucide="save" class="w-4 h-4"></i>
@@ -137,9 +137,9 @@
                     </form>
                 </div>
 
-                <div class="bg-[#00515F] rounded-[2rem] p-8 relative overflow-hidden group/alert">
+                <div class="bg-[#111111] rounded-[2rem] p-8 relative overflow-hidden group/alert">
                     <div
-                        class="absolute -right-10 -top-10 w-40 h-40 bg-[#00ADC5] opacity-10 rounded-full blur-3xl group-hover/alert:opacity-20 transition-all duration-700">
+                        class="absolute -right-10 -top-10 w-40 h-40 bg-[#D4AF37] opacity-10 rounded-full blur-3xl group-hover/alert:opacity-20 transition-all duration-700">
                     </div>
                     <div class="flex items-start gap-4 relative z-10">
                         <div

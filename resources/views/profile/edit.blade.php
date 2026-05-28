@@ -17,7 +17,7 @@
                     <div class="max-w-xl relative z-10">
                         <div class="flex items-center gap-4 mb-10">
                             <div
-                                class="w-14 h-14 rounded-2xl bg-cyan-50 flex items-center justify-center text-[#00ADC5] border-2 border-white shadow-sm ring-1 ring-cyan-100">
+                                class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37] border-2 border-white shadow-sm ring-1 ring-cyan-100">
                                 <i data-lucide="user" class="w-7 h-7"></i>
                             </div>
                             <div>
@@ -111,7 +111,7 @@
                         </div>
                     </div>
                     <!-- Decor -->
-                    <div class="absolute -right-24 -top-24 w-64 h-64 bg-[#00ADC5]/10 rounded-full blur-3xl"></div>
+                    <div class="absolute -right-24 -top-24 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
                     <div class="absolute -left-24 -bottom-24 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl"></div>
                 </div>
             </div>

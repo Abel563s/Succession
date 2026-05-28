@@ -5,14 +5,14 @@
             <div class="space-y-3">
                 <div class="flex items-center gap-4">
                     <a href="{{ route('admin.projects.payments.index') }}"
-                        class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-[#00ADC5] hover:border-[#00ADC5]/20 hover:rotate-[-10deg] transition-all shadow-sm">
+                        class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 hover:rotate-[-10deg] transition-all shadow-sm">
                         <i data-lucide="arrow-left" class="w-5 h-5"></i>
                     </a>
                     <div>
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
                             Payment <span class="font-black text-slate-900">Protocols</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">
+                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">
                             {{ $project->project_name }} - {{ $project->custom_id }}</p>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                 <button onclick="document.getElementById('addPaymentForm').scrollIntoView({behavior: 'smooth'})"
                     class="group/btn relative px-6 py-3.5 bg-white border border-slate-100 text-slate-600 rounded-2xl font-black text-[10px] uppercase tracking-widest overflow-hidden transition-all hover:bg-slate-50 active:scale-95 shadow-sm">
                     <span class="relative flex items-center gap-2">
-                        <i data-lucide="plus" class="w-3.5 h-3.5 text-[#00ADC5]"></i>
+                        <i data-lucide="plus" class="w-3.5 h-3.5 text-[#D4AF37]"></i>
                         New Certificate
                     </span>
                 </button>

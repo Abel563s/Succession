@@ -12,7 +12,7 @@
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
                             Financial <span class="font-black text-slate-900">Protocols</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">Project Payment
+                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">Project Payment
                             Management</p>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                         </div>
 
                         <h3
-                            class="text-xl font-black text-slate-900 leading-tight mb-2 group-hover:text-[#00ADC5] transition-colors">
+                            class="text-xl font-black text-slate-900 leading-tight mb-2 group-hover:text-[#D4AF37] transition-colors">
                             {{ $project->project_name }}
                         </h3>
 
@@ -56,7 +56,7 @@
                                     class="text-amber-500 font-black">${{ number_format($project->total_certified, 2) }}</span>
                             </div>
                             <div class="flex items-center justify-between text-xs">
-                                <span class="text-slate-400 font-black uppercase tracking-widest text-[#00ADC5]">Remaining
+                                <span class="text-slate-400 font-black uppercase tracking-widest text-[#D4AF37]">Remaining
                                     Balance</span>
                                 <span
                                     class="text-slate-900 font-black">${{ number_format($project->total_project_value - $project->total_certified, 2) }}</span>
@@ -103,7 +103,7 @@
                     <a href="{{ route('admin.projects.create') }}"
                         class="group/btn relative px-8 py-3.5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/20">
                         <div
-                            class="absolute inset-0 bg-gradient-to-r from-[#00ADC5] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
+                            class="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
                         </div>
                         <span class="relative flex items-center gap-2">
                             <i data-lucide="plus" class="w-3.5 h-3.5"></i>

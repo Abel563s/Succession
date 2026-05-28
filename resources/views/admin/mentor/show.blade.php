@@ -26,10 +26,10 @@
             <!-- Left Column: Session Profile -->
             <div class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-8 relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#00ADC5]/5 rounded-full blur-3xl"></div>
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
                     
                     <div class="flex flex-col items-center text-center relative">
-                        <div class="w-20 h-20 rounded-3xl bg-[#00ADC5]/10 flex items-center justify-center font-black text-2xl text-[#00ADC5] mb-6 border border-[#00ADC5]/20">
+                        <div class="w-20 h-20 rounded-3xl bg-[#D4AF37]/10 flex items-center justify-center font-black text-2xl text-[#D4AF37] mb-6 border border-[#D4AF37]/20">
                             {{ substr($mentor->mentee_name, 0, 1) }}
                         </div>
                         
@@ -69,7 +69,7 @@
                 <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
                     <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
                         <h3 class="text-lg font-black text-slate-900 tracking-tight">Performance Summary</h3>
-                        <i data-lucide="line-chart" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="line-chart" class="w-5 h-5 text-[#D4AF37]"></i>
                     </div>
                     <div class="p-8 space-y-8">
                         <div>

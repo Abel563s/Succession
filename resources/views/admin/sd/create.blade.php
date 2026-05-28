@@ -4,7 +4,7 @@
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <a href="{{ route('admin.sd.index') }}" 
-                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#00ADC5] hover:border-[#00ADC5]/20 transition-all">
+                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 transition-all">
                     <i data-lucide="chevron-left" class="w-5 h-5"></i>
                 </a>
                 <div>
@@ -23,12 +23,12 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Dashboard Title / Period</label>
                         <input type="text" name="title" required value="{{ old('title') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all font-bold text-slate-700"
+                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
                                placeholder="e.g., 2026 Executive Succession Plan">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department Scope</label>
-                        <select name="department" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all font-bold text-slate-700">
+                        <select name="department" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700">
                             <option value="">All Departments</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}">{{ $dept->name }}</option>
@@ -51,10 +51,10 @@
             }">
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30 flex items-center justify-between">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-tight">
-                        <i data-lucide="layers" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="layers" class="w-5 h-5 text-[#D4AF37]"></i>
                         Succession Matrix
                     </h2>
-                    <button type="button" @click="rows.push(rows.length)" class="text-xs font-black text-[#00ADC5] uppercase tracking-widest hover:text-[#008d9e] flex items-center gap-2 bg-[#f0fbfd] px-4 py-2 rounded-xl transition-all border border-[#00ADC5]/10">
+                    <button type="button" @click="rows.push(rows.length)" class="text-xs font-black text-[#D4AF37] uppercase tracking-widest hover:text-[#008d9e] flex items-center gap-2 bg-[#FFF8E7] px-4 py-2 rounded-xl transition-all border border-[#D4AF37]/10">
                         <i data-lucide="plus" class="w-3 h-3"></i>
                         Add Succession Row
                     </button>
@@ -81,31 +81,31 @@
                                 <tr class="border-b border-slate-50 hover:bg-slate-50/30 transition-colors group">
                                     <td class="px-4 py-4 text-center text-xs font-bold text-slate-400" x-text="index + 1"></td>
                                     <td class="px-4 py-4">
-                                        <input type="text" name="position[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#00ADC5] rounded-lg" placeholder="Position Name">
+                                        <input type="text" name="position[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" placeholder="Position Name">
                                     </td>
                                     <td class="px-4 py-4">
-                                        <input type="text" name="current_holder[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#00ADC5] rounded-lg" placeholder="Current Employee">
+                                        <input type="text" name="current_holder[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" placeholder="Current Employee">
                                     </td>
                                     <td class="px-4 py-4">
-                                        <input type="text" name="candidates[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#00ADC5] rounded-lg" placeholder="Succession Candidates">
+                                        <input type="text" name="candidates[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" placeholder="Succession Candidates">
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="timeline_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#00ADC5] rounded-lg resize-none shadow-sm" placeholder="Timeline details..."></textarea>
+                                        <textarea name="timeline_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Timeline details..."></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="competency_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#00ADC5] rounded-lg resize-none shadow-sm" placeholder="Skills progress..."></textarea>
+                                        <textarea name="competency_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Skills progress..."></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="development_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#00ADC5] rounded-lg resize-none shadow-sm" placeholder="Training/Mentorship..."></textarea>
+                                        <textarea name="development_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Training/Mentorship..."></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="kpi_metrics[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#00ADC5] rounded-lg resize-none shadow-sm" placeholder="KPI scores..."></textarea>
+                                        <textarea name="kpi_metrics[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="KPI scores..."></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="monitoring_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#00ADC5] rounded-lg resize-none shadow-sm" placeholder="Notes..."></textarea>
+                                        <textarea name="monitoring_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Notes..."></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <select name="readiness_rating[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-[10px] font-black uppercase text-slate-700 outline-none focus:border-[#00ADC5] rounded-lg">
+                                        <select name="readiness_rating[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-[10px] font-black uppercase text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg">
                                             <template x-for="option in readinessOptions" :key="option">
                                                 <option :value="option" x-text="option"></option>
                                             </template>
@@ -139,7 +139,7 @@
                     </div>
                     <div class="flex-shrink-0 space-y-3">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Succession Status</label>
-                        <select name="status" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all font-bold text-slate-700 rounded-xl">
+                        <select name="status" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700 rounded-xl">
                             <option value="draft">Save as Draft</option>
                             <option value="published">Publish Dashboard</option>
                         </select>
@@ -151,7 +151,7 @@
             <div class="flex flex-col items-center pb-12 gap-4">
                 <div class="flex items-center gap-4">
                     <button type="submit" 
-                            class="bg-[#00ADC5] hover:bg-[#00ADC5]/90 text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#00ADC5]/20 hover:scale-105 active:scale-95">
+                            class="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#D4AF37]/20 hover:scale-105 active:scale-95">
                         CREATE SUCCESSION DASHBOARD
                     </button>
                     <button type="reset" class="px-8 py-4 rounded-2xl bg-slate-100 text-slate-400 font-black text-xs uppercase tracking-widest hover:bg-slate-200 transition-all">

@@ -26,7 +26,7 @@
         <!-- Info Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm flex items-center gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-[#00ADC5]/10 flex items-center justify-center text-[#00ADC5]">
+                <div class="w-12 h-12 rounded-2xl bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
                     <i data-lucide="user" class="w-6 h-6"></i>
                 </div>
                 <div>
@@ -58,7 +58,7 @@
         <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm overflow-hidden">
             <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
                 <h3 class="text-lg font-black text-slate-900">Development Objectives</h3>
-                <span class="px-3 py-1 bg-[#00ADC5] text-white text-[10px] font-black rounded-full">{{ $development->objectives->count() }} Objectives</span>
+                <span class="px-3 py-1 bg-[#D4AF37] text-white text-[10px] font-black rounded-full">{{ $development->objectives->count() }} Objectives</span>
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
@@ -95,7 +95,7 @@
                                         </div>
                                         <div class="flex items-center gap-2 text-[10px]">
                                             <span class="font-black text-slate-300 uppercase">End:</span>
-                                            <span class="font-bold text-[#00ADC5]">{{ $objective->delivery_date ? \Carbon\Carbon::parse($objective->delivery_date)->format('M d, Y') : 'N/A' }}</span>
+                                            <span class="font-bold text-[#D4AF37]">{{ $objective->delivery_date ? \Carbon\Carbon::parse($objective->delivery_date)->format('M d, Y') : 'N/A' }}</span>
                                         </div>
                                     </div>
                                 </td>
@@ -110,13 +110,13 @@
         </div>
 
         @if($development->progressReview)
-            <div class="bg-[#f0fbfd] border border-[#00ADC5]/20 rounded-2xl p-6 flex items-center justify-between">
+            <div class="bg-[#FFF8E7] border border-[#D4AF37]/20 rounded-2xl p-6 flex items-center justify-between">
                 <div>
-                    <p class="text-[10px] font-black uppercase tracking-widest text-[#00515F]">Linked Progress Review</p>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-[#111111]">Linked Progress Review</p>
                     <p class="text-sm font-medium text-slate-600 mt-1">Scores and ongoing tracking are managed in the Progress Review form.</p>
                 </div>
                 <a href="{{ route('admin.progress.edit', $development->progressReview) }}"
-                   class="bg-[#00515F] text-white px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-[#00333B] transition-all">
+                   class="bg-[#111111] text-white px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-[#00333B] transition-all">
                     Open Progress Review
                 </a>
             </div>

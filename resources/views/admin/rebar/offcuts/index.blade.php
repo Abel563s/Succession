@@ -84,7 +84,7 @@
                                 <td class="px-8 py-6">
                                     <div class="flex items-center gap-3">
                                         <div
-                                            class="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center text-cyan-600">
+                                            class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-cyan-600">
                                             <i data-lucide="hash" class="w-5 h-5"></i>
                                         </div>
                                         <span class="text-sm font-black text-slate-900">{{ $offcut->offcut_code }}</span>
@@ -144,7 +144,7 @@
                                     <div
                                         class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-all">
                                         <a href="{{ route('admin.rebar.offcuts.edit', $offcut) }}"
-                                            class="w-9 h-9 flex items-center justify-center rounded-xl bg-slate-100 text-slate-600 hover:bg-cyan-500 hover:text-white transition-all shadow-sm">
+                                            class="w-9 h-9 flex items-center justify-center rounded-xl bg-slate-100 text-slate-600 hover:bg-amber-500 hover:text-white transition-all shadow-sm">
                                             <i data-lucide="edit-3" class="w-4 h-4"></i>
                                         </a>
                                         <form action="{{ route('admin.rebar.offcuts.destroy', $offcut) }}" method="POST"

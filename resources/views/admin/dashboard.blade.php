@@ -6,14 +6,14 @@
             <!-- Left: Welcome Message -->
             <div class="xl:col-span-2 space-y-1">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00515F] to-[#00333B] flex items-center justify-center text-white shadow-lg shadow-[#00515F]/20">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#111111] to-[#00333B] flex items-center justify-center text-white shadow-lg shadow-[#111111]/20">
                         <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
                     </div>
                     <div>
                         <h2 class="text-2xl font-black text-slate-900 tracking-tight">
-                            Control <span class="text-[#00515F]">Center</span>
+                            Control <span class="text-[#111111]">Center</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.2em] mt-0.5">HR Executive Succession & Development Hub</p>
+                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.2em] mt-0.5">HR Executive Succession & Development Hub</p>
                     </div>
                 </div>
                 <div class="text-xs font-medium text-slate-500 mt-2">
@@ -26,21 +26,21 @@
             <div class="flex flex-wrap gap-3 xl:justify-end">
                 <a href="{{ route('admin.progress.create') }}" 
                    class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all hover:scale-[1.02] shadow-sm">
-                    <i data-lucide="bar-chart-2" class="w-4 h-4 text-[#00ADC5]"></i>
+                    <i data-lucide="bar-chart-2" class="w-4 h-4 text-[#D4AF37]"></i>
                     New Progress
                 </a>
                 <a href="{{ route('admin.leadership.create') }}" 
                    class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all hover:scale-[1.02] shadow-sm">
-                    <i data-lucide="award" class="w-4 h-4 text-[#00ADC5]"></i>
+                    <i data-lucide="award" class="w-4 h-4 text-[#D4AF37]"></i>
                     Add Leadership
                 </a>
                 <a href="{{ route('admin.successions.create') }}" 
                    class="bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all hover:scale-[1.02] shadow-sm">
-                    <i data-lucide="trending-up" class="w-4 h-4 text-[#00ADC5]"></i>
+                    <i data-lucide="trending-up" class="w-4 h-4 text-[#D4AF37]"></i>
                     Add Succession
                 </a>
                 <a href="{{ route('admin.transition.create') }}" 
-                   class="bg-gradient-to-r from-[#00515F] to-[#00333B] text-white px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all hover:scale-[1.02] shadow-md shadow-[#00515F]/15">
+                   class="bg-gradient-to-r from-[#111111] to-[#00333B] text-white px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-1.5 transition-all hover:scale-[1.02] shadow-md shadow-[#111111]/15">
                     <i data-lucide="refresh-ccw" class="w-4 h-4"></i>
                     Add Transition
                 </a>
@@ -69,11 +69,11 @@
             <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm space-y-4 hover:shadow-md transition-all">
                 <div class="flex items-center justify-between">
                     <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Succession Plans</span>
-                    <span class="p-2 rounded-xl bg-[#f0fbfd] text-[#00ADC5]"><i data-lucide="trending-up" class="w-4 h-4"></i></span>
+                    <span class="p-2 rounded-xl bg-[#FFF8E7] text-[#D4AF37]"><i data-lucide="trending-up" class="w-4 h-4"></i></span>
                 </div>
                 <div class="flex items-baseline gap-2">
                     <span class="text-3xl font-black text-slate-900">{{ $successionPlansCount }}</span>
-                    <span class="text-xs font-bold text-[#00ADC5] uppercase">Plans</span>
+                    <span class="text-xs font-bold text-[#D4AF37] uppercase">Plans</span>
                 </div>
                 <div class="grid grid-cols-2 gap-2 pt-2 border-t border-slate-100 text-[10px] font-bold text-slate-400">
                     <div>Ready Now: <span class="text-slate-800 font-black">{{ $highReadinessCandidates }}</span></div>
@@ -133,7 +133,7 @@
         <!-- Quick Access Module Cards -->
         <div class="space-y-4">
             <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-2">
-                <span class="w-1.5 h-4 bg-[#00515F] rounded-full"></span>
+                <span class="w-1.5 h-4 bg-[#111111] rounded-full"></span>
                 Quick Access Modules
             </h3>
             
@@ -142,7 +142,7 @@
                 <a href="{{ route('admin.critical-roles.index') }}" class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group flex flex-col justify-between h-40">
                     <div class="flex items-center justify-between">
                         <span class="w-10 h-10 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center group-hover:bg-rose-500 group-hover:text-white transition-all"><i data-lucide="shield-check" class="w-5 h-5"></i></span>
-                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#00ADC5] transition-all"></i>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#D4AF37] transition-all"></i>
                     </div>
                     <div>
                         <p class="font-black text-slate-800 text-sm">Critical Roles</p>
@@ -153,8 +153,8 @@
                 <!-- Succession -->
                 <a href="{{ route('admin.successions.index') }}" class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group flex flex-col justify-between h-40">
                     <div class="flex items-center justify-between">
-                        <span class="w-10 h-10 rounded-xl bg-[#f0fbfd] text-[#00ADC5] flex items-center justify-center group-hover:bg-[#00ADC5] group-hover:text-white transition-all"><i data-lucide="trending-up" class="w-5 h-5"></i></span>
-                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#00ADC5] transition-all"></i>
+                        <span class="w-10 h-10 rounded-xl bg-[#FFF8E7] text-[#D4AF37] flex items-center justify-center group-hover:bg-[#D4AF37] group-hover:text-white transition-all"><i data-lucide="trending-up" class="w-5 h-5"></i></span>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#D4AF37] transition-all"></i>
                     </div>
                     <div>
                         <p class="font-black text-slate-800 text-sm">Succession Plans</p>
@@ -166,7 +166,7 @@
                 <a href="{{ route('admin.nine-box.index') }}" class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group flex flex-col justify-between h-40">
                     <div class="flex items-center justify-between">
                         <span class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center group-hover:bg-indigo-500 group-hover:text-white transition-all"><i data-lucide="grid-3x3" class="w-5 h-5"></i></span>
-                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#00ADC5] transition-all"></i>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#D4AF37] transition-all"></i>
                     </div>
                     <div>
                         <p class="font-black text-slate-800 text-sm">9-Box Grid</p>
@@ -178,7 +178,7 @@
                 <a href="{{ route('admin.development.index') }}" class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group flex flex-col justify-between h-40">
                     <div class="flex items-center justify-between">
                         <span class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-all"><i data-lucide="user-plus" class="w-5 h-5"></i></span>
-                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#00ADC5] transition-all"></i>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#D4AF37] transition-all"></i>
                     </div>
                     <div>
                         <p class="font-black text-slate-800 text-sm">IDP Development</p>
@@ -190,7 +190,7 @@
                 <a href="{{ route('admin.mentor.index') }}" class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group flex flex-col justify-between h-40">
                     <div class="flex items-center justify-between">
                         <span class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all"><i data-lucide="users" class="w-5 h-5"></i></span>
-                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#00ADC5] transition-all"></i>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#D4AF37] transition-all"></i>
                     </div>
                     <div>
                         <p class="font-black text-slate-800 text-sm">Mentorship</p>
@@ -202,7 +202,7 @@
                 <a href="{{ route('admin.leadership.index') }}" class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all group flex flex-col justify-between h-40">
                     <div class="flex items-center justify-between">
                         <span class="w-10 h-10 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-all"><i data-lucide="award" class="w-5 h-5"></i></span>
-                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#00ADC5] transition-all"></i>
+                        <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 group-hover:text-[#D4AF37] transition-all"></i>
                     </div>
                     <div>
                         <p class="font-black text-slate-800 text-sm">Leadership</p>
@@ -218,10 +218,10 @@
             <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm space-y-4">
                 <div class="flex justify-between items-center">
                     <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-2">
-                        <span class="w-1.5 h-4 bg-[#00515F] rounded-full"></span>
+                        <span class="w-1.5 h-4 bg-[#111111] rounded-full"></span>
                         Succession Readiness Overview
                     </h3>
-                    <span class="text-[10px] font-black text-[#00ADC5] uppercase tracking-wider">Interactive Distribution</span>
+                    <span class="text-[10px] font-black text-[#D4AF37] uppercase tracking-wider">Interactive Distribution</span>
                 </div>
                 <div class="relative h-64 flex items-center justify-center">
                     <canvas id="readinessChart" class="max-h-full"></canvas>
@@ -232,10 +232,10 @@
             <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm space-y-4">
                 <div class="flex justify-between items-center">
                     <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-2">
-                        <span class="w-1.5 h-4 bg-[#00515F] rounded-full"></span>
+                        <span class="w-1.5 h-4 bg-[#111111] rounded-full"></span>
                         Leadership Ratings & Skill Breakdown
                     </h3>
-                    <span class="text-[10px] font-black text-[#00ADC5] uppercase tracking-wider">Standard Competencies</span>
+                    <span class="text-[10px] font-black text-[#D4AF37] uppercase tracking-wider">Standard Competencies</span>
                 </div>
                 <div class="relative h-64 flex items-center justify-center">
                     <canvas id="leadershipChart" class="max-h-full"></canvas>
@@ -252,10 +252,10 @@
                 <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="p-5 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
                         <h4 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-2">
-                            <span class="w-1.5 h-4 bg-[#00515F] rounded-full"></span>
+                            <span class="w-1.5 h-4 bg-[#111111] rounded-full"></span>
                             Recent Transition Schedules
                         </h4>
-                        <a href="{{ route('admin.transition.index') }}" class="text-[10px] font-black text-[#00ADC5] uppercase hover:underline">View All</a>
+                        <a href="{{ route('admin.transition.index') }}" class="text-[10px] font-black text-[#D4AF37] uppercase hover:underline">View All</a>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-xs border-collapse">
@@ -272,7 +272,7 @@
                                     @foreach($rt->items->take(1) as $item)
                                         <tr class="hover:bg-slate-50/50 transition-colors">
                                             <td class="px-5 py-3 font-bold text-slate-800">{{ $item->critical_role }}</td>
-                                            <td class="px-5 py-3 font-bold text-[#00ADC5]">{{ $item->successor }}</td>
+                                            <td class="px-5 py-3 font-bold text-[#D4AF37]">{{ $item->successor }}</td>
                                             <td class="px-5 py-3 font-medium text-slate-500">{{ date('M d, Y', strtotime($item->transition_date)) }}</td>
                                             <td class="px-5 py-3 text-center">
                                                 <span class="inline-flex px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider border border-slate-200 bg-slate-50 text-slate-500">
@@ -295,10 +295,10 @@
                 <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                     <div class="p-5 border-b border-slate-100 bg-slate-50/50 flex justify-between items-center">
                         <h4 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-2">
-                            <span class="w-1.5 h-4 bg-[#00515F] rounded-full"></span>
+                            <span class="w-1.5 h-4 bg-[#111111] rounded-full"></span>
                             Latest Leadership Evaluations
                         </h4>
-                        <a href="{{ route('admin.leadership.index') }}" class="text-[10px] font-black text-[#00ADC5] uppercase hover:underline">View All</a>
+                        <a href="{{ route('admin.leadership.index') }}" class="text-[10px] font-black text-[#D4AF37] uppercase hover:underline">View All</a>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-xs border-collapse">
@@ -338,7 +338,7 @@
                 <div class="bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm space-y-6">
                     <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                         <h4 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-2">
-                            <span class="w-1.5 h-4 bg-[#00515F] rounded-full"></span>
+                            <span class="w-1.5 h-4 bg-[#111111] rounded-full"></span>
                             Upcoming Reminders
                         </h4>
                         <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
@@ -422,7 +422,7 @@
                             {{ max(0, $successionPlansCount - $highReadinessCandidates) }},
                             {{ $rolesWithoutSuccessors }}
                         ],
-                        backgroundColor: ['#00ADC5', '#00515F', '#E2E8F0'],
+                        backgroundColor: ['#D4AF37', '#111111', '#E2E8F0'],
                         borderWidth: 0
                     }]
                 },
@@ -454,7 +454,7 @@
                     datasets: [{
                         label: 'Leadership Progress',
                         data: [{{ $leadershipCompleted }}, 5, {{ $avgLeadershipScore }}],
-                        backgroundColor: ['#00515F', '#00ADC5', '#F59E0B'],
+                        backgroundColor: ['#111111', '#D4AF37', '#F59E0B'],
                         borderRadius: 8
                     }]
                 },

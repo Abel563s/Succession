@@ -6,14 +6,14 @@
             <div class="space-y-3">
                 <div class="flex items-center gap-4">
                     <a href="{{ route('admin.projects.index') }}"
-                        class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-[#00ADC5] hover:border-[#00ADC5]/20 hover:rotate-[-10deg] transition-all shadow-sm">
+                        class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 hover:rotate-[-10deg] transition-all shadow-sm">
                         <i data-lucide="arrow-left" class="w-5 h-5"></i>
                     </a>
                     <div>
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
                             Deploy <span class="font-black text-slate-900">Project</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">Initialize
+                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">Initialize
                             Architecture Protocol</p>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <button type="submit" form="project-form"
                     class="group/btn relative px-10 py-3.5 bg-slate-900 text-white rounded-2xl font-black text-[11px] uppercase tracking-widest overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/20">
                     <div
-                        class="absolute inset-0 bg-gradient-to-r from-[#00ADC5] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
+                        class="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
                     </div>
                     <span class="relative flex items-center gap-2">
                         <i data-lucide="rocket" class="w-4 h-4"></i>
@@ -40,13 +40,13 @@
 
             <!-- Section 1: Project Identity -->
             <div
-                class="bg-white p-10 rounded-[3rem] shadow-xl shadow-slate-200/60 border border-slate-50 space-y-10 group/section hover:shadow-2xl hover:shadow-[#00ADC5]/10 transition-all duration-500 relative overflow-hidden">
+                class="bg-white p-10 rounded-[3rem] shadow-xl shadow-slate-200/60 border border-slate-50 space-y-10 group/section hover:shadow-2xl hover:shadow-[#D4AF37]/10 transition-all duration-500 relative overflow-hidden">
                 <div
-                    class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-50/50 rounded-full blur-3xl group-hover/section:bg-cyan-100/50 transition-all duration-700">
+                    class="absolute -right-20 -top-20 w-64 h-64 bg-amber-50/50 rounded-full blur-3xl group-hover/section:bg-cyan-100/50 transition-all duration-700">
                 </div>
                 <div class="flex items-center gap-4 relative z-10">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-cyan-50 flex items-center justify-center text-[#00ADC5] group-hover/section:scale-110 transition-transform duration-500">
+                        class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37] group-hover/section:scale-110 transition-transform duration-500">
                         <i data-lucide="fingerprint" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="space-y-2 lg:col-span-1">
                         <label
-                            class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 text-[#00ADC5]">Project
+                            class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 text-[#D4AF37]">Project
                             Name</label>
                         <input type="text" name="project_name" required
                             class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
@@ -155,14 +155,14 @@
 
             <!-- Section 3: Financial Matrix (Lightened and Popped) -->
             <div
-                class="bg-white p-10 rounded-[3rem] shadow-2xl shadow-[#00ADC5]/10 border border-[#00ADC5]/10 space-y-10 group/section hover:shadow-2xl hover:shadow-[#00ADC5]/20 transition-all duration-500 relative overflow-hidden">
+                class="bg-white p-10 rounded-[3rem] shadow-2xl shadow-[#D4AF37]/10 border border-[#D4AF37]/10 space-y-10 group/section hover:shadow-2xl hover:shadow-[#D4AF37]/20 transition-all duration-500 relative overflow-hidden">
                 <div
-                    class="absolute -right-20 -top-20 w-80 h-80 bg-[#00ADC5]/5 rounded-full blur-3xl group-hover/section:scale-110 transition-all duration-1000">
+                    class="absolute -right-20 -top-20 w-80 h-80 bg-[#D4AF37]/5 rounded-full blur-3xl group-hover/section:scale-110 transition-all duration-1000">
                 </div>
 
                 <div class="flex items-center gap-4 relative z-10">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-[#e6f7fa] flex items-center justify-center text-[#00ADC5] group-hover/section:animate-pulse">
+                        class="w-12 h-12 rounded-2xl bg-[#e6f7fa] flex items-center justify-center text-[#D4AF37] group-hover/section:animate-pulse">
                         <i data-lucide="banknote" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -193,7 +193,7 @@
                     </div>
                     <div class="space-y-2">
                         <label
-                            class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 text-[#00ADC5]">Total
+                            class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 text-[#D4AF37]">Total
                             Allowable Cost</label>
                         <input type="number" step="0.01" name="total_allowable_cost"
                             class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">

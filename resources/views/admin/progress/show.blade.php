@@ -29,9 +29,9 @@
             <!-- Left Column: Profile -->
             <div class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-8 text-center relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#00ADC5]/5 rounded-full blur-3xl"></div>
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
                     
-                    <div class="w-20 h-20 rounded-3xl bg-[#00ADC5]/10 flex items-center justify-center font-black text-2xl text-[#00ADC5] mx-auto mb-6 border border-[#00ADC5]/20 relative z-10">
+                    <div class="w-20 h-20 rounded-3xl bg-[#D4AF37]/10 flex items-center justify-center font-black text-2xl text-[#D4AF37] mx-auto mb-6 border border-[#D4AF37]/20 relative z-10">
                         {{ substr($progress->candidate_name, 0, 1) }}
                     </div>
                     
@@ -75,7 +75,7 @@
                 <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
                     <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
                         <h3 class="text-lg font-black text-slate-900 tracking-tight">Performance Summary</h3>
-                        <i data-lucide="clipboard-check" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="clipboard-check" class="w-5 h-5 text-[#D4AF37]"></i>
                     </div>
                     <div class="p-8">
                         <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100 text-slate-600 font-medium text-sm leading-relaxed whitespace-pre-wrap">
@@ -88,7 +88,7 @@
                 <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
                     <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
                         <h3 class="text-lg font-black text-slate-900 tracking-tight">Progress Tracking (IDP)</h3>
-                        <i data-lucide="activity" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="activity" class="w-5 h-5 text-[#D4AF37]"></i>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full border-collapse">
@@ -126,7 +126,7 @@
                 <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
                     <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
                         <h3 class="text-lg font-black text-slate-900 tracking-tight">Updated Action Plan</h3>
-                        <i data-lucide="trending-up" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="trending-up" class="w-5 h-5 text-[#D4AF37]"></i>
                     </div>
                     <div class="p-8">
                         <div class="p-6 rounded-3xl bg-indigo-50/30 border border-indigo-100 text-slate-600 font-medium text-sm leading-relaxed whitespace-pre-wrap italic">

@@ -4,7 +4,7 @@
         <div class="flex items-center justify-between no-print">
             <div class="flex items-center gap-4">
                 <a href="{{ route('admin.transition.index') }}" 
-                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#00515F] hover:border-[#00515F]/20 transition-all">
+                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#111111] hover:border-[#111111]/20 transition-all">
                     <i data-lucide="chevron-left" class="w-5 h-5"></i>
                 </a>
                 <div>
@@ -21,7 +21,7 @@
                 </button>
                 @if(auth()->user()->isAdmin())
                     <a href="{{ route('admin.transition.edit', $transition) }}" 
-                       class="bg-[#00515F] hover:bg-[#00333B] text-white px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all shadow-sm">
+                       class="bg-[#111111] hover:bg-[#00333B] text-white px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all shadow-sm">
                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                         Edit Plan
                     </a>
@@ -34,12 +34,12 @@
         <!-- Main Document Container (Designed to look premium and printable) -->
         <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-xl overflow-hidden print:border-0 print:shadow-none p-10 md:p-16 space-y-12 relative">
             <!-- Decorative Branding Element -->
-            <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#00515F] via-[#00ADC5] to-[#00333B]"></div>
+            <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-[#111111] via-[#D4AF37] to-[#00333B]"></div>
 
             <!-- Title Header Block -->
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-100 pb-8">
                 <div>
-                    <div class="text-[10px] font-black uppercase tracking-[0.2em] text-[#00ADC5] mb-1">Human Resources Succession Planning</div>
+                    <div class="text-[10px] font-black uppercase tracking-[0.2em] text-[#D4AF37] mb-1">Human Resources Succession Planning</div>
                     <h2 class="text-3xl font-black text-slate-900 tracking-tight">TRANSITION PLAN FORM</h2>
                 </div>
                 <div class="text-right flex flex-col md:items-end gap-1.5">
@@ -74,7 +74,7 @@
             <!-- Transition Plan Items Table -->
             <div class="space-y-4">
                 <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-2">
-                    <span class="w-1.5 h-4 bg-[#00515F] rounded-full"></span>
+                    <span class="w-1.5 h-4 bg-[#111111] rounded-full"></span>
                     Planned Key Handovers
                 </h3>
                 
@@ -92,10 +92,10 @@
                         <tbody class="divide-y divide-slate-100 text-sm">
                             @foreach($transition->items as $item)
                                 <tr class="hover:bg-slate-50/50 transition-colors">
-                                    <td class="px-6 py-4 text-center font-black text-[#00515F] bg-slate-50/30">{{ $item->row_number }}</td>
+                                    <td class="px-6 py-4 text-center font-black text-[#111111] bg-slate-50/30">{{ $item->row_number }}</td>
                                     <td class="px-6 py-4 font-bold text-slate-900">{{ $item->critical_role }}</td>
                                     <td class="px-6 py-4 font-medium text-slate-600">{{ $item->current_holder }}</td>
-                                    <td class="px-6 py-4 font-bold text-[#00ADC5]">{{ $item->successor }}</td>
+                                    <td class="px-6 py-4 font-bold text-[#D4AF37]">{{ $item->successor }}</td>
                                     <td class="px-6 py-4 text-right font-black text-slate-700 text-xs">
                                         {{ date('M d, Y', strtotime($item->transition_date)) }}
                                     </td>
@@ -131,7 +131,7 @@
 
                     <!-- DCEO Signature -->
                     <div class="text-center space-y-4 w-48">
-                        <div class="text-[10px] font-black uppercase tracking-widest text-[#00ADC5]">DCEO Signature</div>
+                        <div class="text-[10px] font-black uppercase tracking-widest text-[#D4AF37]">DCEO Signature</div>
                         
                         @if($transition->dceo_signature_path)
                             <div class="p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">

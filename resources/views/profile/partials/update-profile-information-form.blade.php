@@ -21,13 +21,13 @@
 
         <div class="space-y-2">
             <x-input-label for="name" class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1" :value="__('System Identifier')" />
-            <x-text-input id="name" name="name" type="text" class="block w-full py-4 px-6 bg-slate-50 border-none rounded-2xl text-slate-700 font-bold focus:ring-4 focus:ring-[#00ADC5]/10" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-text-input id="name" name="name" type="text" class="block w-full py-4 px-6 bg-slate-50 border-none rounded-2xl text-slate-700 font-bold focus:ring-4 focus:ring-[#D4AF37]/10" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div class="space-y-2">
             <x-input-label for="email" class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1" :value="__('Corporate Email')" />
-            <x-text-input id="email" name="email" type="email" class="block w-full py-4 px-6 bg-slate-50 border-none rounded-2xl text-slate-700 font-bold focus:ring-4 focus:ring-[#00ADC5]/10" :value="old('email', $user->email)" required autocomplete="username" />
+            <x-text-input id="email" name="email" type="email" class="block w-full py-4 px-6 bg-slate-50 border-none rounded-2xl text-slate-700 font-bold focus:ring-4 focus:ring-[#D4AF37]/10" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
@@ -50,7 +50,7 @@
         </div>
 
         <div class="flex items-center gap-4 pt-4">
-            <button type="submit" class="px-8 py-4 bg-[#00ADC5] rounded-2xl text-xs font-black text-white uppercase tracking-[0.2em] shadow-lg shadow-cyan-200 hover:bg-[#007A8A] transition-all active:scale-95">
+            <button type="submit" class="px-8 py-4 bg-[#D4AF37] rounded-2xl text-xs font-black text-white uppercase tracking-[0.2em] shadow-lg shadow-cyan-200 hover:bg-[#B8860B] transition-all active:scale-95">
                 {{ __('Update Details') }}
             </button>
 

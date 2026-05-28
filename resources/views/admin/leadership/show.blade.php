@@ -29,7 +29,7 @@
             <!-- Left Column: Profile & Score -->
             <div class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-8 text-center relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#00ADC5]/5 rounded-full blur-3xl"></div>
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
                     
                     <div class="w-20 h-20 rounded-3xl bg-slate-900 flex items-center justify-center font-black text-2xl text-white mx-auto mb-6 relative z-10">
                         {{ substr($leadership->candidate_name, 0, 1) }}
@@ -41,7 +41,7 @@
                     <div class="space-y-4 mb-8 relative z-10">
                         <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
                             <span class="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Overall Leadership Score</span>
-                            <span class="text-3xl font-black text-[#00ADC5]">{{ number_format($leadership->overall_score, 1) }}<span class="text-sm text-slate-300 ml-1">/ 5.0</span></span>
+                            <span class="text-3xl font-black text-[#D4AF37]">{{ number_format($leadership->overall_score, 1) }}<span class="text-sm text-slate-300 ml-1">/ 5.0</span></span>
                         </div>
                     </div>
 
@@ -63,7 +63,7 @@
                     @php
                         $readiness = match(true) {
                             $leadership->overall_score >= 4.5 => ['High Potential', 'bg-emerald-500'],
-                            $leadership->overall_score >= 3.5 => ['Ready for Growth', 'bg-[#00ADC5]'],
+                            $leadership->overall_score >= 3.5 => ['Ready for Growth', 'bg-[#D4AF37]'],
                             $leadership->overall_score >= 2.5 => ['Developing', 'bg-amber-500'],
                             default => ['Needs Improvement', 'bg-rose-500']
                         };
@@ -80,17 +80,17 @@
                 <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
                     <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
                         <h3 class="text-lg font-black text-slate-900 tracking-tight">Competency Breakdown</h3>
-                        <i data-lucide="bar-chart-2" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="bar-chart-2" class="w-5 h-5 text-[#D4AF37]"></i>
                     </div>
                     <div class="p-8 space-y-6">
                         @foreach($leadership->ratings as $rating)
                             <div class="space-y-2">
                                 <div class="flex justify-between items-end">
                                     <span class="text-sm font-black text-slate-700">{{ $rating->competency_name }}</span>
-                                    <span class="text-xs font-black text-[#00ADC5]">{{ $rating->rating }} / 5</span>
+                                    <span class="text-xs font-black text-[#D4AF37]">{{ $rating->rating }} / 5</span>
                                 </div>
                                 <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                                    <div class="h-full bg-[#00ADC5] rounded-full" style="width: {{ ($rating->rating / 5) * 100 }}%"></div>
+                                    <div class="h-full bg-[#D4AF37] rounded-full" style="width: {{ ($rating->rating / 5) * 100 }}%"></div>
                                 </div>
                             </div>
                         @endforeach
@@ -101,7 +101,7 @@
                 <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
                     <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
                         <h3 class="text-lg font-black text-slate-900 tracking-tight">Manager Observations</h3>
-                        <i data-lucide="message-square" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="message-square" class="w-5 h-5 text-[#D4AF37]"></i>
                     </div>
                     <div class="p-8">
                         <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100 text-slate-600 font-medium text-sm leading-relaxed whitespace-pre-wrap italic">

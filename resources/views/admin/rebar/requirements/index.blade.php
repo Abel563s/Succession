@@ -9,7 +9,7 @@
                     <span>Registry</span>
                     <li class="list-none p-1 rounded-full bg-slate-100"><i data-lucide="chevron-right"
                             class="w-2.5 h-2.5"></i></li>
-                    <li class="list-none text-[#00ADC5]">Structural elements</li>
+                    <li class="list-none text-[#D4AF37]">Structural elements</li>
                 </nav>
             </div>
             <div class="flex items-center gap-4">
@@ -19,7 +19,7 @@
                         class="text-xl font-black text-slate-900 tracking-tighter">{{ number_format($totalLength, 1) }}m</span>
                 </div>
                 <a href="{{ route('admin.rebar.requirements.create') }}"
-                    class="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#00ADC5] to-[#007A8A] text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-cyan-500/20 hover:scale-[1.02] transition-all active:scale-95">
+                    class="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-white rounded-2xl font-black text-xs uppercase tracking-widest shadow-xl shadow-cyan-500/20 hover:scale-[1.02] transition-all active:scale-95">
                     <i data-lucide="plus" class="w-4 h-4"></i>
                     New Requirement
                 </a>
@@ -98,11 +98,11 @@
                     </thead>
                     <tbody class="divide-y divide-slate-50">
                         @forelse($requirements as $req)
-                            <tr class="hover:bg-cyan-50/30 transition-all group">
+                            <tr class="hover:bg-amber-50/30 transition-all group">
                                 <td class="px-8 py-5">
                                     <div class="flex items-center gap-3">
                                         <div
-                                            class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 font-black text-[10px] border border-slate-200 group-hover:bg-cyan-500 group-hover:text-white group-hover:border-cyan-400 transition-all">
+                                            class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 font-black text-[10px] border border-slate-200 group-hover:bg-amber-500 group-hover:text-white group-hover:border-cyan-400 transition-all">
                                             ID
                                         </div>
                                         <div>
@@ -122,7 +122,7 @@
                                 <td class="px-8 py-5">
                                     <div class="flex flex-col gap-1">
                                         <div class="flex items-center gap-2">
-                                            <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                                            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
                                             <span
                                                 class="text-sm font-black text-slate-700 tracking-tight">Ø{{ $req->bar_diameter }}mm</span>
                                         </div>

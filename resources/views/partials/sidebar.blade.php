@@ -1,5 +1,5 @@
 <aside id="sidebar"
-    class="w-64 shrink-0 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] bg-gradient-to-b from-[#00515F] via-[#00424D] to-[#00333B] border-r border-white/5 flex flex-col z-40 relative shadow-[0_10px_40px_rgba(0,0,0,0.1)] group/sidebar overflow-visible">
+    class="w-64 shrink-0 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] bg-gradient-to-b from-[#111111] via-[#1C1C1C] to-[#0B0B0B] border-r border-[#333333] flex flex-col z-40 relative shadow-[0_10px_40px_rgba(0,0,0,0.35)] group/sidebar overflow-visible">
 
     <div
         class="h-16 flex items-center justify-between px-6 border-b border-white/5 shrink-0 overflow-hidden relative z-10 transition-all duration-500">
@@ -9,15 +9,15 @@
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-6 h-6 object-contain brightness-0 invert">
             </div>
             <div class="flex flex-col leading-none sidebar-text animate-pop-in">
-                <span class="text-[10px] font-black uppercase tracking-[0.2em] text-[#00ADC5]">Succession</span>
-                <span class="text-sm font-black tracking-tighter mt-0.5 text-white">Planning</span>
+                <span class="text-[10px] font-black uppercase tracking-[0.2em] text-[#D4AF37]">Succession</span>
+                <span class="text-sm font-black tracking-tighter mt-0.5 text-[#F5F5F4]">Planning</span>
             </div>
         </div>
     </div>
 
     <!-- Floating External Toggle -->
     <button id="sidebarToggle"
-        class="absolute -right-4 top-10 w-8 h-8 flex items-center justify-center rounded-full bg-white border border-slate-200 text-[#00515F] hover:text-[#00ADC5] hover:scale-110 active:scale-90 transition-all duration-300 shadow-xl z-[60] group/toggle">
+        class="absolute -right-4 top-10 w-8 h-8 flex items-center justify-center rounded-full bg-[#222222] border border-[#333333] text-[#D4AF37] hover:text-[#F5F5F4] hover:scale-110 active:scale-90 transition-all duration-300 shadow-xl z-[60] group/toggle">
         <i data-lucide="chevron-left"
             class="w-4 h-4 sidebar-toggle-icon transition-transform duration-500 group-hover/toggle:translate-x-[-2px]"></i>
         <i data-lucide="chevron-right"
@@ -101,10 +101,10 @@
         @foreach ($menu as $item)
             <a href="{{ route($item['route']) }}"
                 class="flex items-center gap-3.5 p-3 rounded-xl transition-all duration-300 ease-out group/item relative 
-                                                                                    {{ $item['active'] ? 'bg-[#00ADC5] text-white shadow-lg shadow-[#00ADC5]/20 z-20 translate-x-1' : 'hover:bg-white/10 text-white/70 hover:text-white hover:translate-x-1' }}">
+                                                                                    {{ $item['active'] ? 'bg-[#D4AF37] text-[#111111] shadow-lg shadow-[#D4AF37]/20 z-20 translate-x-1' : 'hover:bg-white/10 text-[#D6D3D1] hover:text-[#F5F5F4] hover:translate-x-1' }}">
 
                 @if($item['active'])
-                    <div class="absolute inset-y-2.5 -left-1 w-1 bg-white rounded-full shadow-[0_0_10px_white]">
+                    <div class="absolute inset-y-2.5 -left-1 w-1 bg-[#111111] rounded-full shadow-[0_0_10px_#D4AF37]">
                     </div>
                 @endif
 
@@ -127,7 +127,7 @@
     @if(Auth::check())
     <div class="p-6 border-t border-white/5 shrink-0 relative z-10 transition-all duration-500">
         <a href="{{ route('admin.settings.index') }}"
-            class="flex items-center gap-3.5 p-3 w-full rounded-xl transition-all duration-300 ease-out text-white/70 hover:text-white hover:bg-white/10 group/settings {{ request()->routeIs('admin.settings.index') ? 'bg-[#00ADC5] text-white shadow-lg shadow-[#00ADC5]/20' : 'bg-[#00515F]' }}"
+            class="flex items-center gap-3.5 p-3 w-full rounded-xl transition-all duration-300 ease-out text-[#D6D3D1] hover:text-[#F5F5F4] hover:bg-white/10 group/settings {{ request()->routeIs('admin.settings.index') ? 'bg-[#D4AF37] text-[#111111] shadow-lg shadow-[#D4AF37]/20' : 'bg-[#1C1C1C]' }}"
             title="Settings">
             <i data-lucide="settings"
                 class="w-5 h-5 shrink-0 group-hover/settings:rotate-45 transition-all duration-500 {{ request()->routeIs('admin.settings.index') ? 'stroke-[2.5px] scale-110' : 'opacity-70 group-hover/settings:opacity-100 group-hover/settings:scale-110' }}"></i>

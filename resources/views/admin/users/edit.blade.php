@@ -5,14 +5,14 @@
             <div class="space-y-3">
                 <div class="flex items-center gap-4">
                     <a href="{{ route('admin.users.index') }}"
-                        class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-[#00ADC5] hover:border-[#00ADC5]/20 hover:rotate-[-10deg] transition-all shadow-sm">
+                        class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 hover:rotate-[-10deg] transition-all shadow-sm">
                         <i data-lucide="arrow-left" class="w-5 h-5"></i>
                     </a>
                     <div>
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
                             Edit <span class="font-black text-slate-900">User</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">
+                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">
                             {{ $user->name }} - Information Adjustment</p>
                     </div>
                 </div>
@@ -41,14 +41,14 @@
                                 <label
                                     class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">User Name</label>
                                 <input type="text" name="name" value="{{ old('name', $user->name) }}" required
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm">
+                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm">
                                 <x-input-error :messages="$errors->get('name')" />
                             </div>
                             <div class="space-y-2">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">
                                     Email Address</label>
                                 <input type="email" name="email" value="{{ old('email', $user->email) }}" required
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm">
+                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm">
                                 <x-input-error :messages="$errors->get('email')" />
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                             <div class="space-y-2">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Department</label>
                                 <select name="department_id"
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm appearance-none cursor-pointer">
+                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm appearance-none cursor-pointer">
                                     <option value="">No Department Assigned</option>
                                     @foreach($departments as $dept)
                                         <option value="{{ $dept->id }}" {{ old('department_id', $user->department_id) == $dept->id ? 'selected' : '' }}>{{ $dept->name }}</option>
@@ -70,7 +70,7 @@
                             <div class="space-y-2">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Phone Number</label>
                                 <input type="text" name="phone" value="{{ old('phone', $user->phone) }}" placeholder="+1 (555) 000-0000"
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm">
+                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm">
                                 <x-input-error :messages="$errors->get('phone')" />
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                     class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Access
                                     Protocol (Role)</label>
                                 <select name="role" required x-model="role"
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm appearance-none cursor-pointer">
+                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm appearance-none cursor-pointer">
                                     <option value="user" {{ $user->role === 'user' ? 'selected' : '' }}>User</option>
                                     <option value="manager" {{ $user->role === 'manager' ? 'selected' : '' }}>Manager</option>
                                     <option value="dceo" {{ $user->role === 'dceo' ? 'selected' : '' }}>DCEO</option>
@@ -96,7 +96,7 @@
                                     class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Activity
                                     Status</label>
                                 <select name="is_active" required
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold {{ $user->is_active ? 'text-emerald-600' : 'text-rose-600' }} focus:ring-4 focus:ring-[#00ADC5]/10 transition-all text-sm appearance-none cursor-pointer">
+                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold {{ $user->is_active ? 'text-emerald-600' : 'text-rose-600' }} focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm appearance-none cursor-pointer">
                                     <option value="1" {{ $user->is_active ? 'selected' : '' }}>🟢 Operational (Active)
                                     </option>
                                     <option value="0" {{ !$user->is_active ? 'selected' : '' }}>🔴 Decommissioned
@@ -122,7 +122,7 @@
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Upload new signature (optional)</label>
                                 <input type="file" name="signature" accept="image/*"
                                        @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); } else { preview = null; }"
-                                       class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#00515F] file:text-white cursor-pointer">
+                                       class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#111111] file:text-white cursor-pointer">
                                 <div x-show="preview" x-cloak class="p-4 border border-dashed border-slate-200 rounded-2xl bg-white flex justify-center">
                                     <img :src="preview" class="max-h-28 rounded-xl" alt="New signature preview">
                                 </div>
@@ -166,7 +166,7 @@
                         <!-- Submit -->
                         <div class="flex items-center gap-4 pt-4 border-t border-slate-50">
                             <button type="submit"
-                                class="px-10 py-4 bg-[#00ADC5] rounded-2xl text-xs font-black text-white uppercase tracking-[0.2em] shadow-xl shadow-cyan-200 hover:bg-[#007A8A] transition-all active:scale-95">
+                                class="px-10 py-4 bg-[#D4AF37] rounded-2xl text-xs font-black text-white uppercase tracking-[0.2em] shadow-xl shadow-cyan-200 hover:bg-[#B8860B] transition-all active:scale-95">
                                 Update Profile
                             </button>
                             <a href="{{ route('admin.users.index') }}"
@@ -197,17 +197,17 @@
                         <div class="flex gap-4">
                             <div
                                 class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                                <i data-lucide="key" class="w-5 h-5 text-[#00ADC5]"></i>
+                                <i data-lucide="key" class="w-5 h-5 text-[#D4AF37]"></i>
                             </div>
                             <div>
-                                <h4 class="text-xs font-black uppercase tracking-widest mb-1 italic text-[#00ADC5]">System Access Override</h4>
+                                <h4 class="text-xs font-black uppercase tracking-widest mb-1 italic text-[#D4AF37]">System Access Override</h4>
                                 <p class="text-xs text-white/60 font-medium leading-relaxed">Resetting a password key bypasses active session checks and sends a core security notification.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Decor -->
-                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-[#00ADC5]/10 rounded-full blur-3xl"></div>
+                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
             </div>
         </div>
     </div>

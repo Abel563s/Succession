@@ -3,7 +3,7 @@
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <a href="{{ route('admin.development.index') }}"
-                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#00ADC5] hover:border-[#00ADC5]/20 transition-all">
+                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 transition-all">
                     <i data-lucide="chevron-left" class="w-5 h-5"></i>
                 </a>
                 <div>
@@ -32,11 +32,11 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Employee Name <span class="text-rose-500">*</span></label>
                         <input type="text" name="employee_name" required value="{{ old('employee_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#00ADC5] outline-none font-bold text-slate-700">
+                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#D4AF37] outline-none font-bold text-slate-700">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department <span class="text-rose-500">*</span></label>
-                        <select name="department" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#00ADC5] outline-none font-bold text-slate-700">
+                        <select name="department" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#D4AF37] outline-none font-bold text-slate-700">
                             <option value="">Select Department</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}" @selected(old('department') == $dept->name)>{{ $dept->name }}</option>
@@ -46,7 +46,7 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Line Manager <span class="text-rose-500">*</span></label>
                         <input type="text" name="line_manager" required value="{{ old('line_manager', auth()->user()->name) }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#00ADC5] outline-none font-bold text-slate-700">
+                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#D4AF37] outline-none font-bold text-slate-700">
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                         <tbody class="divide-y divide-slate-100">
                             @for($i = 0; $i < 5; $i++)
                                 <tr class="hover:bg-slate-50/50">
-                                    <td class="px-4 py-4 text-center font-black text-[#00ADC5]">{{ $i + 1 }}</td>
+                                    <td class="px-4 py-4 text-center font-black text-[#D4AF37]">{{ $i + 1 }}</td>
                                     <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][objective]" rows="2" required class="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs p-2">{{ old("objectives.{$i}.objective") }}</textarea></td>
                                     <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][activity]" rows="2" required class="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs p-2">{{ old("objectives.{$i}.activity") }}</textarea></td>
                                     <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][resource]" rows="2" required class="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs p-2">{{ old("objectives.{$i}.resource") }}</textarea></td>
@@ -106,7 +106,7 @@
 
             <div class="flex flex-col items-center pb-20">
                 <button type="submit" :disabled="submitting"
-                        class="px-16 py-5 bg-slate-900 text-white rounded-[2rem] font-black uppercase tracking-[0.3em] text-[11px] shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#00ADC5] transition-all">
+                        class="px-16 py-5 bg-slate-900 text-white rounded-[2rem] font-black uppercase tracking-[0.3em] text-[11px] shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#D4AF37] transition-all">
                     <span x-show="!submitting">CREATE IDP &amp; OPEN PROGRESS REVIEW</span>
                     <span x-show="submitting" x-cloak>Processing...</span>
                 </button>

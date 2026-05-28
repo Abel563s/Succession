@@ -28,7 +28,7 @@
             <div class="lg:col-span-1 space-y-6">
                 <!-- Profile Card -->
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-8 text-center">
-                    <div class="w-24 h-24 rounded-3xl bg-[#f0fbfd] border-4 border-white shadow-xl shadow-[#00ADC5]/10 flex items-center justify-center font-black text-3xl text-[#00ADC5] mx-auto mb-6">
+                    <div class="w-24 h-24 rounded-3xl bg-[#FFF8E7] border-4 border-white shadow-xl shadow-[#D4AF37]/10 flex items-center justify-center font-black text-3xl text-[#D4AF37] mx-auto mb-6">
                         {{ substr($criticalRole->employee_name, 0, 1) }}
                     </div>
                     <h2 class="text-2xl font-black text-slate-900 leading-tight mb-1">{{ $criticalRole->employee_name }}</h2>
@@ -85,13 +85,13 @@
                         <!-- Successor 1 -->
                         <div class="space-y-3">
                             <div class="flex items-center gap-2">
-                                <div class="w-8 h-8 rounded-xl bg-[#00ADC5]/10 text-[#00ADC5] flex items-center justify-center font-black text-xs">1</div>
+                                <div class="w-8 h-8 rounded-xl bg-[#D4AF37]/10 text-[#D4AF37] flex items-center justify-center font-black text-xs">1</div>
                                 <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Primary</span>
                             </div>
                             @if($criticalRole->successor_1_name)
                                 <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100">
                                     <p class="font-bold text-slate-900 mb-1">{{ $criticalRole->successor_1_name }}</p>
-                                    <span class="inline-flex px-2 py-0.5 rounded-md bg-white border border-slate-200 text-[10px] font-bold text-[#00ADC5]">
+                                    <span class="inline-flex px-2 py-0.5 rounded-md bg-white border border-slate-200 text-[10px] font-bold text-[#D4AF37]">
                                         {{ $criticalRole->successor_1_readiness }}
                                     </span>
                                 </div>
@@ -148,7 +148,7 @@
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm overflow-hidden">
                     <div class="px-8 py-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
                         <h3 class="text-lg font-black text-slate-900">Mitigation & Retention Plan</h3>
-                        <i data-lucide="shield-check" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="shield-check" class="w-5 h-5 text-[#D4AF37]"></i>
                     </div>
                     <div class="p-8">
                         <div class="prose prose-slate max-w-none">

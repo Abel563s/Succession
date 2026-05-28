@@ -12,7 +12,7 @@
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
                             Weekly <span class="font-black text-slate-900">Closing Update</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">Operational Reconnaissance Matrix</p>
+                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">Operational Reconnaissance Matrix</p>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 
                 <a href="{{ route('admin.weekly-updates.create') }}" 
                    class="group/btn relative px-8 py-3.5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/20">
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#00ADC5] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500"></div>
                     <span class="relative flex items-center gap-2">
                         <i data-lucide="plus" class="w-3.5 h-3.5"></i>
                         New Review
@@ -50,15 +50,15 @@
                     </thead>
                     <tbody class="divide-y divide-slate-50">
                         @forelse($updates as $update)
-                            <tr class="group cursor-pointer hover:bg-[#f0fbfd]/50 transition-all duration-300" onclick="window.location='{{ route('admin.weekly-updates.edit', $update->id) }}'">
+                            <tr class="group cursor-pointer hover:bg-[#FFF8E7]/50 transition-all duration-300" onclick="window.location='{{ route('admin.weekly-updates.edit', $update->id) }}'">
                                 <td class="px-10 py-7">
                                     <div class="flex items-center gap-5">
-                                        <div class="w-14 h-14 rounded-2xl bg-white border-2 border-slate-50 flex items-center justify-center font-black text-xs text-slate-300 group-hover:border-[#00ADC5] group-hover:text-[#00ADC5] transition-all">
+                                        <div class="w-14 h-14 rounded-2xl bg-white border-2 border-slate-50 flex items-center justify-center font-black text-xs text-slate-300 group-hover:border-[#D4AF37] group-hover:text-[#D4AF37] transition-all">
                                             <i data-lucide="file-text" class="w-6 h-6"></i>
                                         </div>
                                         <div>
                                             <p class="text-sm font-black text-slate-900 leading-tight">{{ $update->project->project_name }}</p>
-                                            <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-widest mt-1">{{ $update->project->custom_id }}</p>
+                                            <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-widest mt-1">{{ $update->project->custom_id }}</p>
                                         </div>
                                     </div>
                                 </td>
@@ -72,7 +72,7 @@
                                 </td>
                                 <td class="px-6 py-7">
                                     <div class="flex items-center gap-2">
-                                        <i data-lucide="calendar" class="w-4 h-4 text-[#00ADC5]"></i>
+                                        <i data-lucide="calendar" class="w-4 h-4 text-[#D4AF37]"></i>
                                         <p class="text-xs font-black text-slate-700">{{ $update->expected_completion_date ? $update->expected_completion_date->format('M d, Y') : '---' }}</p>
                                     </div>
                                 </td>
@@ -80,7 +80,7 @@
                                     {{ $update->created_at->format('W, Y') }} (Week)
                                 </td>
                                 <td class="px-10 py-7 text-right">
-                                    <button class="p-3 text-slate-200 group-hover:text-[#00ADC5] transition-all">
+                                    <button class="p-3 text-slate-200 group-hover:text-[#D4AF37] transition-all">
                                         <i data-lucide="chevron-right" class="w-5 h-5"></i>
                                     </button>
                                 </td>

@@ -47,13 +47,13 @@
         .premium-card {
             background: #ffffff;
             border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            border: 1px solid #f1f5f9;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            border: 1px solid #e5e7eb;
             transition: all 0.25s ease;
         }
 
         .premium-card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
             transform: translateY(-2px);
         }
 
@@ -81,12 +81,12 @@
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #e2e8f0;
+            background: #cbd5e1;
             border-radius: 10px;
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #cbd5e1;
+            background: #D4AF37;
         }
 
         /* Executive Shadows & Depth */
@@ -119,7 +119,7 @@
     </style>
 </head>
 
-<body class="bg-[#f7fbfc] text-slate-900 antialiased h-full font-inter overflow-hidden">
+<body class="bg-white text-slate-900 antialiased h-full font-inter overflow-hidden">
 
     <div class="flex h-full w-full overflow-hidden">
         <!-- Sidebar -->
@@ -131,7 +131,7 @@
             @include('partials.header')
 
             <!-- Content -->
-            <main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-slate-50 px-8 py-8 custom-scrollbar">
+            <main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-white text-slate-900 px-8 py-8 custom-scrollbar">
                 <!-- Session Alerts -->
                 @if(session('success'))
                     <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000)"

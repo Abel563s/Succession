@@ -8,7 +8,7 @@
                     <ol class="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
                         <li>Cutting Log</li>
                         <li class="p-1 rounded-full bg-slate-100"><i data-lucide="chevron-right" class="w-2.5 h-2.5"></i></li>
-                        <li class="text-cyan-500">Record Activity</li>
+                        <li class="text-amber-500">Record Activity</li>
                     </ol>
                 </nav>
             </div>
@@ -29,7 +29,7 @@
                 <!-- Section: Reference -->
                 <div class="space-y-6">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-xl bg-cyan-50 flex items-center justify-center text-cyan-600">
+                        <div class="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center text-cyan-600">
                             <i data-lucide="link" class="w-4 h-4"></i>
                         </div>
                         <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest">Requirement Link</h3>

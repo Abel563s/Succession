@@ -31,7 +31,7 @@
                         <i data-lucide="layout-grid" class="w-12 h-12 text-slate-50"></i>
                     </div>
                     
-                    <div class="w-20 h-20 rounded-3xl bg-[#00ADC5]/10 flex items-center justify-center font-black text-2xl text-[#00ADC5] mx-auto mb-6">
+                    <div class="w-20 h-20 rounded-3xl bg-[#D4AF37]/10 flex items-center justify-center font-black text-2xl text-[#D4AF37] mx-auto mb-6">
                         {{ substr($nineBox->grid_position, 0, 1) }}
                     </div>
                     
@@ -82,7 +82,7 @@
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm overflow-hidden">
                     <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
                         <h3 class="text-lg font-black text-slate-900">Qualitative Assessment</h3>
-                        <i data-lucide="file-text" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="file-text" class="w-5 h-5 text-[#D4AF37]"></i>
                     </div>
                     <div class="p-8 space-y-8">
                         <div>

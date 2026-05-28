@@ -13,7 +13,7 @@
             </div>
             @if(auth()->user()->isAdmin())
                 <div class="flex items-center gap-3">
-                    <a href="{{ route('admin.coaching.edit', $coaching) }}" class="bg-gradient-to-r from-[#00515F] to-[#00333B] text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:to-[#00515F] transition-all shadow-lg shadow-[#00515F]/20 flex items-center gap-2">
+                    <a href="{{ route('admin.coaching.edit', $coaching) }}" class="bg-gradient-to-r from-[#111111] to-[#00333B] text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:to-[#111111] transition-all shadow-lg shadow-[#111111]/20 flex items-center gap-2">
                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                         Edit Record
                     </a>
@@ -27,10 +27,10 @@
             <!-- Left Column: Session Profile -->
             <div class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-8 relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#00515F]/5 rounded-full blur-3xl"></div>
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#111111]/5 rounded-full blur-3xl"></div>
                     
                     <div class="flex flex-col items-center text-center relative">
-                        <div class="w-20 h-20 rounded-3xl bg-[#f0fbfd] flex items-center justify-center font-black text-2xl text-[#00515F] mb-6 border border-[#00515F]/10">
+                        <div class="w-20 h-20 rounded-3xl bg-[#FFF8E7] flex items-center justify-center font-black text-2xl text-[#111111] mb-6 border border-[#111111]/10">
                             {{ substr($coaching->candidate_name, 0, 1) }}
                         </div>
                         
@@ -56,7 +56,7 @@
 
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-6">
                     <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 flex items-center gap-2">
-                        <i data-lucide="target" class="w-4 h-4 text-[#00515F]"></i>
+                        <i data-lucide="target" class="w-4 h-4 text-[#111111]"></i>
                         Core Focus Topics
                     </h4>
                     <div class="space-y-3">
@@ -76,12 +76,12 @@
                 <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
                     <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
                         <h3 class="text-lg font-black text-slate-900 tracking-tight">Strategic Roadmap</h3>
-                        <i data-lucide="map" class="w-5 h-5 text-[#00515F]"></i>
+                        <i data-lucide="map" class="w-5 h-5 text-[#111111]"></i>
                     </div>
                     <div class="p-8 space-y-8">
                         <div>
                             <h4 class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#00515F]"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#111111]"></span>
                                 Desired Outcome
                             </h4>
                             <div class="p-6 rounded-3xl bg-slate-50 border border-slate-100 text-slate-600 font-medium text-sm leading-relaxed whitespace-pre-wrap">

@@ -4,7 +4,7 @@
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <a href="{{ route('admin.nine-box.index') }}" 
-                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#00ADC5] hover:border-[#00ADC5]/20 transition-all">
+                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 transition-all">
                     <i data-lucide="chevron-left" class="w-5 h-5"></i>
                 </a>
                 <div>
@@ -20,7 +20,7 @@
                 potential: '{{ old('potential_level', $nineBox->potential_level) }}',
                 performance: '{{ old('performance_level', $nineBox->performance_level) }}',
                 grid: [
-                    { name: 'Potential Gem', p: 'High', f: 'Low', color: 'bg-cyan-50', text: 'text-cyan-600' },
+                    { name: 'Potential Gem', p: 'High', f: 'Low', color: 'bg-amber-50', text: 'text-cyan-600' },
                     { name: 'High Potential', p: 'High', f: 'Medium', color: 'bg-blue-50', text: 'text-blue-600' },
                     { name: 'Star', p: 'High', f: 'High', color: 'bg-emerald-50', text: 'text-emerald-600' },
                     { name: 'Inconsistent Player', p: 'Medium', f: 'Low', color: 'bg-amber-50', text: 'text-amber-600' },
@@ -48,7 +48,7 @@
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="user" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="user" class="w-5 h-5 text-[#D4AF37]"></i>
                         Candidate Information
                     </h2>
                 </div>
@@ -56,13 +56,13 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Name</label>
                         <input type="text" name="candidate_name" required value="{{ old('candidate_name', $nineBox->candidate_name) }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] focus:ring-4 focus:ring-[#00ADC5]/10 outline-none transition-all"
+                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
                                placeholder="Full Name">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] focus:ring-4 focus:ring-[#00ADC5]/10 outline-none transition-all">
+                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all">
                             <option value="">Select Department</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}" {{ old('department', $nineBox->department) == $dept->name ? 'selected' : '' }}>{{ $dept->name }}</option>
@@ -76,7 +76,7 @@
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="grid-3x3" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="grid-3x3" class="w-5 h-5 text-[#D4AF37]"></i>
                         Talent Placement
                     </h2>
                 </div>
@@ -95,7 +95,7 @@
                             <div class="grid grid-cols-3 gap-3">
                                 <template x-for="box in grid">
                                     <div @click="select(box)"
-                                         :class="selected === box.name ? box.color + ' border-[#00ADC5] ring-4 ring-[#00ADC5]/10 active-cell' : 'bg-slate-50 border-slate-100 hover:border-slate-300'"
+                                         :class="selected === box.name ? box.color + ' border-[#D4AF37] ring-4 ring-[#D4AF37]/10 active-cell' : 'bg-slate-50 border-slate-100 hover:border-slate-300'"
                                          class="aspect-[4/3] border-2 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer transition-all p-3 group relative">
                                         <span class="text-[9px] font-black uppercase tracking-widest leading-tight" :class="selected === box.name ? box.text : 'text-slate-400 group-hover:text-slate-600'" x-text="box.name"></span>
                                     </div>
@@ -116,22 +116,22 @@
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="message-square" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="message-square" class="w-5 h-5 text-[#D4AF37]"></i>
                         Narrative Evaluation
                     </h2>
                 </div>
                 <div class="p-8 space-y-6">
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">General Comments</label>
-                        <textarea name="general_comments" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all resize-none text-sm font-medium">{{ old('general_comments', $nineBox->general_comments) }}</textarea>
+                        <textarea name="general_comments" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all resize-none text-sm font-medium">{{ old('general_comments', $nineBox->general_comments) }}</textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Strengths</label>
-                        <textarea name="strengths" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all resize-none text-sm font-medium">{{ old('strengths', $nineBox->strengths) }}</textarea>
+                        <textarea name="strengths" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all resize-none text-sm font-medium">{{ old('strengths', $nineBox->strengths) }}</textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Development Needs</label>
-                        <textarea name="development_needs" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all resize-none text-sm font-medium">{{ old('development_needs', $nineBox->development_needs) }}</textarea>
+                        <textarea name="development_needs" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all resize-none text-sm font-medium">{{ old('development_needs', $nineBox->development_needs) }}</textarea>
                     </div>
                 </div>
             </div>
@@ -140,7 +140,7 @@
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="shield-check" class="w-5 h-5 text-[#00ADC5]"></i>
+                        <i data-lucide="shield-check" class="w-5 h-5 text-[#D4AF37]"></i>
                         Signature
                     </h2>
                 </div>
@@ -150,7 +150,7 @@
                         <div x-data="{ preview: '{{ $nineBox->signature_path ? \App\Support\StorageUrl::public($nineBox->signature_path) : null }}' }" class="space-y-4">
                             <input type="file" name="signature" accept="image/*"
                                    @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
-                                   class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#f0fbfd] file:text-[#00ADC5] cursor-pointer">
+                                   class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#FFF8E7] file:text-[#D4AF37] cursor-pointer">
                             <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center">
                                 <img :src="preview" class="max-h-24 rounded-lg shadow-sm" alt="Preview">
                             </div>
@@ -160,8 +160,8 @@
                     <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-50">
                         <a href="{{ route('admin.nine-box.index') }}" class="px-6 py-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition-all">Cancel</a>
                         <button type="submit" :disabled="!selected"
-                                :class="selected ? 'bg-[#00ADC5] hover:scale-105 shadow-lg shadow-[#00ADC5]/20' : 'bg-slate-200 cursor-not-allowed'"
-                                class="px-10 py-3 bg-[#00ADC5] text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all">
+                                :class="selected ? 'bg-[#D4AF37] hover:scale-105 shadow-lg shadow-[#D4AF37]/20' : 'bg-slate-200 cursor-not-allowed'"
+                                class="px-10 py-3 bg-[#D4AF37] text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all">
                             Update Assessment
                         </button>
                     </div>

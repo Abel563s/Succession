@@ -73,7 +73,7 @@
                 <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
                 <!-- Decorative Grid -->
                 <div
-                    class="absolute inset-0 opacity-10 bg-[radial-gradient(#00ADC5_1px,transparent_1px)] [background-size:20px_20px]">
+                    class="absolute inset-0 opacity-10 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:20px_20px]">
                 </div>
 
                 <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
@@ -114,7 +114,7 @@
             @php
                 $efficiency = $totalRequestedLength > 0 ? round(($steelSaved * 1000 / $totalRequestedLength) * 100, 1) : 0;
                 $kpis = [
-                    ['label' => 'Material Strategic Load', 'value' => number_format($totalRequestedLength), 'unit' => 'Meters', 'icon' => 'construction', 'color_from' => '#00ADC5', 'color_to' => '#06b6d4', 'insight' => 'Project load up 12.4% vs baseline'],
+                    ['label' => 'Material Strategic Load', 'value' => number_format($totalRequestedLength), 'unit' => 'Meters', 'icon' => 'construction', 'color_from' => '#D4AF37', 'color_to' => '#06b6d4', 'insight' => 'Project load up 12.4% vs baseline'],
                     ['label' => 'Off-cut Reservoir', 'value' => $availableOffcuts, 'unit' => 'Units', 'icon' => 'database', 'color_from' => '#10b981', 'color_to' => '#34d399', 'insight' => 'Inventory health: Optimal'],
                     ['label' => 'Cumulative Steel Recovery', 'value' => number_format($steelSaved), 'unit' => 'Meters', 'icon' => 'recycle', 'color_from' => '#f59e0b', 'color_to' => '#fbbf24', 'insight' => 'Steel reused from previous cuts'],
                     ['label' => 'Current Scrap Volume', 'value' => number_format($totalScrap), 'unit' => 'Meters', 'icon' => 'trash-2', 'color_from' => '#f43f5e', 'color_to' => '#fb7185', 'insight' => 'Wastage rate stabilized at 2.4%'],
@@ -163,7 +163,7 @@
                                 <h3 class="text-2xl font-black text-slate-900 tracking-tight font-outfit">Fabrication
                                     Pulse</h3>
                                 <span
-                                    class="px-2 py-0.5 bg-cyan-50 text-[#00ADC5] border border-cyan-100 rounded-md text-[9px] font-black uppercase tracking-widest">Live
+                                    class="px-2 py-0.5 bg-amber-50 text-[#D4AF37] border border-cyan-100 rounded-md text-[9px] font-black uppercase tracking-widest">Live
                                     Flow</span>
                             </div>
                             <p class="text-sm font-medium text-slate-500 italic">Steel demand movement across
@@ -176,7 +176,7 @@
                                 <span class="text-2xl font-black text-emerald-500">{{ $efficiency }}%</span>
                             </div>
                             <div
-                                class="p-3 bg-slate-50 rounded-2xl border border-slate-100 text-slate-400 hover:text-[#00ADC5] transition-all cursor-pointer">
+                                class="p-3 bg-slate-50 rounded-2xl border border-slate-100 text-slate-400 hover:text-[#D4AF37] transition-all cursor-pointer">
                                 <i data-lucide="maximize-2" class="w-5 h-5"></i>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
             <div class="lg:col-span-4 flex flex-col gap-8">
                 <div
                     class="premium-card p-10 bg-slate-900 border-none relative overflow-hidden flex-1 shadow-[0_20px_50px_rgba(15,23,42,0.2)]">
-                    <div class="absolute -top-32 -right-32 w-80 h-80 bg-[#00ADC5]/10 rounded-full blur-[100px]"></div>
+                    <div class="absolute -top-32 -right-32 w-80 h-80 bg-[#D4AF37]/10 rounded-full blur-[100px]"></div>
 
                     <div class="relative z-10 flex flex-col h-full">
                         <div class="mb-10">
@@ -248,7 +248,7 @@
                     </div>
                 </div>
 
-                <div class="premium-card p-8 border-none bg-gradient-to-br from-[#00ADC5] to-cyan-600 text-white">
+                <div class="premium-card p-8 border-none bg-gradient-to-br from-[#D4AF37] to-cyan-600 text-white">
                     <h4 class="text-xs font-black uppercase tracking-[0.3em] mb-6 opacity-60">Operational Insights</h4>
                     <div class="space-y-6">
                         <div class="flex items-center gap-4">
@@ -300,7 +300,7 @@
                             element volume distribution</p>
                     </div>
                     <div class="flex items-center gap-2 px-3 py-1 bg-slate-50 rounded-full border border-slate-100">
-                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
                         <span class="text-[9px] font-black text-slate-500 uppercase tracking-widest">Top 5
                             Elements</span>
                     </div>
@@ -311,7 +311,7 @@
                         <div class="space-y-3 group">
                             <div class="flex justify-between items-end">
                                 <span
-                                    class="text-xs font-black text-slate-700 uppercase tracking-[0.2em] group-hover:text-[#00ADC5] transition-colors">{{ $el->structural_element }}</span>
+                                    class="text-xs font-black text-slate-700 uppercase tracking-[0.2em] group-hover:text-[#D4AF37] transition-colors">{{ $el->structural_element }}</span>
                                 <div class="text-right">
                                     <span
                                         class="text-xs font-black text-slate-900 block tracking-tighter">{{ number_format($el->volume) }}m</span>
@@ -321,7 +321,7 @@
                             </div>
                             <div
                                 class="h-3 bg-slate-50 rounded-full overflow-hidden border border-slate-100 shadow-inner p-0.5">
-                                <div class="h-full bg-gradient-to-r from-[#00ADC5] to-cyan-400 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(0,173,197,0.3)]"
+                                <div class="h-full bg-gradient-to-r from-[#D4AF37] to-cyan-400 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(0,173,197,0.3)]"
                                     style="width: {{ $percent }}%"></div>
                             </div>
                         </div>
@@ -339,7 +339,7 @@
                             deployment activity</p>
                     </div>
                     <a href="{{ route('admin.rebar.cutting-logs.index') }}"
-                        class="px-6 py-2.5 bg-[#f0fbfd] text-[#00ADC5] rounded-xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#00ADC5] hover:text-white transition-all">Protocol
+                        class="px-6 py-2.5 bg-[#FFF8E7] text-[#D4AF37] rounded-xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#D4AF37] hover:text-white transition-all">Protocol
                         Feed</a>
                 </div>
 
@@ -351,7 +351,7 @@
                                 <div
                                     class="w-16 h-16 rounded-2xl bg-white border border-slate-200 flex flex-col items-center justify-center shrink-0 shadow-sm transition-transform group-hover:rotate-6">
                                     <span
-                                        class="text-lg font-black text-[#00ADC5] leading-none">{{ $log->bar_diameter }}</span>
+                                        class="text-lg font-black text-[#D4AF37] leading-none">{{ $log->bar_diameter }}</span>
                                     <span
                                         class="text-[9px] font-black text-slate-400 uppercase tracking-widest mt-0.5">MM</span>
                                 </div>

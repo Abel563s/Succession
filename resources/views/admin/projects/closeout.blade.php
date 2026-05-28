@@ -6,14 +6,14 @@
             <div class="space-y-3">
                 <div class="flex items-center gap-4">
                     <a href="{{ route('admin.projects.closeout.index') }}" 
-                       class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-[#00ADC5] hover:border-[#00ADC5]/20 hover:rotate-[-10deg] transition-all shadow-sm">
+                       class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 hover:rotate-[-10deg] transition-all shadow-sm">
                         <i data-lucide="arrow-left" class="w-5 h-5"></i>
                     </a>
                     <div>
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
                             Project <span class="font-black text-slate-900">Closeout</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">{{ $project->project_name }} - {{ $project->custom_id }}</p>
+                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">{{ $project->project_name }} - {{ $project->custom_id }}</p>
                     </div>
                 </div>
             </div>
@@ -22,14 +22,14 @@
                 <button onclick="window.print()" 
                         class="group/btn relative px-6 py-3.5 bg-white border border-slate-100 text-slate-600 rounded-2xl font-black text-[10px] uppercase tracking-widest overflow-hidden transition-all hover:bg-slate-50 active:scale-95 shadow-sm">
                     <span class="relative flex items-center gap-2">
-                        <i data-lucide="printer" class="w-3.5 h-3.5 text-[#00ADC5]"></i>
+                        <i data-lucide="printer" class="w-3.5 h-3.5 text-[#D4AF37]"></i>
                         Print Dossier
                     </span>
                 </button>
                 
                 <a href="{{ route('admin.projects.edit', $project->id) }}"
                    class="group/btn relative px-8 py-3.5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/20">
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#00ADC5] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500"></div>
                     <span class="relative flex items-center gap-2">
                         <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
                         Update Details
@@ -65,15 +65,15 @@
             </div>
 
             <!-- Card 3: Payment Status -->
-            <div class="bg-white p-8 rounded-[2.5rem] border border-[#00ADC5]/20 shadow-xl shadow-cyan-50 text-slate-900 space-y-4 relative overflow-hidden group">
-                <div class="absolute -right-6 -top-6 w-24 h-24 bg-[#00ADC5]/5 rounded-full blur-2xl group-hover:bg-[#00ADC5]/10 transition-all"></div>
-                <div class="w-12 h-12 rounded-2xl bg-[#e6f7fa] flex items-center justify-center text-[#00ADC5]">
+            <div class="bg-white p-8 rounded-[2.5rem] border border-[#D4AF37]/20 shadow-xl shadow-cyan-50 text-slate-900 space-y-4 relative overflow-hidden group">
+                <div class="absolute -right-6 -top-6 w-24 h-24 bg-[#D4AF37]/5 rounded-full blur-2xl group-hover:bg-[#D4AF37]/10 transition-all"></div>
+                <div class="w-12 h-12 rounded-2xl bg-[#e6f7fa] flex items-center justify-center text-[#D4AF37]">
                     <i data-lucide="wallet" class="w-6 h-6"></i>
                 </div>
                 <div>
                     <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Outstanding Balance</p>
                     <h4 class="text-xl font-black text-slate-900 leading-tight">ETB {{ number_format($project->outstanding_balance) }}</h4>
-                    <p class="text-[10px] font-bold text-[#00ADC5] uppercase mt-1">Total Balance</p>
+                    <p class="text-[10px] font-bold text-[#D4AF37] uppercase mt-1">Total Balance</p>
                 </div>
                 <!-- Mini sparkline effect -->
                 <div class="h-8 flex items-end gap-1">
@@ -85,7 +85,7 @@
 
             <!-- Card 4: Execution Progress -->
             <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm space-y-4">
-                <div class="w-12 h-12 rounded-2xl bg-cyan-50 flex items-center justify-center text-[#00ADC5]">
+                <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37]">
                     <i data-lucide="trending-up" class="w-6 h-6"></i>
                 </div>
                 <div class="space-y-3">
@@ -95,7 +95,7 @@
                         <span class="text-[9px] font-black text-slate-400">STATE: {{ $project->physical_completion_percent >= 100 ? 'FINALIZED' : 'ACTIVE' }}</span>
                     </div>
                     <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
-                        <div class="h-full bg-[#00ADC5] rounded-full" style="width: {{ $project->physical_completion_percent }}%"></div>
+                        <div class="h-full bg-[#D4AF37] rounded-full" style="width: {{ $project->physical_completion_percent }}%"></div>
                     </div>
                 </div>
                 <!-- Mini Circle Graph -->
@@ -103,7 +103,7 @@
                     <div class="relative w-16 h-16">
                         <svg class="w-full h-full" viewBox="0 0 36 36">
                             <path class="text-slate-100" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                            <path class="text-[#00ADC5]" stroke-width="3" stroke-dasharray="{{ $project->physical_completion_percent }}, 100" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path class="text-[#D4AF37]" stroke-width="3" stroke-dasharray="{{ $project->physical_completion_percent }}, 100" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                         </svg>
                         <div class="absolute inset-0 flex items-center justify-center text-[10px] font-black text-slate-900">{{ number_format($project->physical_completion_percent) }}%</div>
                     </div>
@@ -158,7 +158,7 @@
                     </div>
                     <div class="space-y-1">
                         <p class="text-[9px] font-black text-slate-400 uppercase tracking-widest">Current Status</p>
-                        <span class="inline-flex px-3 py-1 bg-cyan-50 text-[#00ADC5] rounded-lg text-[9px] font-black uppercase tracking-widest mt-1">{{ $project->closing_status }}</span>
+                        <span class="inline-flex px-3 py-1 bg-amber-50 text-[#D4AF37] rounded-lg text-[9px] font-black uppercase tracking-widest mt-1">{{ $project->closing_status }}</span>
                     </div>
                 </div>
             </div>
@@ -204,7 +204,7 @@
                             <span class="font-medium">Retention (Held)</span>
                             <span class="font-black">- ETB {{ number_format($project->retention) }}</span>
                         </div>
-                        <div class="flex items-center justify-between text-sm text-[#00ADC5]">
+                        <div class="flex items-center justify-between text-sm text-[#D4AF37]">
                             <span class="font-bold">Total Paid to Date</span>
                             <span class="font-black">ETB {{ number_format($project->total_paid) }}</span>
                         </div>
@@ -232,7 +232,7 @@
                     <div class="p-6 bg-slate-50 rounded-[2rem] border border-slate-100 space-y-4">
                         <div class="flex items-center justify-between text-[10px] font-black text-slate-400 uppercase tracking-widest">
                             <span>Physical Progress Baseline</span>
-                            <span class="text-[#00ADC5]">{{ number_format($project->physical_completion_percent) }}% COMPREHENSIVE</span>
+                            <span class="text-[#D4AF37]">{{ number_format($project->physical_completion_percent) }}% COMPREHENSIVE</span>
                         </div>
                         <div class="h-3 w-full bg-white rounded-full overflow-hidden border border-slate-100 p-0.5">
                             <div class="h-full bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full" style="width: {{ $project->physical_completion_percent }}%"></div>
@@ -280,7 +280,7 @@
             <!-- SECTION 5: Document Checklist -->
             <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-50 space-y-10">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-cyan-50 flex items-center justify-center text-[#00ADC5]">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37]">
                         <i data-lucide="folder-check" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -322,9 +322,9 @@
                                 </td>
                                 <td class="py-5 text-right">
                                     @if($docStatus == 'Uploaded' || $docStatus == 'Approved')
-                                        <button class="text-[10px] font-black text-[#00ADC5] uppercase tracking-widest hover:underline">View Asset</button>
+                                        <button class="text-[10px] font-black text-[#D4AF37] uppercase tracking-widest hover:underline">View Asset</button>
                                     @else
-                                        <button class="text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-[#00ADC5]">Upload</button>
+                                        <button class="text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-[#D4AF37]">Upload</button>
                                     @endif
                                 </td>
                             </tr>
@@ -378,7 +378,7 @@
                     </div>
 
                     <div class="space-y-4">
-                        <div class="flex items-center gap-2 text-[10px] font-black text-[#00ADC5] uppercase tracking-widest">
+                        <div class="flex items-center gap-2 text-[10px] font-black text-[#D4AF37] uppercase tracking-widest">
                             <i data-lucide="sparkles" class="w-3 h-3"></i>
                             Recommendations
                         </div>
@@ -397,7 +397,7 @@
         @media print {
             .no-print { display: none !important; }
             body { background: white !important; }
-            .bg-slate-50, .bg-indigo-50, .bg-emerald-50, .bg-cyan-50, .bg-amber-50 { background-color: #f8fafc !important; }
+            .bg-slate-50, .bg-indigo-50, .bg-emerald-50, .bg-amber-50, .bg-amber-50 { background-color: #f8fafc !important; }
             .shadow-sm, .shadow-xl, .shadow-2xl { shadow: none !important; box-shadow: none !important; }
             .rounded-[3rem], .rounded-[2.5rem] { border-radius: 1rem !important; }
         }

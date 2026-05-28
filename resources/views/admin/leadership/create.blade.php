@@ -4,7 +4,7 @@
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <a href="{{ route('admin.leadership.index') }}" 
-                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#00ADC5] hover:border-[#00ADC5]/20 transition-all">
+                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 transition-all">
                     <i data-lucide="chevron-left" class="w-5 h-5"></i>
                 </a>
                 <div>
@@ -23,13 +23,13 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Name</label>
                         <input type="text" name="candidate_name" required value="{{ old('candidate_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all font-bold text-slate-700"
+                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
                                placeholder="Full Name">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all font-bold text-slate-700">
+                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700">
                             <option value="">Select Dept</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}">{{ $dept->name }}</option>
@@ -39,15 +39,15 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Line Manager</label>
                         <input type="text" name="line_manager" required value="{{ old('line_manager') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all font-bold text-slate-700"
+                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
                                placeholder="Manager's Name">
                     </div>
                 </div>
             </div>
 
             <!-- Instructional Section -->
-            <div class="bg-[#f0fbfd] border border-[#00ADC5]/10 rounded-[2rem] p-8 flex items-center gap-6">
-                <div class="w-14 h-14 rounded-2xl bg-[#00ADC5] flex items-center justify-center text-white shrink-0 shadow-lg shadow-[#00ADC5]/20">
+            <div class="bg-[#FFF8E7] border border-[#D4AF37]/10 rounded-[2rem] p-8 flex items-center gap-6">
+                <div class="w-14 h-14 rounded-2xl bg-[#D4AF37] flex items-center justify-center text-white shrink-0 shadow-lg shadow-[#D4AF37]/20">
                     <i data-lucide="info" class="w-7 h-7"></i>
                 </div>
                 <div>
@@ -64,7 +64,7 @@
                     <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
                         <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                             <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-tight">
-                                <i data-lucide="award" class="w-5 h-5 text-[#00ADC5]"></i>
+                                <i data-lucide="award" class="w-5 h-5 text-[#D4AF37]"></i>
                                 Leadership Competencies
                             </h2>
                         </div>
@@ -95,8 +95,8 @@
                                                             <input type="radio" id="{{ $id }}" name="ratings[{{ $competency }}]" value="{{ $i }}" required 
                                                                    x-model="selected" class="sr-only">
                                                             <label for="{{ $id }}" 
-                                                                   :class="selected == {{ $i }} ? 'bg-[#00ADC5] text-white border-[#00ADC5] shadow-lg shadow-[#00ADC5]/20' : 'bg-slate-50 text-slate-400 border-slate-200'"
-                                                                   class="h-10 flex items-center justify-center rounded-xl text-xs font-black cursor-pointer transition-all border hover:border-[#00ADC5]/30">
+                                                                   :class="selected == {{ $i }} ? 'bg-[#D4AF37] text-white border-[#D4AF37] shadow-lg shadow-[#D4AF37]/20' : 'bg-slate-50 text-slate-400 border-slate-200'"
+                                                                   class="h-10 flex items-center justify-center rounded-xl text-xs font-black cursor-pointer transition-all border hover:border-[#D4AF37]/30">
                                                                 {{ $i }}
                                                             </label>
                                                         </div>
@@ -116,14 +116,14 @@
                     <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden h-fit">
                         <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                             <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-tight">
-                                <i data-lucide="message-square" class="w-5 h-5 text-[#00ADC5]"></i>
+                                <i data-lucide="message-square" class="w-5 h-5 text-[#D4AF37]"></i>
                                 Comments & Feedback
                             </h2>
                         </div>
                         <div class="p-8 space-y-6">
                             <div class="space-y-2">
                                 <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Leadership Observations</label>
-                                <textarea name="comments" required rows="12" class="w-full px-6 py-4 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Detailed feedback on growth, performance, and recommendations..."></textarea>
+                                <textarea name="comments" required rows="12" class="w-full px-6 py-4 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Detailed feedback on growth, performance, and recommendations..."></textarea>
                             </div>
 
                             <div class="space-y-4 pt-6 border-t border-slate-100">
@@ -137,7 +137,7 @@
                                                       file:mr-4 file:py-2 file:px-4
                                                       file:rounded-xl file:border-0
                                                       file:text-sm file:font-black
-                                                      file:bg-[#f0fbfd] file:text-[#00ADC5]
+                                                      file:bg-[#FFF8E7] file:text-[#D4AF37]
                                                       hover:file:bg-[#e6f7fa] transition-all cursor-pointer">
                                     </label>
                                     @if(auth()->user()->signature_path)
@@ -158,7 +158,7 @@
 
                             <div class="space-y-3 pt-6 border-t border-slate-100">
                                 <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Assessment Status</label>
-                                <select name="status" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#00ADC5] outline-none transition-all font-bold text-slate-700 rounded-xl">
+                                <select name="status" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700 rounded-xl">
                                     <option value="draft">Save as Draft</option>
                                     <option value="published">Finalize & Publish</option>
                                 </select>
@@ -172,7 +172,7 @@
             <div class="flex flex-col items-center pt-8 gap-4">
                 <div class="flex items-center gap-4">
                     <button type="submit" 
-                            class="bg-[#00ADC5] hover:bg-[#00ADC5]/90 text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#00ADC5]/20 hover:scale-105 active:scale-95">
+                            class="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#D4AF37]/20 hover:scale-105 active:scale-95">
                         CREATE ASSESSMENT
                     </button>
                     <button type="reset" class="px-8 py-4 rounded-2xl bg-slate-100 text-slate-400 font-black text-xs uppercase tracking-widest hover:bg-slate-200 transition-all">

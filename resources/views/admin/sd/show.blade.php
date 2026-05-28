@@ -33,7 +33,7 @@
                     <h3 class="text-lg font-black text-slate-900 tracking-tight uppercase">Succession Development Matrix</h3>
                     <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">Department: {{ $sd->department ?: 'General Organization' }}</p>
                 </div>
-                <i data-lucide="layers" class="w-6 h-6 text-[#00ADC5]"></i>
+                <i data-lucide="layers" class="w-6 h-6 text-[#D4AF37]"></i>
             </div>
             <div class="overflow-x-auto custom-scrollbar">
                 <table class="w-full border-collapse min-w-[1600px]">
@@ -86,7 +86,7 @@
                                     @php
                                         $color = match($item->readiness_rating) {
                                             'Ready Now' => 'bg-emerald-500',
-                                            'Ready in 6 Months' => 'bg-[#00ADC5]',
+                                            'Ready in 6 Months' => 'bg-[#D4AF37]',
                                             'Ready in 1 Year' => 'bg-amber-500',
                                             'Needs Development' => 'bg-rose-500',
                                             'High Potential' => 'bg-indigo-500',

@@ -5,12 +5,12 @@
         <div class="flex items-center justify-between border-b border-slate-100 pb-10">
             <div class="space-y-1">
                 <a href="{{ route('admin.projects.index') }}"
-                    class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] flex items-center gap-2 mb-4">
+                    class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] flex items-center gap-2 mb-4">
                     <i data-lucide="arrow-left" class="w-3 h-3"></i>
                     Back to Registry
                 </a>
                 <h2 class="text-4xl font-black text-slate-900 tracking-tight font-outfit"> <span
-                        class="text-[#00ADC5]">Protocol</span></h2>
+                        class="text-[#D4AF37]">Protocol</span></h2>
                 <p class="text-slate-500 font-medium">Modify existing project asset parameters in the operational
                     matrix.</p>
             </div>
@@ -31,7 +31,7 @@
             <!-- Section 1: Project Identity -->
             <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-50 space-y-10 group">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-cyan-50 flex items-center justify-center text-[#00ADC5]">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37]">
                         <i data-lucide="fingerprint" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -142,10 +142,10 @@
             <!-- Section 3: Financial Matrix -->
             <div
                 class="bg-slate-800 p-10 rounded-[3rem] shadow-2xl shadow-slate-900/40 space-y-10 relative overflow-hidden">
-                <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl"></div>
 
                 <div class="flex items-center gap-4 relative z-10">
-                    <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#00ADC5]">
+                    <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#D4AF37]">
                         <i data-lucide="banknote" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -160,21 +160,21 @@
                         <label class="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Contract
                             Budget</label>
                         <input type="number" step="0.01" name="contract_budget" value="{{ $project->contract_budget }}"
-                            class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-xs font-black text-[#00ADC5] focus:ring-4 focus:ring-cyan-500/20 focus:bg-white/10 transition-all">
+                            class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-xs font-black text-[#D4AF37] focus:ring-4 focus:ring-cyan-500/20 focus:bg-white/10 transition-all">
                     </div>
                     <div class="space-y-2">
                         <label
                             class="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Variation</label>
                         <input type="number" step="0.01" name="variation" value="{{ $project->variation }}"
-                            class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-xs font-black text-[#00ADC5] focus:ring-4 focus:ring-cyan-500/20 focus:bg-white/10 transition-all">
+                            class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-xs font-black text-[#D4AF37] focus:ring-4 focus:ring-cyan-500/20 focus:bg-white/10 transition-all">
                     </div>
                     <div class="space-y-2">
                         <label
                             class="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Supplementary</label>
                         <input type="number" step="0.01" name="supplementary" value="{{ $project->supplementary }}"
-                            class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-xs font-black text-[#00ADC5] focus:ring-4 focus:ring-cyan-500/20 focus:bg-white/10 transition-all">
+                            class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-xs font-black text-[#D4AF37] focus:ring-4 focus:ring-cyan-500/20 focus:bg-white/10 transition-all">
                     </div>
-                    <div class="space-y-2 text-[#00ADC5]">
+                    <div class="space-y-2 text-[#D4AF37]">
                         <label class="text-[10px] font-black text-white/40 uppercase tracking-widest ml-1">Total
                             Allowable Cost</label>
                         <input type="number" step="0.01" name="total_allowable_cost"

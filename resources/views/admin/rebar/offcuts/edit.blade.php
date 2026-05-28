@@ -36,7 +36,7 @@
                         <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Status
                             <span class="text-rose-500">*</span></label>
                         <select name="status" required
-                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#00ADC5] focus:border-[#00ADC5]">
+                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#D4AF37] focus:border-[#D4AF37]">
                             <option value="Available" {{ $offcut->status === 'Available' ? 'selected' : '' }}>Available
                             </option>
                             <option value="Used" {{ $offcut->status === 'Used' ? 'selected' : '' }}>Used</option>
@@ -51,7 +51,7 @@
                             Location</label>
                         <input type="text" name="storage_location"
                             value="{{ old('storage_location', $offcut->storage_location) }}" placeholder="e.g. Rack A-3"
-                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#00ADC5] focus:border-[#00ADC5]">
+                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#D4AF37] focus:border-[#D4AF37]">
                         @error('storage_location') <p class="text-rose-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
                 </div>
@@ -60,14 +60,14 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Remarks</label>
                     <textarea name="remarks" rows="3"
-                        class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#00ADC5] focus:border-[#00ADC5]">{{ old('remarks', $offcut->remarks) }}</textarea>
+                        class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#D4AF37] focus:border-[#D4AF37]">{{ old('remarks', $offcut->remarks) }}</textarea>
                 </div>
 
                 <div class="flex items-center justify-end pt-4 border-t border-slate-100 gap-4">
                     <a href="{{ route('admin.rebar.offcuts.index') }}"
                         class="px-6 py-3 text-slate-600 font-bold hover:bg-slate-50 rounded-xl transition-all">Cancel</a>
                     <button type="submit"
-                        class="px-6 py-3 bg-[#00ADC5] text-white rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:bg-[#0098ad] transition-all">
+                        class="px-6 py-3 bg-[#D4AF37] text-white rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:bg-[#0098ad] transition-all">
                         Update Off-cut
                     </button>
                 </div>

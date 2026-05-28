@@ -18,13 +18,13 @@
     @if($canUseSaved)
         <div class="flex flex-wrap gap-3">
             <label class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border cursor-pointer transition-all"
-                   :class="mode === 'saved' ? 'border-[#00ADC5] bg-[#f0fbfd] text-[#00515F]' : 'border-slate-200 bg-white text-slate-500'">
+                   :class="mode === 'saved' ? 'border-[#D4AF37] bg-[#FFF8E7] text-[#111111]' : 'border-slate-200 bg-white text-slate-500'">
                 <input type="radio" name="signature_mode_{{ $name }}" value="saved" class="sr-only" x-model="mode">
                 <i data-lucide="bookmark" class="w-4 h-4"></i>
                 <span class="text-[10px] font-black uppercase tracking-widest">{{ $savedLabel }}</span>
             </label>
             <label class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border cursor-pointer transition-all"
-                   :class="mode === 'upload' ? 'border-[#00ADC5] bg-[#f0fbfd] text-[#00515F]' : 'border-slate-200 bg-white text-slate-500'">
+                   :class="mode === 'upload' ? 'border-[#D4AF37] bg-[#FFF8E7] text-[#111111]' : 'border-slate-200 bg-white text-slate-500'">
                 <input type="radio" name="signature_mode_{{ $name }}" value="upload" class="sr-only" x-model="mode">
                 <i data-lucide="upload" class="w-4 h-4"></i>
                 <span class="text-[10px] font-black uppercase tracking-widest">Upload new</span>

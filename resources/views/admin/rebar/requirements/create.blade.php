@@ -115,7 +115,7 @@
                             <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1">Total
                                 Length</span>
                             <div class="flex items-baseline gap-2">
-                                <span class="text-4xl font-black text-cyan-500" x-text="totalLength()">0</span>
+                                <span class="text-4xl font-black text-amber-500" x-text="totalLength()">0</span>
                                 <span class="text-sm font-black text-slate-400 uppercase">mm</span>
                             </div>
                             <p class="text-[9px] font-bold text-slate-400 mt-2 italic">(Required Length × Quantity)</p>

@@ -42,7 +42,7 @@
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-6 space-y-4">
                     <div>
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Readiness Level</label>
-                        <div class="w-full py-3 rounded-2xl bg-[#00ADC5] text-white text-center font-black text-sm">
+                        <div class="w-full py-3 rounded-2xl bg-[#D4AF37] text-white text-center font-black text-sm">
                             {{ $succession->readiness_level }}
                         </div>
                     </div>

@@ -13,7 +13,7 @@
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
                             Portfolio <span class="font-black text-slate-900">Intelligence</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">Macro-level
+                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">Macro-level
                             reconnaissance & financial equilibrium</p>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <button onclick="window.print()"
                     class="group/btn relative px-8 py-3.5 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/20">
                     <div
-                        class="absolute inset-0 bg-gradient-to-r from-[#00ADC5] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
+                        class="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
                     </div>
                     <span class="relative flex items-center gap-2">
                         <i data-lucide="printer" class="w-3.5 h-3.5"></i>
@@ -40,7 +40,7 @@
             <!-- Metric 1 -->
             <div class="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-50 relative overflow-hidden group">
                 <div
-                    class="absolute -right-4 -top-4 w-20 h-20 bg-cyan-50 rounded-full blur-2xl group-hover:bg-cyan-100 transition-all">
+                    class="absolute -right-4 -top-4 w-20 h-20 bg-amber-50 rounded-full blur-2xl group-hover:bg-cyan-100 transition-all">
                 </div>
                 <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 relative z-10">Total
                     Portfolio Value</p>
@@ -94,7 +94,7 @@
 
             <!-- Metric 4 (Lighter implementation of dark card) -->
             <div
-                class="bg-gradient-to-br from-[#00ADC5] to-cyan-600 p-8 rounded-[2.5rem] shadow-xl shadow-cyan-100 flex flex-col justify-between border border-cyan-400/20 relative overflow-hidden group">
+                class="bg-gradient-to-br from-[#D4AF37] to-cyan-600 p-8 rounded-[2.5rem] shadow-xl shadow-amber-100 flex flex-col justify-between border border-cyan-400/20 relative overflow-hidden group">
                 <div
                     class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-2xl group-hover:bg-white/20 transition-all">
                 </div>
@@ -234,7 +234,7 @@
                         datasets: [{
                             label: 'Total Project Value (ETB)',
                             data: {!! json_encode($projects->map(fn($p) => (float) $p->total_project_value)->take(10)) !!},
-                            backgroundColor: '#00ADC5',
+                            backgroundColor: '#D4AF37',
                             borderRadius: 12,
                             borderSkipped: false,
                             barThickness: 30
@@ -270,7 +270,7 @@
                         labels: {!! json_encode($sectorValues->keys()) !!},
                         datasets: [{
                             data: {!! json_encode($sectorValues->values()) !!},
-                            backgroundColor: ['#00ADC5', '#6366f1', '#f59e0b', '#10b981', '#ef4444'],
+                            backgroundColor: ['#D4AF37', '#6366f1', '#f59e0b', '#10b981', '#ef4444'],
                             borderWidth: 0,
                             cutout: '75%'
                         }]

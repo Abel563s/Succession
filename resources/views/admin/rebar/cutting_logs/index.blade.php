@@ -76,7 +76,7 @@
                     </thead>
                     <tbody class="divide-y divide-slate-50">
                         @forelse($logs as $log)
-                            <tr class="hover:bg-cyan-50/30 transition-all group">
+                            <tr class="hover:bg-amber-50/30 transition-all group">
                                 <td class="px-8 py-6">
                                     <div class="flex items-center gap-3">
                                         <div

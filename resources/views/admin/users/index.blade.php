@@ -17,8 +17,8 @@
 
             <!-- Perfectly Centered Badge -->
             <div class="hidden lg:flex items-center justify-center">
-                <div class="flex items-center gap-3 px-4 py-2 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl hover:border-[#00515F]/20 transition-all duration-500 group/badge">
-                    <div class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#00515F] transition-colors group-hover/badge:bg-[#00515F] group-hover/badge:text-white shadow-inner">
+                <div class="flex items-center gap-3 px-4 py-2 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl hover:border-[#111111]/20 transition-all duration-500 group/badge">
+                    <div class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#111111] transition-colors group-hover/badge:bg-[#111111] group-hover/badge:text-white shadow-inner">
                         <i data-lucide="shield-check" class="w-5 h-5 transition-transform group-hover/badge:scale-110"></i>
                     </div>
                     <div class="flex flex-col text-left">
@@ -34,7 +34,7 @@
             @if(auth()->user()->isAdmin())
                 <div class="flex md:justify-end">
                     <button @click="createModal = true"
-                        class="bg-gradient-to-r from-[#00515F] to-[#00333B] hover:to-[#00515F] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-[#00515F]/20 hover:shadow-[#00515F]/30 hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden">
+                        class="bg-gradient-to-r from-[#111111] to-[#00333B] hover:to-[#111111] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-[#111111]/20 hover:shadow-[#111111]/30 hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden">
                         <div class="absolute inset-0 bg-white/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                         <i data-lucide="plus" class="w-4 h-4 relative z-10 transition-transform group-hover/btn:rotate-90"></i>
                         <span class="relative z-10">Add New User</span>
@@ -73,12 +73,12 @@
                 </div>
             </div>
             <div class="bg-white px-4 py-3 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
-                <div class="w-8 h-8 rounded-xl bg-cyan-50 text-[#00ADC5] flex items-center justify-center shrink-0">
+                <div class="w-8 h-8 rounded-xl bg-amber-50 text-[#D4AF37] flex items-center justify-center shrink-0">
                     <i data-lucide="user" class="w-4 h-4"></i>
                 </div>
                 <div class="text-left">
                     <div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Staff</div>
-                    <div class="text-sm font-black text-[#00ADC5] leading-tight">{{ $deptUsers }}</div>
+                    <div class="text-sm font-black text-[#D4AF37] leading-tight">{{ $deptUsers }}</div>
                 </div>
             </div>
             <div class="bg-white px-4 py-3 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
@@ -103,7 +103,7 @@
                             <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400"></i>
                             <input type="text" name="search" value="{{ request('search') }}"
                                 placeholder="Search candidate or email..."
-                                class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] outline-none text-xs font-bold text-slate-700 transition-all">
+                                class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 transition-all">
                         </div>
                     </div>
 
@@ -111,7 +111,7 @@
                     <div class="w-48 text-left">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Department</label>
                         <select name="department_id" onchange="this.form.submit()"
-                            class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
+                            class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
                             <option value="">All Departments</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->id }}" {{ request('department_id') == $dept->id ? 'selected' : '' }}>{{ $dept->name }}</option>
@@ -123,7 +123,7 @@
                     <div class="w-40 text-left">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Role</label>
                         <select name="role" onchange="this.form.submit()"
-                            class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
+                            class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
                             <option value="">All Roles</option>
                             <option value="admin" {{ request('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                             <option value="manager" {{ request('role') == 'manager' ? 'selected' : '' }}>Manager</option>
@@ -136,7 +136,7 @@
                     <div class="w-40 text-left">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Status</label>
                         <select name="status" onchange="this.form.submit()"
-                            class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
+                            class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
                             <option value="">All Statuses</option>
                             <option value="1" {{ request('status') === '1' ? 'selected' : '' }}>Active</option>
                             <option value="0" {{ request('status') === '0' ? 'selected' : '' }}>Locked</option>
@@ -146,7 +146,7 @@
                     <!-- Reset Button -->
                     <div class="flex items-center gap-2">
                         <button type="submit"
-                            class="w-9 h-9 bg-[#00515F] text-white rounded-xl flex items-center justify-center hover:bg-[#00333B] transition-all shadow-sm shadow-[#00515F]/20 group/filter"
+                            class="w-9 h-9 bg-[#111111] text-white rounded-xl flex items-center justify-center hover:bg-[#00333B] transition-all shadow-sm shadow-[#111111]/20 group/filter"
                             title="Apply Filters">
                             <i data-lucide="filter" class="w-4 h-4 transition-transform group-hover/filter:scale-110"></i>
                         </button>
@@ -167,7 +167,7 @@
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="bg-gradient-to-r from-[#00515F] to-[#00333B] text-white text-[10px] font-black uppercase tracking-widest">
+                        <tr class="bg-gradient-to-r from-[#111111] to-[#00333B] text-white text-[10px] font-black uppercase tracking-widest">
                             <th class="px-6 py-4 border-b border-white/5">Employee Profile</th>
                             <th class="px-6 py-4 border-b border-white/5 text-center">Employee ID</th>
                             <th class="px-6 py-4 border-b border-white/5 text-center">Department</th>
@@ -182,7 +182,7 @@
                                  <td class="px-6 py-5">
                                      <div class="flex items-center gap-3 text-left">
                                          <div class="relative shrink-0">
-                                             <div class="w-10 h-10 rounded-xl bg-[#f0fbfd] border border-[#00ADC5]/10 flex items-center justify-center font-black text-[#00ADC5] text-sm shadow-inner transition-transform group-hover:scale-110 duration-500">
+                                             <div class="w-10 h-10 rounded-xl bg-[#FFF8E7] border border-[#D4AF37]/10 flex items-center justify-center font-black text-[#D4AF37] text-sm shadow-inner transition-transform group-hover:scale-110 duration-500">
                                                  {{ substr($user->name, 0, 1) }}
                                              </div>
                                              <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-white {{ $user->is_active ? 'bg-emerald-500' : 'bg-slate-300' }}"></div>
@@ -191,7 +191,7 @@
                                              <p class="font-bold text-slate-900 leading-tight">{{ $user->name }}</p>
                                              <p class="text-xs text-slate-500 font-medium mt-0.5">{{ $user->email }}</p>
                                              @if($user->phone)
-                                                 <p class="text-[9px] text-[#00ADC5] font-black uppercase tracking-wider mt-0.5">{{ $user->phone }}</p>
+                                                 <p class="text-[9px] text-[#D4AF37] font-black uppercase tracking-wider mt-0.5">{{ $user->phone }}</p>
                                              @endif
                                              @if($user->role === 'manager')
                                                  <p class="text-[9px] font-black uppercase tracking-wider mt-1 {{ $user->signature_path ? 'text-emerald-600' : 'text-amber-600' }}">
@@ -302,7 +302,7 @@
                 <div class="bg-slate-50/50 rounded-[2.8rem] p-8 md:p-10 space-y-8 overflow-y-auto custom-scrollbar" style="max-height: calc(90vh - 8px);">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-4">
-                            <div class="w-14 h-14 rounded-2xl bg-[#00515F] text-white flex items-center justify-center shadow-xl shadow-[#00515F]/20 transform -rotate-3">
+                            <div class="w-14 h-14 rounded-2xl bg-[#111111] text-white flex items-center justify-center shadow-xl shadow-[#111111]/20 transform -rotate-3">
                                 <i data-lucide="user-plus" class="w-7 h-7"></i>
                             </div>
                             <div>
@@ -336,21 +336,21 @@
                             <div class="space-y-3">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Full Legal Name</label>
                                 <input type="text" name="name" required placeholder="Johnathan Doe"
-                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none">
+                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 transition-all outline-none">
                             </div>
 
                             <!-- Email -->
                             <div class="space-y-3">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Email</label>
                                 <input type="email" name="email" required placeholder="name@company.com"
-                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none">
+                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 transition-all outline-none">
                             </div>
 
                             <!-- Department -->
                             <div class="space-y-3">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Department</label>
                                 <select name="department_id"
-                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none appearance-none cursor-pointer">
+                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 transition-all outline-none appearance-none cursor-pointer">
                                     <option value="">Select Department</option>
                                     @foreach($departments as $dept)
                                         <option value="{{ $dept->id }}">{{ $dept->name }}</option>
@@ -362,14 +362,14 @@
                             <div class="space-y-3">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Phone Number</label>
                                 <input type="text" name="phone" placeholder="+1 (555) 000-0000"
-                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none">
+                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 transition-all outline-none">
                             </div>
 
                             <!-- Role -->
                             <div class="space-y-3">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Access Level</label>
                                 <select name="role" required x-model="role"
-                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none appearance-none cursor-pointer">
+                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 transition-all outline-none appearance-none cursor-pointer">
                                     <option value="user">Candidate</option>
                                     <option value="manager">Manager</option>
                                     <option value="dceo">DCEO</option>
@@ -377,9 +377,9 @@
                                 </select>
                             </div>
 
-                            <div class="space-y-4 md:col-span-2 p-6 bg-white border-2 border-[#00515F]/10 rounded-2xl" x-show="role === 'manager' || role === 'dceo'" x-cloak>
+                            <div class="space-y-4 md:col-span-2 p-6 bg-white border-2 border-[#111111]/10 rounded-2xl" x-show="role === 'manager' || role === 'dceo'" x-cloak>
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-[#f0fbfd] text-[#00515F] flex items-center justify-center">
+                                    <div class="w-10 h-10 rounded-xl bg-[#FFF8E7] text-[#111111] flex items-center justify-center">
                                         <i data-lucide="pen-line" class="w-5 h-5"></i>
                                     </div>
                                     <div>
@@ -404,7 +404,7 @@
                                                        reader.readAsDataURL(file);
                                                    }
                                                } else { preview = null; }"
-                                           class="block w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#00515F] file:text-white cursor-pointer">
+                                           class="block w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#111111] file:text-white cursor-pointer">
                                     <div x-show="sizeError" class="flex items-center gap-1.5 mt-1">
                                         <i data-lucide="alert-circle" class="w-3 h-3 text-rose-500"></i>
                                         <p x-text="sizeError" class="text-[10px] font-bold text-rose-500"></p>
@@ -420,7 +420,7 @@
                             <div class="space-y-3">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Manage State</label>
                                 <select name="is_active" required
-                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none appearance-none cursor-pointer">
+                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 transition-all outline-none appearance-none cursor-pointer">
                                     <option value="1">Active</option>
                                     <option value="0">Inactive</option>
                                 </select>
@@ -430,14 +430,14 @@
                             <div class="space-y-3">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Security Key (Password)</label>
                                 <input type="password" name="password" required placeholder="Minimum 8 characters"
-                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none">
+                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 transition-all outline-none">
                             </div>
 
                             <!-- Confirm Password -->
                             <div class="space-y-3">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Confirm Password</label>
                                 <input type="password" name="password_confirmation" required placeholder="Re-enter security key"
-                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 transition-all outline-none">
+                                    class="w-full px-6 py-4 bg-white border-2 border-slate-100 rounded-2xl text-sm font-bold text-slate-700 placeholder-slate-300 focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 transition-all outline-none">
                             </div>
                         </div>
 
@@ -447,7 +447,7 @@
                                 Cancel
                             </button>
                             <button type="submit"
-                                class="flex-[2] py-4 bg-slate-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-[#00515F] transition-all active:scale-95">
+                                class="flex-[2] py-4 bg-slate-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-[#111111] transition-all active:scale-95">
                                 Create
                             </button>
                         </div>

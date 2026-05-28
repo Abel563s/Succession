@@ -5,12 +5,12 @@
         <div class="flex items-center justify-between border-b border-slate-100 pb-10">
             <div class="space-y-1">
                 <a href="{{ route('admin.weekly-updates.index') }}"
-                    class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] flex items-center gap-2 mb-4">
+                    class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] flex items-center gap-2 mb-4">
                     <i data-lucide="arrow-left" class="w-3 h-3"></i>
                     Back to Closing
                 </a>
                 <h2 class="text-4xl font-black text-slate-900 tracking-tight font-outfit">Weekly Closing <span
-                        class="text-[#00ADC5]">Update</span></h2>
+                        class="text-[#D4AF37]">Update</span></h2>
                 <p class="text-slate-500 font-medium">Generate a comprehensive weekly reconnaissance report for closing
                     projects
                 </p>
@@ -18,7 +18,7 @@
 
             <div class="flex items-center gap-3">
                 <button type="submit" form="weekly-form"
-                    class="px-10 py-4 bg-[#00ADC5] text-white rounded-[1.5rem] font-black text-xs uppercase tracking-widest shadow-2xl shadow-cyan-200 hover:scale-105 active:scale-95 transition-all">
+                    class="px-10 py-4 bg-[#D4AF37] text-white rounded-[1.5rem] font-black text-xs uppercase tracking-widest shadow-2xl shadow-cyan-200 hover:scale-105 active:scale-95 transition-all">
                     Update
                 </button>
             </div>
@@ -30,7 +30,7 @@
             <!-- Section 1: Asset Information -->
             <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-50 space-y-10">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-cyan-50 flex items-center justify-center text-[#00ADC5]">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37]">
                         <i data-lucide="briefcase" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -73,9 +73,9 @@
             <!-- Section 2: Operational Status -->
             <div
                 class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-50 space-y-10 relative overflow-hidden">
-                <div class="absolute -right-20 -top-20 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl"></div>
                 <div class="flex items-center gap-4 relative z-10">
-                    <div class="w-12 h-12 rounded-2xl bg-cyan-50 flex items-center justify-center text-[#00ADC5]">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37]">
                         <i data-lucide="activity" class="w-6 h-6"></i>
                     </div>
                     <div>

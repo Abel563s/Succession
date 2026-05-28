@@ -19,7 +19,7 @@
         <!-- Header -->
         <div class="flex flex-col xl:flex-row xl:items-center justify-between gap-6 border-b border-slate-200 pb-6 no-print">
             <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#00515F] to-[#00333B] text-white flex items-center justify-center shadow-lg shadow-[#00515F]/20">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#111111] to-[#00333B] text-white flex items-center justify-center shadow-lg shadow-[#111111]/20">
                     <i data-lucide="file-bar-chart" class="w-6 h-6"></i>
                 </div>
                 <div>
@@ -27,7 +27,7 @@
                     <p class="text-xs text-slate-500 font-medium mt-1">
                         Generated {{ $r['generated_at']->format('M d, Y h:i A') }}
                         @if($r['filters']['department'])
-                            &bull; Department: <span class="font-bold text-[#00515F]">{{ $r['filters']['department'] }}</span>
+                            &bull; Department: <span class="font-bold text-[#111111]">{{ $r['filters']['department'] }}</span>
                         @else
                             &bull; <span class="font-bold">Organization-wide</span>
                         @endif
@@ -67,7 +67,7 @@
                     <input type="date" name="date_to" value="{{ $filters['date_to'] ?? '' }}"
                            class="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-bold text-slate-700">
                 </div>
-                <button type="submit" class="bg-[#00515F] text-white px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-[#00333B] transition-all">
+                <button type="submit" class="bg-[#111111] text-white px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-[#00333B] transition-all">
                     Apply Filters
                 </button>
                 <a href="{{ route('admin.reports.index') }}" class="text-xs font-bold text-slate-400 hover:text-rose-500 uppercase tracking-widest py-2.5">Reset</a>
@@ -77,14 +77,14 @@
         <!-- Section nav -->
         <nav class="no-print flex flex-wrap gap-2 p-4 bg-slate-50 rounded-2xl border border-slate-100">
             @foreach(['summary' => 'Summary', 'approval' => 'Approvals', 'critical' => 'Critical Roles', 'succession' => 'Succession', 'ninebox' => '9-Box', 'development' => 'Development', 'training' => 'Training', 'mentor' => 'Mentor', 'coaching' => 'Coaching', 'progress' => 'Progress', 'sd' => 'SD', 'leadership' => 'Leadership', 'transition' => 'Transitions', 'risks' => 'Risks'] as $id => $label)
-                <a href="#section-{{ $id }}" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-[10px] font-black uppercase tracking-wider text-slate-500 hover:text-[#00515F] hover:border-[#00ADC5]/30 transition-all">{{ $label }}</a>
+                <a href="#section-{{ $id }}" class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-[10px] font-black uppercase tracking-wider text-slate-500 hover:text-[#111111] hover:border-[#D4AF37]/30 transition-all">{{ $label }}</a>
             @endforeach
         </nav>
 
         <!-- 1. Executive Summary -->
         <section id="section-summary" class="report-section space-y-6">
             <h2 class="text-lg font-black text-slate-900 flex items-center gap-2">
-                <span class="w-8 h-8 rounded-lg bg-[#00515F] text-white flex items-center justify-center text-xs">1</span>
+                <span class="w-8 h-8 rounded-lg bg-[#111111] text-white flex items-center justify-center text-xs">1</span>
                 Executive Summary
             </h2>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -98,7 +98,7 @@
                 </div>
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
                     <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest">IDP Objectives</p>
-                    <p class="text-3xl font-black text-[#00515F] mt-2">{{ $r['summary']['idp_objectives_tracked'] }}</p>
+                    <p class="text-3xl font-black text-[#111111] mt-2">{{ $r['summary']['idp_objectives_tracked'] }}</p>
                 </div>
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
                     <p class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Transition Handovers</p>
@@ -134,7 +134,7 @@
             <div class="overflow-x-auto">
                 <table class="w-full text-sm">
                     <thead>
-                        <tr class="bg-gradient-to-r from-[#00515F] to-[#00333B] text-white text-[10px] font-black uppercase tracking-widest">
+                        <tr class="bg-gradient-to-r from-[#111111] to-[#00333B] text-white text-[10px] font-black uppercase tracking-widest">
                             <th class="px-6 py-4 text-left">Module</th>
                             <th class="px-4 py-4 text-center">Total</th>
                             <th class="px-4 py-4 text-center">Pending</th>
@@ -164,7 +164,7 @@
                     @foreach($r['departments']['rows'] as $row)
                         <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
                             <p class="text-[10px] font-black uppercase text-slate-400 truncate" title="{{ $row['department'] }}">{{ $row['department'] }}</p>
-                            <p class="text-2xl font-black text-[#00515F]">{{ $row['total'] }}</p>
+                            <p class="text-2xl font-black text-[#111111]">{{ $row['total'] }}</p>
                         </div>
                     @endforeach
                 </div>
@@ -178,8 +178,8 @@
                     @php $maxTrend = max(1, collect($r['monthly_trend']['months'])->max('total')); @endphp
                     @foreach($r['monthly_trend']['months'] as $month)
                         <div class="flex-1 flex flex-col items-center gap-1 min-w-0">
-                            <div class="w-full bg-[#00ADC5]/20 rounded-t-lg flex items-end justify-center" style="height: {{ max(4, ($month['total'] / $maxTrend) * 120) }}px">
-                                <div class="w-full max-w-[32px] bg-[#00515F] rounded-t-lg" style="height: 100%"></div>
+                            <div class="w-full bg-[#D4AF37]/20 rounded-t-lg flex items-end justify-center" style="height: {{ max(4, ($month['total'] / $maxTrend) * 120) }}px">
+                                <div class="w-full max-w-[32px] bg-[#111111] rounded-t-lg" style="height: 100%"></div>
                             </div>
                             <span class="text-[8px] font-black text-slate-400 uppercase truncate w-full text-center">{{ $month['label'] }}</span>
                             <span class="text-[10px] font-bold text-slate-700">{{ $month['total'] }}</span>
@@ -239,7 +239,7 @@
                         @foreach($r['critical_roles']['records'] as $record)
                             <tr class="hover:bg-slate-50/50">
                                 <td class="px-4 py-3 font-bold text-slate-800">
-                                    <a href="{{ route('admin.critical-roles.show', $record) }}" class="text-[#00515F] hover:underline">{{ $record->employee_name }}</a>
+                                    <a href="{{ route('admin.critical-roles.show', $record) }}" class="text-[#111111] hover:underline">{{ $record->employee_name }}</a>
                                 </td>
                                 <td class="px-4 py-3">{{ $record->critical_role }}</td>
                                 <td class="px-4 py-3">{{ $record->department }}</td>
@@ -274,7 +274,7 @@
                     <tbody class="divide-y divide-slate-50">
                         @foreach($r['successions']['records'] as $record)
                             <tr>
-                                <td class="px-4 py-3 font-bold"><a href="{{ route('admin.successions.show', $record) }}" class="text-[#00515F]">{{ $record->candidate_name }}</a></td>
+                                <td class="px-4 py-3 font-bold"><a href="{{ route('admin.successions.show', $record) }}" class="text-[#111111]">{{ $record->candidate_name }}</a></td>
                                 <td class="px-4 py-3">{{ $record->department }}</td>
                                 <td class="px-4 py-3">{{ $record->target_role }}</td>
                                 <td class="px-4 py-3">{{ $record->readiness_level }}</td>
@@ -307,7 +307,7 @@
                     <tbody class="divide-y divide-slate-50">
                         @foreach($r['nine_box']['records'] as $record)
                             <tr>
-                                <td class="px-4 py-3 font-bold"><a href="{{ route('admin.nine-box.show', $record) }}" class="text-[#00515F]">{{ $record->candidate_name }}</a></td>
+                                <td class="px-4 py-3 font-bold"><a href="{{ route('admin.nine-box.show', $record) }}" class="text-[#111111]">{{ $record->candidate_name }}</a></td>
                                 <td class="px-4 py-3">{{ $record->department }}</td>
                                 <td class="px-4 py-3 font-black">{{ $record->grid_position }}</td>
                                 <td class="px-4 py-3">{{ $record->performance_level }}</td>
@@ -340,7 +340,7 @@
                     <tbody class="divide-y divide-slate-50">
                         @foreach($r['development']['records'] as $record)
                             <tr>
-                                <td class="px-4 py-3 font-bold"><a href="{{ route('admin.development.show', $record) }}" class="text-[#00515F]">{{ $record->employee_name }}</a></td>
+                                <td class="px-4 py-3 font-bold"><a href="{{ route('admin.development.show', $record) }}" class="text-[#111111]">{{ $record->employee_name }}</a></td>
                                 <td class="px-4 py-3">{{ $record->department }}</td>
                                 <td class="px-4 py-3">{{ $record->line_manager }}</td>
                                 <td class="px-4 py-3 text-center font-black">{{ $record->objectives->count() }}</td>
@@ -363,7 +363,7 @@
                 <ul class="space-y-2 text-xs max-h-48 overflow-y-auto">
                     @foreach($r['training']['records']->take(15) as $record)
                         <li class="flex justify-between gap-2 border-b border-slate-50 pb-2">
-                            <a href="{{ route('admin.training.show', $record) }}" class="font-bold text-[#00515F] truncate">{{ $record->candidate_name }}</a>
+                            <a href="{{ route('admin.training.show', $record) }}" class="font-bold text-[#111111] truncate">{{ $record->candidate_name }}</a>
                             <span class="text-slate-400 shrink-0">{{ $record->department }}</span>
                         </li>
                     @endforeach
@@ -385,7 +385,7 @@
                 <ul class="space-y-2 text-xs max-h-48 overflow-y-auto">
                     @foreach($r['coaching']['records']->take(15) as $record)
                         <li class="flex justify-between gap-2 border-b border-slate-50 pb-2">
-                            <a href="{{ route('admin.coaching.show', $record) }}" class="font-bold text-[#00515F] truncate">{{ $record->candidate_name }}</a>
+                            <a href="{{ route('admin.coaching.show', $record) }}" class="font-bold text-[#111111] truncate">{{ $record->candidate_name }}</a>
                             <span class="text-slate-400 shrink-0">{{ $record->coaching_date ? \Carbon\Carbon::parse($record->coaching_date)->format('M d, Y') : '—' }}</span>
                         </li>
                     @endforeach
@@ -413,7 +413,7 @@
                     <tbody class="divide-y divide-slate-50">
                         @foreach($r['progress']['records'] as $record)
                             <tr>
-                                <td class="px-4 py-3 font-bold"><a href="{{ route('admin.progress.show', $record) }}" class="text-[#00515F]">{{ $record->candidate_name }}</a></td>
+                                <td class="px-4 py-3 font-bold"><a href="{{ route('admin.progress.show', $record) }}" class="text-[#111111]">{{ $record->candidate_name }}</a></td>
                                 <td class="px-4 py-3">{{ $record->department }}</td>
                                 <td class="px-4 py-3">{{ $record->status }}</td>
                                 <td class="px-4 py-3 text-center">{{ $record->idpObjectives->count() }}</td>
@@ -432,7 +432,7 @@
                 <h2 class="text-lg font-black text-slate-900 mb-2">Succession Dashboard ({{ $r['succession_dashboard']['total_dashboards'] }} dashboards, {{ $r['succession_dashboard']['total_positions'] }} positions)</h2>
                 @foreach($r['succession_dashboard']['dashboards'] as $sd)
                     <div class="mb-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
-                        <a href="{{ route('admin.sd.show', $sd) }}" class="font-bold text-[#00515F] text-sm">{{ $sd->title }}</a>
+                        <a href="{{ route('admin.sd.show', $sd) }}" class="font-bold text-[#111111] text-sm">{{ $sd->title }}</a>
                         <p class="text-[10px] text-slate-400">{{ $sd->department }} &bull; {{ $sd->items->count() }} positions</p>
                     </div>
                 @endforeach
@@ -455,7 +455,7 @@
                 <div class="max-h-48 overflow-y-auto text-xs">
                     @foreach($r['leadership']['records']->take(10) as $record)
                         <div class="px-4 py-2 border-b border-slate-50 flex justify-between">
-                            <a href="{{ route('admin.leadership.show', $record) }}" class="font-bold text-[#00515F]">{{ $record->candidate_name }}</a>
+                            <a href="{{ route('admin.leadership.show', $record) }}" class="font-bold text-[#111111]">{{ $record->candidate_name }}</a>
                             <span class="font-black">{{ number_format($record->overall_score, 1) }}</span>
                         </div>
                     @endforeach
@@ -486,7 +486,7 @@
                             <tr>
                                 <td class="px-4 py-3 font-bold">{{ $item->critical_role }}</td>
                                 <td class="px-4 py-3">{{ $item->current_holder }}</td>
-                                <td class="px-4 py-3 text-[#00515F] font-bold">{{ $item->successor }}</td>
+                                <td class="px-4 py-3 text-[#111111] font-bold">{{ $item->successor }}</td>
                                 <td class="px-4 py-3">{{ $item->transition_date ? \Carbon\Carbon::parse($item->transition_date)->format('M d, Y') : '—' }}</td>
                                 <td class="px-4 py-3">{{ $item->transition?->department ?? '—' }}</td>
                             </tr>

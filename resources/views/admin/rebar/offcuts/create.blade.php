@@ -31,7 +31,7 @@
                         <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Bar
                             Diameter (mm) <span class="text-rose-500">*</span></label>
                         <select name="bar_diameter" required
-                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#00ADC5] focus:border-[#00ADC5]">
+                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#D4AF37] focus:border-[#D4AF37]">
                             <option value="" disabled selected>Select Diameter</option>
                             @foreach([8, 10, 12, 16, 20, 25, 32] as $d)
                                 <option value="{{ $d }}" {{ old('bar_diameter') == $d ? 'selected' : '' }}>{{ $d }}mm</option>
@@ -45,7 +45,7 @@
                         <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Length (mm)
                             <span class="text-rose-500">*</span></label>
                         <input type="number" name="length" value="{{ old('length') }}" required min="1"
-                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#00ADC5] focus:border-[#00ADC5]">
+                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#D4AF37] focus:border-[#D4AF37]">
                         @error('length') <p class="text-rose-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
 
@@ -54,7 +54,7 @@
                         <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Quantity
                             <span class="text-rose-500">*</span></label>
                         <input type="number" name="quantity" value="{{ old('quantity', 1) }}" required min="1"
-                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#00ADC5] focus:border-[#00ADC5]">
+                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#D4AF37] focus:border-[#D4AF37]">
                         @error('quantity') <p class="text-rose-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
 
@@ -64,7 +64,7 @@
                             Location</label>
                         <input type="text" name="storage_location" value="{{ old('storage_location') }}"
                             placeholder="e.g. Rack A-3"
-                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#00ADC5] focus:border-[#00ADC5]">
+                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#D4AF37] focus:border-[#D4AF37]">
                         @error('storage_location') <p class="text-rose-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
 
@@ -73,7 +73,7 @@
                         <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Status
                             <span class="text-rose-500">*</span></label>
                         <select name="status" required
-                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#00ADC5] focus:border-[#00ADC5]">
+                            class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#D4AF37] focus:border-[#D4AF37]">
                             <option value="Available" selected>Available</option>
                             <option value="Used">Used</option>
                             <option value="Scrap">Scrap</option>
@@ -86,14 +86,14 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Remarks</label>
                     <textarea name="remarks" rows="2"
-                        class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#00ADC5] focus:border-[#00ADC5]">{{ old('remarks') }}</textarea>
+                        class="w-full bg-slate-50 border-slate-200 rounded-xl focus:ring-[#D4AF37] focus:border-[#D4AF37]">{{ old('remarks') }}</textarea>
                 </div>
 
                 <div class="flex items-center justify-end pt-4 border-t border-slate-100 gap-4">
                     <a href="{{ route('admin.rebar.offcuts.index') }}"
                         class="px-6 py-3 text-slate-600 font-bold hover:bg-slate-50 rounded-xl transition-all">Cancel</a>
                     <button type="submit"
-                        class="px-6 py-3 bg-[#00ADC5] text-white rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:bg-[#0098ad] transition-all">
+                        class="px-6 py-3 bg-[#D4AF37] text-white rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:bg-[#0098ad] transition-all">
                         Register Off-cut
                     </button>
                 </div>

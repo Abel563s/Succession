@@ -9,7 +9,7 @@
                 <a href="{{ route('admin.rebar.requirements.index') }}"
                     class="px-5 py-2.5 text-slate-600 font-bold hover:bg-slate-100 rounded-xl transition-all">Back</a>
                 <a href="{{ route('admin.rebar.cutting-logs.create', ['requirement_id' => $requirement->id]) }}"
-                    class="px-5 py-2.5 bg-[#00ADC5] text-white rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:bg-[#0098ad] transition-all">
+                    class="px-5 py-2.5 bg-[#D4AF37] text-white rounded-xl font-bold shadow-lg shadow-cyan-500/20 hover:bg-[#0098ad] transition-all">
                     Log Cutting
                 </a>
             </div>
@@ -44,7 +44,7 @@
                     <div>
                         <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Total
                             Steel</label>
-                        <p class="text-2xl font-black text-[#00ADC5]">
+                        <p class="text-2xl font-black text-[#D4AF37]">
                             {{ number_format($requirement->total_length, 2) }}m
                         </p>
                     </div>
@@ -101,7 +101,7 @@
                                         <td class="px-6 py-3 text-sm">
                                             @if($log->offcut)
                                                 <a href="{{ route('admin.rebar.offcuts.index') }}?code={{ $log->offcut->offcut_code }}"
-                                                    class="text-[#00ADC5] hover:underline font-bold text-xs">{{ $log->offcut->offcut_code }}</a>
+                                                    class="text-[#D4AF37] hover:underline font-bold text-xs">{{ $log->offcut->offcut_code }}</a>
                                             @else
                                                 <span class="text-slate-300">-</span>
                                             @endif

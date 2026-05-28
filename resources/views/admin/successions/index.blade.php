@@ -9,8 +9,8 @@
 
             <!-- Perfectly Centered Badge -->
             <div class="hidden lg:flex items-center justify-center">
-                <div class="flex items-center gap-3 px-4 py-2 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl hover:border-[#00515F]/20 transition-all duration-500 group/badge">
-                    <div class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#00515F] transition-colors group-hover/badge:bg-[#00515F] group-hover/badge:text-white shadow-inner">
+                <div class="flex items-center gap-3 px-4 py-2 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl hover:border-[#111111]/20 transition-all duration-500 group/badge">
+                    <div class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#111111] transition-colors group-hover/badge:bg-[#111111] group-hover/badge:text-white shadow-inner">
                         <i data-lucide="trending-up" class="w-5 h-5 transition-transform group-hover/badge:scale-110"></i>
                     </div>
                     <div class="flex flex-col">
@@ -25,7 +25,7 @@
 
             <div class="flex md:justify-end">
                 <a href="{{ route('admin.successions.create') }}" 
-                   class="bg-gradient-to-r from-[#00515F] to-[#00333B] hover:to-[#00515F] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-[#00515F]/20 hover:shadow-[#00515F]/30 hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden">
+                   class="bg-gradient-to-r from-[#111111] to-[#00333B] hover:to-[#111111] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-[#111111]/20 hover:shadow-[#111111]/30 hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden">
                     <div class="absolute inset-0 bg-white/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                     <i data-lucide="plus" class="w-4 h-4 relative z-10 transition-transform group-hover/btn:rotate-90"></i>
                     <span class="relative z-10">Add New Nomination</span>
@@ -42,14 +42,14 @@
                         <div class="relative">
                             <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400"></i>
                             <input type="text" name="search" value="{{ request('search') }}" 
-                                   class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] outline-none text-xs font-bold text-slate-700"
+                                   class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700"
                                    placeholder="Name, Dept...">
                         </div>
                     </div>
                     
                     <div class="w-48 text-left">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Department</label>
-                        <select name="department" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] outline-none text-xs font-bold text-slate-700 appearance-none">
+                        <select name="department" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none">
                             <option value="">All Depts</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}" {{ request('department') == $dept->name ? 'selected' : '' }}>{{ $dept->name }}</option>
@@ -59,7 +59,7 @@
 
                     <div class="w-48 text-left">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Readiness Level</label>
-                        <select name="readiness_level" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] outline-none text-xs font-bold text-slate-700 appearance-none">
+                        <select name="readiness_level" class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none">
                             <option value="">All Levels</option>
                             <option value="Ready Now" {{ request('readiness_level') == 'Ready Now' ? 'selected' : '' }}>Ready Now</option>
                             <option value="Within 1–2 Years" {{ request('readiness_level') == 'Within 1–2 Years' ? 'selected' : '' }}>Within 1–2 Years</option>
@@ -69,7 +69,7 @@
 
                     <div class="flex gap-2">
                         <button type="submit"
-                            class="w-10 h-10 bg-[#00515F] text-white rounded-xl flex items-center justify-center hover:bg-[#00333B] transition-all shadow-sm shadow-[#00515F]/20 group/filter"
+                            class="w-10 h-10 bg-[#111111] text-white rounded-xl flex items-center justify-center hover:bg-[#00333B] transition-all shadow-sm shadow-[#111111]/20 group/filter"
                             title="Apply Filters">
                             <i data-lucide="filter" class="w-4 h-4 transition-transform group-hover/filter:scale-110"></i>
                         </button>
@@ -89,7 +89,7 @@
             <div class="overflow-x-auto custom-scrollbar">
                 <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="bg-gradient-to-r from-[#00515F] to-[#00333B] text-white text-[10px] font-black uppercase tracking-widest">
+                        <tr class="bg-gradient-to-r from-[#111111] to-[#00333B] text-white text-[10px] font-black uppercase tracking-widest">
                             <th class="px-4 py-4 border-b border-white/5 text-center">#</th>
                             <th class="px-6 py-4 border-b border-white/5">Candidate & Role</th>
                             <th class="px-6 py-4 border-b border-white/5">Department</th>
@@ -109,7 +109,7 @@
                                 </td>
                                 <td class="px-6 py-5">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-10 h-10 rounded-xl bg-[#f0fbfd] border border-[#00ADC5]/10 flex items-center justify-center font-black text-[#00ADC5]">
+                                        <div class="w-10 h-10 rounded-xl bg-[#FFF8E7] border border-[#D4AF37]/10 flex items-center justify-center font-black text-[#D4AF37]">
                                             {{ substr($record->candidate_name, 0, 1) }}
                                         </div>
                                         <div>
@@ -125,14 +125,14 @@
                                 </td>
                                 <td class="px-6 py-5 text-sm font-bold text-slate-700">{{ $record->line_manager }}</td>
                                 <td class="px-6 py-5">
-                                    <span class="inline-flex px-3 py-1 rounded-lg bg-[#f0fbfd] text-[#00ADC5] text-[10px] font-black uppercase border border-[#00ADC5]/10 tracking-wider">
+                                    <span class="inline-flex px-3 py-1 rounded-lg bg-[#FFF8E7] text-[#D4AF37] text-[10px] font-black uppercase border border-[#D4AF37]/10 tracking-wider">
                                         {{ $record->years_experience }} Yrs
                                     </span>
                                 </td>
                                 <td class="px-6 py-5">
                                     <div class="flex flex-col">
                                         <span class="text-xs font-bold text-slate-700">{{ $record->readiness_level }}</span>
-                                        <span class="text-[10px] text-slate-400 font-medium">IPG Score: <span class="text-[#00ADC5] font-black">{{ $record->ipg_score }}</span></span>
+                                        <span class="text-[10px] text-slate-400 font-medium">IPG Score: <span class="text-[#D4AF37] font-black">{{ $record->ipg_score }}</span></span>
                                     </div>
                                 </td>
                                 <td class="px-6 py-5 text-center">
@@ -161,7 +161,7 @@
                                 <td class="px-6 py-5 text-right">
                                     <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <a href="{{ route('admin.successions.show', $record) }}" 
-                                           class="w-8 h-8 rounded-lg bg-slate-100 text-slate-400 hover:text-[#00ADC5] hover:bg-[#f0fbfd] flex items-center justify-center transition-all"
+                                           class="w-8 h-8 rounded-lg bg-slate-100 text-slate-400 hover:text-[#D4AF37] hover:bg-[#FFF8E7] flex items-center justify-center transition-all"
                                            title="View Details">
                                             <i data-lucide="eye" class="w-4 h-4"></i>
                                         </a>

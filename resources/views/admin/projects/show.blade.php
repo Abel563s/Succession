@@ -5,7 +5,7 @@
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 border-b border-slate-100 pb-10">
             <div class="flex items-center gap-6">
                 <div
-                    class="w-20 h-20 rounded-[2rem] bg-slate-50 flex items-center justify-center font-black text-2xl text-[#00ADC5] border-2 border-slate-100 shadow-sm">
+                    class="w-20 h-20 rounded-[2rem] bg-slate-50 flex items-center justify-center font-black text-2xl text-[#D4AF37] border-2 border-slate-100 shadow-sm">
                     {{ $project->project_code }}
                 </div>
                 <div class="space-y-1">
@@ -14,7 +14,7 @@
                             {{ $project->project_name }}
                         </h2>
                         <span
-                            class="px-3 py-1 bg-cyan-50 text-[#00ADC5] rounded-xl text-[10px] font-black uppercase tracking-widest">{{ $project->custom_id }}</span>
+                            class="px-3 py-1 bg-amber-50 text-[#D4AF37] rounded-xl text-[10px] font-black uppercase tracking-widest">{{ $project->custom_id }}</span>
                     </div>
                     <p class="text-slate-500 font-medium flex items-center gap-2">
                         <i data-lucide="map-pin" class="w-4 h-4"></i>
@@ -59,7 +59,7 @@
                             <p class="text-sm font-black text-slate-900">
                                 {{ $project->project_client ?: 'Not Specified' }}
                             </p>
-                            <p class="text-[9px] font-bold text-[#00ADC5] uppercase tracking-tighter">
+                            <p class="text-[9px] font-bold text-[#D4AF37] uppercase tracking-tighter">
                                 {{ $project->consultancy_sector }} Sector
                             </p>
                         </div>
@@ -98,7 +98,7 @@
                                 {{ $project->baseline_finish_date ? $project->baseline_finish_date->format('M d, Y') : '---' }}
                             </p>
                         </div>
-                        <div class="p-6 bg-[#00ADC5] rounded-2xl shadow-lg shadow-cyan-200 text-center">
+                        <div class="p-6 bg-[#D4AF37] rounded-2xl shadow-lg shadow-cyan-200 text-center">
                             <p class="text-[9px] font-black text-white/70 uppercase tracking-widest mb-2">Approved EOT
                             </p>
                             <p class="text-lg font-black text-white">
@@ -138,11 +138,11 @@
                 <!-- Status Card -->
                 <div
                     class="bg-slate-800 p-8 rounded-[3rem] shadow-2xl shadow-slate-900/40 text-white space-y-6 relative overflow-hidden">
-                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-[#00ADC5]/20 rounded-full blur-3xl"></div>
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
                     <div class="relative z-10 flex items-center justify-between">
                         <span class="text-[10px] font-black text-white/40 uppercase tracking-widest">Operational
                             State</span>
-                        <span class="w-2 h-2 rounded-full bg-[#00ADC5] animate-pulse"></span>
+                        <span class="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
                     </div>
                     <div class="relative z-10">
                         <h4 class="text-2xl font-black tracking-tight">{{ $project->closing_status }}</h4>
@@ -183,7 +183,7 @@
                                         Budget</p>
                                 </div>
                                 <div class="text-right">
-                                    <p class="text-[9px] font-black text-[#00ADC5] uppercase tracking-widest">
+                                    <p class="text-[9px] font-black text-[#D4AF37] uppercase tracking-widest">
                                         +{{ number_format($project->variation + $project->supplementary) }}</p>
                                     <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Delta
                                         Adjustment</p>

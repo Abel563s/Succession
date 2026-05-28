@@ -20,12 +20,12 @@
             <div class="divide-y divide-slate-100">
                 @forelse($notifications as $notification)
                     <div
-                        class="p-6 md:p-8 hover:bg-slate-50/50 transition-all group {{ $notification->read_at ? 'opacity-60' : 'bg-cyan-50/20' }}">
+                        class="p-6 md:p-8 hover:bg-slate-50/50 transition-all group {{ $notification->read_at ? 'opacity-60' : 'bg-amber-50/20' }}">
                         <div class="flex items-start gap-6">
                             <!-- Icon and Status -->
                             <div class="relative shrink-0">
                                 <div
-                                    class="w-12 h-12 rounded-2xl {{ $notification->read_at ? 'bg-slate-100 text-slate-400' : 'bg-[#00ADC5] text-white' }} flex items-center justify-center shadow-lg {{ $notification->read_at ? '' : 'shadow-cyan-100' }} transition-all">
+                                    class="w-12 h-12 rounded-2xl {{ $notification->read_at ? 'bg-slate-100 text-slate-400' : 'bg-[#D4AF37] text-white' }} flex items-center justify-center shadow-lg {{ $notification->read_at ? '' : 'shadow-amber-100' }} transition-all">
                                     @php
                                         $type = $notification->data['type'] ?? 'default';
                                         $icon = match ($type) {
@@ -60,7 +60,7 @@
                                 <div class="pt-4 flex items-center gap-4">
                                     @if(isset($notification->data['action_url']))
                                         <a href="{{ $notification->data['action_url'] }}"
-                                            class="text-[10px] font-black text-[#00ADC5] uppercase tracking-widest hover:text-[#007A8A] transition-colors flex items-center gap-1.5">
+                                            class="text-[10px] font-black text-[#D4AF37] uppercase tracking-widest hover:text-[#B8860B] transition-colors flex items-center gap-1.5">
                                             View Details
                                             <i data-lucide="arrow-right" class="w-3 h-3"></i>
                                         </a>

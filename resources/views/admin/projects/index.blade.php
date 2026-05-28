@@ -13,7 +13,7 @@
                         <h2 class="text-3xl font-light text-slate-400 tracking-tight font-outfit leading-none">
                             Project <span class="font-black text-slate-900">Registry</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">Operational
+                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">Operational
                             Matrix Archive</p>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
             <div class="flex flex-wrap items-center gap-3">
                 <!-- Aggregate Registry Counter -->
                 <div class="flex items-center gap-3 px-6 py-3 bg-white border border-slate-100 rounded-2xl shadow-sm">
-                    <div class="w-2 h-2 rounded-full bg-[#00ADC5] animate-pulse"></div>
+                    <div class="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></div>
                     <div class="flex flex-col">
                         <span
                             class="text-[10px] font-black text-slate-900 tracking-widest uppercase leading-tight">{{ $projects->count() }}
@@ -35,7 +35,7 @@
                 <a href="{{ route('admin.projects.create') }}"
                     class="group/btn relative px-8 py-4 bg-slate-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/20">
                     <div
-                        class="absolute inset-0 bg-gradient-to-r from-[#00ADC5] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
+                        class="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-blue-500 translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
                     </div>
                     <span class="relative flex items-center gap-2">
                         <i data-lucide="plus" class="w-3.5 h-3.5"></i>
@@ -53,10 +53,10 @@
                 class="backdrop-blur-xl bg-white/80 p-6 rounded-[2.5rem] shadow-xl shadow-slate-200/30 border border-white flex flex-wrap items-center gap-6">
                 <div class="flex-1 relative min-w-[350px] group">
                     <i data-lucide="search"
-                        class="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 group-focus-within:text-[#00ADC5] transition-colors"></i>
+                        class="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300 group-focus-within:text-[#D4AF37] transition-colors"></i>
                     <input type="text" name="search" value="{{ request('search') }}"
                         placeholder="Search operational registry by name, code or protocol..."
-                        class="w-full pl-16 pr-8 py-5 bg-slate-50 border-2 border-transparent rounded-[1.5rem] text-sm font-bold text-slate-700 placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-cyan-100/50 focus:bg-white focus:border-[#00ADC5]/20 transition-all">
+                        class="w-full pl-16 pr-8 py-5 bg-slate-50 border-2 border-transparent rounded-[1.5rem] text-sm font-bold text-slate-700 placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-cyan-100/50 focus:bg-white focus:border-[#D4AF37]/20 transition-all">
                 </div>
 
                 <div class="flex items-center gap-4">
@@ -133,9 +133,9 @@
                                     <div class="flex items-center gap-6">
                                         <div class="relative">
                                             <div
-                                                class="w-16 h-16 rounded-[1.5rem] bg-white shadow-lg border border-slate-100 flex items-center justify-center transition-all duration-500 group-hover:rotate-[10deg] group-hover:scale-110 group-hover:border-[#00ADC5]">
+                                                class="w-16 h-16 rounded-[1.5rem] bg-white shadow-lg border border-slate-100 flex items-center justify-center transition-all duration-500 group-hover:rotate-[10deg] group-hover:scale-110 group-hover:border-[#D4AF37]">
                                                 <span
-                                                    class="font-black text-[10px] text-slate-300 group-hover:text-[#00ADC5] tracking-tighter">{{ $project->project_code }}</span>
+                                                    class="font-black text-[10px] text-slate-300 group-hover:text-[#D4AF37] tracking-tighter">{{ $project->project_code }}</span>
                                             </div>
                                             <div
                                                 class="absolute -bottom-2 -right-2 w-6 h-6 rounded-lg bg-emerald-500 border-2 border-white flex items-center justify-center shadow-md">
@@ -144,7 +144,7 @@
                                         </div>
                                         <div class="space-y-1.5">
                                             <p
-                                                class="text-base font-black text-slate-900 leading-tight group-hover:text-[#00ADC5] transition-colors">
+                                                class="text-base font-black text-slate-900 leading-tight group-hover:text-[#D4AF37] transition-colors">
                                                 {{ $project->project_name }}
                                             </p>
                                             <div class="flex items-center gap-3">
@@ -161,7 +161,7 @@
                                     <div class="space-y-2">
                                         <p
                                             class="text-[10px] font-black text-slate-800 uppercase tracking-wider flex items-center gap-2">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-[#00ADC5]"></span>
+                                            <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>
                                             {{ $project->project_type }}
                                         </p>
                                         <div class="inline-flex px-3 py-1 bg-slate-100 rounded-lg">
@@ -200,7 +200,7 @@
                                     @php
                                         $colors = [
                                             'Not Completed' => 'bg-amber-100/50 text-amber-600 border-amber-200/50',
-                                            'PPA Received' => 'bg-cyan-100/50 text-[#00ADC5] border-cyan-200/50',
+                                            'PPA Received' => 'bg-cyan-100/50 text-[#D4AF37] border-cyan-200/50',
                                             'PA Received' => 'bg-indigo-100/50 text-indigo-600 border-indigo-200/50',
                                             'FA Received' => 'bg-emerald-100/50 text-emerald-600 border-emerald-200/50',
                                             'Snag / Di-Snag' => 'bg-rose-100/50 text-rose-600 border-rose-200/50',
@@ -217,7 +217,7 @@
                                     <div
                                         class="flex items-center justify-end gap-2 translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
                                         <button
-                                            class="w-10 h-10 rounded-xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-[#00ADC5] hover:text-white hover:border-[#00ADC5] transition-all duration-300">
+                                            class="w-10 h-10 rounded-xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-[#D4AF37] hover:text-white hover:border-[#D4AF37] transition-all duration-300">
                                             <i data-lucide="external-link" class="w-4 h-4"></i>
                                         </button>
                                         <button
@@ -238,7 +238,7 @@
                                             </div>
                                             <div
                                                 class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white shadow-xl flex items-center justify-center">
-                                                <i data-lucide="alert-circle" class="w-4 h-4 text-[#00ADC5]"></i>
+                                                <i data-lucide="alert-circle" class="w-4 h-4 text-[#D4AF37]"></i>
                                             </div>
                                         </div>
                                         <div class="space-y-2">
@@ -269,7 +269,7 @@
                             </div>
                         @endforeach
                         <div
-                            class="w-8 h-8 rounded-full border-2 border-white bg-[#00ADC5] flex items-center justify-center text-[8px] font-black text-white shadow-md">
+                            class="w-8 h-8 rounded-full border-2 border-white bg-[#D4AF37] flex items-center justify-center text-[8px] font-black text-white shadow-md">
                             +12</div>
                     </div>
                     <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-2">Registry active and
@@ -278,7 +278,7 @@
 
                 <div class="flex items-center gap-3">
                     <button
-                        class="group/nav w-12 h-12 bg-white border border-slate-100 rounded-2xl flex items-center justify-center text-slate-400 hover:border-[#00ADC5] hover:text-[#00ADC5] hover:shadow-lg hover:shadow-cyan-100 transition-all duration-300">
+                        class="group/nav w-12 h-12 bg-white border border-slate-100 rounded-2xl flex items-center justify-center text-slate-400 hover:border-[#D4AF37] hover:text-[#D4AF37] hover:shadow-lg hover:shadow-amber-100 transition-all duration-300">
                         <i data-lucide="chevron-left"
                             class="w-5 h-5 group-hover/nav:-translate-x-0.5 transition-transform"></i>
                     </button>
@@ -288,7 +288,7 @@
                         <span class="text-[10px] font-black text-slate-400 tracking-widest tracking-widest">12</span>
                     </div>
                     <button
-                        class="group/nav w-12 h-12 bg-white border border-slate-100 rounded-2xl flex items-center justify-center text-slate-400 hover:border-[#00ADC5] hover:text-[#00ADC5] hover:shadow-lg hover:shadow-cyan-100 transition-all duration-300">
+                        class="group/nav w-12 h-12 bg-white border border-slate-100 rounded-2xl flex items-center justify-center text-slate-400 hover:border-[#D4AF37] hover:text-[#D4AF37] hover:shadow-lg hover:shadow-amber-100 transition-all duration-300">
                         <i data-lucide="chevron-right"
                             class="w-5 h-5 group-hover/nav:translate-x-0.5 transition-transform"></i>
                     </button>

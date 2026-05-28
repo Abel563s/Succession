@@ -5,12 +5,12 @@
         <div class="flex items-center justify-between border-b border-slate-100 pb-10">
             <div class="space-y-1">
                 <a href="{{ route('admin.progress-updates.index') }}"
-                    class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] flex items-center gap-2 mb-4">
+                    class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] flex items-center gap-2 mb-4">
                     <i data-lucide="arrow-left" class="w-3 h-3"></i>
                     Back to Registry
                 </a>
                 <h2 class="text-4xl font-black text-slate-900 tracking-tight font-outfit">Refine <span
-                        class="text-[#00ADC5]">Project Detail</span></h2>
+                        class="text-[#D4AF37]">Project Detail</span></h2>
                 <p class="text-slate-500 font-medium">Update real-time project metrics and performance parameters.</p>
             </div>
 
@@ -36,7 +36,7 @@
             <!-- Section 1: Project & Performance -->
             <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-50 space-y-10 group">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-cyan-50 flex items-center justify-center text-[#00ADC5]">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37]">
                         <i data-lucide="target" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -75,7 +75,7 @@
                             <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Calculated SPI Index</p>
                             <h4 class="text-2xl font-black text-slate-900 mt-1" x-text="planned > 0 ? ((actual / planned) * 100).toFixed(2) + '%' : '0.00%'"></h4>
                         </div>
-                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#00ADC5] shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#D4AF37] shadow-sm">
                             <i data-lucide="gauge" class="w-6 h-6"></i>
                         </div>
                     </div>

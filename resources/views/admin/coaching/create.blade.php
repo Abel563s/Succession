@@ -4,7 +4,7 @@
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <a href="{{ route('admin.coaching.index') }}" 
-                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#00515F] hover:border-[#00515F]/20 transition-all">
+                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#111111] hover:border-[#111111]/20 transition-all">
                     <i data-lucide="chevron-left" class="w-5 h-5"></i>
                 </a>
                 <div>
@@ -21,7 +21,7 @@
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="calendar" class="w-5 h-5 text-[#00515F]"></i>
+                        <i data-lucide="calendar" class="w-5 h-5 text-[#111111]"></i>
                         Session Logistics
                     </h2>
                 </div>
@@ -29,19 +29,19 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Name</label>
                         <input type="text" name="candidate_name" required value="{{ old('candidate_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all font-bold text-slate-700"
+                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700"
                                placeholder="Full Name">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Supervisor / Coach</label>
                         <input type="text" name="supervisor" required value="{{ old('supervisor') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all font-bold text-slate-700"
+                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700"
                                placeholder="Full Name">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all font-bold text-slate-700">
+                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700">
                             <option value="">Select Dept</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}">{{ $dept->name }}</option>
@@ -51,7 +51,7 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Coaching Date</label>
                         <input type="date" name="coaching_date" required value="{{ old('coaching_date') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all font-bold text-slate-700">
+                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700">
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="target" class="w-5 h-5 text-[#00515F]"></i>
+                        <i data-lucide="target" class="w-5 h-5 text-[#111111]"></i>
                         Core Focus Topics
                     </h2>
                 </div>
@@ -68,7 +68,7 @@
                     @for($i = 1; $i <= 3; $i++)
                         <div class="space-y-2">
                             <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Topic Area {{ $i }}</label>
-                            <textarea name="topic_{{ $i }}" required rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Define focus topic..."></textarea>
+                            <textarea name="topic_{{ $i }}" required rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Define focus topic..."></textarea>
                         </div>
                     @endfor
                 </div>
@@ -78,30 +78,30 @@
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="trending-up" class="w-5 h-5 text-[#00515F]"></i>
+                        <i data-lucide="trending-up" class="w-5 h-5 text-[#111111]"></i>
                         Strategic Roadmap
                     </h2>
                 </div>
                 <div class="p-8 space-y-6">
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Desired Outcome</label>
-                        <textarea name="desired_outcome" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="desired_outcome" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Benefits of Change</label>
-                        <textarea name="benefits" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="benefits" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Action Plan</label>
-                        <textarea name="action_plan" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="action_plan" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Support from the Supervisor</label>
-                        <textarea name="supervisor_support" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="supervisor_support" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Timeline</label>
-                        <textarea name="timeline" required rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#00515F] focus:ring-4 focus:ring-[#00515F]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="timeline" required rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
                 <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="check-square" class="w-5 h-5 text-[#00515F]"></i>
+                        <i data-lucide="check-square" class="w-5 h-5 text-[#111111]"></i>
                         Signatures
                     </h2>
                 </div>
@@ -126,7 +126,7 @@
                                               file:mr-4 file:py-2 file:px-4
                                               file:rounded-xl file:border-0
                                               file:text-sm file:font-black
-                                              file:bg-[#f0fbfd] file:text-[#00ADC5]
+                                              file:bg-[#FFF8E7] file:text-[#D4AF37]
                                               hover:file:bg-[#e6f7fa] transition-all cursor-pointer">
                             </label>
                             @if(auth()->user()->signature_path)
@@ -161,7 +161,7 @@
             <!-- Form Actions -->
             <div class="flex flex-col items-center pb-12">
                 <button type="submit" 
-                        class="bg-gradient-to-r from-[#00515F] to-[#00333B] hover:to-[#00515F] text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#00515F]/20 hover:scale-105 active:scale-95">
+                        class="bg-gradient-to-r from-[#111111] to-[#00333B] hover:to-[#111111] text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#111111]/20 hover:scale-105 active:scale-95">
                     CREATE COACHING RECORD
                 </button>
             </div>
