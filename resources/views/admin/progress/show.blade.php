@@ -16,7 +16,7 @@
                     {{ $progress->status }}
                 </span>
                 @if(auth()->user()->isAdmin())
-                    <a href="{{ route('admin.progress.edit', $progress) }}" class="bg-slate-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10 flex items-center gap-2">
+                    <a href="{{ route('admin.progress.edit', $progress) }}" class="show-page-edit-btn">
                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                         Edit Review
                     </a>
@@ -29,11 +29,7 @@
             <!-- Left Column: Profile -->
             <div class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-8 text-center relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
-                    
-                    <div class="w-20 h-20 rounded-3xl bg-[#D4AF37]/10 flex items-center justify-center font-black text-2xl text-[#D4AF37] mx-auto mb-6 border border-[#D4AF37]/20 relative z-10">
-                        {{ substr($progress->candidate_name, 0, 1) }}
-                    </div>
+                    <x-record-avatar :name="$progress->candidate_name" class="mx-auto mb-6 relative z-10" />
                     
                     <h2 class="text-xl font-black text-slate-900 mb-1 leading-tight relative z-10">{{ $progress->candidate_name }}</h2>
                     <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-6 relative z-10">Performance Review</p>

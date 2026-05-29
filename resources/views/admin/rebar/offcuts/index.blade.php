@@ -49,10 +49,15 @@
                 </div>
                 <div class="flex items-end gap-3">
                     <button type="submit"
-                        class="flex-1 py-2.5 bg-slate-900 text-white rounded-xl font-black text-xs uppercase tracking-widest hover:bg-slate-800 transition-all">Filter</button>
+                        class="w-11 h-11 filter-toolbar-btn rounded-xl group/filter"
+                        title="Apply Filters">
+                        <i data-lucide="filter" class="w-5 h-5 transition-transform group-hover/filter:scale-110"></i>
+                    </button>
                     <a href="{{ route('admin.rebar.offcuts.index') }}"
-                        class="p-2.5 bg-slate-100 text-slate-500 rounded-xl hover:bg-slate-200 transition-all">
-                        <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+                        class="w-11 h-11 bg-slate-100 text-slate-400 rounded-xl flex items-center justify-center hover:bg-rose-50 hover:text-rose-500 transition-all group/reset"
+                        title="Reset Filters">
+                        <i data-lucide="refresh-ccw"
+                            class="w-5 h-5 transition-transform group-hover/reset:rotate-180 duration-500"></i>
                     </a>
                 </div>
             </form>
@@ -84,7 +89,7 @@
                                 <td class="px-8 py-6">
                                     <div class="flex items-center gap-3">
                                         <div
-                                            class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-cyan-600">
+                                            class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#00515f]">
                                             <i data-lucide="hash" class="w-5 h-5"></i>
                                         </div>
                                         <span class="text-sm font-black text-slate-900">{{ $offcut->offcut_code }}</span>
@@ -144,7 +149,7 @@
                                     <div
                                         class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-all">
                                         <a href="{{ route('admin.rebar.offcuts.edit', $offcut) }}"
-                                            class="w-9 h-9 flex items-center justify-center rounded-xl bg-slate-100 text-slate-600 hover:bg-amber-500 hover:text-white transition-all shadow-sm">
+                                            class="table-action-btn">
                                             <i data-lucide="edit-3" class="w-4 h-4"></i>
                                         </a>
                                         <form action="{{ route('admin.rebar.offcuts.destroy', $offcut) }}" method="POST"
@@ -152,7 +157,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                class="w-9 h-9 flex items-center justify-center rounded-xl bg-rose-50 text-rose-500 hover:bg-rose-500 hover:text-white transition-all shadow-sm">
+                                                class="table-action-btn table-action-btn--delete shadow-sm">
                                                 <i data-lucide="trash-2" class="w-4 h-4"></i>
                                             </button>
                                         </form>

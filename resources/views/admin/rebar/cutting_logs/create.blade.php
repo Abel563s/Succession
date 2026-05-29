@@ -29,7 +29,7 @@
                 <!-- Section: Reference -->
                 <div class="space-y-6">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center text-cyan-600">
+                        <div class="w-8 h-8 rounded-xl bg-white flex items-center justify-center text-cyan-600">
                             <i data-lucide="link" class="w-4 h-4"></i>
                         </div>
                         <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest">Requirement Link</h3>
@@ -39,7 +39,7 @@
                         <div class="space-y-3">
                             <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Select Requirement <span class="text-rose-500">*</span></label>
                             <select name="rebar_requirement_id" id="requirement_id" required
-                                class="w-full bg-slate-50 border-slate-100 rounded-2xl py-4 flex items-center font-bold text-slate-700 focus:ring-4 focus:ring-cyan-500/10 focus:border-cyan-500 transition-all shadow-sm">
+                                class="w-full bg-white border-slate-100 rounded-2xl py-4 flex items-center font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:border-[#D4AF37] transition-all shadow-sm" style="background-color:#ffffff;">
                                 <option value="">-- Choose active requirement --</option>
                                 @foreach($requirements as $req)
                                     <option value="{{ $req->id }}" 
@@ -68,7 +68,7 @@
                         <div class="space-y-3">
                             <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Production Date</label>
                             <input type="date" name="date" value="{{ old('date', date('Y-m-d')) }}" required
-                                class="w-full bg-slate-50 border-slate-100 rounded-2xl py-4 font-bold text-slate-700 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all shadow-sm">
+                                class="w-full bg-white border-slate-100 rounded-2xl py-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:border-[#D4AF37] transition-all shadow-sm" style="background-color:#ffffff;">
                             @error('date') <p class="text-rose-500 text-[10px] font-bold mt-1 ml-1 uppercase tracking-wider">{{ $message }}</p> @enderror
                         </div>
 
@@ -85,7 +85,7 @@
                             <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Source Bar Length</label>
                             <div class="relative">
                                 <input type="number" name="original_length" id="original_length" value="{{ old('original_length', 12000) }}" required min="1"
-                                    class="w-full bg-slate-50 border-slate-100 rounded-2xl py-4 font-bold text-slate-700 focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all shadow-sm">
+                                    class="w-full bg-white border-slate-100 rounded-2xl py-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:border-[#D4AF37] transition-all shadow-sm" style="background-color:#ffffff;">
                                 <span class="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-black text-slate-300 uppercase">mm</span>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                             <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Required Cut Length</label>
                             <div class="relative">
                                 <input type="number" name="cut_length" id="cut_length" value="{{ old('cut_length') }}" required min="1"
-                                    class="w-full bg-slate-50 border-slate-100 rounded-2xl py-4 font-bold text-slate-700 focus:ring-4 focus:ring-rose-500/10 focus:border-rose-500 transition-all shadow-sm">
+                                    class="w-full bg-white border-slate-100 rounded-2xl py-4 font-bold text-slate-700 focus:ring-4 focus:ring-rose-500/10 focus:border-rose-500 transition-all shadow-sm" style="background-color:#ffffff;">
                                 <span class="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-black text-slate-300 uppercase">mm</span>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
                 <!-- Section: Context -->
                 <div class="space-y-6 pt-10 border-t border-slate-50">
                     <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600">
+                        <div class="w-8 h-8 rounded-xl bg-white flex items-center justify-center text-amber-600">
                             <i data-lucide="text-quote" class="w-4 h-4"></i>
                         </div>
                         <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest">Usage Context</h3>
@@ -137,12 +137,12 @@
                         <div class="space-y-3">
                             <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Usage / Location</label>
                             <input type="text" name="used_for" placeholder="e.g. Slab Beam B12, Floor 12" value="{{ old('used_for') }}"
-                                class="w-full bg-slate-50 border-slate-100 rounded-2xl py-4 font-bold text-slate-700 focus:ring-4 focus:ring-amber-500/10 focus:border-amber-500 transition-all shadow-sm">
+                                class="w-full bg-white border-slate-100 rounded-2xl py-4 font-bold text-slate-700 focus:ring-4 focus:ring-amber-500/10 focus:border-amber-500 transition-all shadow-sm" style="background-color:#ffffff;">
                         </div>
                         <div class="space-y-3">
                             <label class="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Additional Remarks</label>
                             <input type="text" name="remarks" placeholder="Optional notes for fabrication team" value="{{ old('remarks') }}"
-                                class="w-full bg-slate-50 border-slate-100 rounded-2xl py-4 font-bold text-slate-700 focus:ring-4 focus:ring-amber-500/10 focus:border-amber-500 transition-all shadow-sm">
+                                class="w-full bg-white border-slate-100 rounded-2xl py-4 font-bold text-slate-700 focus:ring-4 focus:ring-amber-500/10 focus:border-amber-500 transition-all shadow-sm" style="background-color:#ffffff;">
                         </div>
                     </div>
                 </div>

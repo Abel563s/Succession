@@ -62,13 +62,15 @@
                 <div class="hidden lg:block"></div>
                 <div class="flex items-end gap-2">
                     <button type="submit"
-                        class="flex-1 py-3 bg-slate-900 text-white rounded-xl font-black text-xs uppercase tracking-widest hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
-                        Apply Filter
+                        class="w-12 h-12 filter-toolbar-btn rounded-xl group/filter"
+                        title="Apply Filters">
+                        <i data-lucide="filter" class="w-5 h-5 transition-transform group-hover/filter:scale-110"></i>
                     </button>
                     <a href="{{ route('admin.rebar.requirements.index') }}"
-                        class="p-3 bg-slate-100 text-slate-400 rounded-xl hover:bg-slate-200 transition-all"
-                        title="Reset">
-                        <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+                        class="w-12 h-12 bg-slate-100 text-slate-400 rounded-xl flex items-center justify-center hover:bg-rose-50 hover:text-rose-500 transition-all group/reset"
+                        title="Reset Filters">
+                        <i data-lucide="refresh-ccw"
+                            class="w-5 h-5 transition-transform group-hover/reset:rotate-180 duration-500"></i>
                     </a>
                 </div>
             </form>
@@ -150,13 +152,18 @@
                                 <td class="px-8 py-5">
                                     <div
                                         class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0">
+                                        <a href="{{ route('admin.rebar.requirements.show', $req) }}"
+                                            class="table-action-btn"
+                                            title="View Details">
+                                            <i data-lucide="eye" class="w-4 h-4"></i>
+                                        </a>
                                         <a href="{{ route('admin.rebar.cutting-logs.create', ['requirement_id' => $req->id]) }}"
-                                            class="p-2.5 text-emerald-600 hover:bg-emerald-50 rounded-xl transition-all"
+                                            class="table-action-btn"
                                             title="Record Cut">
                                             <i data-lucide="scissors" class="w-4 h-4"></i>
                                         </a>
                                         <a href="{{ route('admin.rebar.requirements.edit', $req) }}"
-                                            class="p-2.5 text-indigo-600 hover:bg-indigo-50 rounded-xl transition-all"
+                                            class="table-action-btn"
                                             title="Edit">
                                             <i data-lucide="edit-3" class="w-4 h-4"></i>
                                         </a>
@@ -165,7 +172,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
-                                                class="p-2.5 text-rose-600 hover:bg-rose-50 rounded-xl transition-all"
+                                                class="table-action-btn table-action-btn--delete"
                                                 title="Remove">
                                                 <i data-lucide="trash-2" class="w-4 h-4"></i>
                                             </button>

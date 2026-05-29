@@ -16,7 +16,7 @@
                     {{ $sd->status }}
                 </span>
                 @if(auth()->user()->isAdmin())
-                    <a href="{{ route('admin.sd.edit', $sd) }}" class="bg-slate-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10 flex items-center gap-2">
+                    <a href="{{ route('admin.sd.edit', $sd) }}" class="show-page-edit-btn">
                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                         Edit Dashboard
                     </a>

@@ -13,7 +13,7 @@
             </div>
             @if(auth()->user()->isAdmin())
                 <div class="flex items-center gap-3">
-                    <a href="{{ route('admin.development.edit', $development) }}" class="bg-slate-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10 flex items-center gap-2">
+                    <a href="{{ route('admin.development.edit', $development) }}" class="show-page-edit-btn">
                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                         Edit Plan
                     </a>
@@ -26,9 +26,7 @@
         <!-- Info Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white p-6 rounded-[2rem] border border-slate-200 shadow-sm flex items-center gap-4">
-                <div class="w-12 h-12 rounded-2xl bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37]">
-                    <i data-lucide="user" class="w-6 h-6"></i>
-                </div>
+                <x-record-avatar :name="$development->employee_name" size="sm" />
                 <div>
                     <p class="text-[10px] font-black text-slate-400 uppercase leading-none mb-1">Employee</p>
                     <p class="text-sm font-bold text-slate-900">{{ $development->employee_name }}</p>

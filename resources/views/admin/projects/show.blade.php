@@ -4,10 +4,7 @@
         <!-- Premium Header -->
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 border-b border-slate-100 pb-10">
             <div class="flex items-center gap-6">
-                <div
-                    class="w-20 h-20 rounded-[2rem] bg-slate-50 flex items-center justify-center font-black text-2xl text-[#D4AF37] border-2 border-slate-100 shadow-sm">
-                    {{ $project->project_code }}
-                </div>
+                <x-record-avatar :name="$project->project_name" />
                 <div class="space-y-1">
                     <div class="flex items-center gap-3">
                         <h2 class="text-4xl font-black text-slate-900 tracking-tight font-outfit">

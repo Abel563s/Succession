@@ -13,7 +13,7 @@
             </div>
             @if(auth()->user()->isAdmin())
                 <div class="flex items-center gap-3">
-                    <a href="{{ route('admin.nine-box.edit', $nineBox) }}" class="bg-slate-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10 flex items-center gap-2">
+                    <a href="{{ route('admin.nine-box.edit', $nineBox) }}" class="show-page-edit-btn">
                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                         Edit Evaluation
                     </a>
@@ -31,9 +31,7 @@
                         <i data-lucide="layout-grid" class="w-12 h-12 text-slate-50"></i>
                     </div>
                     
-                    <div class="w-20 h-20 rounded-3xl bg-[#D4AF37]/10 flex items-center justify-center font-black text-2xl text-[#D4AF37] mx-auto mb-6">
-                        {{ substr($nineBox->grid_position, 0, 1) }}
-                    </div>
+                    <x-record-avatar :name="$nineBox->candidate_name" class="mx-auto mb-6" />
                     
                     <h2 class="text-xl font-black text-slate-900 mb-1">{{ $nineBox->grid_position }}</h2>
                     <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-6">{{ $nineBox->candidate_name }}</p>

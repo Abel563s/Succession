@@ -27,7 +27,7 @@
                     { name: 'Core Player', p: 'Medium', f: 'Medium', color: 'bg-indigo-50', text: 'text-indigo-600' },
                     { name: 'High Performer', p: 'Medium', f: 'High', color: 'bg-teal-50', text: 'text-teal-600' },
                     { name: 'Risk', p: 'Low', f: 'Low', color: 'bg-rose-50', text: 'text-rose-600' },
-                    { name: 'Average Performer', p: 'Low', f: 'Medium', color: 'bg-slate-50', text: 'text-slate-600' },
+                    { name: 'Average Performer', p: 'Low', f: 'Medium', color: 'bg-white', text: 'text-slate-600' },
                     { name: 'Solid Performer', p: 'Low', f: 'High', color: 'bg-slate-100', text: 'text-slate-800' }
                 ],
                 select(box) {
@@ -45,7 +45,7 @@
 
             <!-- 1. Subject Details -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="user" class="w-5 h-5 text-[#D4AF37]"></i>
                         Candidate Information
@@ -55,13 +55,13 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Name</label>
                         <input type="text" name="candidate_name" required value="{{ old('candidate_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
-                               placeholder="Full Name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               placeholder="Full Name" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all" style="background-color:#ffffff;">
                             <option value="">Select Department</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}">{{ $dept->name }}</option>
@@ -73,7 +73,7 @@
 
             <!-- 2. The 9-Box Grid Matrix (Compact) -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="grid-3x3" class="w-5 h-5 text-[#D4AF37]"></i>
                         Talent Placement
@@ -94,7 +94,7 @@
                             <div class="grid grid-cols-3 gap-3">
                                 <template x-for="box in grid">
                                     <div @click="select(box)"
-                                         :class="selected === box.name ? box.color + ' border-[#D4AF37] ring-4 ring-[#D4AF37]/10 active-cell' : 'bg-slate-50 border-slate-100 hover:border-slate-300'"
+                                         :class="selected === box.name ? box.color + ' border-[#D4AF37] ring-4 ring-[#D4AF37]/10 active-cell' : 'bg-white border-slate-100 hover:border-slate-300'"
                                          class="aspect-[4/3] border-2 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer transition-all p-3 group relative">
                                         <span class="text-[9px] font-black uppercase tracking-widest leading-tight" :class="selected === box.name ? box.text : 'text-slate-400 group-hover:text-slate-600'" x-text="box.name"></span>
                                     </div>
@@ -113,7 +113,7 @@
 
             <!-- 3. Evaluation Commentary -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="message-square" class="w-5 h-5 text-[#D4AF37]"></i>
                         Narrative Evaluation
@@ -122,22 +122,22 @@
                 <div class="p-8 space-y-6">
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">General Comments</label>
-                        <textarea name="general_comments" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all resize-none text-sm font-medium"></textarea>
+                        <textarea name="general_comments" required rows="3" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all resize-none text-sm font-medium" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Strengths</label>
-                        <textarea name="strengths" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all resize-none text-sm font-medium"></textarea>
+                        <textarea name="strengths" required rows="3" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all resize-none text-sm font-medium" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Development Needs</label>
-                        <textarea name="development_needs" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all resize-none text-sm font-medium"></textarea>
+                        <textarea name="development_needs" required rows="3" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all resize-none text-sm font-medium" style="background-color:#ffffff;"></textarea>
                     </div>
                 </div>
             </div>
 
             <!-- 4. Authorization -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="shield-check" class="w-5 h-5 text-[#D4AF37]"></i>
                         Signature
@@ -155,8 +155,8 @@
                                               file:mr-4 file:py-2 file:px-4
                                               file:rounded-xl file:border-0
                                               file:text-sm file:font-black
-                                              file:bg-[#FFF8E7] file:text-[#D4AF37]
-                                              hover:file:bg-[#e6f7fa] transition-all cursor-pointer">
+                                              file:bg-[#00515f] file:text-white
+                                              hover:file:bg-[#004952] transition-all cursor-pointer">
                             </label>
                             @if(auth()->user()->signature_path)
                                 <!-- Existing Signature Preview -->
@@ -168,7 +168,7 @@
                                     <img src="{{ \App\Support\StorageUrl::public(auth()->user()->signature_path) }}" class="h-10 rounded border border-emerald-200" alt="Existing Signature">
                                 </div>
                             @endif
-                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center">
+                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-white flex items-center justify-center">
                                 <img :src="preview" class="max-h-24 rounded-lg shadow-sm" alt="Preview">
                             </div>
                         </div>
@@ -177,7 +177,7 @@
                     <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-50">
                         <a href="{{ route('admin.nine-box.index') }}" class="px-6 py-3 text-sm font-bold text-slate-400 hover:text-slate-600 transition-all">Cancel</a>
                         <button type="submit" :disabled="!selected"
-                                :class="selected ? 'bg-[#D4AF37] hover:scale-105 shadow-lg shadow-[#D4AF37]/20' : 'bg-slate-200 cursor-not-allowed'"
+                                :class="selected ? 'form-primary-submit bg-[#D4AF37] hover:scale-105 shadow-lg shadow-[#D4AF37]/20' : 'bg-slate-200 cursor-not-allowed text-slate-400'"
                                 class="px-10 py-3 bg-[#D4AF37] text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all">
                             Submit Assessment
                         </button>

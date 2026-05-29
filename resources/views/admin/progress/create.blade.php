@@ -20,7 +20,7 @@
 
             <!-- Section 1: Basic Information -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="user" class="w-5 h-5 text-[#D4AF37]"></i>
                         Core Information
@@ -30,13 +30,13 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Name</label>
                         <input type="text" name="candidate_name" required value="{{ old('candidate_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
-                               placeholder="Full Name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
+                               placeholder="Full Name" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                             <option value="">Select Dept</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}">{{ $dept->name }}</option>
@@ -46,15 +46,15 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Line Manager</label>
                         <input type="text" name="line_manager" required value="{{ old('line_manager') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
-                               placeholder="Manager's Name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
+                               placeholder="Manager's Name" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>
 
             <!-- Section 2: Performance Summary -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-tight">
                         <i data-lucide="clipboard-list" class="w-5 h-5 text-[#D4AF37]"></i>
                         Performance Summary
@@ -63,14 +63,14 @@
                 <div class="p-8 space-y-4">
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Progress on IDP, Coaching & Training</label>
-                        <textarea name="performance_summary" rows="5" class="w-full px-6 py-4 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Summarize overall development progress..."></textarea>
+                        <textarea name="performance_summary" rows="5" class="w-full px-6 py-4 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Summarize overall development progress..." style="background-color:#ffffff;"></textarea>
                     </div>
                 </div>
             </div>
 
             <!-- Section 3: Progress Tracking -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden" x-data="{ rows: [0] }">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30 flex items-center justify-between">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white flex items-center justify-between">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-tight">
                         <i data-lucide="activity" class="w-5 h-5 text-[#D4AF37]"></i>
                         Progress Tracking (IDP)
@@ -83,7 +83,7 @@
                 <div class="overflow-x-auto">
                     <table class="w-full border-collapse">
                         <thead>
-                            <tr class="bg-slate-50/50 border-b border-slate-100 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                            <tr class="bg-white border-b border-slate-100 text-[10px] font-black uppercase tracking-widest text-slate-400">
                                 <th class="px-8 py-4 text-left w-48">Review Date</th>
                                 <th class="px-4 py-4 text-left">Key Achievements</th>
                                 <th class="px-4 py-4 text-left">Challenges Faced</th>
@@ -93,18 +93,18 @@
                         </thead>
                         <tbody>
                             <template x-for="(row, index) in rows" :key="index">
-                                <tr class="border-b border-slate-50 hover:bg-slate-50/30 transition-colors">
+                                <tr class="border-b border-slate-50 hover:bg-white transition-colors">
                                     <td class="px-8 py-4 align-top">
-                                        <input type="date" name="review_date[]" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg">
+                                        <input type="date" name="review_date[]" class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" style="background-color:#ffffff;">
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="achievements[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm"></textarea>
+                                        <textarea name="achievements[]" rows="2" class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" style="background-color:#ffffff;"></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="challenges[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm"></textarea>
+                                        <textarea name="challenges[]" rows="2" class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" style="background-color:#ffffff;"></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="next_steps[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm"></textarea>
+                                        <textarea name="next_steps[]" rows="2" class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" style="background-color:#ffffff;"></textarea>
                                     </td>
                                     <td class="px-4 py-4 text-center align-middle">
                                         <button type="button" @click="rows = rows.filter((_, i) => i !== index)" class="text-rose-400 hover:text-rose-600 transition-colors p-2 rounded-lg hover:bg-rose-50" x-show="rows.length > 1">
@@ -120,7 +120,7 @@
 
             <!-- Section 4: Skill Development -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-tight">
                         <i data-lucide="graduation-cap" class="w-5 h-5 text-[#D4AF37]"></i>
                         Skill Development
@@ -129,18 +129,18 @@
                 <div class="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">New Competencies Acquired</label>
-                        <textarea name="new_competencies" rows="4" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="new_competencies" rows="4" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Gaps Identified</label>
-                        <textarea name="gaps_identified" rows="4" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="gaps_identified" rows="4" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm" style="background-color:#ffffff;"></textarea>
                     </div>
                 </div>
             </div>
 
             <!-- Section 5: Next Steps & Action Plan -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-tight">
                         <i data-lucide="trending-up" class="w-5 h-5 text-[#D4AF37]"></i>
                         Next Steps & Action Plan
@@ -149,7 +149,7 @@
                 <div class="p-8 space-y-4">
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Updated Action Plan</label>
-                        <textarea name="updated_action_plan" rows="5" class="w-full px-6 py-4 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="updated_action_plan" rows="5" class="w-full px-6 py-4 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm" style="background-color:#ffffff;"></textarea>
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                     </div>
                     <div class="flex-shrink-0 space-y-3">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Status Tracking</label>
-                        <select name="status" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700 rounded-xl">
+                        <select name="status" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700 rounded-xl" style="background-color:#ffffff;">
                             <option value="draft">Draft Review</option>
                             <option value="completed">Completed Review</option>
                         </select>

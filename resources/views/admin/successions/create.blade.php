@@ -19,7 +19,7 @@
 
             <!-- 1. Basic Information -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-[#D4AF37] text-white flex items-center justify-center text-xs">1</span>
                         Basic Information
@@ -29,14 +29,14 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Name</label>
                         <input type="text" name="candidate_name" required value="{{ old('candidate_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
-                               placeholder="Enter candidate name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               placeholder="Enter candidate name" style="background-color:#ffffff;">
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all" style="background-color:#ffffff;">
                             <option value="">Select Department</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}" {{ old('department') == $dept->name ? 'selected' : '' }}>{{ $dept->name }}</option>
@@ -47,29 +47,29 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Line Manager</label>
                         <input type="text" name="line_manager" required value="{{ old('line_manager') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
-                               placeholder="Manager name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               placeholder="Manager name" style="background-color:#ffffff;">
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Years in Current Position</label>
                         <input type="text" name="years_experience" required value="{{ old('years_experience') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
-                               placeholder="e.g. 5">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               placeholder="e.g. 5" style="background-color:#ffffff;">
                     </div>
 
                     <div class="md:col-span-2 space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Critical Role Targeted for Succession</label>
                         <input type="text" name="target_role" required value="{{ old('target_role') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
-                               placeholder="Target position title">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               placeholder="Target position title" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>
 
             <!-- 2. Competencies Section -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-[#D4AF37] text-white flex items-center justify-center text-xs">2</span>
                         Competency Assessment
@@ -80,21 +80,21 @@
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Core Competencies / Non-Technical</label>
                         <textarea name="core_competencies" required rows="3"
                                   placeholder="Leadership, Communication, Team Management, etc."
-                                  class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all resize-none">{{ old('core_competencies') }}</textarea>
+                                  class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all resize-none" style="background-color:#ffffff;">{{ old('core_competencies') }}</textarea>
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Technical Competencies</label>
                         <textarea name="technical_competencies" required rows="3"
                                   placeholder="Specific technical skills required for the target role"
-                                  class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all resize-none">{{ old('technical_competencies') }}</textarea>
+                                  class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all resize-none" style="background-color:#ffffff;">{{ old('technical_competencies') }}</textarea>
                     </div>
                 </div>
             </div>
 
             <!-- 3. Performance & Justification -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-[#D4AF37] text-white flex items-center justify-center text-xs">3</span>
                         Performance & Justification
@@ -105,21 +105,21 @@
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Justification for Nominated Candidate</label>
                         <textarea name="justification" required rows="3"
                                   placeholder="Why is this candidate being nominated?"
-                                  class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all resize-none">{{ old('justification') }}</textarea>
+                                  class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all resize-none" style="background-color:#ffffff;">{{ old('justification') }}</textarea>
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Key OKR Achievement</label>
                         <textarea name="okr_achievement" required rows="3"
                                   placeholder="Specific performance milestones and results"
-                                  class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all resize-none">{{ old('okr_achievement') }}</textarea>
+                                  class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all resize-none" style="background-color:#ffffff;">{{ old('okr_achievement') }}</textarea>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Readiness Level</label>
                             <select name="readiness_level" required
-                                    class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all">
+                                    class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all" style="background-color:#ffffff;">
                                 <option value="Ready Now" {{ old('readiness_level') == 'Ready Now' ? 'selected' : '' }}>Ready Now</option>
                                 <option value="Within 1–2 Years" {{ old('readiness_level') == 'Within 1–2 Years' ? 'selected' : '' }}>Within 1–2 Years</option>
                                 <option value="Within 3–5 Years" {{ old('readiness_level') == 'Within 3–5 Years' ? 'selected' : '' }}>Within 3–5 Years</option>
@@ -128,8 +128,8 @@
                         <div class="space-y-2">
                             <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Latest IPG Score</label>
                             <input type="text" name="ipg_score" required value="{{ old('ipg_score') }}"
-                                   class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
-                                   placeholder="e.g. Out of 100%">
+                                   class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                                   placeholder="e.g. Out of 100%" style="background-color:#ffffff;">
                         </div>
                     </div>
                 </div>
@@ -137,7 +137,7 @@
 
             <!-- 4. Authorization -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <span class="w-7 h-7 rounded-lg bg-[#D4AF37] text-white flex items-center justify-center text-xs">4</span>
                         Final Authorization
@@ -155,8 +155,8 @@
                                               file:mr-4 file:py-2 file:px-4
                                               file:rounded-xl file:border-0
                                               file:text-sm file:font-black
-                                              file:bg-[#FFF8E7] file:text-[#D4AF37]
-                                              hover:file:bg-[#e6f7fa] transition-all cursor-pointer">
+                                              file:bg-[#00515f] file:text-white
+                                              hover:file:bg-[#004952] transition-all cursor-pointer">
                             </label>
                             @if(auth()->user()->signature_path)
                                 <!-- Existing Signature Preview -->
@@ -168,7 +168,7 @@
                                     <img src="{{ \App\Support\StorageUrl::public(auth()->user()->signature_path) }}" class="h-10 rounded border border-emerald-200" alt="Existing Signature">
                                 </div>
                             @endif
-                            <div x-show="preview" class="p-4 border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center">
+                            <div x-show="preview" class="p-4 border-2 border-dashed border-slate-200 rounded-2xl bg-white flex items-center justify-center">
                                 <img :src="preview" class="max-h-40 rounded-xl shadow-sm border border-white" alt="Signature Preview">
                             </div>
                         </div>
@@ -182,8 +182,8 @@
                    class="px-8 py-3 rounded-2xl font-bold text-slate-500 hover:bg-slate-100 transition-all">
                     Cancel
                 </a>
-                <button type="submit" 
-                        class="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white px-10 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-[#D4AF37]/20 hover:scale-105 active:scale-95">
+                <button type="submit"
+                        class="form-primary-submit bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white px-10 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-[#D4AF37]/20 hover:scale-105 active:scale-95">
                     Submit Nomination
                 </button>
             </div>

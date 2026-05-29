@@ -23,13 +23,13 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Name</label>
                         <input type="text" name="candidate_name" required value="{{ old('candidate_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
-                               placeholder="Full Name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
+                               placeholder="Full Name" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                             <option value="">Select Dept</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}">{{ $dept->name }}</option>
@@ -39,8 +39,8 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Line Manager</label>
                         <input type="text" name="line_manager" required value="{{ old('line_manager') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
-                               placeholder="Manager's Name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
+                               placeholder="Manager's Name" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <!-- Assessment Table -->
                 <div class="lg:col-span-2 space-y-6">
                     <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
-                        <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                        <div class="px-8 py-6 border-b border-slate-100 bg-white">
                             <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-tight">
                                 <i data-lucide="award" class="w-5 h-5 text-[#D4AF37]"></i>
                                 Leadership Competencies
@@ -71,7 +71,7 @@
                         <div class="overflow-x-auto">
                             <table class="w-full border-collapse">
                                 <thead>
-                                    <tr class="bg-slate-50/50 border-b border-slate-100 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                                    <tr class="bg-white border-b border-slate-100 text-[10px] font-black uppercase tracking-widest text-slate-400">
                                         <th class="px-8 py-4 text-center w-16">No.</th>
                                         <th class="px-4 py-4 text-left">Competency</th>
                                         <th class="px-8 py-4 text-center w-64">Proficiency Rating</th>
@@ -79,7 +79,7 @@
                                 </thead>
                                 <tbody class="divide-y divide-slate-50">
                                     @foreach($competencies as $index => $competency)
-                                        <tr class="hover:bg-slate-50/50 transition-colors" x-data="{ selected: {{ old("ratings.$competency", 'null') }} }">
+                                        <tr class="hover:bg-white transition-colors" x-data="{ selected: {{ old("ratings.$competency", 'null') }} }">
                                             <td class="px-8 py-6 text-center text-xs font-black text-slate-400">{{ $index + 1 }}</td>
                                             <td class="px-4 py-6">
                                                 <div class="flex flex-col">
@@ -95,7 +95,7 @@
                                                             <input type="radio" id="{{ $id }}" name="ratings[{{ $competency }}]" value="{{ $i }}" required 
                                                                    x-model="selected" class="sr-only">
                                                             <label for="{{ $id }}" 
-                                                                   :class="selected == {{ $i }} ? 'bg-[#D4AF37] text-white border-[#D4AF37] shadow-lg shadow-[#D4AF37]/20' : 'bg-slate-50 text-slate-400 border-slate-200'"
+                                                                   :class="selected == {{ $i }} ? 'bg-[#D4AF37] text-white border-[#D4AF37] shadow-lg shadow-[#D4AF37]/20' : 'bg-white text-slate-400 border-slate-200'"
                                                                    class="h-10 flex items-center justify-center rounded-xl text-xs font-black cursor-pointer transition-all border hover:border-[#D4AF37]/30">
                                                                 {{ $i }}
                                                             </label>
@@ -114,7 +114,7 @@
                 <!-- Feedback & Signature -->
                 <div class="lg:col-span-1 space-y-6">
                     <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden h-fit">
-                        <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                        <div class="px-8 py-6 border-b border-slate-100 bg-white">
                             <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-tight">
                                 <i data-lucide="message-square" class="w-5 h-5 text-[#D4AF37]"></i>
                                 Comments & Feedback
@@ -123,7 +123,7 @@
                         <div class="p-8 space-y-6">
                             <div class="space-y-2">
                                 <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Leadership Observations</label>
-                                <textarea name="comments" required rows="12" class="w-full px-6 py-4 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Detailed feedback on growth, performance, and recommendations..."></textarea>
+                                <textarea name="comments" required rows="12" class="w-full px-6 py-4 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Detailed feedback on growth, performance, and recommendations..." style="background-color:#ffffff;"></textarea>
                             </div>
 
                             <div class="space-y-4 pt-6 border-t border-slate-100">
@@ -137,8 +137,8 @@
                                                       file:mr-4 file:py-2 file:px-4
                                                       file:rounded-xl file:border-0
                                                       file:text-sm file:font-black
-                                                      file:bg-[#FFF8E7] file:text-[#D4AF37]
-                                                      hover:file:bg-[#e6f7fa] transition-all cursor-pointer">
+                                                      file:bg-[#00515f] file:text-white
+                                                      hover:file:bg-[#004952] transition-all cursor-pointer">
                                     </label>
                                     @if(auth()->user()->signature_path)
                                         <!-- Existing Signature Preview -->
@@ -150,7 +150,7 @@
                                             <img src="{{ \App\Support\StorageUrl::public(auth()->user()->signature_path) }}" class="h-10 rounded border border-emerald-200" alt="Existing Signature">
                                         </div>
                                     @endif
-                                    <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center h-32">
+                                    <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-white flex items-center justify-center h-32">
                                         <img :src="preview" class="max-h-24 rounded-lg shadow-sm" alt="Signature Preview">
                                     </div>
                                 </div>
@@ -158,7 +158,7 @@
 
                             <div class="space-y-3 pt-6 border-t border-slate-100">
                                 <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Assessment Status</label>
-                                <select name="status" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700 rounded-xl">
+                                <select name="status" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700 rounded-xl" style="background-color:#ffffff;">
                                     <option value="draft">Save as Draft</option>
                                     <option value="published">Finalize & Publish</option>
                                 </select>
@@ -171,8 +171,8 @@
             <!-- Form Actions -->
             <div class="flex flex-col items-center pt-8 gap-4">
                 <div class="flex items-center gap-4">
-                    <button type="submit" 
-                            class="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#D4AF37]/20 hover:scale-105 active:scale-95">
+                    <button type="submit"
+                            class="form-primary-submit bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#D4AF37]/20 hover:scale-105 active:scale-95">
                         CREATE ASSESSMENT
                     </button>
                     <button type="reset" class="px-8 py-4 rounded-2xl bg-slate-100 text-slate-400 font-black text-xs uppercase tracking-widest hover:bg-slate-200 transition-all">

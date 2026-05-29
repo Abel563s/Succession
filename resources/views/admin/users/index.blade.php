@@ -18,7 +18,7 @@
             <!-- Perfectly Centered Badge -->
             <div class="hidden lg:flex items-center justify-center">
                 <div class="flex items-center gap-3 px-4 py-2 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl hover:border-[#111111]/20 transition-all duration-500 group/badge">
-                    <div class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#111111] transition-colors group-hover/badge:bg-[#111111] group-hover/badge:text-white shadow-inner">
+                    <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-[#111111] transition-colors group-hover/badge:bg-[#111111] group-hover/badge:text-white shadow-inner">
                         <i data-lucide="shield-check" class="w-5 h-5 transition-transform group-hover/badge:scale-110"></i>
                     </div>
                     <div class="flex flex-col text-left">
@@ -46,7 +46,7 @@
         <!-- Compact Summary Stats Grid -->
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
             <div class="bg-white px-4 py-3 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-3">
-                <div class="w-8 h-8 rounded-xl bg-slate-50 flex items-center justify-center text-slate-500 shrink-0">
+                <div class="w-8 h-8 rounded-xl bg-white flex items-center justify-center text-slate-500 shrink-0">
                     <i data-lucide="users" class="w-4 h-4"></i>
                 </div>
                 <div class="text-left">
@@ -103,7 +103,7 @@
                             <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400"></i>
                             <input type="text" name="search" value="{{ request('search') }}"
                                 placeholder="Search candidate or email..."
-                                class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 transition-all">
+                                class="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 transition-all">
                         </div>
                     </div>
 
@@ -111,7 +111,7 @@
                     <div class="w-48 text-left">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Department</label>
                         <select name="department_id" onchange="this.form.submit()"
-                            class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
+                            class="w-full px-4 py-2 bg-white border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
                             <option value="">All Departments</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->id }}" {{ request('department_id') == $dept->id ? 'selected' : '' }}>{{ $dept->name }}</option>
@@ -123,7 +123,7 @@
                     <div class="w-40 text-left">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Role</label>
                         <select name="role" onchange="this.form.submit()"
-                            class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
+                            class="w-full px-4 py-2 bg-white border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
                             <option value="">All Roles</option>
                             <option value="admin" {{ request('role') == 'admin' ? 'selected' : '' }}>Admin</option>
                             <option value="manager" {{ request('role') == 'manager' ? 'selected' : '' }}>Manager</option>
@@ -136,7 +136,7 @@
                     <div class="w-40 text-left">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Status</label>
                         <select name="status" onchange="this.form.submit()"
-                            class="w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
+                            class="w-full px-4 py-2 bg-white border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700 appearance-none cursor-pointer">
                             <option value="">All Statuses</option>
                             <option value="1" {{ request('status') === '1' ? 'selected' : '' }}>Active</option>
                             <option value="0" {{ request('status') === '0' ? 'selected' : '' }}>Locked</option>
@@ -146,7 +146,7 @@
                     <!-- Reset Button -->
                     <div class="flex items-center gap-2">
                         <button type="submit"
-                            class="w-9 h-9 bg-[#111111] text-white rounded-xl flex items-center justify-center hover:bg-[#00333B] transition-all shadow-sm shadow-[#111111]/20 group/filter"
+                            class="w-9 h-9 filter-toolbar-btn rounded-xl group/filter"
                             title="Apply Filters">
                             <i data-lucide="filter" class="w-4 h-4 transition-transform group-hover/filter:scale-110"></i>
                         </button>
@@ -182,7 +182,7 @@
                                  <td class="px-6 py-5">
                                      <div class="flex items-center gap-3 text-left">
                                          <div class="relative shrink-0">
-                                             <div class="w-10 h-10 rounded-xl bg-[#FFF8E7] border border-[#D4AF37]/10 flex items-center justify-center font-black text-[#D4AF37] text-sm shadow-inner transition-transform group-hover:scale-110 duration-500">
+                                             <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center font-black text-[#00515f] text-sm shadow-inner transition-transform group-hover:scale-110 duration-500">
                                                  {{ substr($user->name, 0, 1) }}
                                              </div>
                                              <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full border-2 border-white {{ $user->is_active ? 'bg-emerald-500' : 'bg-slate-300' }}"></div>
@@ -243,12 +243,12 @@
                                      <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                          <button
                                              @click="openPwModal({id: {{ $user->id }}, name: '{{ $user->name }}', email: '{{ $user->email }}', role: '{{ $user->role }}', is_active: {{ $user->is_active ? 1 : 0 }}})"
-                                             class="w-8 h-8 rounded-lg bg-slate-100 text-slate-400 hover:text-amber-500 hover:bg-amber-50 flex items-center justify-center transition-all"
+                                             class="table-action-btn"
                                              title="Update Security Key">
                                              <i data-lucide="key-round" class="w-4 h-4"></i>
                                          </button>
                                          <a href="{{ route('admin.users.edit', $user) }}"
-                                             class="w-8 h-8 rounded-lg bg-slate-100 text-slate-400 hover:text-indigo-500 hover:bg-indigo-50 flex items-center justify-center transition-all"
+                                             class="table-action-btn"
                                              title="Modify Node Details">
                                              <i data-lucide="user-cog" class="w-4 h-4"></i>
                                          </a>
@@ -258,7 +258,7 @@
                                                  @csrf
                                                  @method('DELETE')
                                                  <button type="submit"
-                                                     class="w-8 h-8 rounded-lg bg-slate-100 text-slate-400 hover:text-rose-500 hover:bg-rose-50 flex items-center justify-center transition-all"
+                                                     class="table-action-btn table-action-btn--delete"
                                                      title="Decommission Node">
                                                      <i data-lucide="trash-2" class="w-4 h-4"></i>
                                                  </button>
@@ -272,7 +272,7 @@
                             <tr>
                                 <td colspan="6" class="px-6 py-20 text-center">
                                     <div class="flex flex-col items-center gap-4">
-                                        <div class="w-16 h-16 rounded-3xl bg-slate-50 flex items-center justify-center text-slate-200">
+                                        <div class="w-16 h-16 rounded-3xl bg-white flex items-center justify-center text-slate-200">
                                             <i data-lucide="user-x" class="w-8 h-8"></i>
                                         </div>
                                         <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">No matching identity nodes detected.</p>
@@ -295,7 +295,7 @@
             x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100">
             <!-- Backdrop -->
-            <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md" @click="createModal = false"></div>
+            <div class="absolute inset-0 modal-overlay" @click="createModal = false"></div>
 
             <!-- Modal Content -->
             <div class="relative bg-white rounded-[3rem] w-full max-w-2xl shadow-2xl border border-slate-100 p-1 md:p-1.5 overflow-hidden flex flex-col" style="max-height: 90vh;">
@@ -379,7 +379,7 @@
 
                             <div class="space-y-4 md:col-span-2 p-6 bg-white border-2 border-[#111111]/10 rounded-2xl" x-show="role === 'manager' || role === 'dceo'" x-cloak>
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-[#FFF8E7] text-[#111111] flex items-center justify-center">
+                                    <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 text-[#00515f] flex items-center justify-center">
                                         <i data-lucide="pen-line" class="w-5 h-5"></i>
                                     </div>
                                     <div>
@@ -460,7 +460,7 @@
             x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100">
             <!-- Backdrop -->
-            <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-md" @click="pwModal = false"></div>
+            <div class="absolute inset-0 modal-overlay" @click="pwModal = false"></div>
 
             <!-- Modal Content -->
             <div class="relative bg-white rounded-[3rem] w-full max-w-md shadow-2xl border border-slate-100 p-1 md:p-1.5 overflow-hidden">

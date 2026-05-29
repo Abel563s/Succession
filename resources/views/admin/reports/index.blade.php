@@ -173,16 +173,19 @@
 
         @if(count($r['monthly_trend']['months']) > 0)
             <section class="report-section bg-white rounded-3xl border border-slate-200 shadow-sm p-8">
-                <h2 class="text-lg font-black text-slate-900 mb-4">Monthly Activity Trend</h2>
-                <div class="flex items-end gap-2 h-40">
+                <div class="report-trend-chart__header">
+                    <h2 class="text-lg font-black text-slate-900">Monthly Activity Trend</h2>
+                </div>
+                <div class="report-trend-chart">
                     @php $maxTrend = max(1, collect($r['monthly_trend']['months'])->max('total')); @endphp
                     @foreach($r['monthly_trend']['months'] as $month)
-                        <div class="flex-1 flex flex-col items-center gap-1 min-w-0">
-                            <div class="w-full bg-[#D4AF37]/20 rounded-t-lg flex items-end justify-center" style="height: {{ max(4, ($month['total'] / $maxTrend) * 120) }}px">
-                                <div class="w-full max-w-[32px] bg-[#111111] rounded-t-lg" style="height: 100%"></div>
+                        @php $trackHeight = max(4, (int) round(($month['total'] / $maxTrend) * 120)); @endphp
+                        <div class="report-trend-chart__column" title="{{ $month['label'] }}: {{ $month['total'] }} records">
+                            <div class="report-trend-chart__track" style="height: {{ $trackHeight }}px;">
+                                <div class="report-trend-bar"></div>
                             </div>
-                            <span class="text-[8px] font-black text-slate-400 uppercase truncate w-full text-center">{{ $month['label'] }}</span>
-                            <span class="text-[10px] font-bold text-slate-700">{{ $month['total'] }}</span>
+                            <span class="report-trend-chart__label">{{ $month['label'] }}</span>
+                            <span class="report-trend-chart__value">{{ $month['total'] }}</span>
                         </div>
                     @endforeach
                 </div>

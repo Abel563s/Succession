@@ -24,7 +24,7 @@
         @endif
 
         <form action="{{ route('admin.development.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8"
-              x-data="{ submitting: false }" @submit="submitting = true">
+              autocomplete="off" x-data="{ submitting: false }" @submit="submitting = true">
             @csrf
 
             <div class="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm">
@@ -32,11 +32,11 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Employee Name <span class="text-rose-500">*</span></label>
                         <input type="text" name="employee_name" required value="{{ old('employee_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#D4AF37] outline-none font-bold text-slate-700">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:border-[#D4AF37] outline-none font-bold text-slate-700" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department <span class="text-rose-500">*</span></label>
-                        <select name="department" required class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#D4AF37] outline-none font-bold text-slate-700">
+                        <select name="department" required class="w-full px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:border-[#D4AF37] outline-none font-bold text-slate-700" style="background-color:#ffffff;">
                             <option value="">Select Department</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}" @selected(old('department') == $dept->name)>{{ $dept->name }}</option>
@@ -46,20 +46,20 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Line Manager <span class="text-rose-500">*</span></label>
                         <input type="text" name="line_manager" required value="{{ old('line_manager', auth()->user()->name) }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#D4AF37] outline-none font-bold text-slate-700">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:border-[#D4AF37] outline-none font-bold text-slate-700">
                     </div>
                 </div>
             </div>
 
             <div class="bg-white rounded-[2.5rem] border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-5 border-b border-slate-100 bg-slate-50/50">
+                <div class="px-8 py-5 border-b border-slate-100 bg-white">
                     <h2 class="text-sm font-black text-slate-900 uppercase tracking-widest">Development Objectives (All 5 Required)</h2>
                     <p class="text-xs text-slate-500 mt-1">Scores are entered later in the Progress Review linked to this plan.</p>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full border-collapse">
                         <thead>
-                            <tr class="bg-slate-50 border-b border-slate-200">
+                            <tr class="bg-white border-b border-slate-200">
                                 <th class="px-4 py-4 text-[10px] font-black uppercase text-slate-400 text-center w-16">No.</th>
                                 <th class="px-4 py-4 text-[10px] font-black uppercase text-slate-400 text-left">Objectives *</th>
                                 <th class="px-4 py-4 text-[10px] font-black uppercase text-slate-400 text-left">Activities *</th>
@@ -71,14 +71,14 @@
                         </thead>
                         <tbody class="divide-y divide-slate-100">
                             @for($i = 0; $i < 5; $i++)
-                                <tr class="hover:bg-slate-50/50">
+                                <tr class="hover:bg-white">
                                     <td class="px-4 py-4 text-center font-black text-[#D4AF37]">{{ $i + 1 }}</td>
-                                    <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][objective]" rows="2" required class="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs p-2">{{ old("objectives.{$i}.objective") }}</textarea></td>
-                                    <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][activity]" rows="2" required class="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs p-2">{{ old("objectives.{$i}.activity") }}</textarea></td>
-                                    <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][resource]" rows="2" required class="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs p-2">{{ old("objectives.{$i}.resource") }}</textarea></td>
-                                    <td class="px-2 py-2"><input type="date" name="objectives[{{ $i }}][start_date]" required value="{{ old("objectives.{$i}.start_date") }}" class="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs p-2"></td>
-                                    <td class="px-2 py-2"><input type="date" name="objectives[{{ $i }}][delivery_date]" required value="{{ old("objectives.{$i}.delivery_date") }}" class="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs p-2"></td>
-                                    <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][expected_outcome]" rows="2" required class="w-full bg-slate-50 border border-slate-200 rounded-xl text-xs p-2">{{ old("objectives.{$i}.expected_outcome") }}</textarea></td>
+                                    <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][objective]" rows="2" required class="w-full bg-white border border-slate-200 rounded-xl text-xs p-2" style="background-color:#ffffff;">{{ old("objectives.{$i}.objective") }}</textarea></td>
+                                    <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][activity]" rows="2" required class="w-full bg-white border border-slate-200 rounded-xl text-xs p-2" style="background-color:#ffffff;">{{ old("objectives.{$i}.activity") }}</textarea></td>
+                                    <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][resource]" rows="2" required class="w-full bg-white border border-slate-200 rounded-xl text-xs p-2" style="background-color:#ffffff;">{{ old("objectives.{$i}.resource") }}</textarea></td>
+                                    <td class="px-2 py-2"><input type="date" name="objectives[{{ $i }}][start_date]" required value="{{ old("objectives.{$i}.start_date") }}" class="w-full bg-white border border-slate-200 rounded-xl text-xs p-2" style="background-color:#ffffff;"></td>
+                                    <td class="px-2 py-2"><input type="date" name="objectives[{{ $i }}][delivery_date]" required value="{{ old("objectives.{$i}.delivery_date") }}" class="w-full bg-white border border-slate-200 rounded-xl text-xs p-2" style="background-color:#ffffff;"></td>
+                                    <td class="px-2 py-2"><textarea name="objectives[{{ $i }}][expected_outcome]" rows="2" required class="w-full bg-white border border-slate-200 rounded-xl text-xs p-2" style="background-color:#ffffff;">{{ old("objectives.{$i}.expected_outcome") }}</textarea></td>
                                 </tr>
                             @endfor
                         </tbody>
@@ -95,9 +95,9 @@
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Signature *</label>
                         <input type="file" name="candidate_signature" accept="image/*" required
                                @change="const file = $event.target.files[0]; if (file) { if(file.size > 512000) { alert('File too large. Maximum size is 500KB.'); $event.target.value = ''; preview = null; } else { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); } }"
-                               class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-slate-900 file:text-white cursor-pointer">
+                               class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#00515f] file:text-white hover:file:bg-[#004952] cursor-pointer">
                         <p class="text-[10px] text-slate-400 font-medium">Max 500KB &bull; JPG, PNG, GIF</p>
-                        <div x-show="preview" x-cloak class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex justify-center">
+                        <div x-show="preview" x-cloak class="p-4 border border-dashed border-slate-200 rounded-2xl bg-white flex justify-center">
                             <img :src="preview" class="max-h-28 rounded-xl" alt="Candidate signature preview">
                         </div>
                     </div>

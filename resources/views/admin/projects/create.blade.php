@@ -46,7 +46,7 @@
                 </div>
                 <div class="flex items-center gap-4 relative z-10">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37] group-hover/section:scale-110 transition-transform duration-500">
+                        class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#D4AF37] group-hover/section:scale-110 transition-transform duration-500">
                         <i data-lucide="fingerprint" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -67,20 +67,20 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Project
                             Code</label>
                         <input type="text" name="project_code" required
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2 lg:col-span-1">
                         <label
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 text-[#D4AF37]">Project
                             Name</label>
                         <input type="text" name="project_name" required
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Project
                             Type</label>
                         <select name="project_type" required
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all cursor-pointer">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all cursor-pointer" style="background-color:#ffffff;">
                             <option value="Building">Building</option>
                             <option value="Fit-Out">Fit-Out</option>
                             <option value="Infrastructure">Infrastructure</option>
@@ -92,7 +92,7 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Delivery
                             Method</label>
                         <select name="delivery_method" required
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all cursor-pointer">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all cursor-pointer" style="background-color:#ffffff;">
                             <option value="DB">DB</option>
                             <option value="DBB">DBB</option>
                             <option value="DB-LS">DB-LS</option>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="flex items-center gap-4 relative z-10">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600 group-hover/section:rotate-12 transition-transform duration-500">
+                        class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-indigo-600 group-hover/section:rotate-12 transition-transform duration-500">
                         <i data-lucide="users" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -127,19 +127,19 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Project
                             Client</label>
                         <input type="text" name="project_client"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-indigo-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Consultant</label>
                         <input type="text" name="consultant"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-indigo-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Consultancy
                             Sector</label>
                         <select name="consultancy_sector"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-indigo-100/50 focus:bg-white transition-all cursor-pointer">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all cursor-pointer" style="background-color:#ffffff;">
                             <option value="Government">Government</option>
                             <option value="Private">Private</option>
                             <option value="Client / Engineering Team">Client / Engineering Team</option>
@@ -149,7 +149,7 @@
                 <div class="space-y-2 relative z-10">
                     <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Scope</label>
                     <textarea name="scope" rows="3"
-                        class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-indigo-100/50 focus:bg-white transition-all"></textarea>
+                        class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;"></textarea>
                 </div>
             </div>
 
@@ -162,7 +162,7 @@
 
                 <div class="flex items-center gap-4 relative z-10">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-[#e6f7fa] flex items-center justify-center text-[#D4AF37] group-hover/section:animate-pulse">
+                        class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#D4AF37] group-hover/section:animate-pulse">
                         <i data-lucide="banknote" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -177,32 +177,32 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Contract
                             Budget</label>
                         <input type="number" step="0.01" name="contract_budget"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Variation</label>
                         <input type="number" step="0.01" name="variation"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Supplementary</label>
                         <input type="number" step="0.01" name="supplementary"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 text-[#D4AF37]">Total
                             Allowable Cost</label>
                         <input type="number" step="0.01" name="total_allowable_cost"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Cost At
                             Completion</label>
                         <input type="number" step="0.01" name="cost_at_completion"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-black text-slate-900 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>
@@ -215,7 +215,7 @@
                 </div>
                 <div class="flex items-center gap-4 relative z-10">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 group-hover/section:scale-110 transition-all duration-500">
+                        class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-amber-600 group-hover/section:scale-110 transition-all duration-500">
                         <i data-lucide="calendar" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -230,37 +230,37 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Baseline
                             Start Date</label>
                         <input type="date" name="baseline_start_date"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Baseline
                             Finish Date</label>
                         <input type="date" name="baseline_finish_date"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Actual Start
                             Date</label>
                         <input type="date" name="actual_start_date"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Actual
                             Finish Date</label>
                         <input type="date" name="actual_finish_date"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Approved
                             EOT</label>
                         <input type="date" name="approved_eot"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Revision
                             Number</label>
                         <input type="text" name="revision_number"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-amber-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>
@@ -273,7 +273,7 @@
                 </div>
                 <div class="flex items-center gap-4 relative z-10">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover/section:rotate-6 transition-all duration-500">
+                        class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-emerald-600 group-hover/section:rotate-6 transition-all duration-500">
                         <i data-lucide="check-circle" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -289,7 +289,7 @@
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 text-emerald-500">Closing
                             Status</label>
                         <select name="closing_status"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all cursor-pointer">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all cursor-pointer" style="background-color:#ffffff;">
                             <option value="FA Received">FA Received</option>
                             <option value="PA Received">PA Received</option>
                             <option value="PPA Received">PPA Received</option>
@@ -302,19 +302,19 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">PPA
                             Received</label>
                         <input type="date" name="ppa_received_at"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">PA
                             Received</label>
                         <input type="date" name="pa_received_at"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">FA
                             Received</label>
                         <input type="date" name="fa_received_at"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>

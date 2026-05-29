@@ -40,14 +40,14 @@
         @if($status === 'Pending' && auth()->user()->isAdmin())
             <form action="{{ route('admin.approval.approve', ['module' => $module, 'id' => $record->id]) }}" method="POST" class="inline">
                 @csrf
-                <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 transition-all shadow-md shadow-emerald-600/10 hover:scale-[1.02] active:scale-95 duration-200">
+                <button type="submit" class="hr-approval-btn-approve hover:scale-[1.02] active:scale-95 duration-200">
                     <i data-lucide="check" class="w-4 h-4"></i>
                     Approve
                 </button>
             </form>
             <form action="{{ route('admin.approval.reject', ['module' => $module, 'id' => $record->id]) }}" method="POST" class="inline">
                 @csrf
-                <button type="submit" class="bg-rose-600 hover:bg-rose-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center gap-2 transition-all shadow-md shadow-rose-600/10 hover:scale-[1.02] active:scale-95 duration-200">
+                <button type="submit" class="hr-approval-btn-reject hover:scale-[1.02] active:scale-95 duration-200">
                     <i data-lucide="x" class="w-4 h-4"></i>
                     Reject
                 </button>

@@ -20,7 +20,7 @@
 
             <!-- Section 1: Basic Information -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="info" class="w-5 h-5 text-[#111111]"></i>
                         Basic Information
@@ -30,13 +30,13 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Name</label>
                         <input type="text" name="candidate_name" required value="{{ old('candidate_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700"
-                               placeholder="Full Name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700"
+                               placeholder="Full Name" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                             <option value="">Select Dept</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}">{{ $dept->name }}</option>
@@ -46,8 +46,8 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Line Manager</label>
                         <input type="text" name="line_manager" required value="{{ old('line_manager') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700"
-                               placeholder="Manager's Name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700"
+                               placeholder="Manager's Name" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>
@@ -68,15 +68,15 @@
                             <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
                                 <div class="md:col-span-6 space-y-2">
                                     <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Goal {{ $i }} Description</label>
-                                    <textarea name="goal_{{ $i }}" rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Define the objective..."></textarea>
+                                    <textarea name="goal_{{ $i }}" rows="2" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Define the objective..." style="background-color:#ffffff;"></textarea>
                                 </div>
                                 <div class="md:col-span-4 space-y-2">
                                     <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Skill / Training Area {{ $i }}</label>
-                                    <input type="text" name="skill_area_{{ $i }}" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-bold text-slate-700 shadow-sm" placeholder="e.g. Leadership">
+                                    <input type="text" name="skill_area_{{ $i }}" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-bold text-slate-700 shadow-sm" placeholder="e.g. Leadership" style="background-color:#ffffff;">
                                 </div>
                                 <div class="md:col-span-2 space-y-2">
                                     <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Score {{ $i }}</label>
-                                    <input type="text" name="score_{{ $i }}" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-black text-slate-900 text-center shadow-sm" placeholder="0">
+                                    <input type="text" name="score_{{ $i }}" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-black text-slate-900 text-center shadow-sm" placeholder="0" style="background-color:#ffffff;">
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
 
             <!-- Section 3: Development Details -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="file-text" class="w-5 h-5 text-[#111111]"></i>
                         Execution Strategy
@@ -96,17 +96,17 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Activities</label>
                         <p class="text-[10px] text-slate-400 font-medium ml-1 mb-2">Outline specific activities that will help achieve this goal</p>
-                        <textarea name="activities" rows="4" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none"></textarea>
+                        <textarea name="activities" rows="4" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Expected Outcomes</label>
                         <p class="text-[10px] text-slate-400 font-medium ml-1 mb-2">Expected Outcomes with time frames</p>
-                        <textarea name="expected_outcomes" rows="4" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none"></textarea>
+                        <textarea name="expected_outcomes" rows="4" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Feedback and Evaluation</label>
                         <p class="text-[10px] text-slate-400 font-medium ml-1 mb-2">Feedback and Evaluation</p>
-                        <textarea name="feedback" rows="4" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none"></textarea>
+                        <textarea name="feedback" rows="4" class="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none" style="background-color:#ffffff;"></textarea>
                     </div>
                 </div>
             </div>

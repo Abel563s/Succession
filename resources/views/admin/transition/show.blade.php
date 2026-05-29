@@ -1,27 +1,26 @@
 <x-app-layout>
-    <div class="max-w-4xl mx-auto space-y-8 font-inter pb-20">
-        <!-- Header Controls -->
+    <div class="max-w-5xl mx-auto space-y-8 pb-12">
+        <!-- Header -->
         <div class="flex items-center justify-between no-print">
             <div class="flex items-center gap-4">
-                <a href="{{ route('admin.transition.index') }}" 
-                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#111111] hover:border-[#111111]/20 transition-all">
-                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                <a href="{{ route('admin.transition.index') }}"
+                    class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all hover:shadow-md">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
                 </a>
                 <div>
-                    <h1 class="text-xl font-black text-slate-900 tracking-tight">Transition Plan Details</h1>
-                    <p class="text-xs text-slate-400 font-medium">Official succession transition record and endorsement.</p>
+                    <h1 class="text-3xl font-black text-slate-900 tracking-tight">Transition Plan Details</h1>
+                    <p class="text-slate-500 font-medium">Official succession transition record and endorsement.</p>
                 </div>
             </div>
 
             <div class="flex items-center gap-3">
-                <button onclick="window.print()" 
-                        class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-900 hover:border-slate-300 transition-all"
-                        title="Print Plan">
+                <button onclick="window.print()"
+                    class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-900 transition-all hover:shadow-md"
+                    title="Print Plan">
                     <i data-lucide="printer" class="w-5 h-5"></i>
                 </button>
                 @if(auth()->user()->isAdmin())
-                    <a href="{{ route('admin.transition.edit', $transition) }}" 
-                       class="bg-[#111111] hover:bg-[#00333B] text-white px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all shadow-sm">
+                    <a href="{{ route('admin.transition.edit', $transition) }}" class="show-page-edit-btn">
                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                         Edit Plan
                     </a>

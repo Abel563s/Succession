@@ -13,7 +13,7 @@
             </div>
             @if(auth()->user()->isAdmin())
                 <div class="flex items-center gap-3">
-                    <a href="{{ route('admin.coaching.edit', $coaching) }}" class="bg-gradient-to-r from-[#111111] to-[#00333B] text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:to-[#111111] transition-all shadow-lg shadow-[#111111]/20 flex items-center gap-2">
+                    <a href="{{ route('admin.coaching.edit', $coaching) }}" class="show-page-edit-btn">
                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                         Edit Record
                     </a>
@@ -30,9 +30,7 @@
                     <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#111111]/5 rounded-full blur-3xl"></div>
                     
                     <div class="flex flex-col items-center text-center relative">
-                        <div class="w-20 h-20 rounded-3xl bg-[#FFF8E7] flex items-center justify-center font-black text-2xl text-[#111111] mb-6 border border-[#111111]/10">
-                            {{ substr($coaching->candidate_name, 0, 1) }}
-                        </div>
+                        <x-record-avatar :name="$coaching->candidate_name" class="mb-6" />
                         
                         <h2 class="text-xl font-black text-slate-900 mb-1 leading-tight">{{ $coaching->candidate_name }}</h2>
                         <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-6">Employee Profile</p>

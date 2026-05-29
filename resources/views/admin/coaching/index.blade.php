@@ -65,7 +65,7 @@
 
                     <div class="flex items-center gap-2">
                         <button type="submit"
-                            class="w-10 h-10 bg-[#111111] text-white rounded-xl flex items-center justify-center hover:bg-[#00333B] transition-all shadow-sm shadow-[#111111]/20 group/filter"
+                            class="w-10 h-10 filter-toolbar-btn rounded-xl group/filter"
                             title="Apply Filters">
                             <i data-lucide="filter" class="w-4 h-4 transition-transform group-hover/filter:scale-110"></i>
                         </button>
@@ -105,7 +105,7 @@
                                 <td class="px-6 py-5">
                                     <div class="flex items-center gap-3 text-left">
                                         <div class="relative shrink-0">
-                                            <div class="w-10 h-10 rounded-xl bg-[#FFF8E7] border border-[#D4AF37]/10 flex items-center justify-center font-black text-[#D4AF37] text-sm shadow-inner transition-transform group-hover:scale-110 duration-500">
+                                            <div class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center font-black text-[#00515f] text-sm shadow-inner transition-transform group-hover:scale-110 duration-500">
                                                 {{ substr($record->candidate_name, 0, 1) }}
                                             </div>
                                         </div>
@@ -137,14 +137,14 @@
                                 <td class="px-6 py-5 text-right">
                                     <div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <a href="{{ route('admin.coaching.show', $record) }}" 
-                                           class="w-8 h-8 rounded-lg bg-slate-100 text-slate-400 hover:text-[#D4AF37] hover:bg-[#FFF8E7] flex items-center justify-center transition-all"
+                                            class="table-action-btn"
                                            title="View Details">
                                             <i data-lucide="eye" class="w-4 h-4"></i>
                                         </a>
 
                                         @if(auth()->user()->isAdmin() || (auth()->user()->isManager() && ($record->approval_status === 'Pending' || (($record->created_by ?? $record->user_id) == auth()->id() && (!$record->approval_status || $record->approval_status === 'Pending')))))
                                             <a href="{{ route('admin.coaching.edit', $record) }}" 
-                                               class="w-8 h-8 rounded-lg bg-slate-100 text-slate-400 hover:text-amber-500 hover:bg-amber-50 flex items-center justify-center transition-all"
+                                               class="table-action-btn"
                                                title="Edit Record">
                                                 <i data-lucide="edit-3" class="w-4 h-4"></i>
                                             </a>
@@ -156,7 +156,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" 
-                                                        class="w-8 h-8 rounded-lg bg-slate-100 text-slate-400 hover:text-rose-500 hover:bg-rose-50 flex items-center justify-center transition-all"
+                                                        class="table-action-btn table-action-btn--delete"
                                                         title="Delete Record">
                                                     <i data-lucide="trash-2" class="w-4 h-4"></i>
                                                 </button>

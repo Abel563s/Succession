@@ -41,14 +41,14 @@
                                 <label
                                     class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">User Name</label>
                                 <input type="text" name="name" value="{{ old('name', $user->name) }}" required
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm">
+                                    class="w-full rounded-2xl border border-slate-200 bg-white p-4 font-bold text-slate-700 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm">
                                 <x-input-error :messages="$errors->get('name')" />
                             </div>
                             <div class="space-y-2">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">
                                     Email Address</label>
                                 <input type="email" name="email" value="{{ old('email', $user->email) }}" required
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm">
+                                    class="w-full rounded-2xl border border-slate-200 bg-white p-4 font-bold text-slate-700 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm">
                                 <x-input-error :messages="$errors->get('email')" />
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                             <div class="space-y-2">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Department</label>
                                 <select name="department_id"
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm appearance-none cursor-pointer">
+                                    class="w-full rounded-2xl border border-slate-200 bg-white p-4 font-bold text-slate-700 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm appearance-none cursor-pointer">
                                     <option value="">No Department Assigned</option>
                                     @foreach($departments as $dept)
                                         <option value="{{ $dept->id }}" {{ old('department_id', $user->department_id) == $dept->id ? 'selected' : '' }}>{{ $dept->name }}</option>
@@ -70,7 +70,7 @@
                             <div class="space-y-2">
                                 <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Phone Number</label>
                                 <input type="text" name="phone" value="{{ old('phone', $user->phone) }}" placeholder="+1 (555) 000-0000"
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm">
+                                    class="w-full rounded-2xl border border-slate-200 bg-white p-4 font-bold text-slate-700 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm">
                                 <x-input-error :messages="$errors->get('phone')" />
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                     class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Access
                                     Protocol (Role)</label>
                                 <select name="role" required x-model="role"
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm appearance-none cursor-pointer">
+                                    class="w-full rounded-2xl border border-slate-200 bg-white p-4 font-bold text-slate-700 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm appearance-none cursor-pointer">
                                     <option value="user" {{ $user->role === 'user' ? 'selected' : '' }}>User</option>
                                     <option value="manager" {{ $user->role === 'manager' ? 'selected' : '' }}>Manager</option>
                                     <option value="dceo" {{ $user->role === 'dceo' ? 'selected' : '' }}>DCEO</option>
@@ -96,7 +96,7 @@
                                     class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Activity
                                     Status</label>
                                 <select name="is_active" required
-                                    class="w-full rounded-2xl border-none bg-slate-50 p-4 font-bold {{ $user->is_active ? 'text-emerald-600' : 'text-rose-600' }} focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm appearance-none cursor-pointer">
+                                    class="w-full rounded-2xl border border-slate-200 bg-white p-4 font-bold {{ $user->is_active ? 'text-emerald-600' : 'text-rose-600' }} focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 transition-all text-sm appearance-none cursor-pointer">
                                     <option value="1" {{ $user->is_active ? 'selected' : '' }}>🟢 Operational (Active)
                                     </option>
                                     <option value="0" {{ !$user->is_active ? 'selected' : '' }}>🔴 Decommissioned

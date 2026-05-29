@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Attendance Management System') }}</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
     <!-- Fonts: Outfit for titles, Inter for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,15 +37,15 @@
         }
 
         .glass-morphism {
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.18);
-            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.18);
+            border: 1px solid rgba(190, 234, 240, 0.95);
+            box-shadow: 0 25px 50px -12px rgba(8, 51, 68, 0.2);
         }
 
         .animated-bg {
-            background: linear-gradient(-45deg, #111111, #1C1C1C, #171717, #222222);
+            background: linear-gradient(-45deg, #00ADC5, #0a9db2, #0b8da0, #0c7f91);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
             will-change: background-position;
@@ -68,7 +69,7 @@
             position: absolute;
             width: 500px;
             height: 500px;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.10) 0%, rgba(255, 247, 214, 0.04) 100%);
+            background: linear-gradient(135deg, rgba(8, 51, 68, 0.14) 0%, rgba(240, 253, 255, 0.08) 100%);
             filter: blur(80px);
             border-radius: 50%;
             z-index: 0;
@@ -91,7 +92,7 @@
     </style>
 </head>
 
-<body class="min-h-screen text-[#F5F5F4] antialiased animated-bg overflow-y-auto lg:overflow-hidden relative flex flex-col justify-center">
+<body class="min-h-screen text-white antialiased animated-bg overflow-y-auto lg:overflow-hidden relative flex flex-col justify-center">
     <!-- Abstract Background Elements -->
     <div class="blob top-[-10%] left-[-10%]"></div>
     <div class="blob bottom-[-10%] right-[-10%]"
@@ -107,7 +108,7 @@
             </div>
 
             <h1 class="text-xl md:text-2xl font-black text-white font-outfit tracking-tight mb-1 uppercase">
-                SUCCESSION <span class="text-[#D4AF37]">PLANNING</span>
+                SUCCESSION <span class="text-[#083344]">PLANNING</span>
             </h1>
             <p class="text-slate-200 font-medium tracking-wide uppercase text-[8px] tracking-[0.25em]">
                 Enterprise Digital Presence Gateway
@@ -126,10 +127,10 @@
                 </p>
                 <div class="flex items-center justify-center gap-6">
                     <a href="#"
-                        class="text-[9px] font-black text-slate-500 hover:text-[#D4AF37] transition-colors uppercase tracking-widest">Privacy</a>
+                        class="text-[9px] font-black text-slate-500 hover:text-[#00ADC5] transition-colors uppercase tracking-widest">Privacy</a>
                     <span class="w-1 h-1 rounded-full bg-slate-300"></span>
                     <a href="#"
-                        class="text-[9px] font-black text-slate-500 hover:text-[#D4AF37] transition-colors uppercase tracking-widest">Support</a>
+                        class="text-[9px] font-black text-slate-500 hover:text-[#00ADC5] transition-colors uppercase tracking-widest">Support</a>
                 </div>
             </div>
         </div>

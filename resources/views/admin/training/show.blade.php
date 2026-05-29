@@ -13,7 +13,7 @@
             </div>
             @if(auth()->user()->isAdmin())
                 <div class="flex items-center gap-3">
-                    <a href="{{ route('admin.training.edit', $training) }}" class="bg-gradient-to-r from-[#111111] to-[#00333B] text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:to-[#111111] transition-all shadow-lg shadow-[#111111]/20 flex items-center gap-2">
+                    <a href="{{ route('admin.training.edit', $training) }}" class="show-page-edit-btn">
                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                         Edit Record
                     </a>
@@ -26,11 +26,7 @@
             <!-- Left Column -->
             <div class="lg:col-span-1 space-y-6">
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-8 text-center relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-[#111111]/5 rounded-full blur-3xl"></div>
-                    
-                    <div class="w-24 h-24 rounded-3xl bg-[#FFF8E7] border-4 border-white shadow-xl shadow-[#111111]/10 flex items-center justify-center font-black text-3xl text-[#111111] mx-auto mb-6 relative z-10">
-                        {{ substr($training->candidate_name, 0, 1) }}
-                    </div>
+                    <x-record-avatar :name="$training->candidate_name" size="lg" class="mx-auto mb-6 relative z-10" />
                     <h2 class="text-2xl font-black text-slate-900 leading-tight mb-1 relative z-10">{{ $training->candidate_name }}</h2>
                     <p class="text-slate-500 font-bold uppercase tracking-widest text-[10px] mb-6 relative z-10">{{ $training->department }}</p>
                     

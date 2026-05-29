@@ -15,7 +15,7 @@
                 <p class="text-sm text-slate-500 font-medium">Create and track structural steel requirements</p>
             </div>
             <a href="{{ route('admin.rebar.requirements.index') }}"
-                class="flex items-center gap-2 px-4 py-2 text-sm font-bold text-slate-600 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all shadow-sm">
+                class="flex items-center gap-2 px-4 py-2 text-sm font-bold text-slate-600 bg-white border border-slate-200 rounded-xl hover:bg-white transition-all shadow-sm">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i>
                 Back to List
             </a>
@@ -35,7 +35,7 @@
                             class="block text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Structural
                             Element <span class="text-rose-500">*</span></label>
                         <select name="structural_element" required
-                            class="w-full bg-slate-50 border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-bold text-slate-700">
+                            class="w-full bg-white border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-[#D4AF37]/10 focus:border-[#D4AF37] transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                             <option value="" disabled selected>Select Element</option>
                             @foreach(['BIM', 'Slab', 'Columons', 'Shesr Wall', 'Footing', 'Retaining Wall'] as $elem)
                                 <option value="{{ $elem }}" {{ old('structural_element') == $elem ? 'selected' : '' }}>
@@ -52,7 +52,7 @@
                         <label class="block text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Bar
                             Diameter <span class="text-rose-500">*</span></label>
                         <select name="bar_diameter" required
-                            class="w-full bg-slate-50 border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-bold text-slate-700">
+                            class="w-full bg-white border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-[#D4AF37]/10 focus:border-[#D4AF37] transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                             <option value="" disabled selected>Select Diameter</option>
                             @php
                                 $diameters = [
@@ -84,7 +84,7 @@
                         <div class="relative">
                             <input type="number" name="required_length" x-model.number="requiredLength" required min="1"
                                 placeholder="0"
-                                class="w-full bg-slate-50 border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-bold text-slate-700">
+                                class="w-full bg-white border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-[#D4AF37]/10 focus:border-[#D4AF37] transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                             <div
                                 class="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-black text-slate-300 uppercase">
                                 mm</div>
@@ -100,7 +100,7 @@
                         <div class="relative">
                             <input type="number" name="quantity" x-model.number="quantity" required min="1"
                                 placeholder="0"
-                                class="w-full bg-slate-50 border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-bold text-slate-700">
+                                class="w-full bg-white border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-[#D4AF37]/10 focus:border-[#D4AF37] transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                             <div
                                 class="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-black text-slate-300 uppercase">
                                 PCS</div>
@@ -111,7 +111,7 @@
                     <!-- Total Length (Calculated) -->
                     <div class="col-span-2">
                         <div
-                            class="bg-slate-50 border border-slate-100 rounded-2xl p-6 flex flex-col items-center justify-center text-center">
+                            class="bg-white border border-slate-100 rounded-2xl p-6 flex flex-col items-center justify-center text-center">
                             <span class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1">Total
                                 Length</span>
                             <div class="flex items-baseline gap-2">
@@ -128,7 +128,7 @@
                             Reference</label>
                         <input type="text" name="drawing_reference" value="{{ old('drawing_reference') }}"
                             placeholder="e.g. ST-05 Rev.2"
-                            class="w-full bg-slate-50 border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-bold text-slate-700">
+                            class="w-full bg-white border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-[#D4AF37]/10 focus:border-[#D4AF37] transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                         @error('drawing_reference') <p class="text-rose-500 text-xs mt-2 font-bold">{{ $message }}</p>
                         @enderror
                     </div>
@@ -139,7 +139,7 @@
                             class="block text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Remarks</label>
                         <input type="text" name="remarks" value="{{ old('remarks') }}"
                             placeholder="Optional additional notes"
-                            class="w-full bg-slate-50 border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 transition-all font-bold text-slate-700">
+                            class="w-full bg-white border-slate-200 rounded-2xl py-3.5 px-4 focus:ring-2 focus:ring-[#D4AF37]/10 focus:border-[#D4AF37] transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                         @error('remarks') <p class="text-rose-500 text-xs mt-2 font-bold">{{ $message }}</p> @enderror
                     </div>
                 </div>

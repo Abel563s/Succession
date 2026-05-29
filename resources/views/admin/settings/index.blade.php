@@ -2,27 +2,27 @@
     <div class="py-10 px-6 space-y-8 max-w-4xl mx-auto font-inter animate-fade-in">
 
         <!-- Modern Compact Header -->
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-4 border-b border-[#D4AF37]/20">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-8 pb-4 border-b border-[#BEEAF0]">
             <div class="space-y-3">
                 <div class="flex items-center gap-4">
                     <div
-                        class="w-12 h-12 rounded-2xl bg-[#111111] flex items-center justify-center text-[#D4AF37] shadow-xl shadow-[#111111]/20">
+                        class="w-12 h-12 rounded-2xl bg-[#083344] flex items-center justify-center text-[#00ADC5] shadow-xl shadow-[#083344]/20">
                         <i data-lucide="shield-lock" class="w-6 h-6"></i>
                     </div>
                     <div>
                         <h2 class="text-3xl font-light text-slate-500 tracking-tight font-outfit leading-none">
                             Security <span class="font-black text-slate-900">Settings</span>
                         </h2>
-                        <p class="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em] mt-2">Personal
+                        <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-[0.3em] mt-2">Personal
                             Identity Authentication</p>
                     </div>
                 </div>
             </div>
 
             <div class="flex items-center gap-3">
-                <div class="flex items-center gap-2 px-6 py-3 bg-[#111111] border border-[#D4AF37]/30 rounded-2xl shadow-sm">
+                <div class="flex items-center gap-2 px-6 py-3 bg-white border border-[#BEEAF0] rounded-2xl shadow-sm">
                     <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                    <span class="text-[10px] font-black text-[#D4AF37] uppercase tracking-widest">Active Session</span>
+                    <span class="text-[10px] font-black text-[#083344] uppercase tracking-widest">Active Session</span>
                 </div>
             </div>
         </div>
@@ -37,24 +37,24 @@
         <!-- Security Form -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div class="space-y-4">
-                <div class="bg-[#111111] p-8 rounded-[2.5rem] border border-[#D4AF37]/20 shadow-sm">
-                    <div class="w-12 h-12 rounded-2xl bg-[#D4AF37]/15 flex items-center justify-center text-[#D4AF37] mb-6">
+                <div class="bg-white p-8 rounded-[2.5rem] border border-[#BEEAF0] shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-[#F0FDFF] flex items-center justify-center text-[#00ADC5] mb-6">
                         <i data-lucide="key" class="w-6 h-6"></i>
                     </div>
-                    <h3 class="text-xl font-black text-white tracking-tight font-outfit">Identity Key</h3>
-                    <p class="text-xs font-medium text-white/70 mt-2 leading-relaxed">
+                    <h3 class="text-xl font-black text-[#083344] tracking-tight font-outfit">Identity Key</h3>
+                    <p class="text-xs font-medium text-[#083344]/70 mt-2 leading-relaxed">
                         Update your authentication password regularly to maintain system integrity and node security.
                     </p>
 
-                    <div class="mt-8 pt-6 border-t border-white/10 space-y-3">
+                    <div class="mt-8 pt-6 border-t border-[#BEEAF0] space-y-3">
                         <div class="flex items-center gap-2">
                             <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>
-                            <span class="text-[10px] font-black text-white/60 uppercase tracking-widest">Min 8
+                            <span class="text-[10px] font-black text-[#083344]/70 uppercase tracking-widest">Min 8
                                 Characters</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-500"></i>
-                            <span class="text-[10px] font-black text-white/60 uppercase tracking-widest">Alphanumeric
+                            <span class="text-[10px] font-black text-[#083344]/70 uppercase tracking-widest">Alphanumeric
                                 Code</span>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
                                         class="w-4 h-4 absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
                                     <input type="password" name="current_password" required
                                         placeholder="Verify current password"
-                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#D4AF37] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
+                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#00ADC5] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
                                 </div>
                             </div>
 
@@ -110,7 +110,7 @@
                                         class="w-4 h-4 absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
                                     <input type="password" name="password" required
                                         placeholder="Initialize new passphrase"
-                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#D4AF37] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
+                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#00ADC5] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
                                 </div>
                             </div>
 
@@ -124,16 +124,16 @@
                                         class="w-4 h-4 absolute left-6 top-1/2 -translate-y-1/2 text-slate-300"></i>
                                     <input type="password" name="password_confirmation" required
                                         placeholder="Verify new password"
-                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#D4AF37] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
+                                        class="w-full pl-14 pr-6 py-4 bg-slate-50 border-2 border-transparent focus:border-[#00ADC5] focus:bg-white rounded-2xl text-sm font-bold text-slate-700 transition-all outline-none">
                                 </div>
                             </div>
                         </div>
 
                         <div class="pt-6">
                             <button type="submit"
-                                class="w-full group/btn relative px-8 py-4 bg-[#111111] text-white rounded-[1.5rem] font-black text-[11px] uppercase tracking-widest overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-[#111111]/20">
+                                class="w-full group/btn relative px-8 py-4 bg-[#00ADC5] text-white rounded-[1.5rem] font-black text-[11px] uppercase tracking-widest overflow-hidden transition-all hover:scale-[1.02] active:scale-[0.98] shadow-2xl shadow-[#00ADC5]/20">
                                 <div
-                                    class="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#111111] translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
+                                    class="absolute inset-0 bg-gradient-to-r from-[#00ADC5] to-[#083344] translate-x-[-100%] group-hover/btn:translate-x-0 transition-transform duration-500">
                                 </div>
                                 <span class="relative flex items-center justify-center gap-3">
                                     <i data-lucide="save" class="w-4 h-4"></i>
@@ -144,18 +144,18 @@
                     </form>
                 </div>
 
-                <div class="bg-[#111111] rounded-[2rem] p-8 relative overflow-hidden group/alert">
+                <div class="bg-white rounded-[2rem] p-8 relative overflow-hidden border border-[#BEEAF0] group/alert shadow-sm">
                     <div
-                        class="absolute -right-10 -top-10 w-40 h-40 bg-[#D4AF37] opacity-10 rounded-full blur-3xl group-hover/alert:opacity-20 transition-all duration-700">
+                        class="absolute -right-10 -top-10 w-40 h-40 bg-[#00ADC5] opacity-10 rounded-full blur-3xl group-hover/alert:opacity-20 transition-all duration-700">
                     </div>
                     <div class="flex items-start gap-4 relative z-10">
                         <div
-                            class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-white shrink-0">
+                            class="w-10 h-10 rounded-xl bg-[#F0FDFF] flex items-center justify-center text-[#00ADC5] shrink-0">
                             <i data-lucide="info" class="w-5 h-5"></i>
                         </div>
                         <div>
-                            <p class="text-[10px] font-black text-white/40 uppercase tracking-widest">Security Note</p>
-                            <p class="text-xs font-bold text-white/80 mt-1 leading-relaxed">
+                            <p class="text-[10px] font-black text-[#00ADC5] uppercase tracking-widest">Security Note</p>
+                            <p class="text-xs font-bold text-[#083344]/80 mt-1 leading-relaxed">
                                 Updating your identity key will sign you out of all other active sessions immediately. Before continuing, make sure your connection is stable to avoid interruptions.
                             </p>
                         </div>

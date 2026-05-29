@@ -1,10 +1,10 @@
 <div class="relative" x-data="{ open: false }">
     <button @click="open = !open"
-        class="relative w-10 h-10 rounded-[10px] bg-slate-50 border border-slate-200 text-slate-700 flex items-center justify-center hover:bg-amber-50 hover:text-[#D4AF37] hover:border-[#D4AF37]/25 hover:shadow-sm transition-all duration-250 active:scale-95 group">
+        class="relative w-10 h-10 rounded-[10px] bg-white border border-slate-200 text-[#00515f] flex items-center justify-center hover:bg-[#00515f]/6 hover:text-[#00515f] hover:border-[#00515f]/25 hover:shadow-sm transition-all duration-250 active:scale-95 group">
         <i data-lucide="bell" class="w-5 h-5 transition-transform group-hover:rotate-12"></i>
         @if(Auth::user()->unreadNotifications->count() > 0)
             <span
-                class="absolute top-2.5 right-2.5 w-2 h-2 bg-[#D4AF37] border-2 border-[#111111] rounded-full shadow-[0_0_8px_rgba(212,175,55,0.35)]"></span>
+                class="absolute top-2.5 right-2.5 w-2 h-2 bg-[#00515f] border-2 border-white rounded-full shadow-[0_0_8px_rgba(0,81,95,0.35)]"></span>
         @endif
     </button>
 
@@ -20,7 +20,7 @@
                 <form action="{{ route('notifications.mark-read', 'all') }}" method="POST">
                     @csrf
                     <button type="submit"
-                        class="text-[9px] font-black text-[#D4AF37] uppercase tracking-tighter hover:underline">Flush
+                        class="text-[9px] font-black text-[#00515f] uppercase tracking-tighter hover:underline">Flush
                         All</button>
                 </form>
             @endif
@@ -31,7 +31,7 @@
                 <div class="px-6 py-4 border-b border-slate-50 hover:bg-slate-50/50 transition-colors relative group">
                     <div class="flex gap-4">
                         <div
-                            class="w-8 h-8 rounded-lg {{ $notification->read_at ? 'bg-slate-100 text-slate-500' : 'bg-amber-50 text-[#D4AF37]' }} flex items-center justify-center shrink-0">
+                            class="w-8 h-8 rounded-lg {{ $notification->read_at ? 'bg-slate-100 text-slate-500' : 'bg-[#00515f]/6 text-[#00515f]' }} flex items-center justify-center shrink-0">
                             <i data-lucide="{{ $notification->data['icon'] ?? 'info' }}" class="w-4 h-4"></i>
                         </div>
                         <div class="flex-1 min-w-0">
@@ -42,7 +42,7 @@
                                 {{ $notification->created_at->diffForHumans() }}</p>
                         </div>
                         @if(!$notification->read_at)
-                            <div class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] mt-1 shrink-0"></div>
+                            <div class="w-1.5 h-1.5 rounded-full bg-[#00515f] mt-1 shrink-0"></div>
                         @endif
                     </div>
                     @if(!$notification->read_at)

@@ -5,7 +5,7 @@
             <div class="space-y-3">
                 <div class="flex items-center gap-4">
                     <a href="{{ route('admin.projects.payments.index') }}"
-                        class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 hover:rotate-[-10deg] transition-all shadow-sm">
+                        class="w-12 h-12 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-slate-400 hover:text-amber-500 hover:border-amber-100 hover:bg-amber-50 hover:rotate-[-10deg] transition-all shadow-sm">
                         <i data-lucide="arrow-left" class="w-5 h-5"></i>
                     </a>
                     <div>
@@ -149,8 +149,9 @@
                         <div class="flex items-center gap-2">
                             <button class="p-2 text-slate-400 hover:text-sky-600 transition-colors"><i
                                     data-lucide="download" class="w-5 h-5"></i></button>
-                            <button class="p-2 text-slate-400 hover:text-sky-600 transition-colors"><i
-                                    data-lucide="filter" class="w-5 h-5"></i></button>
+                            <button type="button" class="w-10 h-10 filter-toolbar-btn rounded-xl" title="Filter">
+                                <i data-lucide="filter" class="w-5 h-5"></i>
+                            </button>
                         </div>
                     </div>
 
@@ -450,7 +451,7 @@
 
     <!-- SECTION 4: Payment Breakdown View (Modal) -->
     <div id="paymentModal"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm hidden animate-in fade-in duration-300">
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-overlay hidden animate-in fade-in duration-300">
         <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
             <div class="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50">
                 <div class="flex items-center gap-3">

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', config('app.name', 'Attendance System'))</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
     <!-- Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,7 +87,7 @@
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #D4AF37;
+            background: #00ADC5;
         }
 
         /* Executive Shadows & Depth */
@@ -119,7 +120,7 @@
     </style>
 </head>
 
-<body class="bg-white text-slate-900 antialiased h-full font-inter overflow-hidden">
+<body class="bg-[#F0FDFF] text-[#083344] antialiased h-full font-inter overflow-hidden">
 
     <div class="flex h-full w-full overflow-hidden">
         <!-- Sidebar -->
@@ -131,7 +132,7 @@
             @include('partials.header')
 
             <!-- Content -->
-            <main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-white text-slate-900 px-8 py-8 custom-scrollbar">
+            <main class="flex-1 min-h-0 overflow-y-auto overflow-x-hidden bg-[#F0FDFF] text-[#083344] px-8 py-8 custom-scrollbar">
                 <!-- Session Alerts -->
                 @if(session('success'))
                     <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000)"

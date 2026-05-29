@@ -13,7 +13,7 @@
             </div>
             @if(auth()->user()->isAdmin())
                 <div class="flex items-center gap-3">
-                    <a href="{{ route('admin.critical-roles.edit', $criticalRole) }}" class="bg-slate-900 text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-slate-800 transition-all shadow-lg shadow-slate-900/10 flex items-center gap-2">
+                    <a href="{{ route('admin.critical-roles.edit', $criticalRole) }}" class="show-page-edit-btn">
                         <i data-lucide="edit-3" class="w-4 h-4"></i>
                         Edit Record
                     </a>
@@ -28,9 +28,7 @@
             <div class="lg:col-span-1 space-y-6">
                 <!-- Profile Card -->
                 <div class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-8 text-center">
-                    <div class="w-24 h-24 rounded-3xl bg-[#FFF8E7] border-4 border-white shadow-xl shadow-[#D4AF37]/10 flex items-center justify-center font-black text-3xl text-[#D4AF37] mx-auto mb-6">
-                        {{ substr($criticalRole->employee_name, 0, 1) }}
-                    </div>
+                    <x-record-avatar :name="$criticalRole->employee_name" size="lg" class="mx-auto mb-6" />
                     <h2 class="text-2xl font-black text-slate-900 leading-tight mb-1">{{ $criticalRole->employee_name }}</h2>
                     <p class="text-slate-500 font-bold uppercase tracking-widest text-[10px] mb-6">{{ $criticalRole->department }}</p>
                     

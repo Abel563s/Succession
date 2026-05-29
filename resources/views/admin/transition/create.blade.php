@@ -40,7 +40,7 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                             <option value="">Select Department</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}" {{ old('department') == $dept->name ? 'selected' : '' }}>{{ $dept->name }}</option>
@@ -51,7 +51,7 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Transition Status</label>
                         <select name="status" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 rounded-2xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                             <option value="Planned" {{ old('status') == 'Planned' ? 'selected' : '' }}>Planned</option>
                             <option value="In Progress" {{ old('status') == 'In Progress' ? 'selected' : '' }}>In Progress</option>
                             <option value="Completed" {{ old('status') == 'Completed' ? 'selected' : '' }}>Completed</option>
@@ -76,7 +76,7 @@
                          }
                      }
                  }">
-                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+                <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-white">
                     <h3 class="text-xs font-black text-slate-900 uppercase tracking-widest flex items-center gap-3">
                         <span class="w-1.5 h-6 bg-[#111111] rounded-full"></span>
                         Transition Plan Details
@@ -91,7 +91,7 @@
                 <div class="overflow-x-auto">
                     <table class="w-full border-collapse">
                         <thead>
-                            <tr class="bg-slate-50 border-b border-slate-200">
+                            <tr class="bg-white border-b border-slate-200">
                                 <th class="px-4 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400 text-center w-16">No.</th>
                                 <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400 text-left">Critical Role</th>
                                 <th class="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400 text-left">Current Holder</th>
@@ -102,28 +102,28 @@
                         </thead>
                         <tbody class="divide-y divide-slate-100">
                             <template x-for="(row, index) in rows" :key="index">
-                                <tr class="group hover:bg-slate-50/50 transition-all">
-                                    <td class="px-4 py-4 text-center bg-slate-50/50 group-hover:bg-[#FFF8E7] transition-all">
+                                <tr class="group hover:bg-white transition-all">
+                                    <td class="px-4 py-4 text-center bg-white group-hover:bg-[#FFF8E7] transition-all">
                                         <span class="text-xs font-black text-[#111111]" x-text="index + 1"></span>
                                     </td>
                                     <td class="px-6 py-3">
                                         <input type="text" :name="'items['+index+'][critical_role]'" x-model="row.critical_role" required
-                                               class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700" 
-                                               placeholder="e.g. HR Manager">
+                                               class="w-full px-3 py-2 bg-white border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700" 
+                                               placeholder="e.g. HR Manager" style="background-color:#ffffff;">
                                     </td>
                                     <td class="px-6 py-3">
                                         <input type="text" :name="'items['+index+'][current_holder]'" x-model="row.current_holder" required
-                                               class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700" 
-                                               placeholder="Current Role Owner">
+                                               class="w-full px-3 py-2 bg-white border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700" 
+                                               placeholder="Current Role Owner" style="background-color:#ffffff;">
                                     </td>
                                     <td class="px-6 py-3">
                                         <input type="text" :name="'items['+index+'][successor]'" x-model="row.successor" required
-                                               class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700" 
-                                               placeholder="Planned Successor">
+                                               class="w-full px-3 py-2 bg-white border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700" 
+                                               placeholder="Planned Successor" style="background-color:#ffffff;">
                                     </td>
                                     <td class="px-6 py-3">
                                         <input type="date" :name="'items['+index+'][transition_date]'" x-model="row.transition_date" required
-                                               class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700">
+                                               class="w-full px-3 py-2 bg-white border border-slate-200 rounded-xl focus:border-[#111111] outline-none text-xs font-bold text-slate-700" style="background-color:#ffffff;">
                                     </td>
                                     <td class="px-4 py-4 text-center">
                                         <button type="button" @click="removeRow(index)" :disabled="rows.length === 1"
@@ -153,7 +153,7 @@
                                 <input type="file" name="signature" accept="image/*" {{ auth()->user()->signature_path ? '' : 'required' }}
                                        @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
-                                <div class="w-full px-6 py-8 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center gap-3 text-slate-400 group-hover:border-[#111111] group-hover:text-[#111111] transition-all">
+                                <div class="w-full px-6 py-8 bg-white border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center gap-3 text-slate-400 group-hover:border-[#111111] group-hover:text-[#111111] transition-all">
                                     <i data-lucide="upload-cloud" class="w-8 h-8"></i>
                                     <span class="text-[10px] font-black uppercase tracking-[0.2em]">Upload Manager Signature</span>
                                     <p class="text-[9px] font-bold opacity-50 uppercase">Supports PNG, JPG (Max 2MB)</p>
@@ -171,7 +171,7 @@
                                 </div>
                             @endif
                             
-                            <div x-show="preview" x-transition class="mt-6 p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">
+                            <div x-show="preview" x-transition class="mt-6 p-4 border border-slate-100 rounded-3xl bg-white flex items-center justify-center">
                                 <img :src="preview" class="max-h-32 rounded-xl shadow-lg border border-white" alt="Manager Signature Preview">
                             </div>
                         </div>
@@ -189,7 +189,7 @@
                                 <input type="file" name="dceo_signature" accept="image/*"
                                        @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
                                        class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
-                                <div class="w-full px-6 py-8 bg-slate-50 border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center gap-3 text-slate-400 group-hover:border-[#D4AF37] group-hover:text-[#D4AF37] transition-all">
+                                <div class="w-full px-6 py-8 bg-white border-2 border-dashed border-slate-200 rounded-[2rem] flex flex-col items-center justify-center gap-3 text-slate-400 group-hover:border-[#D4AF37] group-hover:text-[#D4AF37] transition-all">
                                     <i data-lucide="upload-cloud" class="w-8 h-8"></i>
                                     <span class="text-[10px] font-black uppercase tracking-[0.2em]">Upload DCEO Signature</span>
                                     <p class="text-[9px] font-bold opacity-50 uppercase">Optional for now</p>
@@ -207,7 +207,7 @@
                                 </div>
                             @endif
                             
-                            <div x-show="preview" x-transition class="mt-6 p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">
+                            <div x-show="preview" x-transition class="mt-6 p-4 border border-slate-100 rounded-3xl bg-white flex items-center justify-center">
                                 <img :src="preview" class="max-h-32 rounded-xl shadow-lg border border-white" alt="DCEO Signature Preview">
                             </div>
                         </div>
@@ -218,8 +218,8 @@
             <!-- 4. Action Buttons -->
             <div class="flex flex-col items-center pb-20">
                 <div class="flex flex-wrap gap-4 justify-center">
-                    <button type="submit" 
-                            class="px-12 py-4 bg-slate-900 text-white rounded-[2rem] font-black uppercase tracking-[0.3em] text-[11px] shadow-2xl shadow-slate-900/40 hover:bg-[#111111] transition-all duration-500 active:scale-[0.98]">
+                    <button type="submit"
+                            class="form-primary-submit px-12 py-4 bg-slate-900 text-white rounded-[2rem] font-black uppercase tracking-[0.3em] text-[11px] shadow-2xl shadow-slate-900/40 hover:bg-[#111111] transition-all duration-500 active:scale-[0.98]">
                         CREATE PLAN
                     </button>
                     <a href="{{ route('admin.transition.index') }}" 

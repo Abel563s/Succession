@@ -4,7 +4,7 @@
         <div class="flex items-center justify-between">
             <div class="flex items-center gap-4">
                 <a href="{{ route('admin.critical-roles.index') }}" 
-                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 hover:bg-[#FFF8E7] transition-all">
+                   class="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#D4AF37] hover:border-[#D4AF37]/20 hover:bg-white transition-all">
                     <i data-lucide="chevron-left" class="w-5 h-5"></i>
                 </a>
                 <div>
@@ -19,9 +19,9 @@
 
             <!-- Basic Information Card -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="user" class="w-5 h-5 text-[#D4AF37]"></i>
+                        <span class="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-sm"><i data-lucide="user" class="w-4 h-4 text-[#D4AF37]"></i></span>
                         Basic Information
                     </h2>
                 </div>
@@ -29,7 +29,8 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Employee Name</label>
                         <input type="text" name="employee_name" required value="{{ old('employee_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               style="background-color:#ffffff;"
                                placeholder="e.g. John Doe">
                         @error('employee_name') <p class="text-rose-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
@@ -37,7 +38,8 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                                style="background-color:#ffffff;">
                             <option value="">Select Department</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}" {{ old('department') == $dept->name ? 'selected' : '' }}>{{ $dept->name }}</option>
@@ -49,7 +51,8 @@
                     <div class="md:col-span-2 space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Critical Role / Position Title</label>
                         <input type="text" name="critical_role" required value="{{ old('critical_role') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               style="background-color:#ffffff;"
                                placeholder="e.g. Senior Project Manager">
                         @error('critical_role') <p class="text-rose-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
@@ -58,9 +61,9 @@
 
             <!-- Position Assessment Card -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="activity" class="w-5 h-5 text-[#D4AF37]"></i>
+                        <span class="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-sm"><i data-lucide="activity" class="w-4 h-4 text-[#D4AF37]"></i></span>
                         Position Assessment
                     </h2>
                 </div>
@@ -68,7 +71,8 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Position Status</label>
                         <select name="position_status" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                                style="background-color:#ffffff;">
                             <option value="Filled" {{ old('position_status') == 'Filled' ? 'selected' : '' }}>Filled</option>
                             <option value="Vacant" {{ old('position_status') == 'Vacant' ? 'selected' : '' }}>Vacant</option>
                         </select>
@@ -78,7 +82,8 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Vacancy Risk</label>
                         <select name="vacancy_risk" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                                style="background-color:#ffffff;">
                             <option value="High" {{ old('vacancy_risk') == 'High' ? 'selected' : '' }}>High</option>
                             <option value="Moderate" {{ old('vacancy_risk') == 'Moderate' ? 'selected' : '' }}>Moderate</option>
                             <option value="Low" {{ old('vacancy_risk') == 'Low' ? 'selected' : '' }}>Low</option>
@@ -89,7 +94,8 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Position Impact</label>
                         <select name="position_impact" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                                style="background-color:#ffffff;">
                             <option value="High" {{ old('position_impact') == 'High' ? 'selected' : '' }}>High</option>
                             <option value="Moderate" {{ old('position_impact') == 'Moderate' ? 'selected' : '' }}>Moderate</option>
                             <option value="Low" {{ old('position_impact') == 'Low' ? 'selected' : '' }}>Low</option>
@@ -101,15 +107,15 @@
 
             <!-- Succession Planning Card -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="users" class="w-5 h-5 text-[#D4AF37]"></i>
+                        <span class="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-sm"><i data-lucide="users" class="w-4 h-4 text-[#D4AF37]"></i></span>
                         Succession Planning
                     </h2>
                 </div>
                 <div class="p-8 space-y-8">
                     @for($i = 1; $i <= 3; $i++)
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-2xl bg-slate-50 border border-slate-100 relative">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-2xl bg-white border border-slate-100 relative">
                             <div class="absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-10 bg-white border border-slate-200 rounded-lg flex items-center justify-center font-black text-[#D4AF37] shadow-sm text-xs">
                                 {{ $i }}
                             </div>
@@ -117,12 +123,14 @@
                                 <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Successor {{ $i }} Name</label>
                                 <input type="text" name="successor_{{ $i }}_name" value="{{ old('successor_'.$i.'_name') }}"
                                        class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                                       style="background-color:#ffffff;"
                                        placeholder="Full Name">
                             </div>
                             <div class="space-y-2">
                                 <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Readiness Level</label>
                                 <select name="successor_{{ $i }}_readiness"
-                                        class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all">
+                                        class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                                        style="background-color:#ffffff;">
                                     <option value="">Select Readiness</option>
                                     <option value="Immediate" {{ old('successor_'.$i.'_readiness') == 'Immediate' ? 'selected' : '' }}>Immediate</option>
                                     <option value="1–2 Years" {{ old('successor_'.$i.'_readiness') == '1–2 Years' ? 'selected' : '' }}>1–2 Years</option>
@@ -136,9 +144,9 @@
 
             <!-- Mitigation Plan & Signature -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
-                        <i data-lucide="shield-check" class="w-5 h-5 text-[#D4AF37]"></i>
+                        <span class="w-9 h-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-sm"><i data-lucide="shield-check" class="w-4 h-4 text-[#D4AF37]"></i></span>
                         Continuity & Signature
                     </h2>
                 </div>
@@ -147,7 +155,8 @@
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Mitigation Plan</label>
                         <textarea name="mitigation_plan" required rows="4"
                                   placeholder="Outline steps to reduce risk and ensure continuity in case of vacancy"
-                                  class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all resize-none">{{ old('mitigation_plan') }}</textarea>
+                                  class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all resize-none"
+                                  style="background-color:#ffffff;">{{ old('mitigation_plan') }}</textarea>
                         @error('mitigation_plan') <p class="text-rose-500 text-xs mt-1">{{ $message }}</p> @enderror
                     </div>
 
@@ -162,8 +171,8 @@
                                               file:mr-4 file:py-2 file:px-4
                                               file:rounded-xl file:border-0
                                               file:text-sm file:font-black
-                                              file:bg-[#FFF8E7] file:text-[#D4AF37]
-                                              hover:file:bg-[#e6f7fa] transition-all cursor-pointer">
+                                              file:bg-[#2C7D88] file:text-white
+                                              hover:file:bg-[#00515f] transition-all cursor-pointer">
                             </label>
                             @if(auth()->user()->signature_path)
                                 <!-- Existing Signature Preview -->
@@ -177,7 +186,7 @@
                             @endif
                             
                             <!-- Preview Area -->
-                            <div x-show="preview" class="p-4 border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center">
+                            <div x-show="preview" class="p-4 border-2 border-dashed border-slate-200 rounded-2xl bg-white flex items-center justify-center">
                                 <img :src="preview" class="max-h-40 rounded-xl shadow-sm border border-white" alt="Signature Preview">
                             </div>
                         </div>
@@ -193,7 +202,7 @@
                     Cancel
                 </a>
                 <button type="submit" 
-                        class="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white px-10 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-[#D4AF37]/20 hover:scale-105 active:scale-95">
+                        class="bg-gradient-to-r from-[#00515f] to-[#007D8A] hover:from-[#004952] hover:to-[#00656F] text-white px-10 py-3 rounded-2xl font-bold transition-all shadow-lg shadow-[#00515f]/20 hover:scale-105 active:scale-95">
                     Submit Evaluation
                 </button>
             </div>

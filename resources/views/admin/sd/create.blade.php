@@ -23,12 +23,12 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Dashboard Title / Period</label>
                         <input type="text" name="title" required value="{{ old('title') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
-                               placeholder="e.g., 2026 Executive Succession Plan">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700"
+                               placeholder="e.g., 2026 Executive Succession Plan" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department Scope</label>
-                        <select name="department" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700">
+                        <select name="department" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700" style="background-color:#ffffff;">
                             <option value="">All Departments</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}">{{ $dept->name }}</option>
@@ -49,7 +49,7 @@
                     'High Potential'
                 ]
             }">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30 flex items-center justify-between">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white flex items-center justify-between">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2 uppercase tracking-tight">
                         <i data-lucide="layers" class="w-5 h-5 text-[#D4AF37]"></i>
                         Succession Matrix
@@ -62,7 +62,7 @@
                 <div class="overflow-x-auto custom-scrollbar">
                     <table class="w-full border-collapse min-w-[1500px]">
                         <thead>
-                            <tr class="bg-slate-50/50 border-b border-slate-100 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                            <tr class="bg-white border-b border-slate-100 text-[10px] font-black uppercase tracking-widest text-slate-400">
                                 <th class="px-4 py-4 text-center w-12">No.</th>
                                 <th class="px-4 py-4 text-left w-48">Position for Succession</th>
                                 <th class="px-4 py-4 text-left w-48">Current Holder</th>
@@ -78,34 +78,34 @@
                         </thead>
                         <tbody>
                             <template x-for="(row, index) in rows" :key="index">
-                                <tr class="border-b border-slate-50 hover:bg-slate-50/30 transition-colors group">
+                                <tr class="border-b border-slate-50 hover:bg-white transition-colors group">
                                     <td class="px-4 py-4 text-center text-xs font-bold text-slate-400" x-text="index + 1"></td>
                                     <td class="px-4 py-4">
-                                        <input type="text" name="position[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" placeholder="Position Name">
+                                        <input type="text" name="position[]" required class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" placeholder="Position Name" style="background-color:#ffffff;">
                                     </td>
                                     <td class="px-4 py-4">
-                                        <input type="text" name="current_holder[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" placeholder="Current Employee">
+                                        <input type="text" name="current_holder[]" required class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" placeholder="Current Employee" style="background-color:#ffffff;">
                                     </td>
                                     <td class="px-4 py-4">
-                                        <input type="text" name="candidates[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" placeholder="Succession Candidates">
+                                        <input type="text" name="candidates[]" required class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-bold text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" placeholder="Succession Candidates" style="background-color:#ffffff;">
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="timeline_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Timeline details..."></textarea>
+                                        <textarea name="timeline_progress[]" rows="2" class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Timeline details..." style="background-color:#ffffff;"></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="competency_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Skills progress..."></textarea>
+                                        <textarea name="competency_progress[]" rows="2" class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Skills progress..." style="background-color:#ffffff;"></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="development_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Training/Mentorship..."></textarea>
+                                        <textarea name="development_progress[]" rows="2" class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Training/Mentorship..." style="background-color:#ffffff;"></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="kpi_metrics[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="KPI scores..."></textarea>
+                                        <textarea name="kpi_metrics[]" rows="2" class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="KPI scores..." style="background-color:#ffffff;"></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <textarea name="monitoring_progress[]" rows="2" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Notes..."></textarea>
+                                        <textarea name="monitoring_progress[]" rows="2" class="w-full px-3 py-2 bg-white border border-slate-200 text-xs font-medium text-slate-600 outline-none focus:border-[#D4AF37] rounded-lg resize-none shadow-sm" placeholder="Notes..." style="background-color:#ffffff;"></textarea>
                                     </td>
                                     <td class="px-4 py-4">
-                                        <select name="readiness_rating[]" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-[10px] font-black uppercase text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg">
+                                        <select name="readiness_rating[]" required class="w-full px-3 py-2 bg-white border border-slate-200 text-[10px] font-black uppercase text-slate-700 outline-none focus:border-[#D4AF37] rounded-lg" style="background-color:#ffffff;">
                                             <template x-for="option in readinessOptions" :key="option">
                                                 <option :value="option" x-text="option"></option>
                                             </template>
@@ -131,15 +131,15 @@
                         <div x-data="{ preview: null }" class="space-y-4">
                             <input type="file" name="signature" accept="image/*"
                                    @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
-                                   class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-slate-900 file:text-white cursor-pointer">
-                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center h-32">
+                                   class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#00515f] file:text-white hover:file:bg-[#004952] cursor-pointer">
+                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-white flex items-center justify-center h-32">
                                 <img :src="preview" class="max-h-24 rounded-lg shadow-sm" alt="Signature Preview">
                             </div>
                         </div>
                     </div>
                     <div class="flex-shrink-0 space-y-3">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Succession Status</label>
-                        <select name="status" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700 rounded-xl">
+                        <select name="status" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] outline-none transition-all font-bold text-slate-700 rounded-xl" style="background-color:#ffffff;">
                             <option value="draft">Save as Draft</option>
                             <option value="published">Publish Dashboard</option>
                         </select>
@@ -150,8 +150,8 @@
             <!-- Form Actions -->
             <div class="flex flex-col items-center pb-12 gap-4">
                 <div class="flex items-center gap-4">
-                    <button type="submit" 
-                            class="bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#D4AF37]/20 hover:scale-105 active:scale-95">
+                    <button type="submit"
+                            class="form-primary-submit bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#D4AF37]/20 hover:scale-105 active:scale-95">
                         CREATE SUCCESSION DASHBOARD
                     </button>
                     <button type="reset" class="px-8 py-4 rounded-2xl bg-slate-100 text-slate-400 font-black text-xs uppercase tracking-widest hover:bg-slate-200 transition-all">

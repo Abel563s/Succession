@@ -30,7 +30,7 @@
             <!-- Section 1: Project & Performance -->
             <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-50 space-y-10">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37]">
+                    <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#D4AF37]">
                         <i data-lucide="target" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -45,7 +45,7 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Select
                             Project</label>
                         <select name="project_id" required
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all cursor-pointer">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all cursor-pointer" style="background-color:#ffffff;">
                             <option value="">Select Protocol Asset...</option>
                             @foreach($projects as $project)
                                 <option value="{{ $project->id }}">{{ $project->project_name }} ({{ $project->custom_id }})
@@ -58,18 +58,18 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Progress
                             Planned (%)</label>
                         <input type="number" step="0.01" name="progress_planned" x-model="planned" required
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Progress
                             Actual (%)</label>
                         <input type="number" step="0.01" name="progress_actual" x-model="actual" required
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
 
                     <div
-                        class="lg:col-span-3 bg-slate-50 p-6 rounded-2xl flex items-center justify-between border border-slate-100">
+                        class="lg:col-span-3 bg-white p-6 rounded-2xl flex items-center justify-between border border-slate-100">
                         <div>
                             <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Calculated SPI
                                 Index</p>
@@ -89,7 +89,7 @@
                 class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-50 space-y-10 relative overflow-hidden">
                 <div class="absolute -right-20 -top-20 w-64 h-64 bg-emerald-500/5 rounded-full blur-3xl"></div>
                 <div class="flex items-center gap-4 relative z-10">
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                    <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-emerald-600">
                         <i data-lucide="banknote" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -104,19 +104,19 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Revenue
                             Planned (ETB)</label>
                         <input type="number" step="0.01" name="revenue_planned"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-black text-emerald-600 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-black text-emerald-600 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Revenue
                             Actual (ETB)</label>
                         <input type="number" step="0.01" name="revenue_actual"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-black text-emerald-600 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-black text-emerald-600 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Target
                             Completion Date</label>
                         <input type="date" name="completion_date"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-black text-slate-700 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-black text-slate-700 focus:ring-4 focus:ring-emerald-100/50 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
             <!-- Section 3: Operational Constraints -->
             <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-50 space-y-10">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 flex items-center justify-center text-indigo-600">
+                    <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-indigo-600">
                         <i data-lucide="alert-triangle" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -139,61 +139,61 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Top
                             Constraints</label>
                         <textarea name="top_constraints" rows="3"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Client
                             Issues</label>
                         <textarea name="client_issue" rows="3"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Design
                             Completion / Approval</label>
                         <textarea name="design_completion_approval" rows="3"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Material
                             Submittal / Approval</label>
                         <textarea name="material_submittal_approval" rows="3"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Material
                             Delivery</label>
                         <textarea name="material_delivery" rows="3"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Labor</label>
                         <textarea name="labor" rows="3"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Machinery /
                             Equipment</label>
                         <textarea name="machinery_equipment" rows="3"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Subcontractor</label>
                         <textarea name="subcontractor" rows="3"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Finance</label>
                         <textarea name="finance" rows="3"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Operation
                             Constraint</label>
                         <textarea name="operation_constraint" rows="3"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700" style="background-color:#ffffff;"></textarea>
                     </div>
                 </div>
             </div>

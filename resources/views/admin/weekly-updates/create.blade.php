@@ -30,7 +30,7 @@
             <!-- Section 1: Asset Information -->
             <div class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-50 space-y-10">
                 <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37]">
+                    <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#D4AF37]">
                         <i data-lucide="briefcase" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -45,7 +45,7 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Project
                             Name</label>
                         <select name="project_id" required
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all cursor-pointer">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all cursor-pointer" style="background-color:#ffffff;">
                             <option value="">Select a Project...</option>
                             @foreach($projects as $project)
                                 <option value="{{ $project->id }}">{{ $project->project_name }}
@@ -58,14 +58,14 @@
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Contact
                             Person (Client Side)</label>
                         <input type="text" name="contact_person"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Responsible
                             Person (Internal)</label>
                         <input type="text" name="responsible_person"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-50 space-y-10 relative overflow-hidden">
                 <div class="absolute -right-20 -top-20 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl"></div>
                 <div class="flex items-center gap-4 relative z-10">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-[#D4AF37]">
+                    <div class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-[#D4AF37]">
                         <i data-lucide="activity" class="w-6 h-6"></i>
                     </div>
                     <div>
@@ -92,21 +92,21 @@
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 text-emerald-500">Current
                             Status</label>
                         <textarea name="status" rows="4"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;"></textarea>
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Activities
                             Planned for Next Week</label>
                         <textarea name="activity_planned_next_week" rows="4"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;"></textarea>
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Remaining
                             Items</label>
                         <textarea name="remaining_items" rows="4"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;"></textarea>
                     </div>
 
                     <div class="space-y-2">
@@ -114,14 +114,14 @@
                             class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 text-rose-500">Constraints
                             & Roadblocks</label>
                         <textarea name="constraints" rows="4"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-rose-100/50 focus:bg-white transition-all"></textarea>
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-bold text-slate-700 focus:ring-4 focus:ring-rose-100/50 focus:bg-white transition-all" style="background-color:#ffffff;"></textarea>
                     </div>
 
                     <div class="md:col-span-2 space-y-2">
                         <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Expected
                             Completion Date</label>
                         <input type="date" name="expected_completion_date"
-                            class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl text-xs font-black text-slate-700 focus:ring-4 focus:ring-cyan-100/50 focus:bg-white transition-all">
+                            class="w-full px-6 py-4 bg-white border-none rounded-2xl text-xs font-black text-slate-700 focus:ring-4 focus:ring-[#D4AF37]/10 focus:bg-white transition-all" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>

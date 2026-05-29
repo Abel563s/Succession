@@ -19,7 +19,7 @@
 
             <!-- Section 1: Basic Information -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="calendar" class="w-5 h-5 text-[#111111]"></i>
                         Session Logistics
@@ -29,19 +29,19 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Candidate Name</label>
                         <input type="text" name="candidate_name" required value="{{ old('candidate_name') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700"
-                               placeholder="Full Name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               placeholder="Full Name" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Supervisor / Coach</label>
                         <input type="text" name="supervisor" required value="{{ old('supervisor') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700"
-                               placeholder="Full Name">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all"
+                               placeholder="Full Name" style="background-color:#ffffff;">
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Department</label>
                         <select name="department" required
-                                class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700">
+                                class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all" style="background-color:#ffffff;">
                             <option value="">Select Dept</option>
                             @foreach($departments as $dept)
                                 <option value="{{ $dept->name }}">{{ $dept->name }}</option>
@@ -51,14 +51,14 @@
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Coaching Date</label>
                         <input type="date" name="coaching_date" required value="{{ old('coaching_date') }}"
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all font-bold text-slate-700">
+                               class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all" style="background-color:#ffffff;">
                     </div>
                 </div>
             </div>
 
             <!-- Section 2: Coaching Topics -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="target" class="w-5 h-5 text-[#111111]"></i>
                         Core Focus Topics
@@ -68,7 +68,7 @@
                     @for($i = 1; $i <= 3; $i++)
                         <div class="space-y-2">
                             <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Topic Area {{ $i }}</label>
-                            <textarea name="topic_{{ $i }}" required rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm" placeholder="Define focus topic..."></textarea>
+                            <textarea name="topic_{{ $i }}" required rows="2" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all text-sm resize-none" placeholder="Define focus topic..." style="background-color:#ffffff;"></textarea>
                         </div>
                     @endfor
                 </div>
@@ -76,7 +76,7 @@
 
             <!-- Section 3: Development Details -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="trending-up" class="w-5 h-5 text-[#111111]"></i>
                         Strategic Roadmap
@@ -85,30 +85,30 @@
                 <div class="p-8 space-y-6">
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Desired Outcome</label>
-                        <textarea name="desired_outcome" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="desired_outcome" required rows="3" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all text-sm resize-none" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Benefits of Change</label>
-                        <textarea name="benefits" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="benefits" required rows="3" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all text-sm resize-none" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Action Plan</label>
-                        <textarea name="action_plan" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="action_plan" required rows="3" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all text-sm resize-none" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Support from the Supervisor</label>
-                        <textarea name="supervisor_support" required rows="3" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="supervisor_support" required rows="3" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all text-sm resize-none" style="background-color:#ffffff;"></textarea>
                     </div>
                     <div class="space-y-2">
                         <label class="text-[11px] font-black uppercase tracking-widest text-slate-400 ml-1">Timeline</label>
-                        <textarea name="timeline" required rows="2" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:border-[#111111] focus:ring-4 focus:ring-[#111111]/10 outline-none transition-all text-sm font-medium resize-none shadow-sm"></textarea>
+                        <textarea name="timeline" required rows="2" class="w-full px-4 py-3 bg-white border border-slate-200 focus:border-[#D4AF37] focus:ring-4 focus:ring-[#D4AF37]/10 outline-none transition-all text-sm resize-none" style="background-color:#ffffff;"></textarea>
                     </div>
                 </div>
             </div>
 
             <!-- Section 4: Signatures -->
             <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-                <div class="px-8 py-6 border-b border-slate-100 bg-slate-50/30">
+                <div class="px-8 py-6 border-b border-slate-100 bg-white">
                     <h2 class="text-lg font-black text-slate-800 flex items-center gap-2">
                         <i data-lucide="check-square" class="w-5 h-5 text-[#111111]"></i>
                         Signatures
@@ -126,8 +126,8 @@
                                               file:mr-4 file:py-2 file:px-4
                                               file:rounded-xl file:border-0
                                               file:text-sm file:font-black
-                                              file:bg-[#FFF8E7] file:text-[#D4AF37]
-                                              hover:file:bg-[#e6f7fa] transition-all cursor-pointer">
+                                              file:bg-[#00515f] file:text-white
+                                              hover:file:bg-[#004952] transition-all cursor-pointer">
                             </label>
                             @if(auth()->user()->signature_path)
                                 <!-- Existing Signature Preview -->
@@ -139,7 +139,7 @@
                                     <img src="{{ \App\Support\StorageUrl::public(auth()->user()->signature_path) }}" class="h-10 rounded border border-emerald-200" alt="Existing Signature">
                                 </div>
                             @endif
-                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center">
+                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-white flex items-center justify-center">
                                 <img :src="preview" class="max-h-24 rounded-lg shadow-sm" alt="Manager Preview">
                             </div>
                         </div>
@@ -149,8 +149,8 @@
                         <div x-data="{ preview: null }" class="space-y-4">
                             <input type="file" name="candidate_sig" accept="image/*" required
                                    @change="const file = $event.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (e) => preview = e.target.result; reader.readAsDataURL(file); }"
-                                   class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-slate-900 file:text-white cursor-pointer">
-                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-slate-50 flex items-center justify-center">
+                                   class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-[10px] file:font-black file:bg-[#00515f] file:text-white hover:file:bg-[#004952] cursor-pointer">
+                            <div x-show="preview" class="p-4 border border-dashed border-slate-200 rounded-2xl bg-white flex items-center justify-center">
                                 <img :src="preview" class="max-h-24 rounded-lg shadow-sm" alt="Candidate Preview">
                             </div>
                         </div>
@@ -161,7 +161,7 @@
             <!-- Form Actions -->
             <div class="flex flex-col items-center pb-12">
                 <button type="submit" 
-                        class="bg-gradient-to-r from-[#111111] to-[#00333B] hover:to-[#111111] text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#111111]/20 hover:scale-105 active:scale-95">
+                        class="form-primary-submit bg-gradient-to-r from-[#111111] to-[#00333B] hover:to-[#111111] text-white px-16 py-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-lg shadow-[#111111]/20 hover:scale-105 active:scale-95">
                     CREATE COACHING RECORD
                 </button>
             </div>
