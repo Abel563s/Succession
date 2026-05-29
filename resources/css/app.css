@@ -143,14 +143,14 @@ form select option {
     color: #083344 !important;
 }
 
-form button[type="submit"]:not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject) {
+form button[type="submit"]:not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not(.header-sign-out-btn) {
     background: linear-gradient(135deg, #00515f 0%, #00ADC5 100%) !important;
     color: #ffffff !important;
     border: none !important;
     box-shadow: 0 16px 30px -12px rgba(0, 81, 95, 0.35) !important;
 }
 
-form button[type="submit"]:not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):hover {
+form button[type="submit"]:not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not(.header-sign-out-btn):hover {
     background: linear-gradient(135deg, #004952 0%, #008da0 100%) !important;
 }
 
@@ -680,6 +680,7 @@ form button[type="submit"].hr-approval-btn-reject:hover {
 }
 
 @layer utilities {
+
     body,
     main,
     .page-shell,
@@ -870,21 +871,95 @@ form button[type="submit"].hr-approval-btn-reject:hover {
         border-color: rgba(8, 51, 68, 0.08) !important;
     }
 
-    .hover\:bg-slate-50:hover { background-color: #F0FDFF !important; }
-    .hover\:bg-slate-100:hover { background-color: #E6F8FB !important; }
-    .hover\:bg-amber-50:hover { background-color: #F0FDFF !important; }
-    .hover\:text-\[\#D4AF37\]:hover { color: #00ADC5 !important; }
-    .hover\:border-\[\#D4AF37\]\/25:hover { border-color: rgba(0, 173, 197, 0.25) !important; }
-    .hover\:text-slate-500:hover { color: #00ADC5 !important; }
+    .hover\:bg-slate-50:hover {
+        background-color: #F0FDFF !important;
+    }
 
-    .bg-blue-50, .hover\:bg-blue-50:hover { background-color: #F0FDFF !important; }
-    .bg-blue-100, .hover\:bg-blue-100:hover { background-color: #E6F8FB !important; }
-    .bg-blue-500, .hover\:bg-blue-500:hover,
-    .bg-blue-600, .hover\:bg-blue-600:hover { background-color: #00ADC5 !important; }
-    .hover\:bg-blue-700:hover { background-color: #00515f !important; }
-    .text-blue-500, .text-blue-600, .text-blue-700, .text-blue-800 { color: #00ADC5 !important; }
-    .border-blue-100, .border-blue-200, .border-blue-500 { border-color: #BEEAF0 !important; }
-    .focus\:ring-blue-500:focus, .focus\:border-blue-500:focus { border-color: #00ADC5 !important; box-shadow: 0 0 0 3px rgba(0, 173, 197, 0.18) !important; }
+    .hover\:bg-slate-100:hover {
+        background-color: #E6F8FB !important;
+    }
+
+    .hover\:bg-amber-50:hover {
+        background-color: #F0FDFF !important;
+    }
+
+    .hover\:text-\[\#D4AF37\]:hover {
+        color: #00ADC5 !important;
+    }
+
+    .hover\:border-\[\#D4AF37\]\/25:hover {
+        border-color: rgba(0, 173, 197, 0.25) !important;
+    }
+
+    .hover\:text-slate-500:hover {
+        color: #00ADC5 !important;
+    }
+
+    .bg-blue-50,
+    .hover\:bg-blue-50:hover {
+        background-color: #F0FDFF !important;
+    }
+
+    .bg-blue-100,
+    .hover\:bg-blue-100:hover {
+        background-color: #E6F8FB !important;
+    }
+
+    .bg-blue-500,
+    .hover\:bg-blue-500:hover,
+    .bg-blue-600,
+    .hover\:bg-blue-600:hover {
+        background-color: #00ADC5 !important;
+    }
+
+    .hover\:bg-blue-700:hover {
+        background-color: #00515f !important;
+    }
+
+    .text-blue-500,
+    .text-blue-600,
+    .text-blue-700,
+    .text-blue-800 {
+        color: #00ADC5 !important;
+    }
+
+    .border-blue-100,
+    .border-blue-200,
+    .border-blue-500 {
+        border-color: #BEEAF0 !important;
+    }
+
+    .focus\:ring-blue-500:focus,
+    .focus\:border-blue-500:focus {
+        border-color: #00ADC5 !important;
+        box-shadow: 0 0 0 3px rgba(0, 173, 197, 0.18) !important;
+    }
+}
+
+/* Header user menu — sign out (no primary submit gradient) */
+.header-sign-out-btn,
+form button[type="submit"].header-sign-out-btn {
+    background: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #334155 !important;
+    -webkit-text-fill-color: #334155 !important;
+}
+
+.header-sign-out-btn:hover,
+form button[type="submit"].header-sign-out-btn:hover {
+    background-color: #fee2e2 !important;
+    background-image: none !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+}
+
+.header-sign-out-btn i,
+.header-sign-out-btn svg,
+form button[type="submit"].header-sign-out-btn i,
+form button[type="submit"].header-sign-out-btn svg {
+    color: inherit !important;
 }
 
 /* Modal / lightbox overlays — glass backdrop (not overridden by theme utilities) */
@@ -934,8 +1009,8 @@ form button[type="submit"].hr-approval-btn-reject:hover {
 .form-primary-submit,
 form button[type="submit"].form-primary-submit,
 button[type="submit"][form].form-primary-submit,
-form button[type="submit"]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not([class*="text-rose"]):not([class*="bg-rose"]),
-button[type="submit"][form]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not([class*="text-rose"]):not([class*="bg-rose"]) {
+form button[type="submit"]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not(.header-sign-out-btn):not([class*="text-rose"]):not([class*="bg-rose"]),
+button[type="submit"][form]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not(.header-sign-out-btn):not([class*="text-rose"]):not([class*="bg-rose"]) {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }
@@ -943,13 +1018,13 @@ button[type="submit"][form]:not(:disabled):not(.table-action-btn):not(.filter-to
 .form-primary-submit:hover,
 form button[type="submit"].form-primary-submit:hover,
 button[type="submit"][form].form-primary-submit:hover,
-form button[type="submit"]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not([class*="text-rose"]):not([class*="bg-rose"]):hover,
-button[type="submit"][form]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not([class*="text-rose"]):not([class*="bg-rose"]):hover,
+form button[type="submit"]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not(.header-sign-out-btn):not([class*="text-rose"]):not([class*="bg-rose"]):hover,
+button[type="submit"][form]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not(.header-sign-out-btn):not([class*="text-rose"]):not([class*="bg-rose"]):hover,
 .form-primary-submit *,
 form button[type="submit"].form-primary-submit *,
 button[type="submit"][form].form-primary-submit *,
-form button[type="submit"]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not([class*="text-rose"]):not([class*="bg-rose"]) *,
-button[type="submit"][form]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not([class*="text-rose"]):not([class*="bg-rose"]) * {
+form button[type="submit"]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not(.header-sign-out-btn):not([class*="text-rose"]):not([class*="bg-rose"]) *,
+button[type="submit"][form]:not(:disabled):not(.table-action-btn):not(.filter-toolbar-btn):not(.hr-approval-btn-approve):not(.hr-approval-btn-reject):not(.header-sign-out-btn):not([class*="text-rose"]):not([class*="bg-rose"]) * {
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }

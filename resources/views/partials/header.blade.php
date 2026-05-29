@@ -54,15 +54,16 @@
                     <i data-lucide="settings" class="w-4 h-4"></i>
                     Settings
                 </a>
-                <div class="border-t border-[#f3f4f6]"></div>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit"
-                        class="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold text-rose-500 hover:bg-rose-50 transition-all duration-200 font-inter">
-                        <i data-lucide="log-out" class="w-4 h-4"></i>
-                        Sign Out
-                    </button>
-                </form>
+                <div class="border-t border-[#f3f4f6]">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit"
+                            class="header-sign-out-btn w-full flex items-center gap-3 px-4 py-2.5 text-sm font-bold transition-all duration-200 font-inter">
+                            <i data-lucide="log-out" class="w-4 h-4"></i>
+                            Sign Out
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
