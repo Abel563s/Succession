@@ -45,19 +45,6 @@
                 </div>
             </div>
 
-            <!-- Instructional Section -->
-            <div class="bg-[#FFF8E7] border border-[#D4AF37]/10 rounded-[2rem] p-8 flex items-center gap-6">
-                <div class="w-14 h-14 rounded-2xl bg-[#D4AF37] flex items-center justify-center text-white shrink-0 shadow-lg shadow-[#D4AF37]/20">
-                    <i data-lucide="info" class="w-7 h-7"></i>
-                </div>
-                <div>
-                    <h3 class="text-lg font-black text-slate-900 tracking-tight">Assessment Instructions</h3>
-                    <p class="text-slate-600 font-medium text-sm leading-relaxed">
-                        Please rate the employee’s proficiency in the following leadership competencies on a scale of 1 to 5, where <strong>1 is the lowest</strong> and <strong>5 is the highest</strong>.
-                    </p>
-                </div>
-            </div>
-
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <!-- Assessment Table -->
                 <div class="lg:col-span-2 space-y-6">

@@ -23,7 +23,21 @@
                 </div>
             </div>
 
-            <div class="flex md:justify-end">
+            <div class="flex flex-wrap items-center justify-end gap-3">
+                <x-admin-module-help
+                    name="help-critical-roles"
+                    title="Critical Role Guide"
+                    description="Identify and document essential roles that are critical to business continuity, and ensure each nominee is prepared for future succession."
+                    :sections="[
+                        ['icon' => 'shield-check', 'title' => 'Purpose', 'content' => 'Identify positions that are essential to business continuity and organizational success.'],
+                        ['icon' => 'list', 'title' => 'Instructions', 'content' => [
+                            'Enter the details of the current critical role.',
+                            'Provide the name of the nominated successor(s) for the role.',
+                            'Ensure the nominee has the potential and capability to assume the role in the future.',
+                        ]],
+                    ]"
+                />
+
                 <a href="{{ route('admin.critical-roles.create') }}"
                     class="bg-gradient-to-r from-[#111111] to-[#00333B] hover:to-[#111111] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-[#111111]/20 hover:shadow-[#111111]/30 hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden">
                     <div

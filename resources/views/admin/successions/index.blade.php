@@ -23,7 +23,26 @@
                 </div>
             </div>
 
-            <div class="flex md:justify-end">
+            <div class="flex flex-wrap items-center justify-end gap-3">
+                <x-admin-module-help
+                    name="help-successions"
+                    title="Succession Planning Guide"
+                    description="Assess nominee readiness and document competencies to support future succession decisions."
+                    :sections="[
+                        ['icon' => 'trending-up', 'title' => 'Purpose', 'content' => 'Assess the readiness of the nominee to succeed the current role holder.'],
+                        ['icon' => 'list', 'title' => 'Instructions', 'content' => [
+                            'Complete the nominee\'s basic information.',
+                            'Assess the nominee against role requirements.',
+                            'Evaluate technical competencies and non-technical competencies.',
+                            'Record strengths, development areas, and readiness level.',
+                        ]],
+                        ['icon' => 'clipboard-check', 'title' => 'Assessment Areas', 'content' => [
+                            'Technical competencies: knowledge, skills, expertise, certifications, and technical capability.',
+                            'Non-technical competencies: leadership, communication, teamwork, decision-making, problem-solving, adaptability, and behavioral competencies.',
+                        ]],
+                    ]"
+                />
+
                 <a href="{{ route('admin.successions.create') }}" 
                    class="bg-gradient-to-r from-[#111111] to-[#00333B] hover:to-[#111111] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-[#111111]/20 hover:shadow-[#111111]/30 hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden">
                     <div class="absolute inset-0 bg-white/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>

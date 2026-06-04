@@ -179,9 +179,9 @@
             </div>
 
             <div
-                class="lg:col-span-4 bg-slate-900 rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl">
+                class="lg:col-span-4 bg-slate-950 rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl">
                 <div class="relative z-10">
-                    <h3 class="text-xs font-black text-white/30 uppercase tracking-[0.2em] mb-10">Security Manual</h3>
+                    <h3 class="text-xs font-black text-slate-100 uppercase tracking-[0.2em] mb-10">Security Manual</h3>
                     <div class="space-y-8">
                         <div class="flex gap-4">
                             <div

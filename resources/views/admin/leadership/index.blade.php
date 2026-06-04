@@ -23,7 +23,22 @@
                 </div>
             </div>
 
-            <div class="flex md:justify-end">
+            <div class="flex flex-wrap items-center justify-end gap-3">
+                <x-admin-module-help
+                    name="help-leadership"
+                    title="Leadership Assessment Guide"
+                    description="Evaluate leadership competency, performance readiness, and development needs with consistent, evidence-based ratings."
+                    :sections="[
+                        ['icon' => 'award', 'title' => 'Purpose', 'content' => 'Evaluate leadership competencies and readiness for future roles within succession planning.'],
+                        ['icon' => 'list', 'title' => 'Instructions', 'content' => [
+                            'Review the nominee’s leadership behaviors and experience.',
+                            'Rate each competency from 1 to 5 based on demonstrated capability and potential.',
+                            'Provide objective comments, examples, and development recommendations.',
+                        ]],
+                        ['icon' => 'alert-circle', 'title' => 'Key Note', 'content' => 'Use this assessment to identify high-potential leaders and support targeted development plans.' ],
+                    ]"
+                />
+
                 <a href="{{ route('admin.leadership.create') }}" 
                    class="bg-gradient-to-r from-[#111111] to-[#00333B] hover:to-[#111111] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-[#111111]/20 hover:shadow-[#111111]/30 hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden">
                     <div class="absolute inset-0 bg-white/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>

@@ -23,7 +23,23 @@
                 </div>
             </div>
 
-            <div class="flex md:justify-end">
+            <div class="flex flex-wrap items-center justify-end gap-3">
+                <x-admin-module-help
+                    name="help-nine-box"
+                    title="9-Box Grid Guide"
+                    description="Use the 9-Box Grid to evaluate talent performance and potential, identify development gaps, and support succession decisions."
+                    :sections="[
+                        ['icon' => 'grid', 'title' => 'Purpose', 'content' => 'Evaluate talent and future potential to identify succession readiness and development gaps.'],
+                        ['icon' => 'list', 'title' => 'Instructions', 'content' => [
+                            'Assess current performance (Talent).',
+                            'Assess future capability (Potential).',
+                            'Place the nominee in the appropriate 9-Box Grid category.',
+                            'Identify competency gaps and development priorities.',
+                        ]],
+                        ['icon' => 'alert-circle', 'title' => 'Key Note', 'content' => 'The 9-Box Grid should be used as a development and succession planning tool, not merely a performance evaluation tool.'],
+                    ]"
+                />
+
                 <a href="{{ route('admin.nine-box.create') }}" 
                    class="bg-gradient-to-r from-[#111111] to-[#00333B] hover:to-[#111111] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-[#111111]/20 hover:shadow-[#111111]/30 hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden">
                     <div class="absolute inset-0 bg-white/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>

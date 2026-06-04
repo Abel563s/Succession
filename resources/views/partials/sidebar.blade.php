@@ -67,7 +67,7 @@
                         ['label' => 'Mentor', 'icon' => 'users', 'route' => 'admin.mentor.index', 'active' => request()->routeIs('admin.mentor.*')],
                         ['label' => 'Coaching', 'icon' => 'message-square', 'route' => 'admin.coaching.index', 'active' => request()->routeIs('admin.coaching.*')],
                         ['label' => 'Progress', 'icon' => 'bar-chart-2', 'route' => 'admin.progress.index', 'active' => request()->routeIs('admin.progress.*')],
-                        ['label' => 'SD', 'icon' => 'layers', 'route' => 'admin.sd.index', 'active' => request()->routeIs('admin.sd.*')],
+                        ['label' => 'Succession Panel', 'icon' => 'layers', 'route' => 'admin.sd.index', 'active' => request()->routeIs('admin.sd.*')],
                         ['label' => 'Leadership', 'icon' => 'award', 'route' => 'admin.leadership.index', 'active' => request()->routeIs('admin.leadership.*')],
                         ['label' => 'Transition', 'icon' => 'refresh-ccw', 'route' => 'admin.transition.index', 'active' => request()->routeIs('admin.transition.*')],
                     ];

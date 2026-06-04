@@ -23,7 +23,25 @@
                 </div>
             </div>
 
-            <div class="flex md:justify-end">
+            <div class="flex flex-wrap items-center justify-end gap-3">
+                <x-admin-module-help
+                    name="help-development"
+                    title="Development Plan Guide"
+                    description="Prepare candidates for role transition through objectives, coaching, and practical accountability, using the IDP as a readiness tool."
+                    :sections="[
+                        ['icon' => 'target', 'title' => 'Purpose', 'content' => 'Prepare and evaluate the nominee for future role transition through practical assignments, coaching, exposure, and real-world responsibility.'],
+                        ['icon' => 'list', 'title' => 'Instructions', 'content' => [
+                            'Assign five departmental objectives to the nominee.',
+                            'Ensure objectives reflect key responsibilities of the critical role.',
+                            'Provide coaching and guidance during implementation.',
+                            'The nominee remains accountable for delivering assigned objectives.',
+                            'The nominee must review, accept, and sign the IDP.',
+                            'Progress against the IDP will be used to evaluate succession readiness.',
+                        ]],
+                        ['icon' => 'alert-circle', 'title' => 'Key Note', 'content' => 'The IDP is intended to provide practical experience and measurable evidence of readiness before role transition occurs.'],
+                    ]"
+                />
+
                 <a href="{{ route('admin.development.create') }}" 
                    class="bg-gradient-to-r from-[#111111] to-[#00333B] hover:to-[#111111] text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 transition-all duration-300 shadow-lg shadow-[#111111]/20 hover:shadow-[#111111]/30 hover:scale-[1.02] active:scale-95 group/btn relative overflow-hidden">
                     <div class="absolute inset-0 bg-white/10 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
