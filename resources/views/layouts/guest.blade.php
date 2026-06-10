@@ -37,45 +37,44 @@
         }
 
         .glass-morphism {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(190, 234, 240, 0.95);
-            box-shadow: 0 25px 50px -12px rgba(8, 51, 68, 0.2);
+            background: #F7F8FA;
+            border: 1px solid rgba(8, 51, 68, 0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
         }
 
         .animated-bg {
-            background: linear-gradient(-45deg, #00ADC5, #0a9db2, #0b8da0, #0c7f91);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            will-change: background-position;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            background: #E7ECEF;
         }
 
         .blob {
             position: absolute;
             width: 500px;
             height: 500px;
-            background: linear-gradient(135deg, rgba(8, 51, 68, 0.14) 0%, rgba(240, 253, 255, 0.08) 100%);
+            background: linear-gradient(135deg, rgba(8, 51, 68, 0.04) 0%, rgba(0, 173, 197, 0.03) 100%);
             filter: blur(80px);
             border-radius: 50%;
             z-index: 0;
             animation: float 20s infinite alternate;
             will-change: transform;
             pointer-events: none;
+        }
+
+        /* Accent button used on auth pages */
+        .btn-accent {
+            background: linear-gradient(135deg,#00515F 0%,#007A8F 50%,#00ADC5 100%);
+            color: #fff;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,173,197,0.25);
+            transition: transform 160ms ease, box-shadow 160ms ease;
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,173,197,0.25);
+        }
+
+        .btn-accent:active {
+            transform: translateY(0);
         }
 
         @keyframes float {
@@ -107,16 +106,16 @@
                     class="w-12 h-12 md:w-14 md:h-14 mx-auto object-contain transform hover:scale-105 transition-transform duration-500 drop-shadow-2xl">
             </div>
 
-            <h1 class="text-xl md:text-2xl font-black text-white font-outfit tracking-tight mb-1 uppercase">
-                SUCCESSION <span class="text-[#083344]">PLANNING</span>
+            <h1 class="text-xl md:text-2xl font-black font-outfit tracking-tight mb-1 uppercase">
+                <span class="text-[#00ADC5]">SUCCESSION</span> <span class="text-[#083344]">PLANNING</span>
             </h1>
-            <p class="text-slate-200 font-medium tracking-wide uppercase text-[8px] tracking-[0.25em]">
+            <p class="text-slate-500 font-medium tracking-wide uppercase text-[8px] tracking-[0.25em]">
                 Enterprise Digital Presence Gateway
             </p>
         </div>
 
         <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-md px-4 sm:px-0">
-            <div class="glass-morphism py-5 px-6 md:py-6 md:px-8 rounded-2xl md:rounded-[2rem] border border-slate-200/80 bg-white/95 relative overflow-hidden">
+            <div class="glass-morphism py-5 px-6 md:py-6 md:px-8 rounded-2xl md:rounded-[2rem] border border-slate-200/80 relative overflow-hidden">
                 {{ $slot }}
             </div>
 

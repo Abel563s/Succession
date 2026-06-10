@@ -25,7 +25,7 @@
                     </div>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
                         autocomplete="username" placeholder="name@company.com"
-                        class="block w-full pl-10 pr-4 py-2.5 bg-white/50 border-2 border-[#BEEAF0] rounded-xl text-xs text-slate-700 font-semibold placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-[#00ADC5]/15 focus:border-[#00ADC5] transition-all">
+                        class="block w-full pl-10 pr-4 py-2.5 bg-white/40 border-2 border-[#E6EEF1] rounded-xl text-xs text-slate-700 font-semibold placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-[#00ADC5]/15 focus:border-[#00ADC5] transition-all">
                 </div>
                 <x-input-error :messages="$errors->get('email')" class="mt-0.5 text-[10px] font-bold text-rose-500 ml-1" />
             </div>
@@ -54,7 +54,7 @@
                     </div>
                     <input id="password" type="password" name="password" required autocomplete="current-password"
                         placeholder="••••••••"
-                        class="block w-full pl-10 pr-4 py-2.5 bg-white/50 border-2 border-[#BEEAF0] rounded-xl text-xs text-slate-700 font-semibold placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-[#00ADC5]/15 focus:border-[#00ADC5] transition-all">
+                        class="block w-full pl-10 pr-4 py-2.5 bg-white/40 border-2 border-[#E6EEF1] rounded-xl text-xs text-slate-700 font-semibold placeholder-slate-300 focus:outline-none focus:ring-4 focus:ring-[#00ADC5]/15 focus:border-[#00ADC5] transition-all">
                 </div>
                 <x-input-error :messages="$errors->get('password')" class="mt-0.5 text-[10px] font-bold text-rose-500 ml-1" />
             </div>
@@ -106,7 +106,7 @@
             <!-- Action -->
             <div class="pt-1">
                 <button type="submit"
-                    class="w-full bg-[#00ADC5] border-2 border-[#00ADC5] py-2.5 rounded-xl text-xs font-black text-white uppercase tracking-[0.2em] shadow-xl shadow-[#083344]/15 hover:bg-[#083344] hover:border-[#083344] transition-all active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-[#00ADC5]/20">
+                    class="w-full btn-accent py-2.5 rounded-xl text-xs font-black uppercase tracking-[0.2em] active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-[#00ADC5]/20">
                     Sign in
                 </button>
             </div>

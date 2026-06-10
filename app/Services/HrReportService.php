@@ -338,10 +338,15 @@ class HrReportService
     {
         $records = $this->scopedQuery(Succession::class, 'department', $department, $from, $to)->latest()->get();
 
+        $avgIpg = $records
+            ->map(fn ($r) => is_numeric(data_get($r, 'ipg_score')) ? (float) data_get($r, 'ipg_score') : null)
+            ->filter()
+            ->avg();
+
         return [
             'total' => $records->count(),
             'readiness' => $records->groupBy('readiness_level')->map->count()->all(),
-            'avg_ipg' => round($records->avg('ipg_score') ?? 0, 1),
+            'avg_ipg' => round($avgIpg ?? 0, 1),
             'records' => $records->take(50),
         ];
     }
