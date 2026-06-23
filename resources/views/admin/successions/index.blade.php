@@ -145,7 +145,7 @@
                                 <td class="px-6 py-5 text-sm font-bold text-slate-700">{{ $record->line_manager }}</td>
                                 <td class="px-6 py-5">
                                     <span class="inline-flex px-3 py-1 rounded-lg bg-[#FFF8E7] text-[#D4AF37] text-[10px] font-black uppercase border border-[#D4AF37]/10 tracking-wider">
-                                        {{ $record->years_experience }} Yrs
+                                        {{ $record->years_experience }} 
                                     </span>
                                 </td>
                                 <td class="px-6 py-5">

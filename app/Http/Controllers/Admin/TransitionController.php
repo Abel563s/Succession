@@ -95,6 +95,7 @@ class TransitionController extends AdminHrModuleController
             'items.*.successor' => 'required|string|max:255',
             'items.*.transition_date' => 'required|date',
             'dceo_signature' => 'nullable|image|max:500',
+            'hr_signature' => 'nullable|image|max:500',
         ]);
 
         try {
@@ -109,6 +110,10 @@ class TransitionController extends AdminHrModuleController
                 'status' => $validated['status'],
                 'signature_path' => $path,
             ];
+
+            if ($request->hasFile('hr_signature')) {
+                $data['hr_signature_path'] = $request->file('hr_signature')->store('signatures/transitions', 'public');
+            }
 
             if ($request->hasFile('dceo_signature')) {
                 $data['dceo_signature_path'] = $request->file('dceo_signature')->store('signatures/transitions', 'public');
@@ -170,6 +175,7 @@ class TransitionController extends AdminHrModuleController
             'items.*.successor' => 'required|string|max:255',
             'items.*.transition_date' => 'required|date',
             'dceo_signature' => 'nullable|image|max:500',
+            'hr_signature' => 'nullable|image|max:500',
         ]);
 
         try {
@@ -185,6 +191,13 @@ class TransitionController extends AdminHrModuleController
                     \Illuminate\Support\Facades\Storage::disk('public')->delete($transition->signature_path);
                 }
                 $updateData['signature_path'] = $request->file('signature')->store('signatures/transitions', 'public');
+            }
+
+            if ($request->hasFile('hr_signature')) {
+                if ($transition->hr_signature_path) {
+                    \Illuminate\Support\Facades\Storage::disk('public')->delete($transition->hr_signature_path);
+                }
+                $updateData['hr_signature_path'] = $request->file('hr_signature')->store('signatures/transitions', 'public');
             }
 
             if ($request->hasFile('dceo_signature')) {
@@ -224,6 +237,9 @@ class TransitionController extends AdminHrModuleController
     {
         if ($transition->signature_path) {
             \Illuminate\Support\Facades\Storage::disk('public')->delete($transition->signature_path);
+        }
+        if ($transition->hr_signature_path) {
+            \Illuminate\Support\Facades\Storage::disk('public')->delete($transition->hr_signature_path);
         }
         if ($transition->dceo_signature_path) {
             \Illuminate\Support\Facades\Storage::disk('public')->delete($transition->dceo_signature_path);

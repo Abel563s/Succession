@@ -107,7 +107,7 @@
 
             <!-- Signature & Authorization -->
             <div class="pt-8 border-t border-slate-100">
-                <div class="flex justify-end gap-12">
+                <div class="flex flex-wrap justify-center gap-12">
                     <!-- Manager Signature -->
                     <div class="text-center space-y-4 w-48">
                         <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">Authorized Signature</div>
@@ -125,6 +125,25 @@
                         <div class="border-t border-slate-200 pt-2">
                             <p class="text-xs font-black text-slate-900 uppercase tracking-widest">{{ $transition->creator ? $transition->creator->name : 'System Admin' }}</p>
                             <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Executive HR Sign-off</p>
+                        </div>
+                    </div>
+
+                    <!-- HR Signature -->
+                    <div class="text-center space-y-4 w-48">
+                        <div class="text-[10px] font-black uppercase tracking-widest text-[#6366F1]">HR Signature</div>
+                        
+                        @if($transition->hr_signature_path)
+                            <div class="p-4 border border-slate-100 rounded-3xl bg-slate-50 flex items-center justify-center">
+                                <img src="{{ \App\Support\StorageUrl::public($transition->hr_signature_path) }}" class="max-h-24 object-contain" alt="HR Signature Preview">
+                            </div>
+                        @else
+                            <div class="h-24 border border-dashed border-slate-200 rounded-3xl flex items-center justify-center text-[10px] font-black uppercase text-slate-300">
+                                Pending
+                            </div>
+                        @endif
+                        
+                        <div class="border-t border-slate-200 pt-2">
+                            <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider mt-4">HR Representative</p>
                         </div>
                     </div>
 
