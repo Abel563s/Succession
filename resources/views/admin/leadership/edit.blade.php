@@ -79,20 +79,20 @@
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-slate-50">
-                                    @foreach($competencies as $index => $competency)
-                                        @php 
-                                            $existingRating = $leadership->ratings->firstWhere('competency_name', $competency);
-                                            $ratingValue = $existingRating ? $existingRating->rating : 'null';
-                                            $initialValue = old("ratings.$competency", $ratingValue);
-                                        @endphp
-                                        <tr class="hover:bg-slate-50/50 transition-colors" x-data="{ selected: {{ $initialValue }} }">
-                                            <td class="px-8 py-6 text-center text-xs font-black text-slate-400">{{ $index + 1 }}</td>
-                                            <td class="px-4 py-6">
-                                                <div class="flex flex-col">
-                                                    <span class="text-sm font-black text-slate-800">{{ $competency }}</span>
-                                                    <span class="text-[10px] font-medium text-slate-400 mt-0.5">Rating required (1-5)</span>
-                                                </div>
-                                            </td>
+                                    @foreach($competencies as $competency => $description)
+                                         @php 
+                                             $existingRating = $leadership->ratings->firstWhere('competency_name', $competency);
+                                             $ratingValue = $existingRating ? $existingRating->rating : 'null';
+                                             $initialValue = old("ratings.$competency", $ratingValue);
+                                         @endphp
+                                         <tr class="hover:bg-slate-50/50 transition-colors" x-data="{ selected: {{ $initialValue }} }">
+                                             <td class="px-8 py-6 text-center text-xs font-black text-slate-400">{{ $loop->index + 1 }}</td>
+                                             <td class="px-4 py-6">
+                                                 <div class="flex flex-col">
+                                                     <span class="text-sm font-black text-slate-800">{{ $competency }}</span>
+                                                     <span class="text-[10px] font-medium text-slate-400 mt-0.5">{{ $description }}</span>
+                                                 </div>
+                                             </td>
                                             <td class="px-8 py-6">
                                                 <div class="flex items-center justify-between gap-1">
                                                     @for($i = 1; $i <= 5; $i++)

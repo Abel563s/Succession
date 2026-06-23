@@ -46,12 +46,12 @@ class LeadershipController extends AdminHrModuleController
             $departments = Department::orderBy('name')->get();
         }
         $competencies = [
-            'Business Insight',
-            'Inspirational Leadership',
-            'Results-Oriented',
-            'Stewardship',
-            'Talent Management',
-            'Vision and Strategic Thinking',
+            'Business Insight' => 'Understands industry trends, financial implications, and organizational operations for informed decision-making.',
+            'Inspirational Leadership' => 'Motivates and empowers team members, fostering a positive work environment through inspiration and encouragement.',
+            'Results-Oriented' => 'Sets clear goals, focuses on achieving measurable outcomes, and drives performance excellence.',
+            'Stewardship' => 'Takes responsibility for the organization\'s long-term success, acting ethically and considering all stakeholders.',
+            'Talent Management' => 'Identifies, develops, and retains top talent, fostering a culture of continuous learning and growth.',
+            'Vision and Strategic Thinking' => 'Develops a clear vision for the organization\'s future, formulating strategic plans for long-term success and competitiveness.',
         ];
 
         return view('admin.leadership.create', compact('departments', 'competencies'));
@@ -124,12 +124,12 @@ class LeadershipController extends AdminHrModuleController
             $departments = Department::orderBy('name')->get();
         }
         $competencies = [
-            'Business Insight',
-            'Inspirational Leadership',
-            'Results-Oriented',
-            'Stewardship',
-            'Talent Management',
-            'Vision and Strategic Thinking',
+            'Business Insight' => 'Understands industry trends, financial implications, and organizational operations for informed decision-making.',
+            'Inspirational Leadership' => 'Motivates and empowers team members, fostering a positive work environment through inspiration and encouragement.',
+            'Results-Oriented' => 'Sets clear goals, focuses on achieving measurable outcomes, and drives performance excellence.',
+            'Stewardship' => 'Takes responsibility for the organization\'s long-term success, acting ethically and considering all stakeholders.',
+            'Talent Management' => 'Identifies, develops, and retains top talent, fostering a culture of continuous learning and growth.',
+            'Vision and Strategic Thinking' => 'Develops a clear vision for the organization\'s future, formulating strategic plans for long-term success and competitiveness.',
         ];
 
         return view('admin.leadership.edit', compact('leadership', 'departments', 'competencies'));

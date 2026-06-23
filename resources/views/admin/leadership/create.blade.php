@@ -65,13 +65,13 @@
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-slate-50">
-                                    @foreach($competencies as $index => $competency)
+                                    @foreach($competencies as $competency => $description)
                                         <tr class="hover:bg-white transition-colors" x-data="{ selected: {{ old("ratings.$competency", 'null') }} }">
-                                            <td class="px-8 py-6 text-center text-xs font-black text-slate-400">{{ $index + 1 }}</td>
+                                            <td class="px-8 py-6 text-center text-xs font-black text-slate-400">{{ $loop->index + 1 }}</td>
                                             <td class="px-4 py-6">
                                                 <div class="flex flex-col">
                                                     <span class="text-sm font-black text-slate-800">{{ $competency }}</span>
-                                                    <span class="text-[10px] font-medium text-slate-400 mt-0.5">Rating required (1-5)</span>
+                                                    <span class="text-[10px] font-medium text-slate-400 mt-0.5">{{ $description }}</span>
                                                 </div>
                                             </td>
                                             <td class="px-8 py-6">
